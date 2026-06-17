@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck, Lock, Eye } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Lock } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
 
                 <div className="prose prose-slate max-w-none text-xs sm:text-sm leading-relaxed space-y-6 text-slate-600">
                     <p>
-                        At <strong>Lumen Phi</strong> (hosted at <code>lumenphi.com</code>), we prioritize the security, privacy, and confidentiality of our residential internet customers in India. This policy describes how we handle information collected during account registrations, equipment provisioning, and merchant audits.
+                        At <strong>Lumen Phi</strong> (hosted at <code>lumenphi.com</code>), we prioritize the security, privacy, and confidentiality of our residential internet customers in India[cite: 9]. This policy describes how we handle information collected during account registrations, equipment provisioning, and merchant audits[cite: 9].
                     </p>
 
                     <div className="p-4 bg-slate-50 border border-slate-200/60 rounded-xl space-y-2">
@@ -45,17 +45,17 @@ export default function PrivacyPolicy() {
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">2. Information We Collect</h3>
                     <p>
-                        To activate physical subscription connections and manage billing data safely through processing networks, we store minimal consumer elements:
+                        To activate physical subscription connections and manage billing data safely through processing networks, we store minimal consumer elements[cite: 9]:
                     </p>
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Customer Name and verifiable Installation Coordinates.</li>
+                        <li>Customer Name and verifiable Installation Coordinates[cite: 9].</li>
                         <li>Contact points including electronic mail addresses and domestic telephone networks[cite: 9].</li>
                         <li>Transactional tokens and card logs processed safely via encrypted third-party vendor checkouts[cite: 9].</li>
                     </ul>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">3. Data Sharing Restrictions</h3>
                     <p>
-                        Lumen Phi does not trade, distribute, lease, or reveal consumer identifying details to marketing agencies. Information is shared exclusively to comply with Indian telecommunication parameters or to resolve automated clearing house validation checks initiated by our institutional merchant processors[cite: 9].
+                        Lumen Phi does not trade, distribute, lease, or reveal consumer identifying details to marketing agencies[cite: 9]. Information is shared exclusively to comply with Indian telecommunication parameters or to resolve automated clearing house validation checks initiated by our institutional merchant processors[cite: 9].
                     </p>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">4. Client Security Controls</h3>

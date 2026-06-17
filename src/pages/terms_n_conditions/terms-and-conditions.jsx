@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
 
                 <div className="prose prose-slate max-w-none text-xs sm:text-sm leading-relaxed space-y-6 text-slate-600">
                     <p>
-                        Welcome to <strong>Lumen Phi</strong>[cite: 9]. These terms manage the usage, deployment constraints, and installation provisioning of our residential lightwave network hardware systems in India[cite: 9]. By initiating a subscription layer or checking out, you accept these terms completely[cite: 9].
+                        Welcome to <strong>Lumen Phi</strong>[cite: 9, 10]. These terms manage the usage, deployment constraints, and installation provisioning of our residential lightwave network hardware systems in India[cite: 9, 10]. By initiating a subscription layer or checking out, you accept these terms completely[cite: 9, 10].
                     </p>
 
                     <div className="p-4 bg-slate-50 border border-slate-200/60 rounded-xl space-y-2">
@@ -39,28 +39,28 @@ export default function TermsAndConditions() {
                             <FileText className="w-3.5 h-3.5 text-slate-700" /> 1. Acceptable Spectrum Parameters
                         </h3>
                         <p className="text-xs text-slate-500">
-                            Subscribers understand that Lumen Phi provides home internet connectivity powered by high-frequency visible light waves instead of radio wave emissions[cite: 9]. Hardware packages (Core Router, Ceiling Antennas, and USB Dongles) must be deployed in accordance with local safety metrics[cite: 9].
+                            Subscribers understand that Lumen Phi provides home internet connectivity powered by high-frequency visible light waves instead of radio wave emissions[cite: 9, 10]. Hardware packages (Core Router, Ceiling Antennas, and USB Dongles) must be deployed in accordance with local safety metrics[cite: 9, 10].
                         </p>
                     </div>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">2. Subscription Accounting & Payments</h3>
                     <p>
-                        Residential plans are processed on an automated rolling schedule[cite: 9]. All prices listed reflect domestic Indian valuations. Accounts must provide active, verifiable funding channels to pass automated financial validations required by our merchant processors[cite: 9].
+                        Residential plans are processed on an automated rolling schedule[cite: 9, 10]. All prices listed reflect domestic Indian valuations. Accounts must provide active, verifiable funding channels to pass automated financial validations required by our merchant processors[cite: 9, 10].
                     </p>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">3. Device Allocation & Maintenance</h3>
                     <p>
-                        Any optical transceiver arrays, ceiling luminaire antennas, or adapter dongles shipped to your coordinates remain systemic hardware investments of Lumen Phi unless bought out explicitly[cite: 9]. Users agree not to modify internal diode arrays or break protective casings.
+                        Any optical transceiver arrays, ceiling luminaire antennas, or adapter dongles shipped to your coordinates remain systemic hardware investments of Lumen Phi unless bought out explicitly[cite: 9, 10]. Users agree not to modify internal diode arrays or break protective casings[cite: 10].
                     </p>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">4. Liability Safeguards</h3>
                     <p>
-                        Lumen Phi is not responsible for temporary transmission drops caused by physical obstructions blocking structural overhead line-of-sight tracking arrays. Optical pathways are contained strictly by solid walls, protecting adjacent residential environments[cite: 9].
+                        Lumen Phi is not responsible for temporary transmission drops caused by physical obstructions blocking structural overhead line-of-sight tracking arrays[cite: 10]. Optical pathways are contained strictly by solid walls, protecting adjacent residential environments[cite: 9, 10].
                     </p>
 
                     <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">5. Technical Resolution</h3>
                     <p>
-                        For compliance queries, billing updates, or general network setup cancellations, reach out directly to our processing office at <code>operations@lumenphi.com</code>[cite: 9].
+                        For compliance queries, billing updates, or general network setup cancellations, reach out directly to our processing office at <code>operations@lumenphi.com</code>[cite: 9, 10].
                     </p>
                 </div>
             </main>
