@@ -30,7 +30,7 @@ import Footer from '../../components/common/Footer';
 const productsData = [
   {
     slug: 'phi-core-router',
-    name: 'Lumen Phi Core Router',
+    name: 'Lumen LIFI',
     badge: 'Central Gateway Unit',
     tagline: 'Translating incoming residential fiber links into raw optical data streams.',
     desc: 'The centralized processing brain of your home broadband network. It hooks directly into standard high-speed home fiber configurations and translates data lines instantly into high-frequency light frequencies without emitting radio clutter.',
@@ -44,7 +44,7 @@ const productsData = [
   },
   {
     slug: 'photon-antenna-one',
-    name: 'Photon Antenna One',
+    name: 'Lumen LIFI',
     badge: 'Downlight Transceiver Array',
     tagline: 'High-speed home broadband hidden seamlessly inside beautiful lighting.',
     desc: 'Replaces archaic, vulnerable wireless antennas with premium, flicker-free ceiling transceivers. Floods your dynamic living spaces or home offices with deep, beautiful illumination and symmetric gigabit data lines simultaneously.',
@@ -58,7 +58,7 @@ const productsData = [
   },
   {
     slug: 'lightwave-usb-dongle',
-    name: 'Lightwave USB Dongle',
+    name: 'Lumen LIFI',
     badge: 'Client Device Adapter',
     tagline: 'Instant microscale lightwave reception for terminal devices.',
     desc: 'An ultra-compact structural terminal adapter that snaps directly into standard laptop or computer USB-C ports. Houses microscopic optical sensor grids engineered to track overhead light streams instantly.',
@@ -72,7 +72,7 @@ const productsData = [
   },
   {
     slug: 'lumen-phi-bridge-node',
-    name: 'Lumen Phi Bridge Node',
+    name: 'Lumen LIFI',
     badge: 'Room-to-Room Relayer',
     tagline: 'Pristine light-wave propagation across residential barriers.',
     desc: 'Wireless room relay terminal configured to interconnect signal zones over structural optical lines without compromising speed parameters or suffering from traditional neighborhood signal interference.',
@@ -86,7 +86,7 @@ const productsData = [
   },
   {
     slug: 'the-ai-mesh-cube',
-    name: 'The AI Mesh Cube',
+    name: 'Lumen LIFI',
     badge: 'Desktop Compute Array',
     tagline: 'Dedicated local AI application tracking and containment unit.',
     desc: 'Elegant, functional tabletop workspace hardware node splitting high-capacity optical backbones to handle un-throttled data loads required by modern desktop AI training configurations.',
@@ -100,7 +100,7 @@ const productsData = [
   },
   {
     slug: 'lumen-overhead-driver',
-    name: 'Lumen Overhead Driver Matrix',
+    name: 'Lumen LIFI',
     badge: 'Whole-Home Mainframe Distribution',
     tagline: 'Smarter structural lighting array configuration power grids.',
     desc: 'Replaces crowded, vulnerable traditional RF configurations inside wide residential properties. Fits right inside electrical junction clusters to power multiple overhead light nodes with massive unlicensed band capabilities.',
@@ -122,7 +122,8 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen font-sans bg-white text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
       <Head>
-        <title>{activeProduct ? `${activeProduct.name} Technical Blueprint` : 'Residential LiFi Home Internet Components'} | LumenFi</title>
+        <title>Lumen LIFI</title>
+        <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
         <meta name="description" content="Explore next-generation residential broadband delivered via ultra-fast light waves outperforming consumer radio networks." />
       </Head>
 
@@ -166,7 +167,7 @@ export default function ProductsPage() {
                       </span>
                     </h2>
                     <p className="text-slate-500 text-sm max-w-xl font-medium leading-relaxed">
-                      Ditch congested traditional consumer ISPs. Traditional systems like Jio or Airtel depend on overlapping <strong>Radio Waves (Wi-Fi)</strong> that bottleneck behind barriers and leak metrics. LumenFi transmits ultra-fast internet over secure, unlicensed <strong>Light Waves (Li-Fi)</strong> directly into your workspace.
+                      Ditch congested traditional consumer ISPs. Traditional systems like Jio or Airtel depend on overlapping <strong>Radio Waves (Wi-Fi)</strong> that bottleneck behind barriers and leak metrics. Lumen LIFI transmits ultra-fast internet over secure, unlicensed <strong>Light Waves (Li-Fi)</strong> directly into your workspace.
                     </p>
                   </div>
 
@@ -315,7 +316,7 @@ export default function ProductsPage() {
                   {[
                     {
                       q: "How does this scale beyond my standard Jio or Airtel Fiber setup?",
-                      a: "Traditional fiber providers do an excellent job bringing high-speed data lines to your home boundary, but they bottleneck inside your rooms by handing that traffic over to standard radio wave Wi-Fi routers. LumenFi takes your fiber line and routes it straight through clean overhead visible light waves, preventing your speeds from suffering wireless degradation across walls."
+                      a: "Traditional fiber providers do an excellent job bringing high-speed data lines to your home boundary, but they bottleneck inside your rooms by handing that traffic over to standard radio wave Wi-Fi routers. Lumen LIFI takes your fiber line and routes it straight through clean overhead visible light waves, preventing your speeds from suffering wireless degradation across walls."
                     },
                     {
                       q: "Why is optical wireless internet highly optimized for next-generation AI platforms?",

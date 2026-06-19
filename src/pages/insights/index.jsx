@@ -8,7 +8,7 @@ import { FileText, BookOpen, ChevronDown, ExternalLink, Download, Star, ArrowRig
 /* ── Technical Documents repository ── */
 const techDocs = [
   { title: 'IEEE 802.11bb LiFi Standard — Overview', type: 'Standard', date: 'Jun 2023', badge: 'IEEE', size: '2.4 MB' },
-  { title: 'pureLiFi Kitefin — Engineering Design Map', type: 'Design Asset', date: 'Mar 2026', badge: 'Internal', size: '1.1 MB' },
+  { title: 'Lumen LIFI — Engineering Design Map', type: 'Design Asset', date: 'Mar 2026', badge: 'Internal', size: '1.1 MB' },
   { title: 'Optical Spectrum vs RF Spectrum — Comparative Analysis', type: 'Whitepaper', date: 'Jan 2026', badge: 'Research', size: '800 KB' },
   { title: 'LiFi Deployment Guide — Enterprise Environments', type: 'Guide', date: 'Apr 2026', badge: 'Deployment', size: '3.2 MB' },
   { title: 'Signal Containment Protocols — Physical Layer Security', type: 'Technical Note', date: 'Feb 2026', badge: 'Security', size: '560 KB' },
@@ -16,7 +16,7 @@ const techDocs = [
 
 /* ── Validated studies / reviews ── */
 const allStudies = [
-  { org: 'pureLiFi × Fraunhofer Institute', title: 'Validated 10 Gbps Peak Throughput in Dense Office Deployment', category: 'Performance', date: 'May 2026', stars: 5, excerpt: 'Independent lab validation achieved consistent 10 Gbps symmetric throughput across 40 luminaire nodes in a 1,200 m² open-plan office environment with zero packet degradation.' },
+  { org: 'Lumen LIFI × Fraunhofer Institute', title: 'Validated 10 Gbps Peak Throughput in Dense Office Deployment', category: 'Performance', date: 'May 2026', stars: 5, excerpt: 'Independent lab validation achieved consistent 10 Gbps symmetric throughput across 40 luminaire nodes in a 1,200 m² open-plan office environment with zero packet degradation.' },
   { org: 'UK Ministry of Defence', title: 'LiFi Signal Containment Verification — Classified Zone Trials', category: 'Security', date: 'Apr 2026', stars: 5, excerpt: 'Empirical containment tests confirmed zero RF signal propagation beyond designated perimeter in 100% of trials across 12 test configurations.' },
   { org: 'NHS Digital Innovation Hub', title: 'LiFi Interference Assessment in Surgical Environments', category: 'Healthcare', date: 'Mar 2026', stars: 5, excerpt: 'Zero electromagnetic interference detected across 34 connected medical devices during simultaneous 1 Gbps data transfer in active operating theatre.' },
   { org: 'Singapore Smart Infrastructure', title: 'Urban LiFi Mesh Deployment — 200-Node Performance Audit', category: 'Industrial', date: 'Feb 2026', stars: 5, excerpt: 'Sub-1 ms handoff latency achieved across 200 luminaire nodes in a transit authority smart infrastructure pilot covering 15,000 m².' },
@@ -54,7 +54,7 @@ export default function ResourceEnginePage() {
   return (
     <div className="flex flex-col min-h-screen font-sans antialiased bg-[#020D08] text-slate-100">
       <Head>
-        <title>Resource Engine — LiFi Technical Documentation & Validation Studies | LumenFi</title>
+        <title>Insights | Lumen LIFI</title>
         <meta name="description" content="Access IEEE 802.11bb documentation, validated deployment studies, and technical design assets for LiFi optical wireless systems." />
       </Head>
 

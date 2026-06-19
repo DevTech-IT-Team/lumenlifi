@@ -138,6 +138,7 @@ function HeroSection() {
           custom={2} variants={fadeUp} initial="hidden" animate="visible"
           className="relative w-full h-full min-h-[500px] lg:min-h-screen flex items-stretch"
         >
+<<<<<<< HEAD
           {/* Glow behind image */}
           <div className="absolute inset-0 pointer-events-none"
             style={{ background: 'radial-gradient(ellipse at 60% 40%, rgba(0,194,199,0.12) 0%, transparent 70%)' }} />
@@ -170,6 +171,15 @@ function HeroSection() {
               </div>
             </motion.div>
           </div>
+=======
+          <Image
+            src="/images/hero/Homebg.png"
+            alt="Lumen LIFI"
+            fill
+            priority
+            className="object-cover"
+          />
+>>>>>>> 3f0864a2b11d6f22933447709a4b5bd81bd6b260
         </motion.div>
 
       </div>
@@ -838,8 +848,13 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen font-sans antialiased" style={{ background: '#F0F8FF', color: '#0D2240' }}>
       <Head>
+<<<<<<< HEAD
         <title>Lumen LiFi — Internet at the Speed of Light</title>
         <meta name="description" content="Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet connection. No Wi-Fi, no radio waves, no traffic jams — just pure light-speed connectivity." />
+=======
+        <title>Lumen LIFI</title>
+        <meta name="description" content="Lumen LIFI — secure optical wireless connectivity powered by light." />
+>>>>>>> 3f0864a2b11d6f22933447709a4b5bd81bd6b260
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />

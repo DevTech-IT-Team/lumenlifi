@@ -34,8 +34,8 @@ const historyItems = [
   },
   {
     year: '2025',
-    title: 'Kitefin & LiFi Cube Launch',
-    desc: 'Released next-generation hardware: the Kitefin tactical system and LiFi Cube enterprise desktop array.',
+    title: 'Lumen LIFI Launch',
+    desc: 'Released next-generation Lumen LIFI hardware for residential and enterprise optical wireless connectivity.',
   },
   {
     year: '2026',
@@ -116,8 +116,8 @@ export default function AboutUsPage() {
   return (
     <div className="flex flex-col min-h-screen font-sans antialiased bg-[#020D08] text-slate-100">
       <Head>
-        <title>About LumenFi — Pioneers of LiFi Optical Wireless Technology</title>
-        <meta name="description" content="Founded by Professor Harald Haas, LumenFi has pioneered LiFi technology since 2012. Discover our history, team, and careers in optical wireless." />
+        <title>About | Lumen LIFI</title>
+        <meta name="description" content="About Lumen LIFI — pioneers of optical wireless LiFi technology." />
       </Head>
 
       <Header />

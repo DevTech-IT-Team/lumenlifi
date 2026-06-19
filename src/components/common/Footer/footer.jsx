@@ -15,6 +15,7 @@ export default function Footer() {
 
         {/* Brand Column */}
         <div className="md:col-span-4 space-y-5">
+<<<<<<< HEAD
           <div className="relative w-[200px] h-[62px]">
             <Image
               src={logoPl}
@@ -27,6 +28,19 @@ export default function Footer() {
             <strong className="text-[#0D2240] text-base">Light becomes Data.</strong>
             <br />
             Connectivity is Better with LiFi. Wireless communications that pushes connectivity to new limits with light.
+=======
+          <Image
+            src={logoPl}
+            alt="Lumen LIFI Logo"
+            width={220}
+            height={120}
+            className="filter contrast-125 mix-blend-multiply"
+          />
+          <p className="text-slate-500 text-sm leading-relaxed max-w-sm font-sans">
+            <strong className="text-lg text-black">Lumen LIFI</strong>
+            <br />
+            Light becomes Data. Secure optical wireless connectivity.
+>>>>>>> 3f0864a2b11d6f22933447709a4b5bd81bd6b260
           </p>
           <div className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-lg w-max"
             style={{ background: 'rgba(0,194,199,0.10)', border: '1px solid rgba(0,194,199,0.20)', color: '#1A6EBF' }}>
@@ -37,6 +51,7 @@ export default function Footer() {
 
         {/* Links Column 1 */}
         <div className="md:col-span-2 space-y-4">
+<<<<<<< HEAD
           <h4 className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
             style={{ color: '#0D2240', borderBottom: '1px solid rgba(26,110,191,0.12)' }}>
             Ecosystem
@@ -55,6 +70,27 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+=======
+          <h4 className="text-xs font-bold font-mono tracking-wider text-slate-800 uppercase pb-2 border-b border-slate-100">
+            Lumen LIFI
+          </h4>
+          <ul className="space-y-2.5 text-xs font-medium text-slate-500">
+            <li>
+              <Link href="/products" className="hover:text-emerald-600 transition-colors flex items-center gap-1 group">
+                Products <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/about-us" className="hover:text-emerald-600 transition-colors flex items-center gap-1 group">
+                About <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-emerald-600 transition-colors flex items-center gap-1 group">
+                Contact <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
+            </li>
+>>>>>>> 3f0864a2b11d6f22933447709a4b5bd81bd6b260
           </ul>
         </div>
 
@@ -114,10 +150,16 @@ export default function Footer() {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4"
         style={{ borderTop: '1px solid rgba(26,110,191,0.10)', color: '#94A3B8' }}>
         <p>© {new Date().getFullYear()} LumenFi Global Systems. All rights reserved.</p>
+=======
+      {/* Footer Meta / Copyright Section */}
+      <div className="max-w-7xl mx-auto px-6 border-t border-slate-200 mt-16 pt-6 text-[11px] font-mono text-slate-400 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p>&copy; {new Date().getFullYear()} Lumen LIFI. All rights reserved.</p>
+>>>>>>> 3f0864a2b11d6f22933447709a4b5bd81bd6b260
         <div className="flex space-x-6">
           <Link href="#privacy" className="hover:text-[#1A6EBF] transition-colors">Privacy Policy</Link>
           <Link href="#terms" className="hover:text-[#1A6EBF] transition-colors">Terms & Conditions</Link>

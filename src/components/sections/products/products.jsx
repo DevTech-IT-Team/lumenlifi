@@ -23,7 +23,7 @@ import {
 const productsData = [
   {
     slug: 'light-antenna-one',
-    name: 'Light Antenna One',
+    name: 'Lumen LIFI',
     badge: 'Device Integration Core',
     tagline: "The world's first mass-market LiFi transceiver array.",
     desc: 'An ultra-compact optical antenna designed for seamless integration inside smart devices, laptops, and consumer electronics. Operates alongside traditional RF chips to open massive unlicensed bands.',
@@ -37,7 +37,7 @@ const productsData = [
   },
   {
     slug: 'bridge-xc',
-    name: 'LiFi Bridge XC',
+    name: 'Lumen LIFI',
     badge: 'Infrastructure Bridge',
     tagline: 'Gigabit wireless bridge for uncompromised connectivity.',
     desc: 'Robust high-speed terminal station engineered to interconnect network nodes over secure lightbeams without complex data routing overhead.',
@@ -51,7 +51,7 @@ const productsData = [
   },
   {
     slug: 'kitefin-xe',
-    name: 'Kitefin XE Module',
+    name: 'Lumen LIFI',
     badge: 'Tactical Extension',
     tagline: 'Mission-critical environmental signal encryption.',
     desc: 'An aerospace and tactical field-grade component capable of handling high-stress deployments where radio silences are strictly mandated.',
@@ -65,7 +65,7 @@ const productsData = [
   },
   {
     slug: 'kitefin-tactical',
-    name: 'Kitefin Tactical System',
+    name: 'Lumen LIFI',
     badge: 'Defense Network Deployment',
     tagline: 'The premiere tactical lightwave communication suite.',
     desc: 'Complete portable operational command array. Deploys secure local area wireless zones inside shelters, tents, and forward outposts inside seconds.',
@@ -79,7 +79,7 @@ const productsData = [
   },
   {
     slug: 'the-lifi-cube',
-    name: 'The LiFi Cube',
+    name: 'Lumen LIFI',
     badge: 'Modern Workplace Point',
     tagline: 'Desktop localized optical network containment array.',
     desc: 'Elegant, functional tabletop device splitting high-capacity fiber downlinks directly to local workstations via structural desktop cones.',
@@ -93,7 +93,7 @@ const productsData = [
   },
   {
     slug: 'kitefin-office',
-    name: 'Kitefin Office Wireless',
+    name: 'Lumen LIFI',
     badge: 'Enterprise Overhead',
     tagline: 'Smarter ceiling luminaire transceivers.',
     desc: 'Replaces crowded, vulnerable traditional RF access points inside corporate trading zones with high-density architectural downlighting lines.',
@@ -103,7 +103,7 @@ const productsData = [
     border: 'border-teal-100',
     imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-12',
-    specs: ['100+ Active Clients', 'Overhead Driver Matrix', 'Seamless Handover Layer']
+    specs: ['100+ Active Clients', 'Whole-Home Coverage', 'Seamless Handover Layer']
   }
 ];
 
@@ -119,10 +119,8 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen font-sans bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
-        <title>
-          {activeProduct ? `${activeProduct.name} Technical Registry` : 'Optical Hardware Transmission Modules'} | LumenFi
-        </title>
-        <meta name="description" content={activeProduct ? activeProduct.tagline : 'Explore next-gen mass-market LiFi transceiver arrays and tactical communication suites.'} />
+        <title>Lumen LIFI</title>
+        <meta name="description" content={activeProduct ? activeProduct.tagline : 'Lumen LIFI — optical wireless products and services.'} />
       </Head>
 
       <Header />

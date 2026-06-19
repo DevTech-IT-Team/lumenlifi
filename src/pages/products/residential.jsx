@@ -23,7 +23,7 @@ import Footer from '../../components/common/Footer';
 const productsData = [
     {
         slug: 'lumen-core-router',
-        name: 'Lumen Phi Core Router',
+        name: 'Lumen LIFI',
         badge: 'Central Gateway Unit',
         tagline: 'The optical heart of your residential lightwave network.',
         desc: 'Translates incoming fiber gigabit data lines directly into high-frequency optical signals. Plugs right into your home connection and powers the ceiling light array without emitting radio clutter.',
@@ -36,7 +36,7 @@ const productsData = [
     },
     {
         slug: 'photon-antenna-light',
-        name: 'Photon Antenna Luminaire',
+        name: 'Lumen LIFI',
         badge: 'Optical Transmitter Node',
         tagline: 'High-speed broadband beams hidden inside architectural lighting.',
         desc: 'Replaces traditional radio antennas with premium, flicker-free ceiling transceivers. Floods your workspace or living room with warm illumination and multi-gigabit data simultaneously.',
@@ -49,7 +49,7 @@ const productsData = [
     },
     {
         slug: 'lumen-usb-dongle',
-        name: 'Universal Lightwave USB Dongle',
+        name: 'Lumen LIFI',
         badge: 'Client Device Adapter',
         tagline: 'Instant LiFi capability for your laptops and computers.',
         desc: 'An ultra-lightweight high-tech adapter that snaps into any standard USB-C port. Houses microscopic optical sensors that capture the data beam from your lighting layout seamlessly.',
@@ -70,8 +70,8 @@ export default function LumenPhiProductsSuite() {
     return (
         <div className="min-h-screen font-sans bg-white text-slate-800 antialiased selection:bg-emerald-100">
             <Head>
-                <title>Residential LiFi Internet Plans & Components | Lumen Phi</title>
-                <meta name="description" content="Experience high-speed home broadband over secure light waves. Next-generation router, antenna, and dongle hardware suites by Lumen Phi." />
+                <title>Lumen LIFI</title>
+                <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
             </Head>
 
             <Header />
@@ -114,7 +114,7 @@ export default function LumenPhiProductsSuite() {
                                             </span>
                                         </h1>
                                         <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
-                                            Lumen Phi replaces congested, traditional home broadband with lightning-fast optical wireless technology. Experience pristine, dedicated connectivity built for modern streaming, professional home workspaces, and advanced AI application tracking.
+                                            Lumen LIFI replaces congested, traditional home broadband with lightning-fast optical wireless technology. Experience pristine, dedicated connectivity built for modern streaming, professional home workspaces, and advanced AI application tracking.
                                         </p>
                                         <div className="flex flex-wrap gap-4 pt-2">
                                             <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-xs font-mono text-slate-300">
@@ -136,7 +136,7 @@ export default function LumenPhiProductsSuite() {
                                             Traditional <strong>WiFi uses congested radio waves</strong> to pass data, which easily drops speeds due to neighboring router interference.
                                         </p>
                                         <p className="text-xs text-slate-400 leading-relaxed">
-                                            <strong>Lumen Phi LiFi transmits data through pristine light waves</strong> emitted from advanced LED components. This provides dedicated high-bandwidth beams that cannot be choked or intercepted from outside your walls.
+                                            <strong>Lumen LIFI transmits data through pristine light waves</strong> emitted from advanced LED components. This provides dedicated high-bandwidth beams that cannot be choked or intercepted from outside your walls.
                                         </p>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@ export default function LumenPhiProductsSuite() {
                                     <p className="text-xs text-slate-500 leading-relaxed">Official deployment inquiries or merchant processing clearance verifications can communicate directly with our centralized desk:</p>
                                     <div className="space-y-2 pt-1 text-xs font-mono text-slate-600">
                                         <p className="flex items-center gap-2"><Phone className="w-3.5 h-3.5 text-slate-400" /> +91 (Commercial Support Line)</p>
-                                        <p className="flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-slate-400" /> operations@lumenphi.com</p>
+                                        <p className="flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-slate-400" /> operations@lumenlifi.com</p>
                                         <p className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-slate-400" /> Residential Node Core, India Hub</p>
                                     </div>
                                 </div>
@@ -250,11 +250,11 @@ export default function LumenPhiProductsSuite() {
                                     {[
                                         {
                                             q: "How does this replace my standard Jio or Airtel fiber network setup?",
-                                            a: "Lumen Phi functions similarly to standard premium home ISPs, except for the internal room distribution method. Instead of projecting a messy WiFi radio wave signal that slows down across walls, our technology patches data cleanly via ceiling light illumination arrays."
+                                            a: "Lumen LIFI functions similarly to standard premium home ISPs, except for the internal room distribution method. Instead of projecting a messy WiFi radio wave signal that slows down across walls, our technology patches data cleanly via ceiling light illumination arrays."
                                         },
                                         {
                                             q: "What is the return and transaction cancellation policy structure?",
-                                            a: "To ensure full clearance transparency for our merchant processors, Lumen Phi offers a comprehensive 30-day structural testing window. If the equipment configuration fails to achieve parameters, a full resource refund is issued immediately."
+                                            a: "To ensure full clearance transparency for our merchant processors, Lumen LIFI offers a comprehensive 30-day structural testing window. If the equipment configuration fails to achieve parameters, a full resource refund is issued immediately."
                                         }
                                     ].map((faq, index) => (
                                         <div key={index} className="border border-slate-200 rounded-xl p-5 bg-white cursor-pointer" onClick={() => setActiveFaq(activeFaq === index ? -1 : index)}>
