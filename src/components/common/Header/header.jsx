@@ -34,7 +34,7 @@ const navConfig = [
     iconColor: 'group-hover:text-yellow-500',
     activeIconColor: 'text-yellow-500',
     dropdown: [
-      { label: 'What is LiFi?', desc: 'Discover optical wireless physics & architecture', href: '/#signal-physics', icon: HelpCircle },
+      { label: 'What is LiFi?', desc: 'Discover optical wireless physics & architecture', href: '/what-is-lifiwant to', icon: HelpCircle },
       { label: 'All Products Catalog', desc: 'Browse full optical networking line array', href: '/products', icon: Box },
       { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
     ],
@@ -104,11 +104,10 @@ export default function Header() {
   return (
     <header
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md transition-all duration-300 border-b ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md transition-all duration-300 border-b ${scrolled
           ? 'border-[rgba(26,110,191,0.15)] dark:border-slate-800/80 py-2 shadow-lg shadow-[rgba(0,194,199,0.08)] dark:shadow-[rgba(0,194,199,0.02)]'
           : 'border-[rgba(26,110,191,0.08)] dark:border-slate-900 py-3'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
@@ -135,11 +134,10 @@ export default function Header() {
               <div key={item.label} className="relative">
                 <button
                   onClick={() => toggleDropdown(item.label)}
-                  className={`group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${
-                    isOpen_
+                  className={`group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
                       ? 'bg-[rgba(0,194,199,0.08)] dark:bg-[rgba(0,194,199,0.15)] text-[#0D2240] dark:text-slate-100'
                       : 'text-[#4A6080] dark:text-slate-400 hover:bg-[rgba(26,110,191,0.06)] dark:hover:bg-slate-900'
-                  } ${item.hoverClass}`}
+                    } ${item.hoverClass}`}
                 >
                   <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 ${isOpen_ ? item.activeIconColor : 'text-[#2AABDB]/60'} ${item.iconColor}`} />
                   <span>{item.label}</span>

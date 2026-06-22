@@ -29,82 +29,158 @@ import Footer from '../../components/common/Footer';
    ========================================================================== */
 const productsData = [
   {
-    slug: 'phi-core-router',
-    name: 'Lumen Core Hub',
-    price: '$299',
-    badge: 'Infrastructure',
-    tagline: 'The ceiling light that powers your entire home.',
-    desc: 'Stop hiding ugly routers. The Lumen Core replaces your standard ceiling lights with an elegant LED array that casts an invisible, 10 Gbps Li-Fi data cone over the entire room. If the room is lit, the room is wired.',
+    slug: 'lumen-core-downlighters',
+    name: 'Lumen Core Downlighters',
+    price: '$349',
+    category: 'Network Foundation',
+    badge: 'Network Foundation',
+    tagline: 'The heart of your network.',
+    desc: 'These architectural LED ceiling lights act as your invisible routers, beaming dedicated 10 Gbps data cones to every room in your house while providing pristine, tunable ambient lighting.',
     icon: Cpu,
     accent: 'from-cyan-500 to-blue-600',
     imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600',
-    size: 'lg:col-span-4',
-    specs: ['10 Gbps Throughput', 'Zero RF Radiation', 'Adjustable Color Temp']
+    size: 'lg:col-span-6',
+    specs: ['10 Gbps Data Cones', 'Tunable Ambient Light', 'Zero RF Radiation']
   },
   {
-    slug: 'photon-antenna-one',
-    name: 'Lumen Matrix TV',
-    price: '$1,899',
-    badge: 'Entertainment',
-    tagline: '8K streaming with absolutely zero buffering.',
-    desc: 'Smart TVs choke when they share Wi-Fi. The Lumen Matrix syncs directly with the Core Hub’s light beam, guaranteeing an unthrottled, dedicated pipeline for flawless 8K holographic entertainment and zero-lag spatial gaming.',
+    slug: 'lumen-photon-dongle',
+    name: 'Lumen Photon Dongle (USB-C)',
+    price: '$129',
+    category: 'Network Foundation',
+    badge: 'Network Foundation',
+    tagline: 'Instantly upgrade your current hardware.',
+    desc: 'Plug this microscopic receiver into any laptop, PC, or tablet to instantly transition your device from crowded Wi-Fi to a dedicated 10 Gbps optical link.',
+    icon: Laptop,
+    accent: 'from-cyan-600 to-cyan-400',
+    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600',
+    size: 'lg:col-span-6',
+    specs: ['Microscopic Receiver', 'USB-C Plug-and-Play', 'Dedicated 10 Gbps Link']
+  },
+  {
+    slug: 'lumen-matrix-8k-tv',
+    name: 'Lumen Matrix 8K TV',
+    price: '$1,999',
+    category: 'Entertainment & Computing',
+    badge: 'Entertainment & Computing',
+    tagline: "The first television that doesn't compress your media.",
+    desc: 'Powered by a direct optical link from your ceiling, it streams raw, uncompressed 8K video and cloud gaming seamlessly, entirely immune to the bandwidth being used in the rest of the house.',
     icon: Sun,
     accent: 'from-blue-500 to-indigo-600',
     imageUrl: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-4',
-    specs: ['Micro-LED Display', 'Sub-millisecond Latency', 'Built-in Li-Fi Receiver']
+    specs: ['Uncompressed 8K Video', 'Cloud Gaming Sync', 'Immune to Congestion']
   },
   {
-    slug: 'lightwave-usb-dongle',
-    name: 'Lumen Sentinel',
-    price: '$249',
-    badge: 'Security',
-    tagline: 'Security that thinks before you blink.',
-    desc: 'Standard video doorbells buffer right when you need to see who is outside. The Sentinel uses an infrared Li-Fi link to transmit unjammable, real-time 4K video instantly. Hackers can’t intercept it, and Wi-Fi dead zones can’t stop it.',
+    slug: 'lumen-studio-laptop',
+    name: 'Lumen Studio Laptop',
+    price: '$2,499',
+    category: 'Entertainment & Computing',
+    badge: 'Entertainment & Computing',
+    tagline: 'Designed for spatial computing and extreme rendering.',
+    desc: 'With an integrated Li-Fi transceiver built directly into the lid, you receive hardwired, 10 Gbps speeds without ever plugging in an ethernet cable.',
     icon: Laptop,
-    accent: 'from-cyan-600 to-cyan-400',
-    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600',
+    accent: 'from-cyan-500 to-blue-500',
+    imageUrl: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-4',
-    specs: ['Unjammable Signal', 'Instant 4K Feed', 'Facial Recognition AI']
+    specs: ['Integrated Transceiver', '10 Gbps Hardwired Speeds', 'Designed for Spatial Computing']
   },
   {
-    slug: 'lumen-command-fridge',
-    name: 'Lumen Command Fridge',
-    price: '$3,299',
-    badge: 'Appliances',
-    tagline: 'A supercomputer in your kitchen.',
-    desc: 'Stop waiting for your fridge screen to load. The Command Fridge uses its Li-Fi link to instantly track inventory via interior micro-cameras, order groceries in real-time, and display 4K cooking tutorials without a single stutter.',
+    slug: 'lumen-echo-soundbar',
+    name: 'Lumen Echo Soundbar',
+    price: '$599',
+    category: 'Entertainment & Computing',
+    badge: 'Entertainment & Computing',
+    tagline: 'Forget audio syncing issues.',
+    desc: 'Connected via sub-millisecond light beams, this speaker processes voice commands and AI home requests the literal millisecond you finish speaking.',
+    icon: Activity,
+    accent: 'from-purple-500 to-indigo-500',
+    imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
+    size: 'lg:col-span-4',
+    specs: ['Sub-millisecond Light Beams', 'Instant AI Processing', 'Pristine Audio Sync']
+  },
+  {
+    slug: 'lumen-sentinel-video-doorbell',
+    name: 'Lumen Sentinel Video Doorbell',
+    price: '$349',
+    category: 'Security & Perimeter',
+    badge: 'Security & Perimeter',
+    tagline: 'Unjammable front-door security.',
+    desc: 'Powered by the Li-Fi beam from your porch light, it streams flawless 4K video instantly to your phone. Because it relies on light, it is mathematically impossible for thieves to use Wi-Fi jammers to blind it.',
+    icon: Shield,
+    accent: 'from-cyan-600 to-blue-400',
+    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600',
+    size: 'lg:col-span-6',
+    specs: ['Porch Light Powered', 'Flawless 4K Stream', 'Jamm-Proof Architecture']
+  },
+  {
+    slug: 'lumen-aegis-floodlight-cams',
+    name: 'Lumen Aegis Floodlight Cams',
+    price: '$499',
+    category: 'Security & Perimeter',
+    badge: 'Security & Perimeter',
+    tagline: 'Absolute perimeter control.',
+    desc: 'These ultra-bright exterior lights double as multi-gigabit data transmitters, securely linking your outdoor cameras to your local server without broadcasting your security feed onto the public street.',
+    icon: ShieldCheck,
+    accent: 'from-slate-700 to-slate-900',
+    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600',
+    size: 'lg:col-span-6',
+    specs: ['Multi-gigabit Uplink', 'Ultra-bright LEDs', 'Air-gapped Perimeter']
+  },
+  {
+    slug: 'lumen-glacier-fridge',
+    name: 'Lumen Glacier Fridge',
+    price: '$3,499',
+    category: 'Conscious Appliances & Home Automation',
+    badge: 'Conscious Appliances & Home Automation',
+    tagline: 'The zero-lag kitchen command center.',
+    desc: 'Say goodbye to the loading screens of traditional fridges. Stream 4K cooking tutorials, sync your AI grocery trackers, and run your home dashboard with zero buffering, right from the door.',
     icon: Activity,
     accent: 'from-blue-600 to-cyan-500',
     imageUrl: 'https://images.unsplash.com/photo-1601524909162-be87252be298?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-4',
-    specs: ['Zero-Lag UI', 'Inventory AI', 'Seamless Integration']
+    specs: ['Zero Buffering Dashboard', 'AI Grocery Trackers', '4K Tutorial Streaming']
   },
   {
-    slug: 'the-ai-mesh-cube',
-    name: 'Lumen Precision Vac',
-    price: '$699',
-    badge: 'Appliances',
-    tagline: 'No more bouncing off walls.',
-    desc: 'Wi-Fi robot vacuums get lost under the couch. The Precision Vac uses the overhead Li-Fi optical grid to map your room down to the millimeter in real-time. It doesn’t bump into things; it glides with surgical precision.',
+    slug: 'lumen-precision-robot-vacuum',
+    name: 'Lumen Precision Robot Vacuum',
+    price: '$899',
+    category: 'Conscious Appliances & Home Automation',
+    badge: 'Conscious Appliances & Home Automation',
+    tagline: 'Standard vacuums lose their maps in Wi-Fi dead zones.',
+    desc: 'Powered by a continuous optical link, this vacuum processes real-time 3D spatial mapping and AI obstacle avoidance with zero latency, meaning it never bumps into a chair leg again.',
     icon: Zap,
     accent: 'from-cyan-500 to-indigo-500',
     imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-4',
-    specs: ['Optical Grid Mapping', 'Instant Re-routing', 'Li-Fi Edge AI']
+    specs: ['Continuous Optical Link', '3D Spatial Mapping', 'Zero Latency Navigation']
   },
   {
-    slug: 'lumen-overhead-driver',
-    name: 'Lumen Whisper Shades',
-    price: '$399 / window',
-    badge: 'Environment',
-    tagline: 'Respond to the sun, instantly.',
-    desc: 'Ditch the clunky smart-home bridges. Whisper Shades have optical sensors woven into the fabric. They catch the Li-Fi signal directly from your ceiling, allowing them to adjust to glare and temperature instantly and silently.',
+    slug: 'lumen-eclipse-window-shades',
+    name: 'Lumen Eclipse Window Shades',
+    price: '$449',
+    category: 'Conscious Appliances & Home Automation',
+    badge: 'Conscious Appliances & Home Automation',
+    tagline: 'True ambient intelligence.',
+    desc: "These motorized shades communicate instantly with your ceiling's optical sensors, adjusting silently to the sun's position and your circadian rhythm without ever requiring a clunky, third-party bridge.",
     icon: Shield,
     accent: 'from-cyan-600 to-blue-400',
     imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600',
     size: 'lg:col-span-4',
-    specs: ['No Smart Hub Required', 'Solar-Sync AI', 'Silent Motors']
+    specs: ['Optical Sensor Sync', 'Circadian Adjustment', 'Silent Motor Drivers']
+  },
+  {
+    slug: 'lumen-climate-hub',
+    name: 'Lumen Climate Hub',
+    price: '$299',
+    category: 'Conscious Appliances & Home Automation',
+    badge: 'Conscious Appliances & Home Automation',
+    tagline: 'A thermostat that actually thinks.',
+    desc: 'It uses invisible infrared beams to detect exactly how many people are in a room, micro-adjusting the temperature instantly with zero network delay.',
+    icon: Cpu,
+    accent: 'from-cyan-500 to-blue-600',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600',
+    size: 'lg:col-span-12',
+    specs: ['Infrared Occupancy Tracking', 'Micro-Adjust Temperature', 'Zero Network Delay']
   }
 ];
 
@@ -116,8 +192,8 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen font-sans bg-[#0B111E] text-slate-200 antialiased selection:bg-cyan-950/50 selection:text-cyan-400 transition-colors duration-300">
       <Head>
-        <title>Lumen LIFI | The Conscious Home Collection</title>
-        <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
+        <title>Lumen LIFI | Shop the Conscious Home Ecosystem</title>
+        <meta name="description" content="Welcome to the world's first fully optical conscious home. Every device in the LumenFi ecosystem is equipped with integrated Li-Fi receivers." />
       </Head>
 
       <Header />
@@ -154,87 +230,100 @@ export default function ProductsPage() {
               <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="space-y-4 max-w-3xl">
                   <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-none">
-                    The Conscious Home Collection
+                    Shop the Conscious Home Ecosystem
                   </h2>
                   <p className="text-slate-400 text-lg max-w-2xl font-medium leading-relaxed">
-                    Every device in this lineup is equipped with a Lumen optical receiver, guaranteeing zero latency, absolute privacy, and instant AI processing.
+                    Welcome to the world's first fully optical conscious home. Every device in the LumenFi ecosystem is equipped with integrated Li-Fi receivers, guaranteeing zero lag, unjammable security, and infinite bandwidth.
+                  </p>
+                  <p className="text-sm font-mono font-bold uppercase tracking-widest text-[#00D2FF]">
+                    Stop piecing together a broken Wi-Fi network. Build a Conscious Home.
                   </p>
                 </div>
               </div>
 
-              {/* 6-Product Layout Grid */}
-              <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                  {productsData.map((product, index) => {
-                    return (
-                      <motion.div
-                        key={product.slug}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.65, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                        className={`${product.size} flex flex-col`}
-                      >
-                        <div
-                          className="w-full group relative flex flex-col h-full rounded-3xl border border-slate-800 bg-[#0F172A]/40 overflow-hidden transition-all duration-300 hover:border-[#00D2FF]/50 hover:shadow-[0_0_30px_rgba(0,210,255,0.15)]"
-                        >
-                          {/* Image Header with Badge Overlay */}
-                          <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 border-b border-slate-800">
-                            <img
-                              src={product.imageUrl}
-                              alt={product.name}
-                              className="w-full h-full object-cover transform scale-105 group-hover:scale-100 opacity-70 group-hover:opacity-90 transition-all duration-700 ease-out"
-                            />
-                            <span className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md border border-slate-700 text-xs font-mono font-bold tracking-widest text-[#00D2FF] uppercase px-3 py-1 rounded-full">
-                              {product.badge}
-                            </span>
-                          </div>
-
-                          {/* Content Body */}
-                          <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                            <div className="space-y-3">
-                              <div className="flex items-baseline justify-between gap-4">
-                                <h3 className="text-2xl font-extrabold text-white tracking-tight">
-                                  {product.name}
-                                </h3>
-                                <span className="text-xl font-mono font-bold text-white">
-                                  {product.price}
+              {/* Category Groups */}
+              {['Network Foundation', 'Entertainment & Computing', 'Security & Perimeter', 'Conscious Appliances & Home Automation'].map((catName) => {
+                const catProducts = productsData.filter(p => p.category === catName);
+                return (
+                  <div key={catName} className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
+                    <div className="border-b border-slate-800/80 pb-4">
+                      <h3 className="text-2xl font-black text-white tracking-tight uppercase font-mono text-[#00D2FF]">
+                        {catName}
+                      </h3>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                      {catProducts.map((product, index) => {
+                        return (
+                          <motion.div
+                            key={product.slug}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-80px" }}
+                            transition={{ duration: 0.65, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            className={`${product.size} flex flex-col`}
+                          >
+                            <div
+                              className="w-full group relative flex flex-col h-full rounded-3xl border border-slate-800 bg-[#0F172A]/40 overflow-hidden transition-all duration-300 hover:border-[#00D2FF]/50 hover:shadow-[0_0_30px_rgba(0,210,255,0.15)]"
+                            >
+                              {/* Image Header with Badge Overlay */}
+                              <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-950 border-b border-slate-800">
+                                <img
+                                  src={product.imageUrl}
+                                  alt={product.name}
+                                  className="w-full h-full object-cover transform scale-105 group-hover:scale-100 opacity-70 group-hover:opacity-90 transition-all duration-700 ease-out"
+                                />
+                                <span className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md border border-slate-700 text-[10px] font-mono font-bold tracking-widest text-[#00D2FF] uppercase px-3 py-1 rounded-full">
+                                  {product.badge}
                                 </span>
                               </div>
-                              <p className="text-sm text-[#00D2FF] font-medium tracking-wide">
-                                {product.tagline}
-                              </p>
-                              <p className="text-slate-400 text-xs leading-relaxed font-normal">
-                                {product.desc}
-                              </p>
-                            </div>
 
-                            {/* Specification Checklist Row */}
-                            <div className="space-y-4 pt-2">
-                              <div className="space-y-2">
-                                {product.specs.map((spec) => (
-                                  <div key={spec} className="flex items-center gap-2.5 text-xs text-slate-300 font-medium">
-                                    <span className="text-[#00D2FF] text-sm">›</span>
-                                    <span>{spec}</span>
+                              {/* Content Body */}
+                              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
+                                <div className="space-y-3">
+                                  <div className="flex items-baseline justify-between gap-4">
+                                    <h3 className="text-2xl font-extrabold text-white tracking-tight">
+                                      {product.name}
+                                    </h3>
+                                    <span className="text-xl font-mono font-bold text-white">
+                                      {product.price}
+                                    </span>
                                   </div>
-                                ))}
-                              </div>
+                                  <p className="text-sm text-[#00D2FF] font-medium tracking-wide">
+                                    {product.tagline}
+                                  </p>
+                                  <p className="text-slate-400 text-xs leading-relaxed font-normal">
+                                    {product.desc}
+                                  </p>
+                                </div>
 
-                              {/* Action Call-To-Action Button */}
-                              <button
-                                onClick={() => setSelectedProductSlug(product.slug)}
-                                className="w-full h-11 border border-slate-700 hover:border-[#00D2FF] bg-slate-900/60 hover:bg-[#00D2FF]/10 text-white font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-inner"
-                              >
-                                Add to Cart
-                              </button>
+                                {/* Specification Checklist Row */}
+                                <div className="space-y-4 pt-2">
+                                  <div className="space-y-2">
+                                    {product.specs.map((spec) => (
+                                      <div key={spec} className="flex items-center gap-2.5 text-xs text-slate-300 font-medium">
+                                        <span className="text-[#00D2FF] text-sm">›</span>
+                                        <span>{spec}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+
+                                  {/* Action Call-To-Action Button */}
+                                  <button
+                                    onClick={() => setSelectedProductSlug(product.slug)}
+                                    className="w-full h-11 border border-slate-700 hover:border-[#00D2FF] bg-slate-900/60 hover:bg-[#00D2FF]/10 text-white font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-inner"
+                                  >
+                                    Add to Cart
+                                  </button>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
 
               {/* Regulatory Transparency & Norms Framework Layout */}
               <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">

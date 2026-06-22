@@ -218,26 +218,26 @@ function ConsciousHomeSection() {
       icon: '🌅',
       lucide: Activity,
       title: 'Ambient Intelligence',
-      sub: 'The End of the Switch',
-      desc: 'Environmental AI maps your presence in real-time. Biometric signals route smoothly over light vectors to prepare spaces seamlessly without mechanical commands.',
+      sub: 'The End of the Light Switch',
+      desc: 'You don’t walk into a dark room and fumble for a switch. You don\'t even issue a voice command. As you move through your house, the environmental AI maps your presence in real-time. The lights gently raise to match your circadian rhythm as you walk into the kitchen. Your biometric ring instantly syncs your sleep data to the home server via an invisible infrared beam, prompting the espresso machine to brew a double shot because it knows you had a restless night. No apps. No buttons. The house just knows.',
       hotspot: 'Biometric Grid Active',
       coords: 'top-[25%] left-[45%]'
     },
     {
       icon: '🥽',
       lucide: Eye,
-      title: 'Spatial Computing Links',
+      title: 'The Holographic Living Room',
       sub: 'The TV is a Relic',
-      desc: 'Dedicated 10 Gbps optical pipes beam high-fidelity environments straight to your spatial arrays. Zero spatial lag, zero dropped wireless vectors.',
+      desc: 'The TV is a relic. You slip on your spatial computing headset, and because your ceiling is beaming a dedicated 10 Gbps optical link directly to your eyes, the boundaries of your living room dissolve entirely. There is zero motion sickness and zero buffering. You aren\'t watching a basketball game on a screen; the players are holographically projected in 3D across your living room floor. You are sitting courtside on your own couch.',
       hotspot: '10 Gbps Link Established',
       coords: 'top-[45%] left-[30%]'
     },
     {
       icon: '🔒',
       lucide: ShieldCheck,
-      title: 'Absolute Privacy Fortress',
+      title: 'The Absolute Privacy Fortress',
       sub: 'Physical Optical Containment',
-      desc: 'Because photon streams are contained by physical walls, your operations remain entirely air-gapped from neighborhood network snooping vectors.',
+      desc: 'In a world where AI knows your daily habits, your health metrics, and your private conversations, broadcasting that data through your walls on a Wi-Fi radio wave is a massive vulnerability. With Lumen LIFI, your home becomes a digital vault. Light cannot pass through walls, and neither can your data. Your personal AI operates entirely on local, physically contained light beams. The ultimate luxury of the future isn\'t just speed—it’s absolute, unbreachable privacy.',
       hotspot: 'Photon Shield: Air-Gapped',
       coords: 'bottom-[35%] left-[60%]'
     },
@@ -246,7 +246,7 @@ function ConsciousHomeSection() {
       lucide: Zap,
       title: 'Conversations, Not Commands',
       sub: 'Instantaneous Feedback Sync',
-      desc: 'Sub-millisecond transmission architectures mean hardware responds precisely as your intent registers, eliminating central router waiting queues.',
+      desc: 'Say goodbye to the awkward pause after you say "Hey Siri" or "Alexa." Because your voice assistant is connected via a sub-millisecond optical link, it processes complex requests, accesses cloud-based Large Language Models, and executes commands the precise millisecond your sentence ends. It doesn\'t feel like talking to a machine. It feels like talking to a digital concierge standing right next to you.',
       hotspot: 'Latency: <0.8ms Sync',
       coords: 'bottom-[20%] left-[40%]'
     }
@@ -279,13 +279,17 @@ function ConsciousHomeSection() {
             <Sparkles size={12} className="animate-spin" style={{ animationDuration: '3s' }} /> The Conscious Home
           </div>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-4 text-[var(--lumen-navy)] leading-none">
-            Stop Calling It a{' '}
+            Welcome to the{' '}
             <span className="text-gradient-lumen tracking-tight font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#1A6EBF] to-[#00C2C7]">
-              "Smart Home"
-            </span>
+              “Conscious Home”
+            </span>{' '}
+            Powered by Lumen LIFI.
           </h2>
-          <p className="text-sm md:text-base text-[var(--lumen-muted)] max-w-2xl mx-auto font-medium leading-relaxed">
-            When you replace crowded Wi-Fi with multi-gigabit light, your house stops reacting to you and starts anticipating you. Watch the environment cycle or select a target pipeline.
+          <p className="text-sm md:text-base text-[var(--lumen-muted)] max-w-2xl mx-auto font-medium leading-relaxed mb-4">
+            When you replace crowded Wi-Fi with the multi-gigabit speed of light, your house stops reacting to you and starts anticipating you. The lag disappears. The apps vanish. Your home becomes a living, breathing ecosystem with a 10 Gbps nervous system.
+          </p>
+          <p className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--lumen-cyan)]">
+            Here is what living at the speed of light actually feels like.
           </p>
         </motion.div>
 
@@ -486,41 +490,33 @@ function ConsciousHomeSection() {
 function HomeFeaturesSection() {
   const premiumShowcase = [
     {
-      title: "Ambient Intelligence & Automation",
-      subtitle: "The Conscious Home Ecosystem",
-      desc: "Experience a habitat that naturally synchronizes with your daily routines. LiFi enabled ceiling downlights stream contextual network directives instantly down to localized hardware arrays with absolute signal isolation.",
-      img: homeAutomationImg,
-      badge: "Zero-Latency Smart Home",
-      accent: "var(--lumen-cyan)"
-    },
-    {
-      title: "Competitive Gaming & Esports Engine",
-      subtitle: "Sub-Millisecond Execution Profile",
-      desc: "Eliminate radio frequency congestion jitter entirely. Achieve a permanent structural advantage with dedicated wireless bandwidth vectors feeding directly into your configuration without shared wireless packet drops.",
+      title: "Zero-Lag Gaming",
+      subtitle: "Say goodbye to ping spikes",
+      desc: "Traditional Wi-Fi bounces radio waves around the house, causing interference and lag. LiFi’s sub-millisecond, line-of-sight optical connection means your inputs register the exact millisecond you press the button. It is faster than being plugged directly into the wall.",
       img: gamingImg,
       badge: "Pure Optical Link",
       accent: "var(--lumen-blue)"
     },
     {
-      title: "Next-Generation 8K Media Streaming",
-      subtitle: "Uncompressed Unthrottled Data Pipelines",
-      desc: "Unlock true high-fidelity entertainment streams without pixelated buffering delays. Light waves transport large raw files effortlessly, delivering pristine 8K spatial environments across multiple screens simultaneously.",
+      title: "Unthrottled 4K & 8K Streaming",
+      subtitle: "Buffering is dead",
+      desc: "Because every LiFi light casts its own dedicated broadband beam, you can stream an 8K movie in the living room without your bandwidth dropping just because someone else is downloading a massive file upstairs.",
       img: streamingImg,
       badge: "10 Gbps Pipeline",
       accent: "var(--lumen-teal)"
     },
     {
-      title: "Infinite Device Connection Density",
-      subtitle: "Massive Multi-User Scalability",
-      desc: "Say goodbye to traditional Wi-Fi dropouts when everyone connects at once. Lumen's wide light spectrum allows dozens of high-bandwidth smart home accessories, smartphones, and laptops to pull maximum speed from the same ceiling light array without cross-talk.",
+      title: "Infinite Device Connections",
+      subtitle: "Infinite Device Connections",
+      desc: "The \"Internet of Things\" usually means the \"Internet of Traffic Jams.\" Conscious locks, security cameras, and voice assistants constantly clog standard Wi-Fi channels. With LiFi’s massive optical bandwidth, you can connect hundreds of conscious devices in a single room and your 10 Gbps speeds won’t even flinch.",
       img: infiniteDevicesImg,
       badge: "No Spectrum Overload",
       accent: "var(--lumen-blue)"
     },
     {
-      title: "Invisible Architecture Infrastructure",
-      subtitle: "Seamless Technical Aesthetic Integration",
-      desc: "A completely clean living space with zero ugly router boxes, external antennas, or trailing cable assemblies. Your high-speed network components are completely integrated inside architectural downlights, delivering minimalist design.",
+      title: "Invisible Infrastructure",
+      subtitle: "Invisible Infrastructure",
+      desc: "Stop trying to hide ugly routers with spider-web antennas behind your bookshelf. The network is built directly into your ceiling lights. If the room is lit, the room is wired.",
       img: invisibleInfraImg,
       badge: "Aesthetic Core Integration",
       accent: "var(--lumen-cyan)"
@@ -540,6 +536,9 @@ function HomeFeaturesSection() {
               Lumen LiFi is built to connect your life.
             </span>
           </h2>
+          <p className="text-sm md:text-base text-[var(--lumen-muted)] mt-4 font-mono font-bold uppercase tracking-widest text-[var(--lumen-blue)]">
+            Step out of the radio age, and live at the speed of light.
+          </p>
         </motion.div>
 
         <div className="flex flex-col gap-24">
@@ -661,7 +660,7 @@ function EcosystemSection() {
         const nextIndex = (currentIndex + 1) % sectors.length;
         return sectors[nextIndex].id;
       });
-    }, 5000); // 5000 milliseconds = 5 seconds
+    }, 10000); // 10000 milliseconds = 10 seconds
 
     return () => clearInterval(timer);
   }, [sectors.length]);
@@ -747,156 +746,6 @@ function useCounter(targetValue, startTrigger, duration = 2000) {
     return () => clearInterval(timer);
   }, [targetValue, startTrigger]);
   return count;
-}
-
-function StatsSection() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setVisible(true);
-        observer.disconnect();
-      }
-    }, { threshold: 0.1 });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const speedCount = useCounter(10, visible);
-  const timeCount = useCounter(80, visible);
-
-  // Parent container stagger orchestration configuration parameters
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.15 }
-    }
-  };
-
-  // Child node transition physics configurations
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.96 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
-    }
-  };
-
-  const statItems = [
-    {
-      val: visible ? `${speedCount} Gbps` : '0 Gbps',
-      label: 'Sustained Peak Air Velocity',
-      icon: Flame,
-      colorClass: 'from-amber-500 to-rose-500',
-      shadowColor: 'rgba(244,63,94,0.12)'
-    },
-    {
-      val: visible ? `${timeCount} Sec` : '0 Sec',
-      label: '100 GB Asset Sync Matrix',
-      icon: Zap,
-      colorClass: 'from-[var(--lumen-blue)] to-[var(--lumen-cyan)]',
-      shadowColor: 'rgba(0,194,199,0.14)'
-    },
-    {
-      val: '100%',
-      label: 'Physical Wall Isolation',
-      icon: Shield,
-      colorClass: 'from-emerald-500 to-teal-500',
-      shadowColor: 'rgba(16,185,129,0.12)'
-    }
-  ];
-
-  return (
-    <section ref={ref} className="py-28 relative overflow-hidden bg-[var(--lumen-surface)]">
-
-      {/* Background Soft Chromatic Blended Flare Core Mesh */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[350px] rounded-full blur-[130px] bg-gradient-to-r from-blue-400/10 to-cyan-400/5" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[450px] h-[350px] rounded-full blur-[130px] bg-gradient-to-r from-teal-400/10 to-emerald-400/5" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* Section Typography Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--lumen-blue)] bg-white dark:bg-slate-900 border border-[var(--lumen-border)] px-3 py-1 rounded-full shadow-sm inline-block">
-            Performance Metrics
-          </span>
-          <h2 className="text-4xl font-black text-[var(--lumen-navy)] tracking-tight mt-4">
-            Validated at Scale
-          </h2>
-        </motion.div>
-
-        {/* Dynamic Staggered Execution Flexbox Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView={visible ? "visible" : "hidden"}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {statItems.map((stat, i) => {
-            const IconComponent = stat.icon;
-            return (
-              <motion.div
-                key={i}
-                variants={cardVariants}
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: `0 30px 60px ${stat.shadowColor}`
-                }}
-                className="p-8 rounded-[2rem] bg-white border border-[var(--lumen-border)] shadow-sm relative overflow-hidden transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Chromatic Corner Ambient Ray Reveal */}
-                <div className={`absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br ${stat.colorClass} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
-
-                {/* Micro-Telemetry Badge Header Line */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`p-2.5 rounded-xl bg-gradient-to-br ${stat.colorClass} bg-opacity-10 text-white shadow-sm flex items-center justify-center`}>
-                    <IconComponent size={18} className="mix-blend-overlay group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <span className="text-[9px] font-mono font-bold text-[var(--lumen-muted)] bg-[var(--lumen-surface)] border border-[var(--lumen-border)] px-2 py-0.5 rounded-md">
-                    METRIC_0{i + 1}
-                  </span>
-                </div>
-
-                {/* Quantitative Data Field Display Core */}
-                <div className="mb-4">
-                  <div className={`text-5xl font-black mb-3 font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${stat.colorClass}`}>
-                    {stat.val}
-                  </div>
-                  <h4 className="text-[11px] sm:text-xs text-[var(--lumen-navy)] uppercase tracking-widest font-mono font-black leading-tight">
-                    {stat.label}
-                  </h4>
-                </div>
-
-                {/* Synchronized Linear Progress Gauge Line */}
-                <div className="w-full h-[3px] bg-[var(--lumen-surface)] rounded-full overflow-hidden mt-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={visible ? { width: '100%' } : { width: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 1.2, ease: "easeOut" }}
-                    className={`h-full bg-gradient-to-r ${stat.colorClass}`}
-                  />
-                </div>
-
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1025,7 +874,6 @@ export default function HomePage() {
         <HomeFeaturesSection />
         <EnterpriseSection />
         <EcosystemSection />
-        <StatsSection />
         <FinalCTASection />
       </main>
 
