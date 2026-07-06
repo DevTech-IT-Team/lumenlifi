@@ -44,13 +44,32 @@ const fadeUp = {
   }),
 };
 
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } }
+/* ─────────────────────────────────────────────────────────────
+   INTERACTIVE SIMULATOR STATIC CONFIGURATIONS
+───────────────────────────────────────────────────────────── */
+const METRICS_DATA = {
+  wifi: { speed: 15, latency: 85, security: 20, interference: 90, status: 'Congested / Vulnerable' },
+  lifi: { speed: 100, latency: 2, security: 100, interference: 0, status: 'Ultra-Fast / Isolated' }
 };
+
+const WIFI_PACKETS = Array.from({ length: 35 }).map((_, i) => ({
+  id: i,
+  startX: 180 + (Math.random() - 0.5) * 20,
+  startY: 140 + (Math.random() - 0.5) * 20,
+  tx: (Math.random() - 0.5) * 350,
+  ty: (Math.random() - 0.5) * 250,
+  duration: 2 + Math.random() * 2,
+  delay: Math.random() * 2
+}));
 
 export default function WhatIsLiFiPage() {
   const [tick, setTick] = useState(0);
+
+  // Interactive Simulator Hook Matrices
+  const [mode, setMode] = useState('wifi');
+  const [userCount, setUserCount] = useState(1);
+  const [hackStatus, setHackStatus] = useState('idle');
+
   const quickFacts = [
     '💡 Radio Frequencies are congested.',
     '⚡ Light offers 1,000x data density.',
@@ -62,6 +81,36 @@ export default function WhatIsLiFiPage() {
     const t = setInterval(() => setTick(p => (p + 1) % quickFacts.length), 2500);
     return () => clearInterval(t);
   }, [quickFacts.length]);
+
+  // Handle Dynamic WiFi Network Deterioration Real-Time Updates
+  useEffect(() => {
+    let interval;
+    if (mode === 'wifi') {
+      interval = setInterval(() => {
+        setUserCount(prev => (prev < 5 ? prev + 1 : 1));
+      }, 4000);
+    } else {
+      setUserCount(1);
+    }
+    return () => clearInterval(interval);
+  }, [mode]);
+
+  const currentMetrics = {
+    speed: mode === 'wifi' ? Math.max(5, METRICS_DATA.wifi.speed - (userCount - 1) * 3) : METRICS_DATA.lifi.speed,
+    latency: mode === 'wifi' ? Math.min(250, METRICS_DATA.wifi.latency + (userCount - 1) * 35) : METRICS_DATA.lifi.latency,
+    security: mode === 'wifi' ? METRICS_DATA.wifi.security : METRICS_DATA.lifi.security,
+    interference: mode === 'wifi' ? Math.min(100, METRICS_DATA.wifi.interference + (userCount - 1) * 2) : METRICS_DATA.lifi.interference,
+    status: mode === 'wifi'
+      ? (userCount > 3 ? 'Critical Congestion' : 'Signal Degraded')
+      : 'Optimal Optical Connection'
+  };
+
+  const triggerHackChallenge = () => {
+    setHackStatus('hacking');
+    setTimeout(() => {
+      setHackStatus(mode === 'wifi' ? 'success' : 'blocked');
+    }, 2500);
+  };
 
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans transition-colors duration-300 bg-[var(--lumen-bg)] text-[var(--lumen-navy)] selection:bg-cyan-500/20">
@@ -76,9 +125,8 @@ export default function WhatIsLiFiPage() {
 
       <main className="flex-grow">
 
-        {/* 1. HERO SHOWCASE SECTION (Matches Homepage Gradient & Matrix) */}
+        {/* 1. HERO SHOWCASE SECTION */}
         <section className="relative w-full pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[var(--lumen-light)] via-[var(--lumen-bg)] to-[var(--lumen-light)] dark:from-[#070e1b] dark:via-[var(--lumen-bg)] dark:to-[#091222]">
-          {/* Dynamic Luminous Ambient Layer */}
           <div className="absolute inset-0 pointer-events-none z-0">
             <div className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
               style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
@@ -86,7 +134,6 @@ export default function WhatIsLiFiPage() {
               style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.15) 0%, transparent 70%)' }} />
           </div>
 
-          {/* Grid Overlay Vector Matrix */}
           <div className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
             style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
 
@@ -112,7 +159,6 @@ export default function WhatIsLiFiPage() {
             </motion.p>
           </div>
 
-          {/* Asset Window Representation Chrome container */}
           <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible" className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_70px_rgba(13,34,64,0.15)] border bg-[#0D2240] border-[var(--lumen-border)] p-2">
               <div className="w-full h-11 bg-[#0A192F] flex items-center px-4 gap-2 border-b border-white/5 rounded-t-2xl">
@@ -138,13 +184,12 @@ export default function WhatIsLiFiPage() {
         </section>
 
 
-        {/* 2. OPERATIONAL OVERVIEW SECTION (Matches Homepage Surface Backdrop Depth) */}
-        <section className="py-24 bg-[]">
+        {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
+        <section className="py-24 bg-[var(--lumen-light)] dark:bg-[#0b1329]/30">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-              <div className="lg:col-span-6 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold section-wash-secondary border border-[var(--lumen-border)] text-[var(--lumen-blue)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+              <div className="lg:col-span-7 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white dark:bg-slate-900 border border-[var(--lumen-border)] text-[var(--lumen-blue)]">
                   <Zap size={12} /> Operational Overview
                 </div>
                 <h2 className="text-4xl font-black tracking-tight text-[var(--lumen-navy)]">
@@ -157,32 +202,17 @@ export default function WhatIsLiFiPage() {
                 <p className="text-[var(--lumen-muted)] text-base leading-relaxed">
                   It introduces immediate connectivity optimization targets for high-density settings, secure office complexes, immersive spatial rendering setups, and zero-RF hazardous configurations.
                 </p>
-                <div className="pt-2">
-                  <Link href="/faqs" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)] hover:scale-[1.02] transition-all">
-                    <HelpCircle size={14} /> View LiFi FAQs
-                  </Link>
-                </div>
               </div>
 
-              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="p-8 rounded-3xl bg-white border border-[var(--lumen-border)] shadow-sm group hover:shadow-md transition-shadow">
-                  <div className="p-3 bg-red-50 text-red-500 rounded-2xl w-fit mb-4"><WifiOff size={20} /></div>
-                  <h3 className="text-lg font-bold mb-2 text-[var(--lumen-navy)]">Radio Wave Bottlenecks</h3>
-                  <p className="text-xs text-[var(--lumen-muted)] leading-relaxed">
-                    Traditional Wi-Fi signals penetrate walls seamlessly, expanding your threat perimeter and leading to severe cross-channel congestion and packet interference.
-                  </p>
-                </div>
-
-                <div className="p-8 rounded-3xl bg-white border border-cyan-500/20 shadow-md bg-gradient-to-br from-cyan-500/[0.02] to-transparent">
-                  <div className="p-3 bg-cyan-50 text-[var(--lumen-cyan)] rounded-2xl w-fit mb-4"><Eye size={20} /></div>
-                  <h3 className="text-lg font-bold mb-2 text-[var(--lumen-navy)]">The Optical Paradigm</h3>
-                  <p className="text-xs text-[var(--lumen-muted)] leading-relaxed">
-                    Light waves are perfectly localized within a specific physical cone, unlocking isolated multi-gigabit user pipelines effortlessly without cross-room bleeding.
-                  </p>
-                </div>
+              <div className="lg:col-span-5 lg:pt-8 flex lg:justify-end">
+                <Link href="/faqs" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)] hover:scale-[1.02] transition-all">
+                  <HelpCircle size={14} /> View LiFi FAQs
+                </Link>
               </div>
-
             </div>
+
+            {/* LIVE COMPARISON SIMULATOR CONTAINER ENGINE */}
+
           </div>
         </section>
 
@@ -253,13 +283,12 @@ export default function WhatIsLiFiPage() {
         </section>
 
 
-        {/* 4. PERFORMANCE PILLARS GRID (Matches Home Feature Benefits Style) */}
+        {/* 4. PERFORMANCE PILLARS GRID */}
         <section
           className="relative py-24 bg-[#EAF2F8] overflow-hidden border-t border-b border-slate-300 bg-cover bg-center bg-no-repeat transition-all duration-300"
           id="technology-benefits"
           style={{ backgroundImage: "url('/images/lifi/benefits.png')" }}
         >
-          {/* Decorative subtle vector network paths */}
           <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-5 hidden md:block z-10">
             <svg className="w-full h-full stroke-amber-600" fill="none" strokeWidth="1.5">
               <path d="M 0,150 L 120,250 L 300,220 L 320,400" />
@@ -270,8 +299,6 @@ export default function WhatIsLiFiPage() {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-6 z-10 flex flex-col items-center">
-
-            {/* Floating Badges - Symmetrical Left & Right layouts */}
             <div className="absolute left-6 top-6 hidden xl:flex bg-white/40 backdrop-blur-sm px-4 py-2 rounded-xl flex-col border border-slate-300/50 z-20 max-w-xs">
               <span className="text-[11px] font-sans text-slate-900 font-extrabold leading-tight whitespace-nowrap">LiFi sends giant blocks of data instantly</span>
               <div className="w-full h-[1px] bg-slate-300 my-1.5" />
@@ -285,18 +312,15 @@ export default function WhatIsLiFiPage() {
               <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-slate-700 mt-0.5 whitespace-nowrap">More Room For Data</span>
             </div>
 
-            {/* Header Block */}
             <div className="text-center max-w-4xl mx-auto mb-16 relative z-20 w-full">
               <div className="px-8 py-3 inline-block max-w-full bg-white/40 backdrop-blur-md border border-slate-300/30 rounded-md shadow-xs">
-                {/* Applied matching image text gradient here */}
                 <h2 className="text-4xl md:text-6xl font-black tracking-tight font-sans bg-gradient-to-r from-[var(--lumen-navy)] to-[var(--lumen-cyan)] bg-clip-text text-transparent drop-shadow-sm">
                   Why LiFi Is Awesome
                 </h2>
               </div>
             </div>
-            {/* PERFECTLY SYMMETRICAL 2x2 / 1x1 MATRIX */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl z-20">
 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl z-20">
               {/* Card 1: Speed */}
               <div className="relative rounded-2xl bg-white/60 backdrop-blur-md border border-slate-300/50 border-t-4 border-t-amber-500 p-6 flex flex-col justify-between shadow-md transition-transform duration-200 hover:scale-[1.01]">
                 <div>
@@ -309,7 +333,6 @@ export default function WhatIsLiFiPage() {
                   <h3 className="text-lg font-extrabold mb-2 tracking-tight text-slate-900">Crazy High Speeds</h3>
                   <p className="text-sm text-slate-700 leading-relaxed font-medium">This tech blasts super fast internet straight to your devices using light. It easily beats old limits to give you amazing downloading power.</p>
                 </div>
-
               </div>
 
               {/* Card 2: No Congestion */}
@@ -352,157 +375,289 @@ export default function WhatIsLiFiPage() {
                   <h3 className="text-lg font-extrabold mb-2 tracking-tight text-slate-900">Zero Lag Time</h3>
                   <p className="text-sm text-slate-700 leading-relaxed font-medium">LiFi reacts up to three times faster than standard Wi-Fi. This means zero lag time, making web games, streaming, and videos react smoothly without freezing.</p>
                 </div>
-
               </div>
-
             </div>
           </div>
         </section>
 
 
-
-
-        {/* 5. GLOBAL STANDARDS ALLIANCE SECTOR (Tabbed Card Surface Design Match) */}
-        <section className="py-24 bg-[#EBF3FA] dark:bg-[#070D19] border-t border-b border-[var(--lumen-border)] overflow-hidden relative">
-          {/* Soft Blueprint Micro-Radial Vignette Layer matching image_d582c6.jpg */}
-          <div className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-20"
-            style={{ background: 'radial-gradient(circle at 50% 60%, rgba(26,110,191,0.12) 0%, transparent 70%)' }} />
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-            {/* Section Header */}
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold mb-4 bg-[#0D2240] text-white border border-[#1E293B] uppercase tracking-wider">
-                <Globe size={11} className="text-cyan-400" /> Alliance Parameters
-              </div>
-              <h2 className="text-4xl font-black tracking-tight text-[#0D2240] dark:text-white mb-3">
-                The LiFi Ecosystem
-              </h2>
-              <p className="text-sm text-[#475569] dark:text-slate-400 font-medium max-w-xl mx-auto leading-relaxed">
-                Developing global connectivity paths and industry-wide standard integration matrices.
+        {/* 5. GLOBAL STANDARDS ALLIANCE SECTOR */}
+        <div className="w-full bg-[#030712] text-slate-100 rounded-3xl border border-[var(--lumen-border)] shadow-2xl overflow-hidden p-6 sm:p-8">
+          <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-800 pb-6 mb-6 gap-4">
+            <div>
+              <h3 className="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">
+                LIVE NETWORK SIMULATOR EXPERIMENT
+              </h3>
+              <p className="text-xs text-slate-400 mt-1">
+                Toggle channels to visualize the dynamic physical differences between spectrum bounds.
               </p>
             </div>
 
-            {/* Dynamic Schematic Map Container */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pt-6">
+            {/* Control Center Switch Module */}
+            <div className="flex items-center gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-800">
+              <button
+                onClick={() => { setMode('wifi'); setHackStatus('idle'); }}
+                className={`px-4 py-2 rounded-lg font-bold text-xs font-mono tracking-wider transition-all ${mode === 'wifi' ? 'bg-red-500/20 text-red-400 border border-red-500/30 shadow-md shadow-red-500/5' : 'text-slate-400 hover:text-slate-200'}`}
+              >
+                WiFi Radio Waves
+              </button>
+              <button
+                onClick={() => { setMode('lifi'); setHackStatus('idle'); }}
+                className={`px-4 py-2 rounded-lg font-bold text-xs font-mono tracking-wider transition-all ${mode === 'lifi' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 shadow-md shadow-cyan-500/5' : 'text-slate-400 hover:text-slate-200'}`}
+              >
+                LiFi Optical Light
+              </button>
+            </div>
+          </div>
 
-              {/* Left Wing Component: Global Standard 802.11bb */}
-              <div className="lg:col-span-4 space-y-4 text-left lg:text-right flex flex-col lg:items-end order-1">
-                <div className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider bg-white dark:bg-slate-900 text-[#475569] dark:text-slate-400 w-fit border border-[#CBD5E1] dark:border-[#334155] shadow-sm">
-                  IEEE 802.11bb Task Group
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight text-[#0D2240] dark:text-white">
-                  Global Standard 802.11bb
-                </h3>
-                <p className="text-xs sm:text-sm text-[#475569] dark:text-slate-400 leading-relaxed font-medium">
-                  Spearheading updates to expand standard 802.11 definitions to natively govern optical mediums. Officially ratified as a fully standardized global framework for light communications.
-                </p>
-                <div className="pt-2">
-                  <Link href="/updates" className="text-xs font-mono font-bold uppercase text-[#1A6EBF] dark:text-cyan-400 hover:text-cyan-500 transition-colors inline-flex items-center gap-1.5 group">
-                    <span>View Updates</span>
-                    <ArrowRight size={12} className="transition-transform group-hover:translate-x-1 lg:group-hover:-translate-x-1 lg:rotate-180" />
-                  </Link>
-                </div>
+          {/* Simulation Environment Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Vector Stage Screen */}
+            <div className="lg:col-span-8 bg-slate-950/40 rounded-2xl border border-slate-900 relative overflow-hidden min-h-[380px]">
+
+              {/* Floating Contextual Diagnostics Map */}
+              <div className="absolute top-4 left-4 z-10 pointer-events-none flex flex-col gap-1.5">
+                <span className={`text-[10px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded border backdrop-blur-md ${mode === 'wifi' ? 'bg-red-950/60 border-red-900/40 text-red-400' : 'bg-cyan-950/60 border-cyan-900/40 text-cyan-400'}`}>
+                  SPECTRUM: {mode === 'wifi' ? 'Omnidirectional RF Leaking' : 'Localized Optical Cone'}
+                </span>
+                {mode === 'wifi' && (
+                  <span className="text-[9px] font-mono bg-amber-950/50 border border-amber-900/40 text-amber-400 px-2 py-0.5 rounded animate-pulse">
+                    Congestion Strain: {userCount} Users Competing for Bandwidth
+                  </span>
+                )}
               </div>
 
-              {/* Center Blueprint Diagram Column */}
-              <div className="lg:col-span-4 relative flex items-center justify-center py-8 lg:py-4 order-2">
-                <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center">
+              {/* Core Vector Environment Drawing */}
+              <svg viewBox="0 0 800 420" className="w-full h-full select-none">
+                <defs>
+                  <filter id="sim-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                  <linearGradient id="sim-lamp-cone" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.4" />
+                    <stop offset="40%" stopColor="#22d3ee" stopOpacity="0.15" />
+                    <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
 
-                  {/* Circuit Vector Track Traces */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none scale-[1.02] text-[#0D2240]/15 dark:text-cyan-500/10" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    {/* Horizontal Core Link */}
-                    <path d="M45,100 L155,100" strokeWidth="2.5" />
-                    <path d="M45,96 L155,96" strokeWidth="1" />
-                    <path d="M45,104 L155,104" strokeWidth="1" />
-                    {/* Peripheral Topology Paths */}
-                    <path d="M72,100 L45,55 L100,25 L155,55 L128,100" />
-                    <path d="M72,100 L45,145 L100,175 L155,145 L128,100" />
-                    {/* Outward Infrastructure Nodes */}
-                    <path d="M100,25 L100,10" />
-                    <path d="M100,175 L100,190" />
-                    <path d="M45,55 L25,45" />
-                    <path d="M155,55 L175,45" />
-                  </svg>
+                {/* Infrastructure Blueprint Lines */}
+                <g opacity="0.08">
+                  <path d="M0,50 L800,50 M0,100 L800,100 M0,150 L800,150 M0,200 L800,200 M0,250 L800,250 M0,300 L800,300 M0,350 L800,350" stroke="#94a3b8" strokeWidth="1" />
+                  <path d="M100,0 L100,420 M200,0 L200,420 M300,0 L300,420 M400,0 L400,420 M500,0 L500,420 M600,0 L600,420 M700,0 L700,420" stroke="#94a3b8" strokeWidth="1" />
+                </g>
 
-                  {/* Node A: Global Standard Isometric Rhombus Block */}
-                  <div className="absolute left-1 sm:left-2 w-28 h-28 bg-white dark:bg-[#10192E] border-[3px] border-[#0D2240] dark:border-cyan-500/80 rounded-2xl rotate-45 flex items-center justify-center shadow-[8px_16px_32px_rgba(13,34,64,0.15)] hover:scale-105 transition-transform duration-300 group">
-                    <div className="-rotate-45 text-center p-2 flex flex-col items-center">
-                      <Cpu className="text-[#0D2240] dark:text-cyan-400 mb-1.5" size={20} />
-                      <span className="text-[10px] font-mono font-black leading-tight text-[#0D2240] dark:text-white uppercase tracking-tight">
-                        Global Standard<br />802.11bb
-                      </span>
-                    </div>
-                  </div>
+                {/* Structural Boundary Separation Isolation Wall */}
+                <g>
+                  <rect x="520" y="30" width="20" height="360" fill="#1e293b" rx="4" stroke="#334155" strokeWidth="1.5" />
+                  <text x="531" y="210" fill="#475569" fontSize="9" fontWeight="bold" textAnchor="middle" transform="rotate(90 531 210)" letterSpacing="1.5">
+                    OPAQUE ROOM SHIELD WALL
+                  </text>
+                </g>
 
-                  {/* Node B: Collaborative Center Isometric Rhombus Block */}
-                  <div className="absolute right-1 sm:right-2 w-28 h-28 bg-[#0D2240] dark:bg-[#1A365D] border-[3px] border-[#1A6EBF] dark:border-slate-600 rounded-2xl rotate-45 flex items-center justify-center shadow-[8px_16px_32px_rgba(13,34,64,0.25)] hover:scale-105 transition-transform duration-300 group">
-                    <div className="-rotate-45 text-center p-2 flex flex-col items-center text-white">
-                      <GitBranch className="text-cyan-400 mb-1.5 animate-pulse text-cyan-400 mb-1.5" size={20} />
-                      <span className="text-[10px] font-mono font-black leading-tight uppercase tracking-tight">
-                        Collaborative<br />Center
-                      </span>
-                    </div>
-                  </div>
+                {/* WiFi State Wave Propagation Modules */}
+                {mode === 'wifi' && (
+                  <g>
+                    {/* Central Wireless Transceiver Router */}
+                    <g transform="translate(180, 150)">
+                      <circle cx="0" cy="0" r="14" fill="#1e1b4b" stroke="#f43f5e" strokeWidth="2" />
+                      <path d="M-6,-3 Q0,-9 6,-3 M-10,-6 Q0,-16 10,-6 M-14,-9 Q0,-22 14,-9" fill="none" stroke="#f43f5e" strokeWidth="2" className="animate-pulse" />
+                      <circle cx="0" cy="0" r="3" fill="#f43f5e" />
+                    </g>
 
-                  {/* Satellite Peripheral Badges Mapping */}
-                  {/* Top: Research Node */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                    <div className="p-1.5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                      <Beaker size={13} className="text-[#0D2240] dark:text-cyan-400" />
-                    </div>
-                    <span className="text-[8px] font-mono font-bold text-slate-500 dark:text-slate-400 mt-1 tracking-wider">RESEARCH</span>
-                  </div>
+                    {/* Omnidirectional RF Leaking Visualization Loops */}
+                    <circle cx="180" cy="150" r="90" fill="none" stroke="#f43f5e" strokeWidth="1" strokeDasharray="4,6" opacity="0.3" className="origin-center animate-[spin_25s_linear_infinite]" />
+                    <circle cx="180" cy="150" r="230" fill="none" stroke="#f43f5e" strokeWidth="1" strokeDasharray="6,10" opacity="0.2" className="origin-center animate-[spin_40s_linear_infinite]" />
 
-                  {/* Bottom: Infrastructure Node */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                    <div className="p-1.5 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center">
-                      <Network size={13} className="text-[#0D2240] dark:text-cyan-400" />
-                    </div>
-                    <span className="text-[8px] font-mono font-bold text-slate-500 dark:text-slate-400 mt-1 tracking-wider">INFRASTRUCTURE</span>
-                  </div>
+                    {/* Scatter-packet Vector Matrix Flows */}
+                    {WIFI_PACKETS.map((p) => (
+                      <motion.circle
+                        key={p.id}
+                        cx={p.startX}
+                        cy={p.startY}
+                        r="2.5"
+                        fill={p.id % 3 === 0 ? '#fb7185' : p.id % 2 === 0 ? '#38bdf8' : '#fbbf24'}
+                        animate={{
+                          x: [0, p.tx * 0.4, p.tx * 0.8, p.tx],
+                          y: [0, p.ty * 0.4, p.ty * 0.8, p.ty],
+                          opacity: [0, 0.8, 0.8, 0]
+                        }}
+                        transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: "linear" }}
+                      />
+                    ))}
+                  </g>
+                )}
 
-                  {/* Top Left: Innovation Node */}
-                  <div className="absolute top-10 left-6 flex flex-col items-center">
-                    <Lightbulb size={12} className="text-slate-400 dark:text-slate-500" />
-                  </div>
+                {/* LiFi State Concentrated Signal Cones */}
+                {mode === 'lifi' && (
+                  <g>
+                    {/* Ceiling Downlink Optical Grid Luminaire Assembly */}
+                    <g transform="translate(260, 30)">
+                      <polygon points="-40,360 40,360 12,0 -12,0" fill="url(#sim-lamp-cone)" />
+                      <path d="M-15,0 L15,0 L12,8 L-12,8 Z" fill="#475569" />
+                      <circle cx="0" cy="7" r="7" fill="#e2e8f0" filter="url(#sim-glow-cyan)" />
+                    </g>
 
-                  {/* Top Right: Innovation Node */}
-                  <div className="absolute top-10 right-6 flex flex-col items-center">
-                    <Sparkles size={12} className="text-slate-400 dark:text-slate-500" />
-                  </div>
+                    {/* Secondary Secondary User Array */}
+                    <g transform="translate(110, 30)">
+                      <polygon points="-25,250 25,250 8,0 -8,0" fill="url(#sim-lamp-cone)" opacity="0.4" />
+                      <circle cx="0" cy="5" r="5" fill="#e2e8f0" opacity="0.7" />
+                    </g>
 
-                </div>
-              </div>
+                    {/* Controlled Non-Interfering Data Paths */}
+                    {[110, 245, 275].map((posX, tIdx) => (
+                      Array.from({ length: 3 }).map((_, dIdx) => (
+                        <motion.circle
+                          key={`lf-dot-${posX}-${dIdx}`}
+                          cx={posX}
+                          cy={35}
+                          r="3"
+                          fill="#22d3ee"
+                          filter="url(#sim-glow-cyan)"
+                          animate={{
+                            y: [35, posX === 110 ? 260 : 360],
+                            opacity: [0, 1, 1, 0]
+                          }}
+                          transition={{ duration: 1.3, repeat: Infinity, delay: dIdx * 0.4 + tIdx * 0.2, ease: "linear" }}
+                        />
+                      ))
+                    ))}
+                  </g>
+                )}
 
-              {/* Right Wing Component: Light Communications Alliance */}
-              <div className="lg:col-span-4 space-y-4 text-left flex flex-col items-start order-3">
-                <div className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider bg-white dark:bg-slate-900 text-[#475569] dark:text-slate-400 w-fit border border-[#CBD5E1] dark:border-[#334155] shadow-sm">
-                  Founding Member Paradigm
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight text-[#0D2240] dark:text-white">
-                  Light Communications Alliance
-                </h3>
-                <p className="text-xs sm:text-sm text-[#475569] dark:text-slate-400 leading-relaxed font-medium">
-                  Uniting research collectives, infrastructure teams, and industry innovators to fast-track production pathways for light-wave networks internationally.
-                </p>
-                <div className="pt-2">
-                  <Link href="/updates" className="text-xs font-mono font-bold uppercase text-[#1A6EBF] dark:text-cyan-400 hover:text-cyan-500 transition-colors inline-flex items-center gap-1.5 group">
-                    <span>View Updates</span>
-                    <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
+                {/* Internal Office Consumer Terminals */}
+                {/* Workspace Desk Machine Setup */}
+                <g transform="translate(250, 350)">
+                  <rect x="-22" y="-18" width="44" height="28" rx="3" fill={mode === 'lifi' ? '#0f172a' : '#1e293b'} stroke={mode === 'lifi' ? '#22d3ee' : '#64748b'} strokeWidth="2" filter={mode === 'lifi' ? 'url(#sim-glow-cyan)' : ''} />
+                  <rect x="-18" y="-14" width="36" height="20" fill="#020617" />
+                  <path d="M-5,10 L5,10 L8,18 L-8,18 Z" fill="#475569" />
+                </g>
 
+                {/* Portable Mobile Slate Setup */}
+                <g transform="translate(100, 250)">
+                  <rect x="-12" y="-18" width="24" height="36" rx="4" fill={mode === 'lifi' ? '#0f172a' : '#1e293b'} stroke={mode === 'lifi' ? '#22d3ee' : '#64748b'} strokeWidth="1.5" transform="rotate(90)" filter={mode === 'lifi' ? 'url(#sim-glow-cyan)' : ''} />
+                  <rect x="-14" y="-9" width="28" height="18" fill="#020617" />
+                </g>
+
+                {/* Threat Actor Perimeter Station Array */}
+                <g transform="translate(680, 230)">
+                  <circle cx="0" cy="-22" r="10" fill="#334155" stroke={hackStatus === 'success' ? '#f43f5e' : hackStatus === 'blocked' ? '#10b981' : '#475569'} strokeWidth="2" />
+                  <path d="M-16,12 L16,12 L12,-10 L-12,-10 Z" fill="#1e293b" stroke={hackStatus === 'success' ? '#f43f5e' : hackStatus === 'blocked' ? '#10b981' : '#475569'} strokeWidth="2" />
+                  <rect x="-14" y="3" width="28" height="10" fill="#020617" stroke="#64748b" />
+
+                  {/* Hack State Interaction Badges */}
+                  {hackStatus === 'hacking' && (
+                    <path d="M-35,-5 Q-15,-20 0,-5 T35,-5" fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="3,3" className="animate-bounce" />
+                  )}
+
+                  <AnimatePresence>
+                    {hackStatus === 'success' && (
+                      <g>
+                        <rect x="-45" y="-55" width="90" height="18" rx="4" fill="#991b1b" />
+                        <text x="0" y="-43" fill="#fecdd3" fontSize="8" fontWeight="bold" textAnchor="middle">BREACH VIA WALLS</text>
+                        <path d="M0,15 L-120,5" fill="none" stroke="#f43f5e" strokeWidth="1" strokeDasharray="2,2" />
+                      </g>
+                    )}
+                    {hackStatus === 'blocked' && (
+                      <g>
+                        <rect x="-50" y="-55" width="100" height="18" rx="4" fill="#065f46" />
+                        <text x="0" y="-43" fill="#d1fae5" fontSize="8" fontWeight="bold" textAnchor="middle">BLOCKED AT SHIELD</text>
+                      </g>
+                    )}
+                  </AnimatePresence>
+                  <text x="0" y="32" fill="#94a3b8" fontSize="9" fontWeight="bold" textAnchor="middle">Outside Boundary</text>
+                </g>
+              </svg>
             </div>
 
+            {/* Live Real-Time Telemetry Metrics Console Panel */}
+            <div className="lg:col-span-4 flex flex-col justify-between gap-4">
+              <div className="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-4 font-mono">
+                <div className="text-[10px] tracking-wider text-slate-400 font-bold uppercase">
+                  Live Telemetry Output
+                </div>
+
+                {/* Speed Track */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-400">Data Volatility Speed</span>
+                    <span className={`font-bold ${mode === 'lifi' ? 'text-cyan-400' : 'text-red-400'}`}>
+                      {currentMetrics.speed}% ({mode === 'lifi' ? '100 Gbps+' : `${currentMetrics.speed * 4} Mbps`})
+                    </span>
+                  </div>
+                  <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                    <motion.div
+                      className={`h-full rounded-full ${mode === 'lifi' ? 'bg-gradient-to-r from-cyan-500 to-teal-400' : 'bg-red-500'}`}
+                      animate={{ width: `${currentMetrics.speed}%` }}
+                      transition={{ type: "spring", stiffness: 70 }}
+                    />
+                  </div>
+                </div>
+
+                {/* Security Track */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-400">Physical Isolation</span>
+                    <span className={`font-bold ${mode === 'lifi' ? 'text-emerald-400' : 'text-red-400'}`}>
+                      {currentMetrics.security}% Containment
+                    </span>
+                  </div>
+                  <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                    <motion.div
+                      className={`h-full rounded-full ${mode === 'lifi' ? 'bg-emerald-500' : 'bg-red-600'}`}
+                      animate={{ width: `${currentMetrics.security}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Congestion Interference Track */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-400">Cross-Room Bleeding</span>
+                    <span className={`font-bold ${currentMetrics.interference > 40 ? 'text-red-400' : 'text-emerald-400'}`}>
+                      {currentMetrics.interference}% Noise
+                    </span>
+                  </div>
+                  <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                    <motion.div
+                      className={`h-full rounded-full ${currentMetrics.interference > 40 ? 'bg-red-500' : 'bg-emerald-500'}`}
+                      animate={{ width: `${currentMetrics.interference}%` }}
+                    />
+                  </div>
+                </div>
+
+                <div className="p-2.5 bg-slate-950 rounded-lg border border-slate-800 text-center">
+                  <p className="text-[10px] text-slate-500 uppercase">Operational Vector</p>
+                  <p className={`text-xs font-bold mt-0.5 ${mode === 'lifi' ? 'text-cyan-400' : 'text-amber-500'}`}>
+                    {currentMetrics.status}
+                  </p>
+                </div>
+              </div>
+
+              {/* Active Penetration Signal Exploit Controller Tool */}
+              <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 space-y-2.5">
+                <div className="text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                  Threat Matrix Trigger
+                </div>
+                <p className="text-[11px] text-slate-400 leading-normal">
+                  Launch an immediate perimeter attack loop to test structural network containment bounds.
+                </p>
+                <button
+                  onClick={triggerHackChallenge}
+                  disabled={hackStatus === 'hacking'}
+                  className={`w-full py-2.5 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all border ${hackStatus === 'hacking'
+                    ? 'bg-amber-600/10 text-amber-400 border-amber-500/20 cursor-not-allowed'
+                    : 'bg-slate-950 text-slate-200 border-slate-800 hover:bg-slate-900 hover:border-slate-700 active:scale-[0.99]'
+                    }`}
+                >
+                  {hackStatus === 'hacking' ? 'Intercepting Vector Loops...' : 'Simulate Perimeter Attack'}
+                </button>
+              </div>
+            </div>
           </div>
-        </section>
-
-
-        {/* 6. CALL TO ACTION: PREMIUM NEWSLETTER UPGRADE (Matches FinalCTASection Premium Dark Theme Accent Card) */}
+        </div>
+        {/* 6. CALL TO ACTION: PREMIUM NEWSLETTER UPGRADE */}
         <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-          {/* Dynamic Ambient Background Light Cones */}
           <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill />
             <div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
@@ -521,10 +676,7 @@ export default function WhatIsLiFiPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              {/* High-Contrast Premium Dark Accent Terminal Card */}
               <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden bg-[#0D2240] text-white shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
-
-                {/* Architectural Decorative Grid Matrix Mapping */}
                 <div
                   className="absolute inset-0 pointer-events-none opacity-25 mix-blend-overlay transition-transform duration-1000 group-hover:scale-105"
                   style={{
@@ -533,14 +685,12 @@ export default function WhatIsLiFiPage() {
                   }}
                 />
 
-                {/* Cybernetic Subtle Inner Glow */}
                 <div
                   className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
                   style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.18) 0%, transparent 50%)' }}
                 />
 
                 <div className="relative z-10 text-center max-w-3xl mx-auto">
-                  {/* High-Impact Trendy Typography Header */}
                   <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
                     Step out of the radio age.<br />
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C2C7] via-[#0FB89A] to-[#00C2C7] bg-[size:200%_auto] animate-pulse" style={{ animationDuration: '4s' }}>
@@ -548,12 +698,10 @@ export default function WhatIsLiFiPage() {
                     </span>
                   </h2>
 
-                  {/* Premium Medium Readability Paragraph */}
                   <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-12 max-w-xl mx-auto font-medium leading-relaxed">
                     Upgrade your environment's footprint to the ultimate benchmark in light wave hardware wireless throughput. Secure, radiant, instantaneous.
                   </p>
 
-                  {/* Action Trigger Sandbox Hub */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
                     <Link
                       href="/products"
@@ -574,7 +722,6 @@ export default function WhatIsLiFiPage() {
                     </Link>
                   </div>
 
-                  {/* Mini Social/Feature Proof Metrics Grid to accelerate conversion */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
                     {[
                       { icon: Sparkles, label: '10 Gbps Active Ready' },
@@ -590,7 +737,6 @@ export default function WhatIsLiFiPage() {
                       );
                     })}
                   </div>
-
                 </div>
               </div>
             </motion.div>

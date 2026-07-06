@@ -117,3 +117,69 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--lumen-blue);
 }
+
+/* --- Conic Border Flow Engine --- */
+.border-flow {
+  position: absolute;
+  background: conic-gradient(from 0deg,
+      transparent,
+      #22d3ee,
+      #8b5cf6,
+      #22d3ee,
+      transparent);
+  animation:
+    borderRotate 6s linear infinite,
+    glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.35);
+  }
+}
+
+/* --- SVG Connection Paths --- */
+svg path {
+  fill: none;
+  stroke: url(#flowGradient);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 12;
+  animation: dashFlow 2s linear infinite;
+  filter:
+    drop-shadow(0 0 4px #22d3ee) drop-shadow(0 0 10px #22d3ee);
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+/* --- Premium Radial Background Glow Injection --- */
+.premium-glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%,
+      rgba(34, 211, 238, 0.08),
+      transparent 70%);
+  pointer-events: none;
+}

@@ -10,7 +10,7 @@ import roomBg from '../../public/images/hero/room-bg.jpg';
 import {
   ArrowRight, CheckCircle, Zap, Shield, Lock, Wifi, WifiOff,
   Monitor, Gamepad2, Cpu, Home, Building2, Factory, GraduationCap,
-  Stethoscope, ChevronRight, Star, Sparkles, Eye, ShieldCheck, Activity, Sliders, Flame
+  Stethoscope, ChevronRight, Star, Sparkles, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb
 } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -154,10 +154,32 @@ function HeroSection() {
    SECTION 2 — SPEED COMPARISON MATRIX
 ───────────────────────────────────────────────────────────── */
 function SpeedTableSection() {
+
   const rows = [
-    { type: 'Standard Home Wi-Fi', speed: '100 Mbps', time: '2.2 Hours', note: "Grab some popcorn — you will be waiting all day", highlight: false, emoji: '🐢' },
-    { type: 'High-Speed Fiber Wi-Fi', speed: '1 Gbps', time: '13 Minutes', note: 'Faster, but still takes too long', highlight: false, emoji: '🚗' },
-    { type: 'Lumen LiFi Systems', speed: '10 Gbps', time: '80 Seconds', note: 'Done before you can blink your eyes', highlight: true, emoji: '⚡' },
+    {
+      type: "Old Wi-Fi",
+      speed: "20 Mbps",
+      time: "45 mins",
+      note: "Unstable lag",
+      highlight: false,
+      icon: Wifi // Replaces 📶
+    },
+    {
+      type: "Standard Fiber",
+      speed: "100 Mbps",
+      time: "9 mins",
+      note: "Average",
+      highlight: false,
+      icon: Cpu // Replaces 🌐
+    },
+    {
+      type: "Lumen LiFi",
+      speed: "1 Gbps+",
+      time: " Instant",
+      note: "Pure Light Stream",
+      highlight: true,
+      icon: Lightbulb // Replaces 🚀 or 💡
+    }
   ];
 
   return (
@@ -183,36 +205,47 @@ function SpeedTableSection() {
             <div className="text-center">Download Time</div>
             <div className="text-center">Verdict</div>
           </div>
-          {rows.map((row, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="grid grid-cols-4 px-6 py-5 items-center border-t border-[var(--lumen-border)] bg-[var(--lumen-surface)]"
-              style={{
-                background: row.highlight
-                  ? 'linear-gradient(135deg, rgba(0,194,199,0.08) 0%, rgba(15,184,154,0.08) 100%)'
-                  : undefined,
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-xl">{row.emoji}</span>
-                <div className="text-sm font-bold text-[var(--lumen-navy)]" style={{ color: row.highlight ? 'var(--lumen-cyan)' : undefined }}>
-                  {row.type}
+          {rows.map((row, i) => {
+            // Dynamically resolving a rich, clean stroke icon based on row meta instead of raw emojis
+            const IconComponent = row.icon || Globe;
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="grid grid-cols-4 px-6 py-5 items-center border-t border-[var(--lumen-border)] bg-[var(--lumen-surface)]"
+                style={{
+                  background: row.highlight
+                    ? 'linear-gradient(135deg, rgba(0,194,199,0.08) 0%, rgba(15,184,154,0.08) 100%)'
+                    : undefined,
+                }}
+              >
+                <div className="flex items-center gap-3">
+                  {/* Sober minimalist icon frame wrapper */}
+                  <div className={`p-1.5 rounded-lg border transition-colors ${row.highlight
+                    ? 'bg-[var(--lumen-cyan)]/10 border-[var(--lumen-cyan)]/20 text-[var(--lumen-cyan)]'
+                    : 'bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500'
+                    }`}>
+                    <IconComponent size={16} strokeWidth={2} />
+                  </div>
+                  <div className="text-sm font-bold text-[var(--lumen-navy)]" style={{ color: row.highlight ? 'var(--lumen-cyan)' : undefined }}>
+                    {row.type}
+                  </div>
                 </div>
-              </div>
-              <div className="text-center font-mono font-bold text-sm text-[var(--lumen-muted)]" style={{ color: row.highlight ? 'var(--lumen-blue)' : undefined }}>
-                {row.speed}
-              </div>
-              <div className="text-center">
-                <span className="font-mono font-black text-base text-[var(--lumen-navy)]" style={{ color: row.highlight ? 'var(--lumen-cyan)' : undefined }}>
-                  {row.time}
-                </span>
-              </div>
-              <div className="text-center text-xs font-medium" style={{ color: row.highlight ? 'var(--lumen-teal)' : 'var(--lumen-muted)' }}>
-                {row.highlight && <span className="font-bold">✓ </span>}{row.note}
-              </div>
-            </motion.div>
-          ))}
+                <div className="text-center font-mono font-bold text-sm text-[var(--lumen-muted)]" style={{ color: row.highlight ? 'var(--lumen-blue)' : undefined }}>
+                  {row.speed}
+                </div>
+                <div className="text-center">
+                  <span className="font-mono font-black text-base text-[var(--lumen-navy)]" style={{ color: row.highlight ? 'var(--lumen-cyan)' : undefined }}>
+                    {row.time}
+                  </span>
+                </div>
+                <div className="text-center text-xs font-medium" style={{ color: row.highlight ? 'var(--lumen-teal)' : 'var(--lumen-muted)' }}>
+                  {row.highlight && <span className="font-bold">✓ </span>}{row.note}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -225,28 +258,24 @@ function SpeedTableSection() {
 function ConsciousHomeSection() {
   const conceptualPoints = [
     {
-      icon: '🌅',
       lucide: Activity,
       title: 'Automatic Smart Lighting',
       sub: 'No More Light Switches',
       desc: "You never have to look for a light switch again. As you walk into a room, the lights turn on automatically at just the right brightness. Your smart devices connect instantly using invisible light beams without any setup. The house just knows what you want.",
     },
     {
-      icon: '🥽',
       lucide: Eye,
       title: 'The 3D Virtual Living Room',
       sub: 'TV Screens are Old News',
       desc: "The TV is old news. When you put on a headset, the light from the ceiling sends ultra-fast internet straight to your eyes. There is zero lag or buffering. Games and videos appear right in front of you in 3D on your living room floor.",
     },
     {
-      icon: '🔒',
       lucide: ShieldCheck,
       title: 'The Ultimate Safe Space',
       sub: 'Private Light Signal',
       desc: "Wi-Fi signals travel through walls, which means hackers can steal your data. But light cannot go through walls. Since your internet signal stays trapped inside the room, your private information is completely safe from the outside world.",
     },
     {
-      icon: '🎙️',
       lucide: Zap,
       title: 'Instant Conversations',
       sub: 'No More Waiting Around',
@@ -266,129 +295,218 @@ function ConsciousHomeSection() {
 
   return (
     <section
-      className="py-24 text-slate-300 relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[1000px] flex flex-col justify-between"
+      className="py-20 text-slate-300 relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[900px] flex flex-col justify-center"
       id="conscious-home"
       style={{ backgroundImage: "url('/images/hero/bg3.png')" }}
     >
-      <div className="absolute inset-0 pointer-events-none z-0" />
+      {/* Dark section-wide background overlay for text readability */}
+      {/* --- PARENT CONTAINER BLOCK START --- */}
+      <section
+        className="py-24 text-slate-300 relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[1000px] flex flex-col justify-center bg-[#030712]"
+        id="conscious-home"
+        style={{ backgroundImage: "url('/images/hero/bg3.png')" }}
+      >
+        {/* High density section deep back shadow overlay veil */}
+        <div className="absolute inset-0 bg-[#020617]/75 pointer-events-none z-0" />
 
-      <div className="w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col justify-between h-full flex-grow">
+        <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* --- HEADER CHROME CARD --- */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="w-full max-w-3xl mx-auto bg-[#0B1224]/70 backdrop-blur-xl border border-slate-800/80 p-8 sm:p-10 rounded-2xl text-center shadow-2xl relative z-20"
-        >
-          <div className="inline-flex items-center gap-2 px-3 rounded-full text-[10px] font-mono font-bold mb-4 bg-slate-900/60 border border-slate-800/80 text-cyan-400 tracking-wider">
-            <Sparkles size={10} className="animate-spin text-cyan-400" style={{ animationDuration: '4s' }} />
-            THE SMART HOME
-          </div>
+          {/* --- UNIFIED CONTAINER TO MATCH SOURCE & DESTINATION COORDINATES --- */}
+          <div className="relative w-full">
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 text-white leading-tight">
-            Welcome to the <span className="text-cyan-400 bg-clip-text">“Smart Home”</span> Powered by Lumen LiFi.
-          </h2>
+            {/* --- HEADER CHROME CARD WITH MOTION GLOW BORDER --- */}
+            <div id="main-header-glow-card" className="w-full max-w-3xl mx-auto p-[2px] rounded-2xl relative z-20 mb-20 bg-[length:200%_200%] bg-gradient-to-r from-cyan-400 via-violet-600 to-cyan-400 animate-shimmer shadow-[0_0_30px_rgba(34,211,238,0.2)]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="w-full bg-[#050b14]/95 backdrop-blur-xl p-8 rounded-[14px] text-center"
+              >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 text-white leading-tight">
+                  Welcome to the <span className="text-cyan-400">“Conscious Home”</span> Powered by Lumen LiFi.
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                  When you use light instead of slow Wi-Fi, your house feels alive. You do not need annoying apps or buttons. Everything connects instantly and perfectly.
+                </p>
+              </motion.div>
+            </div>
 
-          <p className="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-4">
-            When you use light instead of slow Wi-Fi, your house feels alive. You do not need annoying apps or buttons. Everything connects instantly and perfectly.
-          </p>
+            {/* --- SVG NETWORK DATA FLOW PATHWAY CONNECTION SYSTEM --- */}
+            <svg className="absolute inset-0 pointer-events-none hidden lg:block z-10 w-full h-full">
+              <defs>
+                <linearGradient id="flowGradient">
+                  <stop offset="0%" stopColor="#22d3ee" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#22d3ee" />
+                </linearGradient>
+              </defs>
 
-          <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400/90">
-            THIS IS WHAT IT FEELS LIKE TO LIVE WITH LIGHT-SPEED INTERNET.
-          </p>
-        </motion.div>
+              <path id="path1" d="M640 120 C600 220 420 250 200 360" />
+              <path id="path2" d="M640 120 C620 220 540 250 470 360" />
+              <path id="path3" d="M640 120 C670 220 760 250 820 360" />
+              <path id="path4" d="M640 120 C730 220 980 250 1090 360" />
 
-        {/* --- INTERACTIVE SPACE MATRIX --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-6 items-center mt-16 relative w-full">
+              {/* Path 1 Energy Particles */}
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path1" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="0.5s" repeatCount="indefinite"><mpath href="#path1" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1s" repeatCount="indefinite"><mpath href="#path1" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1.5s" repeatCount="indefinite"><mpath href="#path1" /></animateMotion></circle>
 
-          {/* LEFT AXIS */}
-          <div className="lg:col-span-4 flex flex-col gap-y-6">
-            {conceptualPoints.slice(0, 2).map((item, idx) => {
-              const isActive = activeIndex === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`text-left p-6 transition-all duration-300 relative overflow-hidden border backdrop-blur-md flex flex-col justify-between min-h-[220px] shadow-xl ${isActive
-                    ? 'bg-[#0B1224]/90 border-cyan-500/50 rounded-xl ring-1 ring-cyan-500/20'
-                    : 'bg-[#0B1224]/40 border-slate-800/80 rounded-xl opacity-75 hover:opacity-100 hover:bg-[#0B1224]/60'
-                    }`}
-                >
-                  <div className="space-y-3 w-full">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-slate-500 font-bold tracking-widest uppercase">
-                        {item.sub}
-                      </span>
-                      {isActive && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
-                      )}
+              {/* Path 2 Energy Particles */}
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path2" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="0.5s" repeatCount="indefinite"><mpath href="#path2" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1s" repeatCount="indefinite"><mpath href="#path2" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1.5s" repeatCount="indefinite"><mpath href="#path2" /></animateMotion></circle>
+
+              {/* Path 3 Energy Particles */}
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path3" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="0.5s" repeatCount="indefinite"><mpath href="#path3" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1s" repeatCount="indefinite"><mpath href="#path3" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1.5s" repeatCount="indefinite"><mpath href="#path3" /></animateMotion></circle>
+
+              {/* Path 4 Energy Particles */}
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path4" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="0.5s" repeatCount="indefinite"><mpath href="#path4" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1s" repeatCount="indefinite"><mpath href="#path4" /></animateMotion></circle>
+              <circle r="4" fill="#22d3ee"><animateMotion dur="2s" begin="1.5s" repeatCount="indefinite"><mpath href="#path4" /></animateMotion></circle>
+            </svg>
+
+            {/* --- ORGANIC CONCEPT GRAPH MATRIX GRID STAGE --- */}
+            <div className="space-y-8 relative w-full z-20">
+
+              {/* ── TIER 1: TOP 4 PRIMARY GEOMETRIC SHAPES ROW (FIXED STRUCTURES) ── */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+                {conceptualPoints.slice(0, 4).map((item, idx) => {
+                  const isActive = activeIndex === idx;
+                  const IconComponent = item.icon;
+
+                  const premiumShapes = [
+                    { borderRadius: "20px 80px 20px 80px" },
+                    { clipPath: "polygon(0 12%,12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%)" },
+                    { clipPath: "polygon(0 12%,12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%)" },
+                    { borderRadius: "80px 20px 80px 20px" },
+                    { borderRadius: "80px 80px 25px 25px" },
+                    { borderRadius: "25px 25px 80px 80px" },
+                    { borderRadius: "55% 45% 50% 50%" },
+                    { borderRadius: "50% 30% 70% 40%" }
+                  ];
+                  const shapeStyle = premiumShapes[idx];
+
+                  return (
+                    <div key={idx} className="relative w-full group">
+                      <div
+                        className="relative p-[2px] overflow-hidden transition-all duration-300 w-full"
+                        style={{
+                          ...shapeStyle,
+                          background: 'linear-gradient(90deg, #22d3ee, #8b5cf6, #22d3ee)',
+                          transform: "none"
+                        }}
+                      >
+                        {/* Flow Animation Inner Mask */}
+                        <div className="absolute inset-0 rounded-[inherit] overflow-hidden">
+                          <div className="absolute inset-[-150%] border-flow" />
+                        </div>
+
+                        <button
+                          onClick={() => setActiveIndex(idx)}
+                          className={`text-left p-7 w-full h-full min-h-[250px] relative z-10 flex flex-col justify-between transition-colors premium-glow-btn ${isActive ? 'bg-[#060c18]/95' : 'bg-[#08111f] hover:bg-[#070d1a]'
+                            }`}
+                          style={shapeStyle}
+                        >
+                          <div className="w-full space-y-3.5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[9px] font-mono text-slate-500 font-bold tracking-widest uppercase">{item.sub}</span>
+                              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee] animate-pulse" />
+                            </div>
+                            <div className="p-2 w-fit rounded-lg border bg-[#081726] border-cyan-500/30 text-cyan-300 transition-colors">
+                              {IconComponent && <IconComponent className="w-4.5 h-4.5 stroke-[1.5]" />}
+                            </div>
+                            <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
+                          </div>
+                          <p className="text-[11px] text-slate-400 leading-relaxed font-light font-sans mt-3">{item.desc}</p>
+                        </button>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2 group-hover:text-cyan-400 transition-colors">
-                      <span className="text-2xl filter drop-shadow-sm">{item.icon}</span>
-                      {item.title}
-                    </h3>
+              {/* ── TIER 2: BOTTOM 3 FLUID ORGANIC SHAPES ROW ── */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto pt-2 items-center">
+                {conceptualPoints.slice(4, 7).map((item, idx) => {
+                  const globalIdx = idx + 4;
+                  const isActive = activeIndex === globalIdx;
+                  const IconComponent = item.icon;
+                  const isMainMiddleCard = idx === 1;
 
-                    <p className="text-[11px] text-slate-400 leading-relaxed font-light font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+                  const premiumShapes = [
+                    { borderRadius: "20px 80px 20px 80px" },
+                    { clipPath: "polygon(0 12%,12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%)" },
+                    { clipPath: "polygon(0 12%,12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%)" },
+                    { borderRadius: "80px 20px 80px 20px" },
+                    { borderRadius: "80px 80px 25px 25px" },
+                    { borderRadius: "25px 25px 80px 80px" },
+                    { borderRadius: "55% 45% 50% 50%" },
+                    { borderRadius: "50% 30% 70% 40%" }
+                  ];
+                  const shapeStyle = premiumShapes[globalIdx];
 
-          <div className="hidden lg:block lg:col-span-4 min-h-[400px] pointer-events-none" />
-
-          {/* RIGHT AXIS */}
-          <div className="lg:col-span-4 flex flex-col gap-y-6">
-            {conceptualPoints.slice(2, 4).map((item, idx) => {
-              const globalIdx = idx + 2;
-              const isActive = activeIndex === globalIdx;
-              return (
-                <button
-                  key={globalIdx}
-                  onClick={() => setActiveIndex(globalIdx)}
-                  className={`text-left p-6 transition-all duration-300 relative overflow-hidden border backdrop-blur-md flex flex-col justify-between min-h-[220px] shadow-xl ${isActive
-                    ? 'bg-[#0B1224]/90 border-cyan-500/50 rounded-xl ring-1 ring-cyan-500/20'
-                    : 'bg-[#0B1224]/40 border-slate-800/80 rounded-xl opacity-75 hover:opacity-100 hover:bg-[#0B1224]/60'
-                    }`}
-                >
-                  <div className="space-y-3 w-full">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-slate-500 font-bold tracking-widest uppercase">
-                        {item.sub}
-                      </span>
-                      {isActive && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+                  return (
+                    <div key={globalIdx} className="relative w-full group">
+                      {isMainMiddleCard && (
+                        <div className="absolute bottom-0 left-0 w-52 h-52 bg-cyan-400/10 blur-3xl rounded-full pointer-events-none -z-10 animate-pulse" />
                       )}
+
+                      <div
+                        className="relative p-[2px] overflow-hidden transition-all duration-300 w-full"
+                        style={{
+                          ...shapeStyle,
+                          background: 'linear-gradient(90deg, #22d3ee, #8b5cf6, #22d3ee)',
+                          transform: "none"
+                        }}
+                      >
+                        {/* Flow Animation Inner Mask */}
+                        <div className="absolute inset-0 rounded-[inherit] overflow-hidden">
+                          <div className="absolute inset-[-150%] border-flow" />
+                        </div>
+
+                        <button
+                          onClick={() => setActiveIndex(globalIdx)}
+                          className={`text-left p-7 w-full h-full min-h-[250px] relative z-10 flex flex-col justify-between transition-colors premium-glow-btn ${isActive ? 'bg-[#060c18]/95' : 'bg-[#08111f] hover:bg-[#070d1a]'
+                            }`}
+                          style={shapeStyle}
+                        >
+                          <div className="w-full space-y-3.5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[9px] font-mono text-slate-500 font-bold tracking-widest uppercase">{item.sub}</span>
+                              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee] animate-pulse" />
+                            </div>
+                            <div className="p-2 w-fit rounded-lg border bg-[#081726] border-cyan-500/30 text-cyan-300 transition-colors">
+                              {IconComponent && <IconComponent className="w-4.5 h-4.5 stroke-[1.5]" />}
+                            </div>
+                            <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
+                          </div>
+                          <p className="text-[11px] text-slate-400 leading-relaxed font-light font-sans mt-3">{item.desc}</p>
+                        </button>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2 group-hover:text-cyan-400 transition-colors">
-                      <span className="text-2xl filter drop-shadow-sm">{item.icon}</span>
-                      {item.title}
-                    </h3>
+            </div>
 
-                    <p className="text-[11px] text-slate-400 leading-relaxed font-light font-sans">
-                      {item.desc}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
+            {/* --- BOTTOM SECTION MATRIX RUNNING RUNWAY FOOTER TEXT --- */}
+            <div className="w-full text-center pt-16">
+              <p className="text-[10px] font-mono tracking-widest text-slate-600 uppercase">
+                THIS IS WHAT IT FEELS LIKE TO LIVE WITH LIGHT-SPEED INTERNET.
+              </p>
+            </div>
+
           </div>
-
         </div>
-
-        <div className="w-full text-center pt-16 pb-4">
-          <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase">
-            THIS IS WHAT IT FEELS LIKE TO LIVE WITH LIGHT-SPEED INTERNET.
-          </p>
-        </div>
-
-      </div>
+      </section>
     </section>
   );
 }
