@@ -154,16 +154,15 @@ html {
   }
 }
 
-/* --- SVG Connection Paths --- */
-svg path {
+/* --- SVG Connection Paths (Scoped) --- */
+.network-path {
   fill: none;
   stroke: url(#flowGradient);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-dasharray: 8 12;
   animation: dashFlow 2s linear infinite;
-  filter:
-    drop-shadow(0 0 4px #22d3ee) drop-shadow(0 0 10px #22d3ee);
+  filter: drop-shadow(0 0 4px #22d3ee) drop-shadow(0 0 10px #22d3ee);
 }
 
 @keyframes dashFlow {
@@ -171,6 +170,10 @@ svg path {
     stroke-dashoffset: -40;
   }
 }
+
+
+
+
 
 /* --- Premium Radial Background Glow Injection --- */
 .premium-glow-btn::before {

@@ -252,7 +252,7 @@ export default function ProductsPage() {
 
                 <div className="relative z-10 max-w-xl space-y-4">
                   <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.05]">
-                    Shop the Smart Home <br />
+                    Shop the Conscious Home <br />
                     <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent opacity-90">
                       Light Network
                     </span>
@@ -299,8 +299,8 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  <div className="lg:col-span-4 space-y-2.5">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                  <div className="lg:col-span-4 flex flex-col justify-between h-full gap-2">
                     {[
                       { id: 'ap', name: 'LumenFi RevF Access Point', sub: 'Main Waveform Balanced Controller' },
                       { id: 'antennas', name: 'Photonic Antennas (2)', sub: 'Ceiling Ambient Broadcast Nodes' },
@@ -312,8 +312,8 @@ export default function ProductsPage() {
                         key={item.id}
                         onClick={() => setActiveKitItem(item.id)}
                         className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between font-mono group ${activeKitItem === item.id
-                            ? 'bg-[#F2F8F5] border-green-300 shadow-lg shadow-green-100'
-                            : 'bg-transparent border-slate-300/60 hover:border-slate-400 hover:bg-slate-100'
+                          ? 'bg-[#F2F8F5] border-green-300 shadow-lg shadow-green-100'
+                          : 'bg-transparent border-slate-300/60 hover:border-slate-400 hover:bg-slate-100'
                           }`}
                       >
                         <div>
@@ -327,63 +327,15 @@ export default function ProductsPage() {
                     ))}
                   </div>
 
-                  <div className="lg:col-span-8 bg-[#F5FAF6] border border-slate-300 rounded-2xl p-6 sm:p-8 min-h-[240px] flex flex-col justify-between relative shadow-inner">
-                    <span className="absolute bottom-4 right-4 text-[9px] font-mono text-slate-500 uppercase tracking-widest">LUMENFI DATA LAYER LOG</span>
-
-                    <div className="space-y-4">
-                      <div className="p-3 bg-green-100/40 border border-green-300/60 rounded-xl w-max text-green-700">
-                        <Package size={18} />
-                      </div>
-
-                      <AnimatePresence mode="wait">
-                        {activeKitItem === 'ap' && (
-                          <motion.div key="ap" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-                            <h4 className="text-base font-bold text-slate-950 font-mono">LumenFi RevF Access Point Channel</h4>
-                            <p className="text-xs text-slate-700 leading-relaxed font-sans font-light">
-                              Acts as the primary data processing engine of your hardware system. It handles high-speed incoming network metrics from the entry source and converts them instantly into balanced optical commands.
-                            </p>
-                          </motion.div>
-                        )}
-                        {activeKitItem === 'antennas' && (
-                          <motion.div key="antennas" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-                            <h4 className="text-base font-bold text-slate-950 font-mono">Photonic Antennas Array</h4>
-                            <p className="text-xs text-slate-700 leading-relaxed font-sans font-light">
-                              Two dedicated high-efficiency ceiling or wall emitters. They change complex raw network commands into invisible high-frequency light pulses.
-                            </p>
-                          </motion.div>
-                        )}
-                        {activeKitItem === 'dongles' && (
-                          <motion.div key="dongles" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-                            <h4 className="text-base font-bold text-slate-950 font-mono">USB LiFi Client Dongles</h4>
-                            <p className="text-xs text-slate-700 leading-relaxed font-sans font-light">
-                              Two plug-and-play USB-C physical nodes built for client devices. They listen to high-speed downlight paths overhead, decoding optical pulses into immediate computer data frames.
-                            </p>
-                          </motion.div>
-                        )}
-                        {activeKitItem === 'poe' && (
-                          <motion.div key="poe" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-                            <h4 className="text-base font-bold text-slate-950 font-mono">Power over Ethernet Plus Injector Circuit</h4>
-                            <p className="text-xs text-slate-700 leading-relaxed font-sans font-light">
-                              A single-cable system component that simplifies room infrastructure. It injects electricity safely down standard data lines feeding your Access Point master controller.
-                            </p>
-                          </motion.div>
-                        )}
-                        {activeKitItem === 'router' && (
-                          <motion.div key="router" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-2">
-                            <h4 className="text-base font-bold text-slate-950 font-mono">LumenFi Router Box Assembly</h4>
-                            <p className="text-xs text-slate-700 leading-relaxed font-sans font-light">
-                              The durable metal intake hub and protection vault where incoming network connections arrive. It arranges structured physical cable lanes.
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-4 text-[10px] font-mono text-slate-600">
-                      <div>FREQUENCY: <span className="text-slate-800">OPTICAL LIGHTBAND</span></div>
-                      <div>BROADCAST ISOLATION: <span className="text-slate-800">PHYSICAL WALL BARRIER</span></div>
-                    </div>
+                  <div className="lg:col-span-8 bg-[#F5FAF6] border border-slate-300 rounded-2xl flex flex-col justify-between relative shadow-inner overflow-hidden">
+                    <img src="/images/products/Lumenfi Product overview.png" alt="Lumen Kit" className="w-full h-full object-cover" />
                   </div>
+                </div>
+
+                <div className="mt-6 w-full">
+                  <a href="https://rzp.io/rzp/vv8HFbfc" target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                    <ShoppingCart size={18} /> Buy Now
+                  </a>
                 </div>
 
                 <div className="pt-8 border-t border-slate-300 space-y-6">
@@ -411,7 +363,7 @@ export default function ProductsPage() {
               </div>
 
               {/* --- COMMERCE CATALOG MATRIX --- */}
-              <div className="space-y-8">
+              {/* <div className="space-y-8">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-slate-300">
                   <div className="space-y-1">
                     <h2 className="text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
@@ -497,7 +449,7 @@ export default function ProductsPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* --- SYSTEM VALIDATION FAQ BLOCK --- */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-10 border-t border-slate-300">
