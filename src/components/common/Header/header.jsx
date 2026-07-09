@@ -36,21 +36,21 @@ const navConfig = [
       { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
     ],
   },
-  {
-    label: 'Lumen Lab',
-    href: '/about',
-    icon: FlaskConical,
-    hoverClass: 'hover:text-[#0FB89A]',
-    iconColor: 'group-hover:text-[#0FB89A]',
-    activeIconColor: 'text-[#0FB89A]',
-    dropdown: [
-      { label: 'Technical Registry', desc: 'Deep-dives, whitepapers & specifications', href: '/insights', icon: FileText },
-      { label: 'Research Lab', desc: 'Academic validations & optical studies', href: '/insights#studies', icon: BookOpen },
-      { label: 'Core Engineering Team', desc: 'The architects behind the lightwave layer', href: '/about', icon: Users },
-      { label: 'Operational History', desc: 'Milestones in IEEE 802.11bb evolution', href: '/about#timeline', icon: Clock },
-      { label: 'Open Positions', desc: 'Shape next-generation communications infrastructure', href: '/about#careers', icon: Briefcase },
-    ],
-  },
+  // {
+  //   label: 'Lumen Lab',
+  //   href: '/about',
+  //   icon: FlaskConical,
+  //   hoverClass: 'hover:text-[#0FB89A]',
+  //   iconColor: 'group-hover:text-[#0FB89A]',
+  //   activeIconColor: 'text-[#0FB89A]',
+  //   dropdown: [
+  //     { label: 'Technical Registry', desc: 'Deep-dives, whitepapers & specifications', href: '/insights', icon: FileText },
+  //     { label: 'Research Lab', desc: 'Academic validations & optical studies', href: '/insights#studies', icon: BookOpen },
+  //     { label: 'Core Engineering Team', desc: 'The architects behind the lightwave layer', href: '/about', icon: Users },
+  //     { label: 'Operational History', desc: 'Milestones in IEEE 802.11bb evolution', href: '/about#timeline', icon: Clock },
+  //     { label: 'Open Positions', desc: 'Shape next-generation communications infrastructure', href: '/about#careers', icon: Briefcase },
+  //   ],
+  // },
 ];
 
 export default function Header() {
