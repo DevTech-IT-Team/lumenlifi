@@ -10,7 +10,7 @@ import roomBg from '../../public/images/hero/room-bg.jpg';
 import {
   ArrowRight, CheckCircle, Zap, Shield, Lock, Wifi, WifiOff,
   Monitor, Gamepad2, Cpu, Home, Building2, Factory, GraduationCap,
-  Stethoscope, ChevronRight, Star, Sparkles, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb, Globe
+  Stethoscope, ChevronRight, Star, Sparkles, Orbit, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb, Globe
 } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -76,7 +76,7 @@ function HeroSection() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
 
-        <div className="mb-12 flex justify-center w-full">
+        <div className="mb-0 flex justify-center w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={logoDisplay.link}
@@ -84,15 +84,15 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -6, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl h-20 sm:h-28 md:h-32 flex items-center justify-center px-4"
+              className="relative w-full max-w-3xl h-28 sm:h-32 md:h-36 lg:h-40 xl:h-[13rem] mx-auto flex items-end justify-center px-4"
             >
               <Image
                 src={logoDisplay.imgSrc}
                 alt="LumenFi Logo"
                 fill
-                className="object-contain object-center"
+                className="object-contain object-bottom"
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 700px, 850px"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 768px"
               />
             </motion.div>
           </AnimatePresence>
@@ -185,202 +185,223 @@ function SpeedTableSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 bg-slate-950 text-white" id="speed">
+    <section className="relative overflow-hidden py-16 bg-[#071B34] text-white" id="speed">
       {/* --- 🌟 AMBIENT BACKGROUND GLOW BLOBS --- */}
-      <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[#00E5FF] blur-[150px] opacity-25 animate-pulse pointer-events-none" />
-      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-[#FF4D6D] blur-[180px] opacity-20 pointer-events-none" style={{ animationDuration: '8s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-[#00FF9D] blur-[160px] opacity-10 pointer-events-none" />
-
-      {/* --- 🎈 FLOATING PARTICLES --- */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        {[...Array(12)].map((_, idx) => (
-          <motion.div
-            key={idx}
-            className="absolute w-1.5 h-1.5 bg-cyan-400 rounded-full blur-[0.5px]"
-            style={{
-              top: `${(idx * 73) % 100}%`,
-              left: `${(idx * 37) % 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.7, 0.2],
-            }}
-            transition={{
-              duration: 5 + (idx % 4),
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: idx * 0.3
-            }}
-          />
-        ))}
-      </div>
+      <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[#00F5FF] blur-[150px] opacity-15 animate-pulse pointer-events-none" />
+      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-[#3B82F6] blur-[180px] opacity-15 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        {/* --- HEADER --- */}
+        {/* --- HERO HEADER --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold mb-4 bg-white/5 border border-white/10 text-cyan-300 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
-            <Zap size={12} className="animate-pulse" /> Super Fast Speed
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Internet at{' '}
-            <span className="block md:inline bg-gradient-to-r from-[#00E5FF] via-[#7B61FF] via-[#FF4D6D] to-[#FFB703] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,229,255,0.3)]">
-              Light Speed.
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3 text-white">
+            🏁 Race to Download a 2.5 Hour 4K Movie
+            <span className="block text-xl md:text-2xl font-bold bg-gradient-to-r from-[#00F5FF] via-[#3B82F6] to-[#FFD700] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,245,255,0.2)] mt-1">
+              Who finishes downloading a 100GB 4K movie first?
             </span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-base">
-            Slide through standard legacy protocols to see how next-gen light-wave systems accelerate data streams down the track.
+          <p className="text-slate-300 max-w-xl mx-auto text-sm">
+            All three networks start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
           </p>
         </motion.div>
 
-        {/* --- 🏎️ THE UNIFIED SPEEDWAY TRACK PANEL --- */}
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] mb-6 group">
+        {/* --- 🏎️ THE HIGH-SPEED SPEEDWAY TRACK PANEL --- */}
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] mb-6">
 
-          <div className="flex justify-between text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 px-1">
-            <div>Start Gate</div>
-            <div>The Light Finish</div>
-          </div>
-
-          {/* Interactive Core Light Beam Rail */}
-          <div className="relative h-12 flex items-center mb-8 px-1">
-            {/* Horizontal Line Rail Track Background */}
-            <div className="absolute left-0 right-0 h-2 bg-white/10 rounded-full" />
-
-            {/* The Animated Light Beam Line Fill */}
-            <motion.div
-              className="absolute left-0 h-2 rounded-full bg-gradient-to-r from-slate-500 via-[#7B61FF] via-[#FF4D6D] to-[#00E5FF] shadow-[0_0_20px_rgba(0,229,255,0.5)]"
-              initial={{ width: '0%' }}
-              animate={{ width: `${(activeIndex / Math.max(1, (rows || []).length - 1)) * 100}%` }}
-              transition={{ type: 'spring', stiffness: 100, damping: 16 }}
-            />
-
-            {/* Clickable Custom Nodes / Anchors Layer */}
-            <div className="absolute inset-x-0 flex justify-between pointer-events-none">
-              {(rows || []).map((row, index) => {
-                const isSelected = activeIndex === index;
-                const NodeIcon = row.icon || Globe;
-
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className="pointer-events-auto relative flex flex-col items-center justify-center focus:outline-none"
-                  >
-                    {/* Floating Node Bubble Wrapper */}
-                    <motion.div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 ${isSelected
-                        ? 'bg-white text-slate-950 border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-110 font-bold'
-                        : 'bg-slate-900 text-slate-400 border-white/10 hover:border-white/30 hover:text-slate-200'
-                        }`}
-                    >
-                      <NodeIcon size={16} strokeWidth={2} />
-                    </motion.div>
-
-                    {/* Node Label featuring updated top-padding utility styling override */}
-                    <span className={`absolute -bottom-6 pt-[10px] font-mono text-[11px] font-bold tracking-wide transition-colors ${isSelected ? 'text-slate-400' : 'text-slate-500'}`}>
-                      {row.type}
-                    </span>
-                  </button>
-                );
-              })}
+          {/* Race Track Top Utilities */}
+          <div className="flex justify-between items-center text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-white/5 pb-3">
+            <div>🚦 START</div>
+            <div className="text-center bg-cyan-500/10 text-cyan-300 px-3 py-0.5 rounded-full border border-cyan-400/20 animate-pulse">
+              3... 2... 1... GO! 🚀
             </div>
+            <div className="text-[#FFD700] flex items-center gap-1">🏁 FINISH</div>
           </div>
 
-          {/* SINGLE SLIDER ELEMENT INTERFACE */}
-          <div className="mt-8 px-1 relative z-20">
-            <input
-              type="range"
-              min="0"
-              max={Math.max(1, (rows || []).length - 1)}
-              value={activeIndex}
-              onChange={(e) => setActiveIndex(Number(e.target.value))}
-              className="w-full h-1 bg-transparent appearance-none cursor-pointer accent-white focus:outline-none"
-              style={{ WebkitAppearance: 'none' }}
-            />
-            <style>{`
-          input[type=range]::-webkit-slider-thumb {
-            height: 20px; width: 20px; border-radius: 50%; background: #ffffff;
-            cursor: pointer; -webkit-appearance: none; margin-top: -6px;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.6); border: 2px solid #0f172a;
-            transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-          input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-        `}</style>
-          </div>
-
-        </div>
-
-        {/* --- DYNAMIC METRIC DISPATCH PANEL --- */}
-        <AnimatePresence mode="wait">
-          {rows && rows[activeIndex] && (() => {
-            const isLiFi = !!rows[activeIndex].highlight;
-            const isFiber = rows[activeIndex].note?.toLowerCase().includes('fast') || rows[activeIndex].type?.toLowerCase().includes('fiber');
-
-            const BadgeIcon = isLiFi ? Lightbulb : isFiber ? Orbit : Wifi;
-
-            return (
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.2 }}
-                className={`w-full bg-slate-900/60 rounded-3xl border p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center transition-all duration-300 ${rows[activeIndex].highlight
-                  ? 'border-cyan-500/40 shadow-[0_0_40px_rgba(0,229,255,0.15)] bg-gradient-to-br from-slate-900/90 to-cyan-950/10'
-                  : 'border-white/5'
-                  }`}
-              >
-                {/* Identity Column */}
-                <div className="space-y-1.5">
-                  <span className="block text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold">Selected Protocol</span>
-                  <h3 className="text-2xl font-black text-white tracking-tight">{rows[activeIndex].type}</h3>
-                  <div className="pt-0.5">
-                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[11px] font-mono tracking-wide uppercase font-bold ${rows[activeIndex].highlight
-                      ? 'bg-gradient-to-r from-[#00E5FF] to-[#00FF9D] text-slate-950 font-black shadow-[0_0_15px_rgba(0,255,157,0.4)]'
-                      : isFiber
-                        ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                        : 'bg-slate-800 text-slate-400 border border-slate-700'
-                      }`}>
-                      <BadgeIcon size={12} strokeWidth={2.5} />
-                      <span>
-                        {rows[activeIndex].highlight ? 'Blazing LiFi' : isFiber ? 'Fiber Fast' : 'WiFi Slow'}
+          {/* Speedway Tracks Container */}
+          <div className="space-y-5 relative">
+            {[
+              {
+                id: 'wifi',
+                name: 'Wi-Fi',
+                emoji: '🐢',
+                icon: Wifi,
+                speed: '20 Mbps',
+                time: '11 hr 23 min',
+                color: '#FF8A00',
+                bgBar: 'bg-orange-500',
+                duration: 18,
+                statusText: 'Still crawling... ☕',
+              },
+              {
+                id: 'fiber',
+                name: 'Fiber',
+                emoji: '🚗',
+                icon: Orbit,
+                speed: '1 Gbps',
+                time: '13 min 20 sec',
+                color: '#3B82F6',
+                bgBar: 'bg-blue-500',
+                duration: 8,
+                statusText: 'Moving steadily...',
+                winnerText: '✓ Complete',
+              },
+              {
+                id: 'lifi',
+                name: 'Li-Fi',
+                emoji: '⚡',
+                icon: Zap,
+                speed: '10 Gbps+',
+                time: '1 min 20 sec',
+                color: '#00F5FF',
+                bgBar: 'bg-cyan-400',
+                duration: 3,
+                statusText: 'Blasting at light speed! 💥',
+                winnerText: '✓ Download Complete 🏆',
+                isWinner: true,
+              },
+            ].map((row) => {
+              const IconComponent = row.icon;
+              return (
+                <div key={row.id} className="space-y-1.5">
+                  {/* Track Meta Header */}
+                  <div className="flex justify-between items-end px-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{row.emoji}</span>
+                      <span className="font-bold tracking-tight text-xs md:text-sm">{row.name}</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">
+                        {row.speed}
                       </span>
                     </div>
+                    <div className="text-[11px] font-mono font-bold text-slate-400">
+                      {row.time}
+                    </div>
+                  </div>
+
+                  {/* Visual Rail Container */}
+                  <div className="relative h-10 bg-slate-950/70 rounded-lg flex items-center border border-white/5 overflow-hidden px-3">
+                    {/* Lane Track Grid Line Pattern */}
+                    <div className="absolute inset-x-0 h-[1px] border-t border-dashed border-white/10 pointer-events-none" />
+
+                    {/* Bounded Wrapper Track Zone to guarantee reaching the finish marker line */}
+                    <div className="absolute left-3 right-12 top-0 bottom-0 flex items-center">
+
+                      {/* Dynamic Filling Tail Glow Behind Icon */}
+                      <motion.div
+                        className={`absolute left-0 h-1 rounded-full ${row.bgBar} filter blur-[1px]`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '100%' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: row.duration, ease: 'linear' }}
+                      />
+
+                      {/* Moving Icon Object Layer */}
+                      <motion.div
+                        className="absolute"
+                        initial={{ left: '0%' }}
+                        whileInView={{ left: '100%' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: row.duration, ease: 'linear' }}
+                        style={{ x: '-50%' }}
+                      >
+                        <div
+                          className="w-7 h-7 rounded-lg flex items-center justify-center border text-slate-950 font-black relative"
+                          style={{
+                            backgroundColor: row.color,
+                            borderColor: row.color,
+                            boxShadow: `0 0 15px ${row.color}BF`
+                          }}
+                        >
+                          <IconComponent size={14} strokeWidth={2.5} />
+
+                          {/* Confetti / Burst Particle Flash Effects for Winner */}
+                          {row.isWinner && (
+                            <>
+                              <motion.span
+                                className="absolute -inset-2 rounded-lg border border-cyan-400 opacity-0 pointer-events-none"
+                                whileInView={{ scale: [1, 1.4, 1.1], opacity: [0, 0.8, 0] }}
+                                viewport={{ once: true }}
+                                transition={{ delay: row.duration, duration: 0.5 }}
+                              />
+                              <motion.span
+                                className="absolute -top-0.5 -right-0.5 flex h-2 w-2"
+                                initial={{ scale: 0 }}
+                                whileInView={{ scale: [0, 1.2, 1] }}
+                                viewport={{ once: true }}
+                                transition={{ delay: row.duration, duration: 0.3 }}
+                              >
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300"></span>
+                              </motion.span>
+                            </>
+                          )}
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Fixed Goal Flags aligned right next to track finish limit */}
+                    <div className="absolute right-3 text-xs text-[#FFD700] opacity-40 select-none z-10">🏁</div>
+                  </div>
+
+                  {/* Status Update Indicators */}
+                  <div className="flex justify-between items-center px-1 text-[11px] font-mono leading-none">
+                    <span className="text-slate-500">{row.statusText}</span>
+                    {row.winnerText && (
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: row.duration, type: 'spring', stiffness: 120 }}
+                        className={`font-bold uppercase tracking-wider text-[10px] ${row.isWinner ? 'text-cyan-400 drop-shadow-[0_0_12px_rgba(0,245,255,0.5)]' : 'text-blue-400'}`}
+                      >
+                        {row.winnerText}
+                      </motion.span>
+                    )}
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
 
-                {/* Performance Stats Column */}
-                <div className="flex flex-col gap-4 py-4 md:py-0 md:px-6 border-y md:border-y-0 md:border-x border-white/5">
-                  <div>
-                    <span className="block text-[9px] font-mono uppercase tracking-wider text-slate-500 mb-0.5">Tested Bandwidth</span>
-                    <span className={`text-xl font-black ${rows[activeIndex].highlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#00FF9D]' : 'text-slate-100'}`}>
-                      {rows[activeIndex].speed}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="block text-[9px] font-mono uppercase tracking-wider text-slate-500 mb-0.5">Download Countdown Duration</span>
-                    <span className={`text-xl font-black ${rows[activeIndex].highlight ? 'text-[#FF4D6D] drop-shadow-[0_0_10px_rgba(255,77,109,0.3)]' : 'text-slate-100'}`}>
-                      {rows[activeIndex].time}
-                    </span>
-                  </div>
-                </div>
+        {/* --- 🚀 SPEED METRIC INSIGHT VERDICT CARDS --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-slate-900/60 rounded-xl border border-cyan-500/20 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-cyan-400/10 flex items-center justify-center text-cyan-400 shrink-0 text-lg font-bold">🚀</div>
+            <div>
+              <span className="block text-[9px] font-mono tracking-wider text-cyan-400 uppercase font-bold">Next-Gen Light Wave Metric</span>
+              <h4 className="text-base font-black text-white">8.5× Faster than Fiber</h4>
+              <p className="text-xs text-slate-400 mt-0.5 leading-snug">By the time traditional fiber infrastructure finishes a single movie stream, Li-Fi could download 10 additional movies.</p>
+            </div>
+          </motion.div>
 
-                {/* Benchmark Insight Verdict Summary Column */}
-                <div className="text-slate-400 text-sm font-medium leading-relaxed">
-                  {rows[activeIndex].highlight
-                    ? "Lumen Li-Fi channels secure internet signals across pure illumination spectrum waves, running completely unhindered by crowded local structural signals."
-                    : "Legacy connectivity grids leverage crowded airwaves that yield significant signal decay profiles under standard modern heavy deployment loads."
-                  }
-                </div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-slate-900/60 rounded-xl border border-orange-500/20 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+          >
+            <div className="w-10 h-10 rounded-lg bg-orange-400/10 flex items-center justify-center text-orange-400 shrink-0 text-lg font-bold">⚡</div>
+            <div>
+              <span className="block text-[9px] font-mono tracking-wider text-orange-400 uppercase font-bold">Legacy Protocol Decay</span>
+              <h4 className="text-base font-black text-white">500× Faster than Old Wi-Fi</h4>
+              <p className="text-xs text-slate-400 mt-0.5 leading-snug">Li-Fi completely satisfies the full multi-gigabit file download package before standard home airwaves reach even 2% total progress.</p>
+            </div>
+          </motion.div>
+        </div>
 
-              </motion.div>
-            );
-          })()}
-        </AnimatePresence>
+        {/* Technical Footnote */}
+        <p className="text-[10px] text-center text-slate-500 font-mono max-w-2xl mx-auto leading-normal mt-6">
+          * Relative track speed timelines have been proportionately compressed for presentation benchmarks (Li-Fi: 3s, Fiber: 8s, Wi-Fi: 18s). Network configuration architecture factors an ideal lab test file envelope size of 100 GB.
+        </p>
 
       </div>
     </section>
@@ -688,9 +709,9 @@ function HomeFeaturesSection() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-20 text-center max-w-3xl mx-auto">
 
           <h2 className="text-4xl font-black tracking-tight text-[var(--lumen-navy)] leading-tight">
-            From basic internet to a fully connected life<br />
+            WiFi connects your tech.<br />
             <span className="text-gradient-lumen">
-              Experience the next generation of wireless with Lumen Li-Fi.
+              LiFi connects your life!
             </span>
           </h2>
           <p className="text-sm md:text-base text-[var(--lumen-muted)] mt-4 font-mono font-bold uppercase tracking-widest text-[var(--lumen-blue)]">
