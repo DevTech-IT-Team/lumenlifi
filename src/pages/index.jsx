@@ -112,7 +112,7 @@ function HeroSection() {
           <Link href="/what-is-lifi" className="glow-blue inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl w-full sm:w-auto" style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}>
             What is LiFi? <ArrowRight size={16} />
           </Link>
-          <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl font-bold text-sm tracking-wide border-2 transition-all hover:scale-[1.02] w-full sm:w-auto border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)]">
+          <Link href="/products" className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl font-bold text-sm tracking-wide border-2 transition-all hover:scale-[1.02] w-full sm:w-auto border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)]">
             Order Now
           </Link>
         </motion.div>
@@ -156,41 +156,31 @@ function HeroSection() {
 function SpeedTableSection() {
   const [activeIndex, setActiveIndex] = useState(2);
 
-  const rows = [
-    {
-      type: "Old Wi-Fi",
-      speed: "20 Mbps",
-      time: "45 mins",
-      note: "Unstable lag",
-      highlight: false,
-      icon: Wifi // Replaces 📶
-    },
-    {
-      type: "Standard Fiber",
-      speed: "100 Mbps",
-      time: "9 mins",
-      note: "Average",
-      highlight: false,
-      icon: Cpu // Replaces 🌐
-    },
-    {
-
-      type: "Lumen LiFi",
-      speed: "1 Gbps+",
-      time: " Instant",
-      note: "Pure Light Stream",
-      highlight: true,
-      icon: Lightbulb // Replaces 🚀 or 💡
-    }
-  ];
-
   return (
-    <section className="relative overflow-hidden py-16 bg-[#071B34] text-white" id="speed">
-      {/* --- 🌟 AMBIENT BACKGROUND GLOW BLOBS --- */}
-      <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[#00F5FF] blur-[150px] opacity-15 animate-pulse pointer-events-none" />
-      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-[#3B82F6] blur-[180px] opacity-15 pointer-events-none" />
+    /* --- 🎨 FIXED BACKGROUND COLOR TO MATCH UPPER SECTION TINT --- */
+    <section className="relative overflow-hidden py-16 bg-[#EBF3FC] text-slate-900" id="speed">
 
+      {/* --- 🌟 YOUR RADIAL GRADIENT GLOWS INTEGRATED --- */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
+          style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }}
+        />
+        <div
+          className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-50 dark:opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.15) 0%, transparent 70%)' }}
+        />
+      </div>
+
+      {/* --- 🌐 VECTOR GRID MATRIX OVERLAY --- */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0 opacity-40"
+        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }}
+      />
+
+      {/* --- MAIN INTERACTION CONTAINER --- */}
       <div className="max-w-4xl mx-auto px-6 relative z-10">
+
         {/* --- HERO HEADER --- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -198,27 +188,27 @@ function SpeedTableSection() {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3 text-white">
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3 text-slate-900">
             🏁 Race to Download a 2.5 Hour 4K Movie
-            <span className="block text-xl md:text-2xl font-bold bg-gradient-to-r from-[#00F5FF] via-[#3B82F6] to-[#FFD700] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,245,255,0.2)] mt-1">
+            <span className="block text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,180,216,0.1)] mt-1">
               Who finishes downloading a 100GB 4K movie first?
             </span>
           </h2>
-          <p className="text-slate-300 max-w-xl mx-auto text-sm">
+          <p className="text-slate-600 max-w-xl mx-auto text-sm">
             All three networks start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
           </p>
         </motion.div>
 
         {/* --- 🏎️ THE HIGH-SPEED SPEEDWAY TRACK PANEL --- */}
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] mb-6">
+        <div className="backdrop-blur-xl bg-white/60 border border-slate-200/80 rounded-2xl p-5 md:p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] mb-6">
 
           {/* Race Track Top Utilities */}
-          <div className="flex justify-between items-center text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-white/5 pb-3">
+          <div className="flex justify-between items-center text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-slate-200/60 pb-3">
             <div>🚦 START</div>
-            <div className="text-center bg-cyan-500/10 text-cyan-300 px-3 py-0.5 rounded-full border border-cyan-400/20 animate-pulse">
+            <div className="text-center bg-cyan-600/10 text-cyan-700 px-3 py-0.5 rounded-full border border-cyan-400/20 animate-pulse">
               3... 2... 1... GO! 🚀
             </div>
-            <div className="text-[#FFD700] flex items-center gap-1">🏁 FINISH</div>
+            <div className="text-amber-500 flex items-center gap-1">🏁 FINISH</div>
           </div>
 
           {/* Speedway Tracks Container */}
@@ -229,7 +219,7 @@ function SpeedTableSection() {
                 name: 'Wi-Fi',
                 emoji: '🐢',
                 icon: Wifi,
-                speed: '20 Mbps',
+                speed: '300 Mbps',
                 time: '11 hr 23 min',
                 color: '#FF8A00',
                 bgBar: 'bg-orange-500',
@@ -256,8 +246,8 @@ function SpeedTableSection() {
                 icon: Zap,
                 speed: '10 Gbps+',
                 time: '1 min 20 sec',
-                color: '#00F5FF',
-                bgBar: 'bg-cyan-400',
+                color: '#00D8E2',
+                bgBar: 'bg-cyan-500',
                 duration: 3,
                 statusText: 'Blasting at light speed! 💥',
                 winnerText: '✓ Download Complete 🏆',
@@ -271,24 +261,21 @@ function SpeedTableSection() {
                   <div className="flex justify-between items-end px-1">
                     <div className="flex items-center gap-2">
                       <span className="text-xl">{row.emoji}</span>
-                      <span className="font-bold tracking-tight text-xs md:text-sm">{row.name}</span>
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">
+                      <span className="font-bold tracking-tight text-xs md:text-sm text-slate-800">{row.name}</span>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
                         {row.speed}
                       </span>
                     </div>
-                    <div className="text-[11px] font-mono font-bold text-slate-400">
+                    <div className="text-[11px] font-mono font-bold text-slate-500">
                       {row.time}
                     </div>
                   </div>
 
                   {/* Visual Rail Container */}
-                  <div className="relative h-10 bg-slate-950/70 rounded-lg flex items-center border border-white/5 overflow-hidden px-3">
-                    {/* Lane Track Grid Line Pattern */}
+                  <div className="relative h-10 bg-slate-900 rounded-lg flex items-center border border-slate-950/10 overflow-hidden px-3">
                     <div className="absolute inset-x-0 h-[1px] border-t border-dashed border-white/10 pointer-events-none" />
 
-                    {/* Bounded Wrapper Track Zone to guarantee reaching the finish marker line */}
                     <div className="absolute left-3 right-12 top-0 bottom-0 flex items-center">
-
                       {/* Dynamic Filling Tail Glow Behind Icon */}
                       <motion.div
                         className={`absolute left-0 h-1 rounded-full ${row.bgBar} filter blur-[1px]`}
@@ -308,7 +295,7 @@ function SpeedTableSection() {
                         style={{ x: '-50%' }}
                       >
                         <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center border text-slate-950 font-black relative"
+                          className="w-7 h-7 rounded-lg flex items-center justify-center border text-white font-black relative"
                           style={{
                             backgroundColor: row.color,
                             borderColor: row.color,
@@ -342,20 +329,19 @@ function SpeedTableSection() {
                       </motion.div>
                     </div>
 
-                    {/* Fixed Goal Flags aligned right next to track finish limit */}
-                    <div className="absolute right-3 text-xs text-[#FFD700] opacity-40 select-none z-10">🏁</div>
+                    <div className="absolute right-3 text-xs text-amber-400 opacity-60 select-none z-10">🏁</div>
                   </div>
 
                   {/* Status Update Indicators */}
                   <div className="flex justify-between items-center px-1 text-[11px] font-mono leading-none">
-                    <span className="text-slate-500">{row.statusText}</span>
+                    <span className="text-slate-400">{row.statusText}</span>
                     {row.winnerText && (
                       <motion.span
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: row.duration, type: 'spring', stiffness: 120 }}
-                        className={`font-bold uppercase tracking-wider text-[10px] ${row.isWinner ? 'text-cyan-400 drop-shadow-[0_0_12px_rgba(0,245,255,0.5)]' : 'text-blue-400'}`}
+                        className={`font-bold uppercase tracking-wider text-[10px] ${row.isWinner ? 'text-cyan-600 drop-shadow-[0_0_12px_rgba(6,182,212,0.3)]' : 'text-blue-600'}`}
                       >
                         {row.winnerText}
                       </motion.span>
@@ -373,13 +359,13 @@ function SpeedTableSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/60 rounded-xl border border-cyan-500/20 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+            className="bg-white/80 rounded-xl border border-slate-200 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
           >
-            <div className="w-10 h-10 rounded-lg bg-cyan-400/10 flex items-center justify-center text-cyan-400 shrink-0 text-lg font-bold">🚀</div>
+            <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 shrink-0 text-lg font-bold">🚀</div>
             <div>
-              <span className="block text-[9px] font-mono tracking-wider text-cyan-400 uppercase font-bold">Next-Gen Light Wave Metric</span>
-              <h4 className="text-base font-black text-white">8.5× Faster than Fiber</h4>
-              <p className="text-xs text-slate-400 mt-0.5 leading-snug">By the time traditional fiber infrastructure finishes a single movie stream, Li-Fi could download 10 additional movies.</p>
+              <span className="block text-[9px] font-mono tracking-wider text-cyan-600 uppercase font-bold">Next-Gen Light Wave Metric</span>
+              <h4 className="text-base font-black text-slate-900">8.5× Faster than Fiber</h4>
+              <p className="text-xs text-slate-500 mt-0.5 leading-snug">By the time traditional fiber infrastructure finishes a single movie stream, Li-Fi could download 10 additional movies.</p>
             </div>
           </motion.div>
 
@@ -387,21 +373,16 @@ function SpeedTableSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-900/60 rounded-xl border border-orange-500/20 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+            className="bg-white/80 rounded-xl border border-slate-200 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
           >
-            <div className="w-10 h-10 rounded-lg bg-orange-400/10 flex items-center justify-center text-orange-400 shrink-0 text-lg font-bold">⚡</div>
+            <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0 text-lg font-bold">⚡</div>
             <div>
-              <span className="block text-[9px] font-mono tracking-wider text-orange-400 uppercase font-bold">Legacy Protocol Decay</span>
-              <h4 className="text-base font-black text-white">500× Faster than Old Wi-Fi</h4>
-              <p className="text-xs text-slate-400 mt-0.5 leading-snug">Li-Fi completely satisfies the full multi-gigabit file download package before standard home airwaves reach even 2% total progress.</p>
+              <span className="block text-[9px] font-mono tracking-wider text-orange-600 uppercase font-bold">Legacy Protocol Decay</span>
+              <h4 className="text-base font-black text-slate-900">500× Faster than Old Wi-Fi</h4>
+              <p className="text-xs text-slate-500 mt-0.5 leading-snug">Li-Fi completely satisfies the full multi-gigabit file download package before standard home airwaves reach even 2% total progress.</p>
             </div>
           </motion.div>
         </div>
-
-        {/* Technical Footnote */}
-        <p className="text-[10px] text-center text-slate-500 font-mono max-w-2xl mx-auto leading-normal mt-6">
-          * Relative track speed timelines have been proportionately compressed for presentation benchmarks (Li-Fi: 3s, Fiber: 8s, Wi-Fi: 18s). Network configuration architecture factors an ideal lab test file envelope size of 100 GB.
-        </p>
 
       </div>
     </section>
