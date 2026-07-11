@@ -7,7 +7,7 @@ import Footer from '../components/common/Footer';
 
 const COMPANY = 'Lumen LIFI';
 const BRAND = 'Lumen LIFI';
-const WEBSITE = 'lifilumen.com'; // Updated domain
+const WEBSITE = 'lifilumen.com';
 const EMAIL = 'operations@lumenlifi.com';
 
 export default function TermsAndConditions() {
@@ -145,27 +145,15 @@ export default function TermsAndConditions() {
               additional scheduling.
             </p>
 
+            {/* ── UPDATED SECTION 7: NON-REFUNDABLE POLICY ── */}
             <h3 id="refund-policy" className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
-              7. Refund &amp; Cancellation Policy
+              7. Non-Refundable Policy
             </h3>
             <p>
-              <strong>30-Day Satisfaction Guarantee:</strong> New customers may request a full refund within
-              thirty (30) days of hardware delivery if the LiFi system does not meet the performance parameters
-              described at the time of purchase, subject to our technical assessment.
+              <strong>All Sales Are Final:</strong> All hardware purchases, individual setup assets, and recurring subscription fees processed under {BRAND} infrastructure are strictly non-refundable.
             </p>
             <p>
-              <strong>Hardware returns:</strong> To initiate a return, contact{' '}
-              <a href={`mailto:${EMAIL}`} className="text-emerald-600 hover:underline">
-                {EMAIL}
-              </a>{' '}
-              within the return window. Hardware must be returned in original condition with all components and
-              packaging. Return shipping costs may apply unless the return is due to our error or a defective
-              product.
-            </p>
-            <p>
-              <strong>Refunds:</strong> Approved refunds are processed to the original payment method within
-              seven to fourteen (7–14) business days after we receive and inspect returned hardware. Subscription
-              fees are non-refundable except as stated above or as required by applicable law.
+              Once an order is confirmed or a subscription renewal period commences, no transactions can be reversed or cancelled for cash returns, dynamic store credit variations, or balance evaluations. Exceptional cases involving validated system performance anomalies during target rollouts remain bound strictly to individual evaluation metrics managed entirely at the technical choice of {COMPANY}.
             </p>
 
             <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
