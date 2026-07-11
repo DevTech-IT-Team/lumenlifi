@@ -187,8 +187,18 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="py-24 bg-[var(--lumen-light)] dark:bg-[#0b1329]/30">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="relative overflow-hidden py-24 bg-[var(--lumen-light)] dark:bg-[#0b1329]/30">
+          {/* ── ABSOLUTE BACKGROUND GRID LAYER ── */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
+            style={{
+              backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
+              backgroundSize: '64px 64px'
+            }}
+          />
+
+          {/* ── CONTENT CONTAINER ── */}
+          <div className="relative z-10 max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white dark:bg-slate-900 border border-[var(--lumen-border)] text-[var(--lumen-blue)]">
@@ -207,7 +217,7 @@ export default function WhatIsLiFiPage() {
               </div>
 
               <div className="lg:col-span-5 lg:pt-8 flex lg:justify-end">
-                <Link href="/faqs" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)] hover:scale-[1.02] transition-all">
+                <Link href="/products" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)] hover:scale-[1.02] transition-all">
                   <HelpCircle size={14} /> View LiFi FAQs
                 </Link>
               </div>

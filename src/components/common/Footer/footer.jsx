@@ -93,40 +93,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Links Column 2 */}
-        <div className="md:col-span-2 space-y-4">
-          <h4
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
-            style={{
-              color: '#0D2240',
-              borderBottom: '1px solid rgba(26,110,191,0.12)',
-            }}
-          >
-            Resources
-          </h4>
-
-          <ul
-            className="space-y-2.5 text-xs font-medium"
-            style={{ color: '#4A6080' }}
-          >
-            {[
-              { label: 'Technical Registry', href: '/insights' },
-              { label: 'Validation Specs', href: '/insights#studies' },
-              { label: 'Signal Physics', href: '/what-is-lifi' },
-              { label: 'About Us', href: '/about' },
-            ].map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-1 group transition-colors hover:text-[#1A6EBF]"
-                >
-                  {item.label}
-                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Newsletter Column */}
         <div className="md:col-span-4 space-y-4">

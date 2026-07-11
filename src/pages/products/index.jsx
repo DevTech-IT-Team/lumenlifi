@@ -187,10 +187,12 @@ const installationSteps = [
 
 export default function ProductsPage() {
   const [selectedProductSlug, setSelectedProductSlug] = useState(null);
-  const [activeFaq, setActiveFaq] = useState(0);
+  const [activeFaq, setActiveFaq] = useState(-1);
   const [activeKitItem, setActiveKitItem] = useState('ap');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [cartCount, setCartCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);   // FAQ page: 1 = Q1–10, 2 = Q11–20
+  const [isExpanded, setIsExpanded] = useState(false);  // false = show 5, true = show 10
 
   const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
   const categories = ['All', 'Network Foundation', 'Entertainment & Computing', 'Security & Perimeter', 'Conscious Appliances & Home Automation'];
@@ -209,26 +211,6 @@ export default function ProductsPage() {
         <title>LumenFi Hardware Hub | Next-Gen E-Commerce Wireless LiFi Store</title>
         <meta name="description" content="Deploy military-grade optical internet architecture directly into your luxury living space." />
       </Head>
-
-      {/* Floating E-commerce Global Conversion Utility Bar */}
-      <div className="fixed top-20 left-0 right-0 z-50 max-w-7xl mx-auto px-4 pointer-events-none">
-        <div className="w-full bg-[#EAF1EB]/80 backdrop-blur-xl border border-slate-300/60 rounded-full p-2 px-6 flex justify-between items-center shadow-lg shadow-slate-200 pointer-events-auto">
-          <div className="flex items-center gap-3">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <p className="text-[11px] font-mono tracking-wider text-slate-600">GLOBAL DISTRIBUTION SHIPMENTS: <span className="text-emerald-700 font-bold font-sans">ACTIVE NOW</span></p>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-1 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 text-[10px] font-mono text-slate-500">
-              SECURE SEC-LEVEL 4 CART
-            </div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold text-white bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-1.5 rounded-full shadow-md shadow-green-200">
-              <ShoppingCart size={13} />
-              <span>CART ({cartCount})</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <Header />
 
       <main className="pt-36 pb-24 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -252,7 +234,7 @@ export default function ProductsPage() {
 
                 <div className="relative z-10 max-w-xl space-y-4">
                   <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.05]">
-                    Shop the Conscious Home <br />
+                    Shop the <span className='text-gradient-lumen' style={{ color: 'var(--color-lumen-cyan)' }}>Conscious Home</span> <br />
                     <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent opacity-90">
                       Light Network
                     </span>
@@ -452,67 +434,184 @@ export default function ProductsPage() {
               </div> */}
 
               {/* --- SYSTEM VALIDATION FAQ BLOCK --- */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-10 border-t border-slate-300">
-                <div className="lg:col-span-8 space-y-4">
-                  <div className="space-y-1">
-                    <h2 className="text-lg font-bold text-slate-950 font-mono tracking-tight">E-Commerce System Deployment FAQ</h2>
-                    <p className="text-[11px] font-mono text-green-700 uppercase tracking-widest">TECHNICAL DEPLOYMENT VALIDATION LOGS:</p>
-                  </div>
+              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
+              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
+              <div className="w-full max-w-4xl mx-auto pt-10 border-t border-slate-300">
 
-                  <div className="space-y-2">
-                    {[
-                      {
-                        q: "How is this better than my standard fiber network setup?",
-                        a: "Normal internet companies bring fast cables to your house, but the internet gets slow inside your rooms because standard Wi-Fi routers use crowded radio waves. Lumen LiFi takes that fast cable line and sends it directly through your clean ceiling lights."
-                      },
-                      {
-                        q: "Why is light internet great for new smart AI tools?",
-                        a: "New AI tools need a steady, full-speed internet connection that never drops or pauses. Because light uses a giant, empty path that never gets crowded, it stops all micro-pauses or slowdowns."
-                      }
-                    ].map((faq, index) => (
-                      <div
-                        key={index}
-                        className="border border-slate-200/80 rounded-xl p-4 bg-[#F5FAF6] cursor-pointer hover:border-green-300 transition-colors"
-                        onClick={() => setActiveFaq(activeFaq === index ? -1 : index)}
-                      >
-                        <div className="flex justify-between items-center gap-4">
-                          <h4 className="text-xs font-bold text-slate-950 font-mono">{faq.q}</h4>
-                          <HelpCircle className={`w-4 h-4 text-slate-500 shrink-0 transition-transform ${activeFaq === index ? 'rotate-180 text-green-700' : ''}`} />
-                        </div>
-                        {activeFaq === index && (
-                          <p className="text-xs text-slate-700 mt-2.5 border-t border-slate-200/60 pt-2.5 leading-relaxed font-sans font-light">
+                {/* Header text segment */}
+                <div className="space-y-1 mb-6 text-center sm:text-left">
+                  <h2 className="text-xl font-bold text-slate-950 font-mono tracking-tight">
+                    Frequently Asked Questions: Lumenfi Li-Fi
+                  </h2>
+                  <p className="text-[11px] font-mono text-green-700 uppercase tracking-widest">
+                    Getting Started &amp; Technical Specifications Protocol
+                  </p>
+                </div>
+
+                {/* FAQ Grid List Container */}
+                <div className="space-y-2.5">
+                  {[
+                    // ── SET 1 (Questions 1 - 10) ──
+                    {
+                      q: "1. What is Li-Fi?",
+                      a: "Li-Fi (Light Fidelity) is a cutting-edge wireless communication technology that uses light waves instead of traditional radio frequencies to transmit data. By modulating LED light, it provides secure, high-speed internet connectivity."
+                    },
+                    {
+                      q: "2. How does the Lumenfi kit work?",
+                      a: "Our kits use photonic antennas that connect to your lighting infrastructure. These antennas receive data from your network and project it via light pulses, which are then captured by a receiver dongle attached to your device."
+                    },
+                    {
+                      q: "3. How much space does a standard kit cover?",
+                      a: "Each individual photonic antenna covers 500 square feet. Because each kit includes two antennas, you receive 1,000 square feet of total coverage right out of the box."
+                    },
+                    {
+                      q: "4. Can I expand my coverage if my space is larger than 1,000 sq ft?",
+                      a: "Absolutely. We offer the ability to purchase additional photonic antennas to increase your total coverage area according to your needs."
+                    },
+                    {
+                      q: "5. Do I need additional hardware to connect more devices?",
+                      a: "Yes, you can purchase additional receiver dongles upon request to accommodate more devices on your Li-Fi network."
+                    },
+                    {
+                      q: "6. What is the typical lead time for a kit?",
+                      a: "Please allow 4 to 6 weeks for your kit to be processed, prepared, and delivered to your doorstep."
+                    },
+                    {
+                      q: "7. Is Li-Fi faster than Wi-Fi?",
+                      a: "Li-Fi has the potential to be significantly faster than standard Wi-Fi because the light spectrum is far broader and less congested than the radio frequency spectrum."
+                    },
+                    {
+                      q: "8. Do the lights need to be fully bright for Li-Fi to work?",
+                      a: "No. Li-Fi systems can operate at dimmed levels that are comfortable for human eyes. High-end systems can even operate using invisible infrared light to maintain connectivity in total darkness."
+                    },
+                    {
+                      q: "9. Does Li-Fi work through walls?",
+                      a: "One of the primary benefits of Li-Fi is that light does not pass through walls. This provides an inherent layer of physical security, as your data is contained strictly within the illuminated space."
+                    },
+                    {
+                      q: "10. Can Li-Fi cause interference with other electronics?",
+                      a: "No. Because Li-Fi uses light waves rather than radio waves, it generates zero electromagnetic interference, making it perfect for environments where radio interference is a concern, such as hospitals or aviation."
+                    },
+                    // ── SET 2 (Questions 11 - 20) ──
+                    {
+                      q: "11. Is Li-Fi harmful to human eyes or health?",
+                      a: "Not at all. The light used is standard LED illumination. The modulation happens at speeds far beyond what the human eye can perceive, causing no flicker or health risks."
+                    },
+                    {
+                      q: "12. What devices are compatible with Lumenfi?",
+                      a: "Any device equipped with a USB port can utilize our receiver dongles to connect to the network."
+                    },
+                    {
+                      q: "13. Why is Li-Fi considered more secure than Wi-Fi?",
+                      a: "Since light is blocked by walls and opaque materials, your network cannot be accessed by someone outside of your office or home, effectively eliminating the risk of remote hacking."
+                    },
+                    {
+                      q: "14. Can I use Li-Fi outdoors?",
+                      a: "Li-Fi is designed primarily for indoor use. Direct, intense sunlight can create significant interference with the optical signal, which may degrade performance."
+                    },
+                    {
+                      q: "15. Does Li-Fi work if I move around the room?",
+                      a: "Yes, as long as your device maintains a line-of-sight or receives reflected light from the ceiling-mounted antennas, you can enjoy seamless connectivity while moving within the coverage area."
+                    },
+                    {
+                      q: "16. What happens if I accidentally block the light signal?",
+                      a: "If you completely obstruct the line-of-sight between the light source and your device, the connection may drop. However, Li-Fi systems are designed to utilize reflected light off walls and surfaces to maintain a connection even when a direct line-of-sight is occasionally interrupted."
+                    },
+                    {
+                      q: "17. Is Li-Fi a replacement for my current Wi-Fi?",
+                      a: "Most users implement Li-Fi as a high-security, ultra-fast \"fast lane\" for data-intensive tasks, while keeping Wi-Fi for general coverage throughout the rest of the home or office."
+                    },
+                    {
+                      q: "18. How do I request additional antennas or dongles?",
+                      a: "You can contact our sales or support team directly through our website to request and purchase additional hardware for your setup."
+                    },
+                    {
+                      q: "19. Is the Lumenfi kit difficult to install?",
+                      a: "Our kits are designed for straightforward integration with existing lighting environments. Detailed installation guides are provided with every shipment."
+                    },
+                    {
+                      q: "20. Who should use Li-Fi?",
+                      a: "Li-Fi is ideal for anyone prioritizing data security, anyone working in high-interference environments, or anyone who simply wants to experience the next generation of high-speed, congestion-free wireless connectivity"
+                    }
+                  ]
+                    .slice(((currentPage || 1) - 1) * 10, ((currentPage || 1) - 1) * 10 + 10)
+                    .slice(0, isExpanded ? 10 : 5)
+                    .map((faq, idx) => {
+                      const globalId = (((currentPage || 1) - 1) * 10) + idx;
+                      const isOpen = activeFaq === globalId;
+
+                      return (
+                        <div
+                          key={globalId}
+                          style={{
+                            maxHeight: isOpen ? '280px' : '54px',
+                            transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                            overflow: 'hidden'
+                          }}
+                          className={`border border-slate-200/80 rounded-xl p-4 cursor-pointer transition-colors ${isOpen ? 'bg-white border-green-400 shadow-xs' : 'bg-[#F5FAF6] hover:border-green-300'
+                            }`}
+                          onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
+                        >
+                          <div className="flex justify-between items-center gap-4 h-6">
+                            <h4 className="text-xs font-bold text-slate-950 font-mono tracking-wide">
+                              {faq.q}
+                            </h4>
+                            <span style={{
+                              transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.3s ease',
+                              fontSize: '11px',
+                              color: isOpen ? '#15803d' : '#64748b'
+                            }}>
+                              ▼
+                            </span>
+                          </div>
+
+                          <div
+                            style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}
+                            className="text-xs text-slate-700 mt-2.5 border-t border-slate-200/60 pt-2.5 leading-relaxed font-sans font-light"
+                          >
                             {faq.a}
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
 
-                <div className="lg:col-span-4 grid grid-cols-1 gap-4 text-[11px] font-mono text-slate-600">
-                  <div className="bg-[#F5FAF6]/80 border border-slate-200/80 p-5 rounded-xl space-y-2 backdrop-blur-xs shadow-inner">
-                    <div className="flex items-center gap-2 text-slate-950">
-                      <FileText className="w-4 h-4 text-green-600" />
-                      <h3 className="font-bold uppercase tracking-wider text-[10px]">DOCUMENTS VAULT</h3>
-                    </div>
-                    <p className="text-[11px] leading-relaxed">Read our simple setup books, safety rules, and home network guides.</p>
-                    <div className="space-y-1 pt-1 font-bold">
-                      <span className="block text-green-700 hover:underline cursor-pointer">→ Privacy Policy Rules</span>
-                      <span className="block text-green-700 hover:underline cursor-pointer">→ Terms and Conditions</span>
-                    </div>
+                {/* Control Navigation Actions Bar */}
+                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mr-2">Sets:</span>
+                    <button
+                      type="button"
+                      onClick={() => { setCurrentPage(1); setActiveFaq(-1); setIsExpanded(false); }}
+                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 1
+                        ? 'bg-green-700 text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                        }`}
+                    >
+                      1 (Q1-10)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setCurrentPage(2); setActiveFaq(-1); setIsExpanded(false); }}
+                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 2
+                        ? 'bg-green-700 text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                        }`}
+                    >
+                      2 (Q11-20)
+                    </button>
                   </div>
 
-                  <div className="bg-[#F5FAF6]/80 border border-slate-200/80 p-5 rounded-xl space-y-2 backdrop-blur-xs shadow-inner">
-                    <div className="flex items-center gap-2 text-slate-950">
-                      <Mail className="w-4 h-4 text-orange-600" />
-                      <h3 className="font-bold uppercase tracking-wider text-[10px]">ENGINEERING SUPPORT</h3>
-                    </div>
-                    <div className="space-y-1 text-[10px]">
-                      <p>Phone: +91 (Support Help Desk)</p>
-                      <p>Email: engineering@lumenfi.com</p>
-                    </div>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="flex items-center gap-2 px-4 py-2 bg-slate-950 text-white font-mono text-xs font-bold rounded-xl hover:bg-slate-800 transition-all shadow-sm"
+                  >
+                    {isExpanded ? "Show Less" : "Show More Questions"}
+                  </button>
                 </div>
+
               </div>
 
             </motion.div>
