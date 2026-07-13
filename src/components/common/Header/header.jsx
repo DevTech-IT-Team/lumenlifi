@@ -36,21 +36,14 @@ const navConfig = [
       { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
     ],
   },
-  // {
-  //   label: 'Lumen Lab',
-  //   href: '/about',
-  //   icon: FlaskConical,
-  //   hoverClass: 'hover:text-[#0FB89A]',
-  //   iconColor: 'group-hover:text-[#0FB89A]',
-  //   activeIconColor: 'text-[#0FB89A]',
-  //   dropdown: [
-  //     { label: 'Technical Registry', desc: 'Deep-dives, whitepapers & specifications', href: '/insights', icon: FileText },
-  //     { label: 'Research Lab', desc: 'Academic validations & optical studies', href: '/insights#studies', icon: BookOpen },
-  //     { label: 'Core Engineering Team', desc: 'The architects behind the lightwave layer', href: '/about', icon: Users },
-  //     { label: 'Operational History', desc: 'Milestones in IEEE 802.11bb evolution', href: '/about#timeline', icon: Clock },
-  //     { label: 'Open Positions', desc: 'Shape next-generation communications infrastructure', href: '/about#careers', icon: Briefcase },
-  //   ],
-  // },
+  {
+    label: 'Partner With Us',
+    href: '/partner',
+    icon: Briefcase,
+    hoverClass: 'hover:text-[#00C2C7]',
+    iconColor: 'group-hover:text-[#00C2C7]',
+    activeIconColor: 'text-[#00C2C7]',
+  },
 ];
 
 export default function Header() {
@@ -97,7 +90,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-        {/* ── Logo (Brought to clean scale alignment) ── */}
+        {/* ── Logo ── */}
         <Link href="/" className="flex items-center group shrink-0">
           <div className="relative w-[150px] h-[46px] md:w-[170px] md:h-[52px]">
             <Image
@@ -116,19 +109,35 @@ export default function Header() {
           {navConfig.map((item) => {
             const isOpen_ = activeDropdown === item.label;
             const NavIcon = item.icon;
+
+            // Common styles shared between direct link and dropdown button
+            const navItemClasses = `group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
+              ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
+              : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
+              } ${item.hoverClass}`;
+
             return (
               <div key={item.label} className="relative">
-                <button
-                  onClick={() => toggleDropdown(item.label)}
-                  className={`group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
-                    ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
-                    : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
-                    } ${item.hoverClass}`}
-                >
-                  <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 ${isOpen_ ? item.activeIconColor : 'text-[#2AABDB]/60'} ${item.iconColor}`} />
-                  <span>{item.label}</span>
-                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 text-[#2AABDB]/60 ${isOpen_ ? 'rotate-180' : ''}`} />
-                </button>
+                {item.dropdown ? (
+                  /* If it has a dropdown, keep it as a button */
+                  <button
+                    onClick={() => toggleDropdown(item.label)}
+                    className={navItemClasses}
+                  >
+                    <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 ${isOpen_ ? item.activeIconColor : 'text-[#2AABDB]/60'} ${item.iconColor}`} />
+                    <span>{item.label}</span>
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 text-[#2AABDB]/60 ${isOpen_ ? 'rotate-180' : ''}`} />
+                  </button>
+                ) : (
+                  /* If no dropdown, render as a direct Link component and omit Chevron Down arrow */
+                  <Link
+                    href={item.href}
+                    className={navItemClasses}
+                  >
+                    <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 text-[#2AABDB]/60 ${item.iconColor}`} />
+                    <span>{item.label}</span>
+                  </Link>
+                )}
 
                 {item.dropdown && isOpen_ && (
                   <div className="absolute top-full left-0 mt-2 w-80 bg-white border border-[rgba(26,110,191,0.12)] rounded-2xl shadow-xl shadow-[rgba(0,194,199,0.10)] p-2 grid grid-cols-1 gap-0.5 animate-in fade-in slide-in-from-top-2 duration-150">
@@ -164,7 +173,7 @@ export default function Header() {
         {/* ── CTA ── */}
         <div className="hidden lg:flex items-center gap-4">
           <Link
-            href="/contact"
+            href="/products"
             className="flex items-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-white transition-all hover:scale-[1.03] shadow-md"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)', boxShadow: '0 4px 20px rgba(0,194,199,0.25)' }}
           >
@@ -173,7 +182,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* ── Mobile menu ── */}
+        {/* ── Mobile menu button ── */}
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -191,33 +200,50 @@ export default function Header() {
           <div className="space-y-2">
             {navConfig.map((item) => {
               const MobIcon = item.icon;
+              const mobileItemClasses = "flex items-center justify-between w-full py-2.5 text-xs font-bold font-mono uppercase tracking-wider text-[#0D2240] hover:text-[#1A6EBF] text-left";
+
               return (
                 <div key={item.label} className="border-b border-[rgba(26,110,191,0.08)] pb-2 last:border-0 last:pb-0">
-                  <button
-                    onClick={() => toggleMobileExpanded(item.label)}
-                    className="flex items-center justify-between w-full py-2.5 text-xs font-bold font-mono uppercase tracking-wider text-[#0D2240] hover:text-[#1A6EBF] text-left"
-                  >
-                    <div className="flex items-center gap-2">
-                      <MobIcon className={`w-4 h-4 ${item.activeIconColor}`} />
-                      <span>{item.label}</span>
-                    </div>
-                    {item.dropdown && (
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileExpanded === item.label ? `rotate-180 ${item.activeIconColor}` : 'text-[#4A6080]'}`} />
-                    )}
-                  </button>
-                  {item.dropdown && mobileExpanded === item.label && (
-                    <div className="ml-4 mt-1 space-y-1 border-l-2 border-[rgba(0,194,199,0.25)] pl-4">
-                      {item.dropdown.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          onClick={() => setIsOpen(false)}
-                          className="block px-3 py-2 rounded-lg text-[11px] text-[#4A6080] hover:text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.06)] transition-colors"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
+                  {item.dropdown ? (
+                    /* Mobile: Dropdown expand button */
+                    <>
+                      <button
+                        onClick={() => toggleMobileExpanded(item.label)}
+                        className={mobileItemClasses}
+                      >
+                        <div className="flex items-center gap-2">
+                          <MobIcon className={`w-4 h-4 ${item.activeIconColor}`} />
+                          <span>{item.label}</span>
+                        </div>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileExpanded === item.label ? `rotate-180 ${item.activeIconColor}` : 'text-[#4A6080]'}`} />
+                      </button>
+                      {mobileExpanded === item.label && (
+                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-[rgba(0,194,199,0.25)] pl-4">
+                          {item.dropdown.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setIsOpen(false)}
+                              className="block px-3 py-2 rounded-lg text-[11px] text-[#4A6080] hover:text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.06)] transition-colors"
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    /* Mobile: Direct link item with no down arrow */
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={mobileItemClasses}
+                    >
+                      <div className="flex items-center gap-2">
+                        <MobIcon className="w-4 h-4 text-[#4A6080]" />
+                        <span>{item.label}</span>
+                      </div>
+                    </Link>
                   )}
                 </div>
               );

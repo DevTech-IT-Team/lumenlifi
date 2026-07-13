@@ -5,62 +5,70 @@ import { Button } from '../../components/ui';
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-hidden flex flex-col">
+    <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="flex flex-col items-start text-left">
+        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[var(--lumen-border)] text-[var(--lumen-blue)] font-mono text-[10px] font-bold uppercase tracking-widest mb-6 shadow-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-[var(--lumen-cyan)] animate-pulse" />
+          Pioneer Partner Program — Now Open
+        </motion.div>
 
-      {/* Techie Background Layer: Subtle Grid & Glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25 pointer-events-none" />
-      <div className="absolute top-0 left-1/4 -z-10 h-[400px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
+        <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
+          className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-[var(--lumen-navy)]">
+          Ignite the{' '}
+          <span className="text-gradient-lumen">Future.</span>
+          <br />Command the{' '}
+          <span className="text-gradient-lumen">Speed of Light.</span>
+        </motion.h1>
 
-      {/* Main Content Container */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-36 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-16 flex-grow z-10 w-full">
+        <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
+          className="text-lg md:text-xl max-w-xl mb-8 leading-relaxed text-[var(--lumen-muted)]">
+          The world is moving faster than ever before. Become a certified Lumenfi partner and step onto the front lines of the greatest infrastructure revolution of our lifetime.
+        </motion.p>
 
-        {/* Left Column: Context & Tech Badges (Spans 5 cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
-          <div className="space-y-4">
-            {/* Live Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 w-fit">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-              SYSTEMS ONLINE // SECURE GATEWAY
+        <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible"
+          className="flex flex-col sm:flex-row items-center gap-4">
+          <a href="#apply"
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl w-full sm:w-auto glow-blue"
+            style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}>
+            Join the Revolution <ArrowRight size={16} />
+          </a>
+          <a href="#why-partner"
+            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl font-bold text-sm tracking-wide border-2 transition-all hover:scale-[1.02] w-full sm:w-auto border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)]">
+            Explore Opportunities
+          </a>
+        </motion.div>
+
+        <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible"
+          className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-dashed border-[var(--lumen-border)]">
+          {[
+            { val: '10 Gbps', label: 'Optical Speed' },
+            { val: '$4.3T', label: 'Creator Economy' },
+            { val: '100%', label: 'RF-Free Network' },
+          ].map(({ val, label }) => (
+            <div key={label} className="flex flex-col items-start">
+              <div className="font-black text-2xl sm:text-3xl tracking-tight text-[var(--lumen-navy)]">{val}</div>
+              <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest mt-1 text-[var(--lumen-muted)]">{label}</div>
             </div>
-
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight bg-gradient-to-b from-white via-slate-200 to-slate-500 bg-clip-text text-transparent">
-              Initialize <br />
-              <span className="text-cyan-400 font-mono text-3xl sm:text-4xl font-bold">&lt;Connection /&gt;</span>
-            </h1>
-
-            <p className="text-slate-400 leading-relaxed text-sm sm:text-base max-w-md">
-              Have programmatic questions regarding structural device compatibility, military integration requirements, or system evaluations? Access our engineering protocol.
-            </p>
-          </div>
-
-          {/* Quick Specs / Trust Anchors */}
-          <div className="border-t border-slate-900 pt-8 space-y-4 font-mono text-xs text-slate-500">
-            <div className="flex items-center gap-3">
-              <Terminal className="w-4 h-4 text-cyan-500" />
-              <span>Response SLA: &lt; 12 Hours</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              <span>Encrypted End-to-End Delivery</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: The Form Card (Spans 7 cols) */}
-        <div className="lg:col-span-7 flex items-center">
-          <div className="w-full relative group">
-            {/* Subtle glow border effect behind the form */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-slate-800 to-slate-950 opacity-50 group-hover:from-cyan-500/30 group-hover:to-transparent transition duration-500" />
-
-            <div className="relative rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 p-8 sm:p-10 shadow-2xl">
-              <ContactFormBlock />
-            </div>
-          </div>
-        </div>
-
+          ))}
+        </motion.div>
       </div>
 
-      <Footer />
+      <motion.div custom={1} variants={fadeIn} initial="hidden" animate="visible"
+        className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_70px_rgba(13,34,64,0.15)] border border-[var(--lumen-border)] aspect-[4/3]">
+        <Image src={partnerHeroImg} alt="Lumenfi Partner — Building the Future Together" fill className="object-cover" priority sizes="(max-width: 1024px) 100vw, 50vw" />
+        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 backdrop-blur-md border border-[var(--lumen-border)] shadow-lg">
+          <div className="h-8 w-8 rounded-xl flex items-center justify-center shrink-0"
+            style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}>
+            <Zap size={14} className="text-white" />
+          </div>
+          <div>
+            <div className="text-[11px] font-black text-[var(--lumen-navy)] uppercase tracking-wider">Pioneer Program Active</div>
+            <div className="text-[10px] font-mono text-[var(--lumen-muted)]">Limited founding partner slots available</div>
+          </div>
+          <span className="ml-auto h-2 w-2 rounded-full bg-[var(--lumen-cyan)] animate-pulse shrink-0" />
+        </div>
+      </motion.div>
     </div>
   );
 }
