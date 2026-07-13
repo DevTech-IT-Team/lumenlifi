@@ -70,7 +70,7 @@ export default function RaceAgainstTime() {
             </span>
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto text-base">
-            All three networks start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
+            Start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
           </p>
         </motion.div>
 

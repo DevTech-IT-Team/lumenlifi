@@ -105,7 +105,7 @@ function HeroSection() {
         </motion.h1>
 
         <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[var(--lumen-muted)]">
-          Super fast internet made from light. Lumen LiFi turns your normal ceiling lights into an ultra-fast internet connection. No internet traffic jams. Just clean, fast light power.
+          The world's first home Internet provider run entirely on light (Li-Fi) not radio waves (Wi-Fi).
         </motion.p>
 
         <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-col sm:flex-row items-center gap-4">
@@ -195,7 +195,7 @@ function SpeedTableSection() {
             </span>
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto text-sm">
-            All three networks start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
+            Start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
           </p>
         </motion.div>
 
@@ -677,7 +677,7 @@ function HomeFeaturesSection() {
     {
       title: "Hidden Network Hardware",
       subtitle: "Invisible Setup",
-      desc: "Stop trying to hide ugly routers with big antennas behind your furniture. The internet is built right inside your light bulbs. If the lights are on, you are connected.",
+      desc: "Stop hiding ugly routers and big antennas behind your furniture. Our tech integrates the internet directly into your photonic antennas for a seamless, clutter-free connection.",
       img: invisibleInfraImg,
       badge: "Clean Ceiling Build",
       accent: "var(--lumen-cyan)"

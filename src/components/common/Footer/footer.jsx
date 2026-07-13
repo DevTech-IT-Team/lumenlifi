@@ -93,7 +93,6 @@ export default function Footer() {
           </ul>
         </div>
 
-
         {/* Newsletter Column */}
         <div className="md:col-span-4 space-y-4">
           <h4
