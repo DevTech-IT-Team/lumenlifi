@@ -2,57 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   LumenFi — Global Design System
+   SAFE VERSION: no nested @media inside @layer, no @supports
+   inside @layer — these patterns break PostCSS in some setups.
+   ============================================================ */
+
 @layer base {
   :root {
-    /* ── LumenFi Brand Palette (Extracted from Logo Gradient) ── */
+    /* ── Brand Palette ── */
     --lumen-navy: #0D2240;
-    /* Deep navy — primary headings & strong text */
     --lumen-blue: #1A6EBF;
-    /* Mid blue — brand buttons, primary links */
     --lumen-sky: #2AABDB;
-    /* Sky blue — interactions and hover states */
     --lumen-cyan: #00C2C7;
-    /* Bright cyan — high-tech accents/glows */
     --lumen-teal: #0FB89A;
-    /* Teal — structural gradient endpoint */
 
-    /* ── Surface Depth Washes (Breaking Up the Constant White) ── */
+    /* ── Surfaces ── */
     --lumen-bg: #F4F9FC;
-    /* Premium Alice Blue wash — removes bright blinding white base */
     --lumen-surface: #FFFFFF;
-    /* Clean white — reserved exclusively for raised cards and panels */
     --lumen-light: #EAF3FA;
-    /* Deep alternate section color — perfect for breaking up layouts */
     --lumen-border: rgba(26, 110, 191, 0.12);
-    /* Subtle branded blue outline vector */
     --lumen-muted: #4A6080;
-    /* Secondary prose text — high legibility, low strain */
   }
 
   .dark {
-    /* ── Dark Theme Variables (Premium Deep Cyber-Slate Aesthetic) ── */
     --lumen-navy: #F8FAFC;
-    /* Slate-50 — sharp headings */
     --lumen-blue: #38BDF8;
-    /* Sky-400 — energetic brand action triggers */
     --lumen-sky: #0EA5E9;
-    /* Sky-500 — active state states */
     --lumen-cyan: #06B6D4;
-    /* Cyan-500 — luminous asset glows */
     --lumen-teal: #14B8A6;
-    /* Teal-500 — dark mode terminal accents */
 
-    /* ── Surface Depth Washes ── */
     --lumen-bg: #030712;
-    /* Slate-950 — absolute infinite depth space */
     --lumen-surface: #0B1120;
-    /* Slate-900 — elevated component backdrops */
     --lumen-light: #0F172A;
-    /* Slate-800 — rich section alternating backdrop */
     --lumen-border: rgba(56, 189, 248, 0.15);
-    /* Vibrant sub-surface bounding edge */
     --lumen-muted: #94A3B8;
-    /* Slate-400 — structural secondary text */
   }
 
   body {
@@ -62,39 +46,65 @@
   }
 }
 
-/* ── Branded Design System Tokens ── */
+/* ============================================================
+   GRADIENT TEXT — Brave-compatible
+   Rule: always define a solid `color` fallback FIRST.
+   The @supports block upgrades it to gradient only when the
+   browser truly supports both required properties together.
+   ============================================================ */
 
-/* Exact Logo Gradient Replication */
+/* 1 — solid fallback: always visible, every browser */
 .text-gradient-lumen {
   color: #1A6EBF;
-  /* Fallback if gradient clipping isn't supported */
 }
 
-@supports (-webkit-background-clip: text) {
+/* 2 — gradient upgrade: only when both capabilities confirmed */
+@supports ((-webkit-background-clip: text) and (-webkit-text-fill-color: transparent)) {
   .text-gradient-lumen {
-    background: linear-gradient(135deg,
-        #1A6EBF 0%,
-        #00C2C7 50%,
-        #0FB89A 100%);
-
+    background: linear-gradient(135deg, #1A6EBF 0%, #00C2C7 50%, #0FB89A 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
     display: inline-block;
+  }
+
+  /* dark-mode variant */
+  .dark .text-gradient-lumen {
+    background: linear-gradient(135deg, #38BDF8 0%, #06B6D4 50%, #14B8A6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
-/* High-fidelity Micro-Glow Effects */
-.glow-cyan {
-  box-shadow: 0 0 40px -8px rgba(0, 194, 199, 0.35);
+/* ============================================================
+   EXPLICIT COLOUR UTILITIES
+   Use these classes in JSX on any heading that needs to survive
+   Brave's Auto Dark Mode without relying on CSS var inheritance.
+   ============================================================ */
+.text-lumen-navy {
+  color: #0D2240;
 }
 
-.glow-blue {
-  box-shadow: 0 10px 40px -10px rgba(26, 110, 191, 0.25);
+.text-lumen-white {
+  color: #FFFFFF;
 }
 
-/* Dynamic Alternating Layout Utilites (Apply these classes directly to section wrappers) */
+.text-lumen-muted {
+  color: #4A6080;
+}
+
+.text-lumen-blue {
+  color: #1A6EBF;
+}
+
+.text-lumen-cyan {
+  color: #00C2C7;
+}
+
+/* ============================================================
+   LAYOUT / SECTION UTILITIES
+   ============================================================ */
 .section-wash-primary {
   background-color: var(--lumen-bg);
 }
@@ -108,12 +118,35 @@
   border: 1px solid var(--lumen-border);
 }
 
-/* ── Layout Smooth Motion Experience ── */
+/* Lock headings to navy on all light-bg sections —
+   prevents Brave forced-dark from inverting them to white */
+.section-wash-primary h1,
+.section-wash-primary h2,
+.section-wash-primary h3,
+.section-wash-secondary h1,
+.section-wash-secondary h2,
+.section-wash-secondary h3 {
+  color: #0D2240;
+}
+
+/* ============================================================
+   GLOW EFFECTS
+   ============================================================ */
+.glow-cyan {
+  box-shadow: 0 0 40px -8px rgba(0, 194, 199, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 10px 40px -10px rgba(26, 110, 191, 0.25);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
 html {
   scroll-behavior: smooth;
 }
 
-/* Optimized Micro-Scrollbar Architecture */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -131,26 +164,22 @@ html {
   background: var(--lumen-blue);
 }
 
-/* --- Conic Border Flow Engine --- */
+/* ============================================================
+   ANIMATED BORDER FLOW
+   ============================================================ */
 .border-flow {
   position: absolute;
   background: conic-gradient(from 0deg,
-      transparent,
-      #22d3ee,
-      #8b5cf6,
-      #22d3ee,
-      transparent);
-  animation:
-    borderRotate 6s linear infinite,
-    glowPulse 2.5s ease-in-out infinite;
+      transparent, #22d3ee, #8b5cf6, #22d3ee, transparent);
+  animation: borderRotate 6s linear infinite, glowPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes borderRotate {
-  0% {
+  from {
     transform: rotate(0deg);
   }
 
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -167,7 +196,9 @@ html {
   }
 }
 
-/* --- SVG Connection Paths (Scoped) --- */
+/* ============================================================
+   SVG NETWORK PATH
+   ============================================================ */
 .network-path {
   fill: none;
   stroke: url(#flowGradient);
@@ -184,11 +215,9 @@ html {
   }
 }
 
-
-
-
-
-/* --- Premium Radial Background Glow Injection --- */
+/* ============================================================
+   BUTTON GLOW
+   ============================================================ */
 .premium-glow-btn::before {
   content: "";
   position: absolute;
