@@ -66,10 +66,23 @@
 
 /* Exact Logo Gradient Replication */
 .text-gradient-lumen {
-  background: linear-gradient(135deg, #1A6EBF 0%, #00C2C7 50%, #0FB89A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1A6EBF;
+  /* Fallback if gradient clipping isn't supported */
+}
+
+@supports (-webkit-background-clip: text) {
+  .text-gradient-lumen {
+    background: linear-gradient(135deg,
+        #1A6EBF 0%,
+        #00C2C7 50%,
+        #0FB89A 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block;
+  }
 }
 
 /* High-fidelity Micro-Glow Effects */
