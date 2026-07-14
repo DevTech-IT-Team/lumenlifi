@@ -6,7 +6,7 @@ import { ContactFormBlock } from '../../components/sections/contact';
 import { Button } from '../../components/ui';
 
 // Mock reference for the hero image asset
-const partnerHeroImg = "/assets/images/partner/hero.jpg";
+const partnerHeroImg = "/images/hero/partner-hero.png";
 
 export default function ContactPage() {
   return (
