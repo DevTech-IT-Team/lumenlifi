@@ -60,7 +60,8 @@ function HeroSection() {
 
   return (
     <section
-      className="relative w-full pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[var(--lumen-light)] via-[var(--lumen-bg)] to-[var(--lumen-light)] dark:from-[#070e1b] dark:via-[var(--lumen-bg)] dark:to-[#091222]"
+      className="relative w-full pt-32 pb-20 overflow-hidden"
+      style={{ background: 'linear-gradient(to bottom, #EAF3FA, #F4F9FC, #EAF3FA)' }}
     >
       {/* Dynamic Luminous Ambient Layer */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -97,14 +98,14 @@ function HeroSection() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 max-w-4xl text-[var(--lumen-navy)]">
+        <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 max-w-4xl text-[#0D2240]">
           The Speed of Light.{' '}
           <span className="text-gradient-lumen">
             Now in Your Living Room.
           </span>
         </motion.h1>
 
-        <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[var(--lumen-muted)]">
+        <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
           The world's first home Internet provider run entirely on light (Li-Fi) not radio waves (Wi-Fi).
         </motion.p>
 
@@ -1004,7 +1005,6 @@ export default function HomePage() {
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
       </Head>
 
       <Header />

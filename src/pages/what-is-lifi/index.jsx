@@ -121,14 +121,13 @@ export default function WhatIsLiFiPage() {
         <meta name="description" content="Discover LiFi technology: a fast, reliable, and secure mobile wireless communications technology that uses light waves rather than radio frequencies to transmit data." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
       </Head>
       <Header />
 
       <main className="flex-grow">
 
         {/* 1. HERO SHOWCASE SECTION */}
-        <section className="relative w-full pt-32 pb-20 overflow-hidden bg-gradient-to-b from-[var(--lumen-light)] via-[var(--lumen-bg)] to-[var(--lumen-light)] dark:from-[#070e1b] dark:via-[var(--lumen-bg)] dark:to-[#091222]">
+        <section className="relative w-full pt-32 pb-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #EAF3FA, #F4F9FC, #EAF3FA)' }}>
           <div className="absolute inset-0 pointer-events-none z-0">
             <div className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
               style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
@@ -140,7 +139,7 @@ export default function WhatIsLiFiPage() {
             style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-mono font-bold shadow-sm bg-[rgba(26,110,191,0.06)] dark:bg-[rgba(6,182,212,0.06)] border border-[var(--lumen-border)] text-[var(--lumen-blue)] dark:text-[var(--lumen-cyan)]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-mono font-bold shadow-sm bg-[rgba(26,110,191,0.06)] border border-[var(--lumen-border)] text-[#1A6EBF]">
               <span className="w-2 h-2 rounded-full animate-pulse inline-block bg-[var(--lumen-cyan)]" />
               <AnimatePresence mode="wait">
                 <motion.span key={tick} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.3 }}>
@@ -149,14 +148,14 @@ export default function WhatIsLiFiPage() {
               </AnimatePresence>
             </div>
 
-            <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 max-w-4xl text-[var(--lumen-navy)]">
+            <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 max-w-4xl text-[#0D2240]">
               Wireless Data at the{' '}
               <span className="text-gradient-lumen bg-clip-text text-transparent bg-gradient-to-r from-[#1A6EBF] to-[#00C2C7]">
                 Speed of Light
               </span>
             </motion.h1>
 
-            <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[var(--lumen-muted)]">
+            <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
               LiFi holds the key to solving challenges faced by WiFi and 5G networks. It is fast, highly reliable, virtually interference-free, and uniquely secure.
             </motion.p>
           </div>
@@ -187,7 +186,7 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden py-24 bg-[var(--lumen-light)] dark:bg-[#0b1329]/30">
+        <section className="relative overflow-hidden py-24 bg-[#EAF3FA]">
           {/* ── ABSOLUTE BACKGROUND GRID LAYER ── */}
           <div
             className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
@@ -201,17 +200,17 @@ export default function WhatIsLiFiPage() {
           <div className="relative z-10 max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
               <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white dark:bg-slate-900 border border-[var(--lumen-border)] text-[var(--lumen-blue)]">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white border border-[var(--lumen-border)] text-[#1A6EBF]">
                   <Zap size={12} /> Operational Overview
                 </div>
-                <h2 className="text-4xl font-black tracking-tight text-[var(--lumen-navy)]">
+                <h2 className="text-4xl font-black tracking-tight text-[#0D2240]">
                   What is LiFi & <br />
                   <span className="text-gradient-lumen">How Does it Work?</span>
                 </h2>
-                <p className="text-[var(--lumen-muted)] text-base leading-relaxed">
+                <p className="text-[#4A6080] text-base leading-relaxed">
                   LiFi is a fully networked mobile wireless communications technology that uses light rather than radio frequencies to transmit data. The experience of using LiFi mirrors standard WiFi but offers unprecedented physical layer speed and scaling vectors.
                 </p>
-                <p className="text-[var(--lumen-muted)] text-base leading-relaxed">
+                <p className="text-[#4A6080] text-base leading-relaxed">
                   It introduces immediate connectivity optimization targets for high-density settings, secure office complexes, immersive spatial rendering setups, and zero-RF hazardous configurations.
                 </p>
               </div>
@@ -252,8 +251,8 @@ export default function WhatIsLiFiPage() {
 
               <div className="w-full lg:w-1/2 flex flex-col space-y-4 order-1 lg:order-2">
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-[var(--lumen-blue)]">Digital Privacy Vault</span>
-                <h3 className="text-3xl font-black text-[var(--lumen-navy)] tracking-tight">Military Grade Security</h3>
-                <p className="text-sm sm:text-base leading-relaxed text-[var(--lumen-muted)]">
+                <h3 className="text-3xl font-black text-[#0D2240] tracking-tight">Military Grade Security</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-[#4A6080]">
                   LiFi wireless communications provide native physical isolation by default. Light does not penetrate walls or leak through materials like canvas or curtains. This effectively eliminates interception loops and man-in-the-middle exploits completely outside the room footprint.
                 </p>
                 <div className="inline-flex self-start px-4 py-2 rounded-xl text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/60">
@@ -281,8 +280,8 @@ export default function WhatIsLiFiPage() {
 
               <div className="w-full lg:w-1/2 flex flex-col space-y-4">
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-[var(--lumen-cyan)]">Unthrottled Throughput</span>
-                <h3 className="text-3xl font-black text-[var(--lumen-navy)] tracking-tight">Real World Performance</h3>
-                <p className="text-sm sm:text-base leading-relaxed text-[var(--lumen-muted)]">
+                <h3 className="text-3xl font-black text-[#0D2240] tracking-tight">Real World Performance</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-[#4A6080]">
                   Radio frequency (RF) paths suffer from localized degradation, signal absorption, and multi-user throttling. LiFi overcomes these constraints completely by delivering consistent high-bandwidth streams that remain entirely unaffected by surrounding electronic ambient noise.
                 </p>
                 <div className="inline-flex self-start px-4 py-2 rounded-xl text-xs font-mono font-bold text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-100 dark:border-cyan-900/60">

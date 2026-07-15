@@ -39,7 +39,7 @@ const fadeIn = {
 /* ── SECTION 1: HERO ── */
 function HeroSection() {
   return (
-    <section className="relative w-full pt-32 pb-0 overflow-hidden bg-gradient-to-b from-[var(--lumen-light)] via-[var(--lumen-bg)] to-[#EBF3FC]">
+    <section className="relative w-full pt-32 pb-0 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #EAF3FA, #F4F9FC, #EBF3FC)' }}>
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-0 left-1/4 w-[700px] h-[500px] rounded-full blur-[160px] opacity-55"
           style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
@@ -58,7 +58,7 @@ function HeroSection() {
           </motion.div>
 
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
-            className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-[var(--lumen-navy)]">
+            className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-[#0D2240]">
             Ignite the{' '}
             <span className="text-gradient-lumen">Future.</span>
             <br />Command the{' '}
@@ -66,7 +66,7 @@ function HeroSection() {
           </motion.h1>
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
-            className="text-lg md:text-xl max-w-xl mb-8 leading-relaxed text-[var(--lumen-muted)]">
+            className="text-lg md:text-xl max-w-xl mb-8 leading-relaxed text-[#4A6080]">
             The world is moving faster than ever before. Become a certified Lumenfi partner and step onto the front lines of the greatest infrastructure revolution of our lifetime.
           </motion.p>
 
@@ -754,7 +754,6 @@ export default function PartnerPage() {
         <meta property="og:description" content="Step onto the front lines of the Li-Fi infrastructure revolution. Founding partner slots are limited." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
       </Head>
       <Header />
       <main className="flex-grow">

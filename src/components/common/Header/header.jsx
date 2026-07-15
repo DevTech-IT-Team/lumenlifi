@@ -88,17 +88,17 @@ export default function Header() {
         : 'border-[rgba(26,110,191,0.08)] py-1.5'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full">
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center group shrink-0">
-          <div className="relative w-[150px] h-[46px] md:w-[170px] md:h-[52px]">
+          <div className="relative w-[130px] h-[40px] sm:w-[150px] sm:h-[46px] md:w-[170px] md:h-[52px]">
             <Image
               src={logoPl}
               alt="LumenFi — Light Connectivity"
               fill
               priority
-              sizes="(max-width: 768px) 150px, 170px"
+              sizes="(max-width: 640px) 130px, (max-width: 768px) 150px, 170px"
               className="object-contain transition-transform duration-200 group-hover:scale-[1.01]"
             />
           </div>
@@ -186,7 +186,7 @@ export default function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-1.5 rounded-xl text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.08)] transition-colors"
+            className="p-2 rounded-xl text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.08)] transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -196,7 +196,7 @@ export default function Header() {
 
       {/* ── Mobile drawer ── */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 top-[56px] bg-white border-t border-[rgba(26,110,191,0.10)] z-40 px-6 py-6 overflow-y-auto animate-in fade-in duration-200">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[rgba(26,110,191,0.10)] z-40 px-6 py-6 overflow-y-auto max-h-[calc(100vh-64px)] shadow-xl animate-in fade-in slide-in-from-top-1 duration-200">
           <div className="space-y-2">
             {navConfig.map((item) => {
               const MobIcon = item.icon;
@@ -218,7 +218,7 @@ export default function Header() {
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileExpanded === item.label ? `rotate-180 ${item.activeIconColor}` : 'text-[#4A6080]'}`} />
                       </button>
                       {mobileExpanded === item.label && (
-                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-[rgba(0,194,199,0.25)] pl-4">
+                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-[rgba(0,194,199,0.25)] pl-4 animate-in slide-in-from-top-1 duration-150">
                           {item.dropdown.map((sub) => (
                             <Link
                               key={sub.href}
@@ -252,7 +252,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center gap-2 w-full text-center text-white py-3.5 rounded-xl font-mono font-bold tracking-wider text-xs uppercase"
+                className="flex justify-center items-center gap-2 w-full text-center text-white py-3.5 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
               >
                 <span>Get Started</span>
