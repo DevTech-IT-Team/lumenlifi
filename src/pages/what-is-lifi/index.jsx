@@ -177,7 +177,7 @@ export default function WhatIsLiFiPage() {
                   width={1200}
                   height={650}
                   className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.01]"
-                  priority
+
                 />
               </div>
             </div>

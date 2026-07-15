@@ -92,7 +92,7 @@ function HeroSection() {
                 alt="LumenFi Logo"
                 fill
                 className="object-contain object-bottom"
-                priority
+
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 768px"
               />
             </motion.div>
@@ -933,7 +933,7 @@ function FinalCTASection() {
             />
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
+              <h2 className="!text-white text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
                 Leave old radio waves behind.<br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C2C7] via-[#0FB89A] to-[#00C2C7] bg-[size:200%_auto] animate-pulse" style={{ animationDuration: '4s' }}>
                   Live at the speed of light.
