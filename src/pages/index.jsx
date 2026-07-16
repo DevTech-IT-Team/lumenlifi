@@ -106,7 +106,7 @@ function HeroSection() {
         </motion.h1>
 
         <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
-          The world's first home Internet provider run entirely on light (Li-Fi) not radio waves (Wi-Fi).
+          The world's first home Internet provider run entirely on invisible infrared light (Li-Fi) not radio waves (Wi-Fi).
         </motion.p>
 
         <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible" className="flex flex-col sm:flex-row items-center gap-4">
