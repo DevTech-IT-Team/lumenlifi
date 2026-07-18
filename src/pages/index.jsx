@@ -992,6 +992,35 @@ function FinalCTASection() {
    ROOT PAGE GLOBAL SYSTEM MODULE EXPORT
 ───────────────────────────────────────────────────────────── */
 export default function HomePage() {
+  /* ── Meta Pixel Initialization Effects ── */
+  useEffect(() => {
+    /* eslint-disable no-unused-expressions */
+    if (!window.fbq) {
+      const n = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!window._fbq) window._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      window.fbq = n;
+
+      // Append initialization tag module
+      const t = document.createElement('script');
+      t.async = true;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      const s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+
+      window.fbq('init', '2911650089213039');
+    }
+    /* eslint-enable no-unused-expressions */
+
+    // Record initial load action metric
+    window.fbq('track', 'PageView');
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans transition-colors duration-300 bg-[var(--lumen-bg)] text-[var(--lumen-navy)]">
       <Head>
@@ -1018,6 +1047,17 @@ export default function HomePage() {
           }}
         />
       </Head>
+
+      {/* Standard Meta Noscript Fallback Injection */}
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=2911650089213039&ev=PageView&noscript=1"
+          alt=""
+        />
+      </noscript>
 
       <Header />
 
