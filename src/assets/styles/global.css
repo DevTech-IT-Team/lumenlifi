@@ -10,6 +10,19 @@
 
 @layer base {
   :root {
+    /*
+     * color-scheme: light
+     * ───────────────────────────────────────────────────────────────
+     * Tells the browser, Chrome's Auto Dark Mode, and Brave's forced-
+     * dark that this document is a LIGHT-MODE site. Native form
+     * controls, scrollbars, and the browser's own colour adjustments
+     * will all stay in light mode regardless of OS preference.
+     * This works as a belt-and-suspenders alongside darkMode:'class'
+     * in Tailwind config.
+     * ───────────────────────────────────────────────────────────────
+     */
+    color-scheme: light;
+
     /* ── Brand Palette ── */
     --lumen-navy: #0D2240;
     --lumen-blue: #1A6EBF;
@@ -25,24 +38,22 @@
     --lumen-muted: #4A6080;
   }
 
-  .dark {
-    --lumen-navy: #F8FAFC;
-    --lumen-blue: #38BDF8;
-    --lumen-sky: #0EA5E9;
-    --lumen-cyan: #06B6D4;
-    --lumen-teal: #14B8A6;
 
-    --lumen-bg: #030712;
-    --lumen-surface: #0B1120;
-    --lumen-light: #0F172A;
-    --lumen-border: rgba(56, 189, 248, 0.15);
-    --lumen-muted: #94A3B8;
+
+  html {
+    /*
+     * Redundant with :root above, but Chrome/Brave sometimes check
+     * both the :root and <html> element individually.
+     */
+    color-scheme: light;
   }
 
   body {
-    @apply antialiased font-sans transition-colors duration-300;
+    @apply antialiased font-sans;
     background-color: var(--lumen-bg);
+    /* always #F4F9FC */
     color: var(--lumen-navy);
+    /* always #0D2240 */
   }
 }
 
@@ -68,13 +79,7 @@
     display: inline-block;
   }
 
-  /* dark-mode variant */
-  .dark .text-gradient-lumen {
-    background: linear-gradient(135deg, #38BDF8 0%, #06B6D4 50%, #14B8A6 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  /* .dark .text-gradient-lumen REMOVED — site is light-mode only */
 }
 
 /* ============================================================

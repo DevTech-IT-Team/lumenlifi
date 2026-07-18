@@ -27,7 +27,7 @@ export default function Footer() {
               alt="LumenFi Logo"
               fill
               className="object-contain object-left"
-              priority
+            
             />
           </div>
 

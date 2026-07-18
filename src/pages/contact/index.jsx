@@ -68,7 +68,7 @@ export default function ContactPage() {
               alt="Lumenfi Partner — Building the Future Together"
               fill
               className="object-cover"
-              priority
+              
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
 

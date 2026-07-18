@@ -10,7 +10,7 @@ import {
   Zap,
   BookOpen,
   FileText,
-  Users,
+  Users, // Used for 'Join our community'
   Clock,
   Briefcase,
   Lightbulb,
@@ -37,9 +37,9 @@ const navConfig = [
     ],
   },
   {
-    label: 'Partner With Us',
-    href: '/partner',
-    icon: Briefcase,
+    label: 'Join our community',
+    href: '/join-our-community',
+    icon: Users, // Appropriately changed from Briefcase to Users for community focus
     hoverClass: 'hover:text-[#00C2C7]',
     iconColor: 'group-hover:text-[#00C2C7]',
     activeIconColor: 'text-[#00C2C7]',
@@ -97,7 +97,6 @@ export default function Header() {
               src={logoPl}
               alt="LumenFi — Light Connectivity"
               fill
-              priority
               sizes="(max-width: 640px) 130px, (max-width: 768px) 150px, 170px"
               className="object-contain transition-transform duration-200 group-hover:scale-[1.01]"
             />
@@ -250,7 +249,7 @@ export default function Header() {
             })}
             <div className="pt-4 border-t border-[rgba(26,110,191,0.10)] mt-2">
               <Link
-                href="/contact"
+                href="/products"
                 onClick={() => setIsOpen(false)}
                 className="flex justify-center items-center gap-2 w-full text-center text-white py-3.5 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
