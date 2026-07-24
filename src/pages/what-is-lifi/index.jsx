@@ -166,9 +166,6 @@ export default function WhatIsLiFiPage() {
                 <div className="w-3 h-3 rounded-full bg-[#FF5F56]/80" />
                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
                 <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
-                <div className="mx-auto bg-[#0D2240] text-[11px] font-mono text-[var(--lumen-cyan)] px-4 py-1 rounded-md border border-white/5 tracking-wider">
-                  Lumen LiFi Architecture Topology Diagram
-                </div>
               </div>
               <div className="relative w-full overflow-hidden rounded-b-2xl group bg-slate-900">
                 <Image
@@ -462,8 +459,9 @@ export default function WhatIsLiFiPage() {
                 />
 
                 <div className="relative z-10 text-center max-w-3xl mx-auto">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]" style={{ color: "#FFFFFF" }}>
                     Step out of the radio age.<br />
+
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C2C7] via-[#0FB89A] to-[#00C2C7] bg-[size:200%_auto] animate-pulse" style={{ animationDuration: '4s' }}>
                       Live at the speed of light.
                     </span>
@@ -512,10 +510,10 @@ export default function WhatIsLiFiPage() {
               </div>
             </motion.div>
           </div>
-        </section>
-      </main>
+        </section >
+      </main >
 
       <Footer />
-    </div>
+    </div >
   );
 }

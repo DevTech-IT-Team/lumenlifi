@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import {
+  Wifi,
+  Sun,
+  ShieldAlert,
+  ShieldCheck,
+  Unlock
+} from 'lucide-react';
 
 export default function NetworkSimulatorExperiment() {
-  // State Modules
-  const [mode, setMode] = useState('wifi'); // 'wifi' | 'lifi'
-  const [hackStatus, setHackStatus] = useState('idle'); // 'idle' | 'hacking' | 'success' | 'blocked'
+  const [mode, setMode] = useState('wifi');
+  const [hackStatus, setHackStatus] = useState('idle');
   const [userCount, setUserCount] = useState(14);
 
-  // Updated Telemetry Metrics with your new light-theme metrics mapping context targets dynamically
   const currentMetrics = mode === 'wifi'
     ? { leakage: 95, security: 18, penetration: 'YES', status: 'RF SIGNAL LEAKING' }
     : { leakage: 0, security: 100, penetration: 'BLOCKED', status: 'COMPLETELY SECURE' };
 
-  // Perimeter Threat Simulated Loop Trigger
   const triggerHackChallenge = () => {
     setHackStatus('hacking');
     setTimeout(() => {
@@ -20,309 +24,438 @@ export default function NetworkSimulatorExperiment() {
     }, 2200);
   };
 
-  // Simulating minor ambient network load fluctuations
   useEffect(() => {
     if (mode === 'wifi') {
       const interval = setInterval(() => {
         setUserCount(prev => Math.max(8, Math.min(24, prev + (Math.random() > 0.5 ? 1 : -1))));
-      }, 4000);
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [mode]);
 
   return (
-    <div className="w-full bg-gradient-to-br from-sky-50 via-white to-cyan-50 text-slate-900 rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-8">
-      <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-200 pb-6 mb-6 gap-4">
+    <div className="w-full bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950 text-slate-100 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden p-6 sm:p-8 font-sans">
+
+      {/* Header Controls */}
+      <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-800/80 pb-6 mb-6 gap-4">
         <div>
-          <h3 className="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600">
-            LIVE NETWORK SIMULATOR EXPERIMENT
-          </h3>
-          <p className="text-xs text-slate-600 mt-1">
-            Toggle channels to visualize the dynamic physical differences between spectrum bounds.
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+            <h3 className="text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-300">
+              PHYSICAL LAYER NETWORK SIMULATOR
+            </h3>
+          </div>
+          <p className="text-xs text-slate-400 mt-1">
+            Visualizing physical spectrum bounds, containment mechanics, and perimeter threat vulnerabilities.
           </p>
         </div>
 
-        {/* Control Center Switch Module */}
-        <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+        {/* Mode Selector Switch */}
+        <div className="flex items-center gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800">
           <button
             onClick={() => { setMode('wifi'); setHackStatus('idle'); }}
-            className={`px-4 py-2 rounded-lg font-bold text-xs font-mono tracking-wider transition-all ${mode === 'wifi' ? 'bg-red-500/10 text-red-600 border border-red-200 shadow-sm' : 'text-slate-600 hover:text-slate-800'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs tracking-wider transition-all ${mode === 'wifi'
+              ? 'bg-red-500/20 text-red-400 border border-red-500/40 shadow-lg shadow-red-500/10'
+              : 'text-slate-400 hover:text-slate-200'
+              }`}
           >
-            WiFi Radio Waves
+            <Wifi className="w-4 h-4" />
+            WiFi (2.4 / 5 GHz)
           </button>
           <button
             onClick={() => { setMode('lifi'); setHackStatus('idle'); }}
-            className={`px-4 py-2 rounded-lg font-bold text-xs font-mono tracking-wider transition-all ${mode === 'lifi' ? 'bg-cyan-500/10 text-cyan-600 border border-cyan-200 shadow-sm' : 'text-slate-600 hover:text-slate-800'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs tracking-wider transition-all ${mode === 'lifi'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/10'
+              : 'text-slate-400 hover:text-slate-200'
+              }`}
           >
-            LiFi Optical Light
+            <Sun className="w-4 h-4" />
+            LiFi (Optical VLC)
           </button>
         </div>
       </div>
 
-      {/* Simulation Environment Layout */}
+      {/* Main Grid Visual Stage */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Vector Stage Screen */}
-        <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200 relative overflow-hidden min-h-[420px]">
 
-          {/* Floating Contextual Diagnostics Map */}
-          <div className="absolute top-4 left-4 z-10 pointer-events-none flex flex-col gap-1.5">
-            <span className={`text-[10px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded border backdrop-blur-md ${mode === 'wifi' ? 'bg-red-50/80 border-red-200 text-red-600' : 'bg-cyan-50/80 border-cyan-200 text-cyan-600'}`}>
-              SPECTRUM: {mode === 'wifi' ? 'Omnidirectional RF Leaking' : 'Localized Optical Cone'}
+        {/* Canvas Visualizer */}
+        <div className="lg:col-span-8 bg-slate-950/80 rounded-2xl border border-slate-800 relative overflow-hidden min-h-[440px] backdrop-blur-md shadow-inner">
+
+          {/* Overlay Diagnostics */}
+          <div className="absolute top-4 left-4 z-20 pointer-events-none flex flex-col gap-2">
+            <span className={`text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full border backdrop-blur-md shadow-sm ${mode === 'wifi'
+              ? 'bg-red-950/60 border-red-500/40 text-red-300'
+              : 'bg-cyan-950/60 border-cyan-500/40 text-cyan-300'
+              }`}>
+              MEDIUM: {mode === 'wifi' ? 'Omnidirectional RF Radiation' : 'Directional Optical Light Wave'}
             </span>
             {mode === 'wifi' && (
-              <span className="text-[9px] font-mono bg-amber-50/80 border border-amber-200 text-amber-700 px-2 py-0.5 rounded animate-pulse">
-                Congestion Strain: {userCount} Users Competing for Bandwidth
+              <span className="text-[10px] font-mono bg-amber-950/60 border border-amber-500/40 text-amber-300 px-3 py-1 rounded-full animate-pulse">
+                Network Load: {userCount} Active Contending Nodes
               </span>
             )}
           </div>
 
-          {/* Core Vector Environment Drawing */}
+          {/* SVG Vector Drawing Engine */}
           <svg viewBox="0 0 800 420" className="w-full h-full select-none">
             <defs>
-              <filter id="sim-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
+              {/* Glow Filters */}
+              <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
               </filter>
-              <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.5" />
-                <stop offset="70%" stopColor="#22d3ee" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.0" />
+
+              <filter id="glow-red" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+
+              {/* Dynamic Gradients */}
+              <linearGradient id="optical-cone" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+                <stop offset="60%" stopColor="#0891b2" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#0e7490" stopOpacity="0.0" />
               </linearGradient>
 
-              {/* Pattern for Opaque Concrete Wall Texture */}
-              <pattern id="concrete-wall" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="16" stroke="#94A3B8" strokeWidth="1" opacity="0.4" />
-                <line x1="0" y1="0" x2="16" y2="0" stroke="#94A3B8" strokeWidth="1" opacity="0.4" />
+              {/* Concrete Pattern */}
+              <pattern id="concrete-grid" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="12" stroke="#334155" strokeWidth="1" />
               </pattern>
 
-              {/* Clip Path to ensure no LiFi beams exist after the wall boundary */}
-              <clipPath id="officeArea">
+              {/* Office Area Clip Boundary */}
+              <clipPath id="officeBoundary">
                 <rect x="0" y="0" width="500" height="420" />
               </clipPath>
             </defs>
 
-            {/* Room Architecture Background Grid Lines */}
-            <g opacity="0.25">
-              <path d="M0,50 L800,50 M0,100 L800,100 M0,150 L800,150 M0,200 L800,200 M0,250 L800,250 M0,300 L800,300 M0,350 L800,350 M0,400 L800,400" stroke="#CBD5E1" strokeWidth="1" />
-              <path d="M100,0 L100,420 M200,0 L200,420 M300,0 L300,420 M400,0 L400,420 M500,0 L500,420 M600,0 L600,420 M700,0 L700,420" stroke="#CBD5E1" strokeWidth="1" />
+            {/* Architectural Grid Layer */}
+            <g opacity="0.15">
+              <path d="M0,60 L800,60 M0,120 L800,120 M0,180 L800,180 M0,240 L800,240 M0,300 L800,300 M0,360 L800,360" stroke="#94A3B8" strokeWidth="1" strokeDasharray="4 4" />
+              <path d="M100,0 L100,420 M200,0 L200,420 M300,0 L300,420 M400,0 L400,420 M500,0 L500,420 M600,0 L600,420 M700,0 L700,420" stroke="#94A3B8" strokeWidth="1" strokeDasharray="4 4" />
             </g>
 
-            {/* Structural Boundary Text Labels */}
-            <text x="250" y="410" fill="#64748B" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle" letterSpacing="1">INSIDE OFFICE</text>
-            <text x="660" y="410" fill="#64748B" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle" letterSpacing="1">OUTSIDE BUILDING</text>
+            {/* Room Boundary Labels */}
+            <text x="250" y="402" fill="#475569" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle" letterSpacing="2">
+              SECURE FACILITY INTERIOR
+            </text>
+            <text x="650" y="402" fill="#475569" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle" letterSpacing="2">
+              UNTRUSTED EXTERIOR
+            </text>
 
-            {/* WiFi Propagation State Elements */}
+            {/* WIFI SPECIFIC: Omnidirectional Leaking Waves */}
             {mode === 'wifi' && (
               <g>
-                {/* Expanding Concentric Wavefront Radii */}
-                <g id="wifi-waves" transform="translate(180, 150)" fill="none" stroke="#EF4444" strokeWidth="1.5">
-                  <motion.circle r={40} animate={{ r: [20, 450], opacity: [1, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} />
-                  <motion.circle r={80} animate={{ r: [20, 450], opacity: [1, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 1, ease: "linear" }} />
-                  <motion.circle r={120} animate={{ r: [20, 450], opacity: [1, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 2, ease: "linear" }} />
-                  <motion.circle r={160} animate={{ r: [20, 450], opacity: [1, 0] }} transition={{ duration: 4, repeat: Infinity, delay: 3, ease: "linear" }} />
+                {/* Expanding Concentric Pulsing Wave Rings */}
+                <g transform="translate(180, 130)" fill="none" stroke="#ef4444" strokeWidth="1.5">
+                  <motion.circle r={30} animate={{ r: [20, 480], opacity: [0.8, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeOut" }} />
+                  <motion.circle r={60} animate={{ r: [20, 480], opacity: [0.8, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 0.8, ease: "easeOut" }} />
+                  <motion.circle r={90} animate={{ r: [20, 480], opacity: [0.8, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 1.6, ease: "easeOut" }} />
+                  <motion.circle r={120} animate={{ r: [20, 480], opacity: [0.8, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 2.4, ease: "easeOut" }} />
                 </g>
 
-                {/* Direct Attenuated RF Leakage Paths going THROUGH the Wall */}
-                {/* Before Wall Segment (Full Strength) */}
-                <g fill="none" stroke="#EF4444" strokeWidth="3" opacity="1">
-                  <motion.path d="M 180 150 C 300 140, 420 145, 500 150" strokeDasharray="8 8" animate={{ strokeDashoffset: [50, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
-                  <motion.path d="M 180 150 C 280 180, 400 200, 500 210" strokeDasharray="8 8" animate={{ strokeDashoffset: [50, 0] }} transition={{ duration: 2.3, repeat: Infinity, ease: "linear" }} />
+                {/* RF Data Packet Flow Vectors */}
+                <g fill="none" stroke="#f87171" strokeWidth="2" strokeDasharray="6 6">
+                  {/* Inside Room Route */}
+                  <motion.path d="M 180 130 Q 250 220 300 280" animate={{ strokeDashoffset: [40, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} />
+
+                  {/* Leaking Outside Through Wall Route */}
+                  <motion.path d="M 180 130 C 350 140, 500 180, 670 230" opacity="0.8" animate={{ strokeDashoffset: [50, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }} />
                 </g>
-                {/* Attenuated Leakage after Wall Segment */}
-                <g fill="none" stroke="#EF4444" strokeWidth="2.5" opacity="0.4">
-                  <motion.path d="M 536 152 C 580 155, 630 165, 680 180" strokeDasharray="6 6" animate={{ strokeDashoffset: [50, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} />
-                  <motion.path d="M 536 212 C 580 215, 630 220, 680 230" strokeDasharray="6 6" animate={{ strokeDashoffset: [50, 0] }} transition={{ duration: 2.3, repeat: Infinity, ease: "linear" }} />
-                </g>
+
+                {/* Floating RF Packets */}
+                {[...Array(5)].map((_, i) => (
+                  <motion.circle
+                    key={`rf-pkt-${i}`}
+                    r="3"
+                    fill="#ef4444"
+                    animate={{
+                      cx: [180, 500 + i * 35, 670],
+                      cy: [130, 180 + i * 10, 230],
+                      opacity: [0, 1, 0.4]
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
               </g>
             )}
 
-            {/* LiFi Structured Optical Fields clipped cleanly inside Wall boundary */}
-            <g clipPath="url(#officeArea)">
+            {/* LIFI SPECIFIC: Visual Light Beams inside Office Boundary */}
+            <g clipPath="url(#officeBoundary)">
               {mode === 'lifi' && (
                 <g>
-                  {/* Three Structural Dynamic Light Cone Beams */}
-                  <polygon points="120 40, 60 380, 180 380" fill="url(#beam)" />
-                  <polygon points="260 40, 200 380, 320 380" fill="url(#beam)" />
-                  <polygon points="400 40, 310 380, 490 380" fill="url(#beam)" />
+                  {/* Optical Cones */}
+                  <polygon points="300 45, 180 320, 420 320" fill="url(#optical-cone)" />
+
+                  {/* Surface Light Illumination Spot */}
+                  <ellipse cx="300" cy="320" rx="120" ry="16" fill="#06b6d4" opacity="0.25" filter="url(#glow-cyan)" />
+
+                  {/* Stream of Downward Light Photons */}
+                  {[...Array(8)].map((_, i) => (
+                    <motion.circle
+                      key={`photon-${i}`}
+                      r={i % 2 === 0 ? "2.5" : "1.5"}
+                      fill="#67e8f9"
+                      animate={{
+                        cx: [300 + (i - 4) * 12, 300 + (i - 4) * 22],
+                        cy: [45, 320],
+                        opacity: [0, 0.9, 0]
+                      }}
+                      transition={{
+                        duration: 1.2 + (i % 3) * 0.3,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "linear"
+                      }}
+                    />
+                  ))}
                 </g>
               )}
             </g>
 
-            {/* Opaque Concrete Shield Wall Layout */}
+            {/* Structural Concrete Wall Divider */}
             <g>
-              <rect x="500" y="20" width="36" height="380" fill="#E2E8F0" stroke="#64748B" strokeWidth="2" rx="6" />
-              <rect x="500" y="20" width="36" height="380" fill="url(#concrete-wall)" rx="6" />
-              <text x="519" y="210" fill="#475569" fontSize="9" fontWeight="bold" textAnchor="middle" transform="rotate(90 519 210)" letterSpacing="1.5">
-                OPAQUE WALL
+              <rect x="492" y="20" width="32" height="370" fill="#1e293b" rx="6" stroke="#475569" strokeWidth="2" />
+              <rect x="492" y="20" width="32" height="370" fill="url(#concrete-grid)" rx="6" opacity="0.7" />
+              <text x="508" y="205" fill="#94a3b8" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="middle" transform="rotate(90 508 205)" letterSpacing="2">
+                OPAQUE BARRIER / WALL
               </text>
             </g>
 
-            {/* Optical Barrier Absorbed/Blocked Spark Effect */}
+            {/* Wall Absorption / Block Particle Effect */}
             {mode === 'lifi' && (
-              <g>
-                <motion.circle cx="500" cy="170" r="20" fill="#22D3EE" animate={{ opacity: [0, 0.7, 0], scale: [1, 1.5, 2] }} transition={{ duration: 1.5, repeat: Infinity }} />
-                <motion.circle cx="500" cy="270" r="16" fill="#22D3EE" animate={{ opacity: [0, 0.6, 0], scale: [1, 1.4, 1.8] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.4 }} />
+              <g transform="translate(492, 180)">
+                <motion.circle cx="0" cy="0" r="16" fill="#06b6d4" opacity="0.3" filter="url(#glow-cyan)" animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.2, 0.5, 0.2] }} transition={{ duration: 2, repeat: Infinity }} />
+                <path d="M -10 -15 L -2 -2 L -10 10" stroke="#22d3ee" strokeWidth="2" fill="none" opacity="0.6" />
               </g>
             )}
 
-            {/* Redesigned Network Infrastructure Nodes */}
-            {/* 1. Large 26px WiFi Access Point Router */}
-            <g transform="translate(180, 150)">
-              <circle cx="0" cy="0" r="22" fill="#F8FAFC" stroke={mode === 'wifi' ? '#EF4444' : '#94A3B8'} strokeWidth="2" />
-              <text x="0" y="7" fontSize="22" textAnchor="middle">📶</text>
-              <text x="0" y="34" fill="#475569" fontSize="8" fontWeight="bold" textAnchor="middle">AP ROUTER</text>
+            {/* --- HARDWARE & ENDPOINT NODES --- */}
+
+            {/* 1. REALISTIC WI-FI ROUTER / MODEM */}
+            <g transform="translate(180, 130)">
+              {/* Antennas */}
+              <rect x="-14" y="-28" width="3" height="24" rx="1.5" fill="#475569" />
+              <rect x="11" y="-28" width="3" height="24" rx="1.5" fill="#475569" />
+              <circle cx="-12.5" cy="-28" r="2" fill="#ef4444" className={mode === 'wifi' ? "animate-pulse" : ""} />
+              <circle cx="12.5" cy="-28" r="2" fill="#ef4444" className={mode === 'wifi' ? "animate-pulse" : ""} />
+
+              {/* Router Main Chassis */}
+              <rect x="-24" y="-6" width="48" height="18" rx="4" fill="#0f172a" stroke={mode === 'wifi' ? '#ef4444' : '#475569'} strokeWidth="1.5" filter={mode === 'wifi' ? 'url(#glow-red)' : ''} />
+              <rect x="-20" y="-2" width="40" height="3" rx="1" fill="#1e293b" />
+
+              {/* Router Front LED Lights */}
+              <circle cx="-16" cy="6" r="1.5" fill={mode === 'wifi' ? "#22c55e" : "#64748b"} />
+              <circle cx="-11" cy="6" r="1.5" fill={mode === 'wifi' ? "#22c55e" : "#64748b"} />
+              <circle cx="-6" cy="6" r="1.5" fill={mode === 'wifi' ? "#3b82f6" : "#64748b"} className={mode === 'wifi' ? "animate-ping" : ""} />
+              <circle cx="-1" cy="6" r="1.5" fill={mode === 'wifi' ? "#ef4444" : "#64748b"} />
+
+              <text x="0" y="26" fill="#94a3b8" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="middle">WI-FI MODEM / ROUTER</text>
             </g>
 
-            {/* 2. Ceiling Mounted Downlink LED Luminaire Assemblies */}
-            <g transform="translate(260, 20)">
-              <line x1="0" y1="0" x2="0" y2="20" stroke="#64748B" strokeWidth="2" />
-              <circle cx="0" cy="20" r="14" fill="#F8FAFC" stroke={mode === 'lifi' ? '#06B6D4' : '#94A3B8'} strokeWidth="2" />
-              <text x="0" y="25" fontSize="15" textAnchor="middle">💡</text>
-              <text x="0" y="-4" fill="#475569" fontSize="8" fontWeight="bold" textAnchor="middle">LED LAMP</text>
+            {/* 2. REALISTIC LIFI LUMINAIRE LIGHT FIXTURE */}
+            <g transform="translate(300, 35)">
+              {/* Ceiling Cable Mounts */}
+              <line x1="-15" y1="-30" x2="-15" y2="0" stroke="#475569" strokeWidth="1.5" />
+              <line x1="15" y1="-30" x2="15" y2="0" stroke="#475569" strokeWidth="1.5" />
+
+              {/* Overhead LED Light Panel */}
+              <rect x="-32" y="0" width="64" height="14" rx="3" fill="#0f172a" stroke={mode === 'lifi' ? '#22d3ee' : '#475569'} strokeWidth="1.5" filter={mode === 'lifi' ? 'url(#glow-cyan)' : ''} />
+              {/* Emitting Diffuser Surface */}
+              <rect x="-28" y="10" width="56" height="3" rx="1" fill={mode === 'lifi' ? '#a5f3fc' : '#334155'} />
+
+              <text x="0" y="-8" fill="#94a3b8" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">LIFI CEILING PANEL</text>
             </g>
 
-            {/* Connected Workplace Endpoint Machines */}
-            {/* Authorized User Terminals */}
-            <g transform="translate(320, 350)">
-              <rect x="-20" y="-15" width="40" height="24" rx="3" fill="#F1F5F9" stroke={mode === 'lifi' ? '#06B6D4' : '#64748B'} strokeWidth="2" filter={mode === 'lifi' ? 'url(#sim-glow-cyan)' : ''} />
-              <rect x="-16" y="-11" width="32" height="16" fill="#0F172A" />
-              <path d="M-4,9 L4,9 L6,15 L-6,15 Z" fill="#475569" />
-              <text x="0" y="26" fill="#475569" fontSize="8" fontWeight="bold" textAnchor="middle">AUTHORIZED USER</text>
+            {/* 3. REALISTIC AUTHORIZED LAPTOP ON DESK */}
+            <g transform="translate(300, 280)">
+              {/* Office Desk */}
+              <rect x="-50" y="38" width="100" height="6" rx="2" fill="#334155" />
+              <rect x="-42" y="44" width="5" height="30" fill="#1e293b" />
+              <rect x="37" y="44" width="5" height="30" fill="#1e293b" />
+
+              {/* Laptop Base / Keyboard Deck */}
+              <polygon points="-28,38 28,38 24,30 -24,30" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+              {/* Trackpad */}
+              <rect x="-5" y="34" width="10" height="3" rx="0.5" fill="#334155" />
+
+              {/* Open Laptop Screen */}
+              <rect x="-20" y="6" width="40" height="25" rx="3" fill="#0284c7" stroke={mode === 'lifi' ? '#38bdf8' : '#475569'} strokeWidth="1.5" filter={mode === 'lifi' ? 'url(#glow-cyan)' : ''} />
+              {/* Screen Display Content Visual */}
+              <rect x="-17" y="9" width="34" height="19" rx="1" fill="#0f172a" />
+              <line x1="-12" y1="14" x2="2" y2="14" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="-12" y1="18" x2="-3" y2="18" stroke="#f43f5e" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="-12" y1="22" x2="8" y2="22" stroke="#4ade80" strokeWidth="1.5" strokeLinecap="round" />
+
+              <text x="0" y="56" fill="#cbd5e1" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="middle">AUTHORIZED LAPTOP</text>
             </g>
 
-            {/* Threat Actor Outside Building Array */}
-            <g transform="translate(680, 230)">
-              {/* Threat Icon Group */}
-              <g>
-                <circle cx="0" cy="-20" r="14" fill="#F8FAFC" stroke={hackStatus === 'success' ? '#EF4444' : hackStatus === 'blocked' ? '#10B981' : '#64748B'} strokeWidth="2" />
-                <text x="0" y="-13" fontSize="16" textAnchor="middle">👨‍💻</text>
-              </g>
+            {/* 4. REALISTIC UNAUTHORIZED / HACKER WORKSTATION */}
+            <g transform="translate(670, 230)">
+              {/* Dynamic Sniffing Ray Animation */}
+              {hackStatus === 'hacking' && (
+                <motion.line
+                  x1="-20"
+                  y1="10"
+                  x2="-160"
+                  y2="-70"
+                  stroke="#ef4444"
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  animate={{ strokeDashoffset: [20, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity, ease: "linear" }}
+                />
+              )}
 
-              {/* Context-Driven Threat State Visual Badge Response */}
-              <g transform="translate(0, 12)">
-                <rect x="-46" y="-4" width="92" height="14" rx="4" fill="#F1F5F9" stroke="#CBD5E1" strokeWidth="1" />
-                {hackStatus === 'idle' && <text x="0" y="6" fill="#64748B" fontSize="8" fontWeight="bold" textAnchor="middle">Searching...</text>}
-                {hackStatus === 'hacking' && <text x="0" y="6" fill="#D97706" fontSize="8" fontWeight="bold" textAnchor="middle" className="animate-pulse">Sniffing Link...</text>}
-                {hackStatus === 'success' && <text x="0" y="6" fill="#EF4444" fontSize="8" fontWeight="bold" textAnchor="middle">WiFi Signal Found!</text>}
-                {hackStatus === 'blocked' && <text x="0" y="6" fill="#10B981" fontSize="8" fontWeight="bold" textAnchor="middle">LiFi: No Signal</text>}
-              </g>
+              {/* Exterior Desk */}
+              <rect x="-40" y="28" width="80" height="5" rx="2" fill="#334155" />
+              <rect x="-32" y="33" width="4" height="25" fill="#1e293b" />
+              <rect x="28" y="33" width="4" height="25" fill="#1e293b" />
 
-              {/* Adaptive Threat Status Shield Overlays */}
-              <AnimatePresence>
+              {/* Hacker Laptop */}
+              <polygon points="-22,28 22,28 18,22 -18,22" fill="#0f172a" stroke="#ef4444" strokeWidth="1" />
+              <rect x="-16" y="2" width="32" height="20" rx="2" fill="#022c22" stroke={hackStatus === 'success' ? '#ef4444' : '#10b981'} strokeWidth="1.5" />
+
+              {/* Terminal Screen Lines */}
+              <rect x="-14" y="4" width="28" height="16" fill="#020617" />
+              <text x="-11" y="10" fill="#22c55e" fontSize="5" fontFamily="monospace">&gt; sniffing...</text>
+              {hackStatus === 'success' && <text x="-11" y="16" fill="#ef4444" fontSize="5" fontFamily="monospace" fontWeight="bold">&gt; DATA LEAK!</text>}
+
+              {/* External Yagi High-Gain Directional Antenna */}
+              <line x1="-28" y1="28" x2="-28" y2="5" stroke="#64748b" strokeWidth="2" />
+              <line x1="-34" y1="8" x2="-22" y2="8" stroke="#ef4444" strokeWidth="1.5" />
+              <line x1="-32" y1="12" x2="-24" y2="12" stroke="#ef4444" strokeWidth="1.5" />
+              <line x1="-30" y1="16" x2="-26" y2="16" stroke="#ef4444" strokeWidth="1.5" />
+
+              {/* Status Indicator Badge */}
+              <g transform="translate(0, 44)">
+                {hackStatus === 'idle' && (
+                  <text x="0" y="0" fill="#64748b" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">INACTIVE</text>
+                )}
+                {hackStatus === 'hacking' && (
+                  <text x="0" y="0" fill="#f59e0b" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle" className="animate-pulse">SNIFFING SPECTRUM...</text>
+                )}
                 {hackStatus === 'success' && (
-                  <motion.g initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-                    <circle cx="0" cy="-20" r="30" fill="none" stroke="#EF4444" strokeWidth="1.5" strokeDasharray="4 4" className="origin-center animate-[spin_15s_linear_infinite]" />
-                    <rect x="-55" y="-55" width="110" height="18" rx="4" fill="#FEF2F2" stroke="#FCA5A5" strokeWidth="1" />
-                    <text x="0" y="-43" fill="#B91C1C" fontSize="8" fontWeight="bold" textAnchor="middle">BREACH VIA WALLS</text>
-                  </motion.g>
+                  <g>
+                    <rect x="-55" y="-10" width="110" height="16" rx="4" fill="#450a0a" stroke="#ef4444" strokeWidth="1" />
+                    <text x="0" y="1" fill="#fca5a5" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">EXPLOIT: LEAK DETECTED</text>
+                  </g>
                 )}
                 {hackStatus === 'blocked' && (
-                  <motion.g initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-                    {/* Security Shield SVG Component Rendering */}
-                    <g transform="translate(-10, -56) scale(0.85)">
-                      <motion.path
-                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                        fill="#10B981"
-                        stroke="#065F46"
-                        strokeWidth="1"
-                        animate={{ scale: [1, 1.15, 1] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="origin-center"
-                      />
-                    </g>
-                    <rect x="-55" y="-76" width="110" height="16" rx="4" fill="#ECFDF5" stroke="#A7F3D0" strokeWidth="1" />
-                    <text x="0" y="-65" fill="#047857" fontSize="8" fontWeight="bold" textAnchor="middle">WALL PENETRATION BLOCKED</text>
-                  </motion.g>
+                  <g>
+                    <rect x="-55" y="-10" width="110" height="16" rx="4" fill="#064e3b" stroke="#10b981" strokeWidth="1" />
+                    <text x="0" y="1" fill="#a7f3d0" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">BLOCKED BY BARRIER</text>
+                  </g>
                 )}
-              </AnimatePresence>
-              <text x="0" y="42" fill="#475569" fontSize="8" fontWeight="bold" textAnchor="middle">UNAUTHORIZED USER</text>
+              </g>
+
+              <text x="0" y="60" fill="#94a3b8" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="middle">UNAUTHORIZED NODE</text>
             </g>
+
           </svg>
         </div>
 
-        {/* Live Real-Time Telemetry Metrics Console Panel */}
+        {/* Real-Time Telemetry & Threat Matrix Panel */}
         <div className="lg:col-span-4 flex flex-col justify-between gap-4">
-          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 font-mono">
-            <div className="text-[10px] tracking-wider text-slate-600 font-bold uppercase">
-              Live Telemetry Output
+
+          {/* Diagnostic Metrics Display */}
+          <div className="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-4 font-mono shadow-md">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+              <span className="text-[11px] tracking-wider text-slate-400 font-bold uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> Real-time Telemetry
+              </span>
+              <span className="text-[10px] text-slate-500">LAYER 1 DIAGNOSTICS</span>
             </div>
 
-            {/* Speed / Signal Leakage Track */}
-            <div className="space-y-1">
+            {/* Signal Leakage Progress Bar */}
+            <div className="space-y-1.5">
               <div className="flex justify-between text-xs">
-                <span className="text-slate-600">Signal Leakage</span>
-                <span className={`font-bold ${mode === 'lifi' ? 'text-emerald-600' : 'text-red-600'}`}>
+                <span className="text-slate-400">Signal Leakage (Perimeter):</span>
+                <span className={`font-bold ${mode === 'lifi' ? 'text-emerald-400' : 'text-red-400'}`}>
                   {currentMetrics.leakage}%
                 </span>
               </div>
-              <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden p-0.5 border border-slate-300">
+              <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800">
                 <motion.div
-                  className={`h-full rounded-full ${mode === 'lifi' ? 'bg-emerald-500' : 'bg-red-500'}`}
+                  className={`h-full rounded-full ${mode === 'lifi' ? 'bg-emerald-500 shadow-sm shadow-emerald-500' : 'bg-red-500 shadow-sm shadow-red-500'}`}
                   animate={{ width: `${currentMetrics.leakage}%` }}
-                  transition={{ type: "spring", stiffness: 70 }}
+                  transition={{ type: "spring", stiffness: 80 }}
                 />
               </div>
             </div>
 
-            {/* Security Track */}
-            <div className="space-y-1">
+            {/* Containment Security Progress Bar */}
+            <div className="space-y-1.5">
               <div className="flex justify-between text-xs">
-                <span className="text-slate-600">Physical Isolation</span>
-                <span className={`font-bold ${mode === 'lifi' ? 'text-emerald-600' : 'text-red-600'}`}>
+                <span className="text-slate-400">Physical Isolation Level:</span>
+                <span className={`font-bold ${mode === 'lifi' ? 'text-cyan-400' : 'text-amber-400'}`}>
                   {currentMetrics.security}% Containment
                 </span>
               </div>
-              <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden p-0.5 border border-slate-300">
+              <div className="h-2 w-full bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800">
                 <motion.div
-                  className={`h-full rounded-full ${mode === 'lifi' ? 'bg-emerald-500' : 'bg-red-600'}`}
+                  className={`h-full rounded-full ${mode === 'lifi' ? 'bg-cyan-400 shadow-sm shadow-cyan-400' : 'bg-amber-500'}`}
                   animate={{ width: `${currentMetrics.security}%` }}
                 />
               </div>
             </div>
 
-            {/* Wall Penetration Tracker */}
-            <div className="space-y-1">
-              <div className="flex justify-between text-xs">
-                <span className="text-slate-600">Wall Penetration</span>
-                <span className={`font-bold ${mode === 'wifi' ? 'text-red-600' : 'text-emerald-600'}`}>
-                  {currentMetrics.penetration}
-                </span>
-              </div>
-              <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden p-0.5 border border-slate-300">
-                <motion.div
-                  className={`h-full rounded-full ${mode === 'wifi' ? 'bg-red-500' : 'bg-emerald-500'}`}
-                  animate={{ width: mode === 'wifi' ? '100%' : '0%' }}
-                />
-              </div>
+            {/* Structural Wall Penetration Badge */}
+            <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 flex items-center justify-between">
+              <span className="text-xs text-slate-400">Wall Penetration:</span>
+              <span className={`text-xs font-bold px-2 py-0.5 rounded ${mode === 'wifi' ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                }`}>
+                {currentMetrics.penetration}
+              </span>
             </div>
 
-            <div className="p-2.5 bg-white rounded-lg border border-slate-200 text-center">
-              <p className="text-[10px] text-slate-600 uppercase">Security Status</p>
-              <p className={`text-xs font-bold mt-0.5 ${mode === 'lifi' ? 'text-cyan-600' : 'text-amber-600'}`}>
+            {/* Status Indicator */}
+            <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center">
+              <p className="text-[10px] text-slate-500 uppercase tracking-widest">Security Containment Status</p>
+              <p className={`text-xs font-bold mt-1 tracking-wider ${mode === 'lifi' ? 'text-cyan-300' : 'text-red-400'}`}>
                 {currentMetrics.status}
               </p>
             </div>
           </div>
 
-          {/* Active Penetration Signal Exploit Controller Tool */}
-          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2.5">
-            <div className="text-[10px] font-mono text-slate-600 font-bold uppercase tracking-wider">
-              Threat Matrix Trigger
+          {/* Threat Execution Trigger Box */}
+          <div className="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div className="flex items-center gap-2 text-[11px] font-mono text-slate-300 font-bold uppercase tracking-wider">
+              <ShieldAlert className="w-4 h-4 text-amber-400" /> Perimeter Attack Vector
             </div>
-            <p className="text-[11px] text-slate-600 leading-normal">
-              Launch an immediate perimeter attack loop to test structural network containment bounds.
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Execute an eavesdropping exploit to test whether network signals traverse exterior structural walls.
             </p>
             <button
               onClick={triggerHackChallenge}
               disabled={hackStatus === 'hacking'}
-              className={`w-full py-2.5 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all border ${hackStatus === 'hacking'
-                ? 'bg-amber-600/10 text-amber-600 border-amber-300/40 cursor-not-allowed'
-                : 'bg-white text-slate-800 border-slate-300 hover:bg-slate-50 hover:border-slate-400 active:scale-[0.99] shadow-sm'
+              className={`w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 border ${hackStatus === 'hacking'
+                ? 'bg-amber-500/10 text-amber-400 border-amber-500/30 cursor-not-allowed'
+                : 'bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white border-cyan-400/30 shadow-lg shadow-indigo-500/20 active:scale-[0.98]'
                 }`}
             >
-              {hackStatus === 'hacking' ? 'Intercepting Vector Loops...' : 'Simulate Perimeter Attack'}
+              {hackStatus === 'hacking' ? (
+                <>
+                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }}>
+                    <ShieldAlert className="w-4 h-4 text-amber-400" />
+                  </motion.div>
+                  Executing Perimeter Intercept...
+                </>
+              ) : (
+                <>
+                  <Unlock className="w-4 h-4" /> Simulate Perimeter Attack
+                </>
+              )}
             </button>
           </div>
+
         </div>
       </div>
     </div>
