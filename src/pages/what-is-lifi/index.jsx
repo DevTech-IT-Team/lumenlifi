@@ -183,7 +183,7 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden py-24 bg-[#EAF3FA]">
+        <section className="relative overflow-hidden py-18 bg-[#EAF3FA]">
           {/* ── ABSOLUTE BACKGROUND GRID LAYER ── */}
           <div
             className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
@@ -226,8 +226,17 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 3. CORE MATRIX SHOWCASE (Matches Section Wash Primary / Secondary Alternation Layout) */}
-        <section className="py-24 section-wash-primary">
-          <div className="max-w-6xl mx-auto px-6 space-y-24">
+        <section className="relative overflow-hidden py-24 section-wash-primary">
+          {/* Grid Overlay Vector Matrix */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
+            style={{
+              backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
+              backgroundSize: '64px 64px'
+            }}
+          />
+
+          <div className="relative z-10 max-w-6xl mx-auto px-6 space-y-24">
 
             {/* Row A: Military-Grade Security */}
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
@@ -240,9 +249,6 @@ export default function WhatIsLiFiPage() {
                     sizes="(max-width: 1024px) 100vw, 600px"
                     className="object-contain w-full h-full p-2 transition-transform duration-500 group-hover:scale-[1.01]"
                   />
-                  <div className="absolute top-4 left-4 backdrop-blur-md text-[10px] font-mono font-bold px-3 py-1.5 rounded-md text-white bg-[#0D2240]/80 border border-emerald-500/30">
-                    Physical Containment
-                  </div>
                 </div>
               </div>
 
