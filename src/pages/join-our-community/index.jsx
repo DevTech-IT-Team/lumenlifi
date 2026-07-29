@@ -7,7 +7,7 @@ import {
   ArrowRight, CheckCircle, Zap, Shield, Globe, Cpu,
   Gamepad2, Factory, Car, Star, Sparkles,
   Building2, Users, TrendingUp, Award,
-  Send, Mail, Handshake, Network, Rocket, Lock, MessageSquare
+  Send, Mail, Handshake, Network, Rocket, MessageSquare
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
@@ -55,15 +55,15 @@ function HeroSection() {
 
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
             className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-[#0D2240]">
-            Connect the{' '}
-            <span className="text-gradient-lumen">Minds.</span>
-            <br />Shape the{' '}
-            <span className="text-gradient-lumen">Speed of Light.</span>
+            Step into the{' '}
+            <span className="text-gradient-lumen">future</span>
+            <br />of{' '}
+            <span className="text-gradient-lumen">light.</span>
           </motion.h1>
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
             className="text-lg md:text-xl max-w-xl mb-8 leading-relaxed text-[#4A6080]">
-            Innovation isn’t built in isolation. Join our global developer and enthusiast community to build, deploy, and explore the cutting-edge ecosystem of optical wireless tech.
+            LiFi is more than a new way to connect. It is a new space being built by curious minds, innovators, learners, and people ready to be part of what comes next. Join the LiFi community and be part of the movement shaping the future of connected spaces.
           </motion.p>
 
           <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible"
@@ -71,20 +71,20 @@ function HeroSection() {
             <a href="#join"
               className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl w-full sm:w-auto glow-blue"
               style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}>
-              Join Our Community <ArrowRight size={16} />
+              Join the Community <ArrowRight size={16} />
             </a>
             <a href="#why-community"
               className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl font-bold text-sm tracking-wide border-2 transition-all hover:scale-[1.02] w-full sm:w-auto border-[#1A6EBF] text-[#1A6EBF] bg-[rgba(26,110,191,0.03)]">
-              Explore Spaces
+              Explore the Community
             </a>
           </motion.div>
 
           <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible"
             className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-dashed border-[var(--lumen-border)]">
             {[
-              { val: '24/7', label: 'Discord Synergy' },
-              { val: 'Global', label: 'Tech Network' },
-              { val: '100%', label: 'Open Collaboration' },
+              { val: 'Learn', label: 'Discover LiFi' },
+              { val: 'Connect', label: 'Meet the Community' },
+              { val: 'Grow', label: 'Shape the Future' },
             ].map(({ val, label }) => (
               <div key={label} className="flex flex-col items-start">
                 <div className="font-black text-2xl sm:text-3xl tracking-tight text-[#0D2240]">{val}</div>
@@ -103,8 +103,8 @@ function HeroSection() {
               <Users size={14} className="text-white" />
             </div>
             <div>
-              <div className="text-[11px] font-black text-[#0D2240] uppercase tracking-wider">Community Portal Active</div>
-              <div className="text-[10px] font-mono text-[#4A6080]">Connect instantly with builders worldwide</div>
+              <div className="text-[11px] font-black text-[#0D2240] uppercase tracking-wider">LiFi Community Growing</div>
+              <div className="text-[10px] font-mono text-[#4A6080]">A place for curious minds and innovators</div>
             </div>
             <span className="ml-auto h-2 w-2 rounded-full bg-[#00C2C7] animate-pulse shrink-0" />
           </div>
@@ -175,10 +175,10 @@ function OpportunitiesSection() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
-            Ecosystem Hubs Built For <span className="text-gradient-lumen">Discovery</span>
+            A New Space Is <span className="text-gradient-lumen">Being Created.</span>
           </h2>
           <p className="text-[#4A6080] max-w-2xl mx-auto text-base leading-relaxed">
-            The next generation of high-speed systems isn’t controlled by dark data rooms. It’s born right here inside open communication circles where software meets real optical science.
+            The world is discovering a new way to connect. And we believe the future of LiFi should not be built by a few people alone. Whether you are discovering LiFi for the first time, exploring new opportunities, building something meaningful, or simply curious about where this technology can take us — there is a place for you here. This is a community for people who want to learn, connect, explore, and grow with LiFi.
           </p>
         </motion.div>
 
@@ -238,10 +238,10 @@ function OpportunitiesSection() {
 /* ── SECTION 3: CORE PILLARS ── */
 function SmartCitySection() {
   const pillars = [
-    { icon: Building2, label: 'Shared Projects', desc: 'Contribute to shared sandboxes, open repositories, and modular networking blueprints.' },
-    { icon: Network, label: 'Ecosystem Labs', desc: 'Test custom applications against verified real-world optical telemetry profiles.' },
-    { icon: Lock, label: 'Localized Security', desc: 'Learn to configure secure, hardware-isolated channels that never skip data borders.' },
-    { icon: Globe, label: 'Global Hackathons', desc: 'Form virtual teams, tackle architectural constraints, and earn community recognition rewards.' },
+    { icon: Building2, label: 'Learn', desc: 'Discover LiFi for the first time or go deeper — there is always something new to explore here.' },
+    { icon: Network, label: 'Connect', desc: 'Meet curious minds, innovators, and explorers from across the globe who are shaping what comes next.' },
+    { icon: Sparkles, label: 'Explore', desc: 'Dive into opportunities, ideas, and possibilities that LiFi opens up across industries and everyday life.' },
+    { icon: Award, label: 'Be Recognised', desc: 'Every member gets a unique community identity — a personal way to be seen within the LiFi ecosystem.' },
   ];
 
   return (
@@ -255,10 +255,10 @@ function SmartCitySection() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
-            The Digital Brain Trust Of<br />Our <span className="text-gradient-lumen">Connected Society</span>
+            You Don't Just Join.<br />You Get Your Own <span className="text-gradient-lumen">Place In It.</span>
           </h2>
           <p className="text-[#4A6080] max-w-2xl mx-auto text-base leading-relaxed">
-            We are creating an open, fluid workspace where engineers, builders, and early adopters can collaborate to transform light frequencies into functional infrastructure layers.
+            When you join our community, you become part of something bigger. Every member gets a unique community identity — a personal way to be recognised within the LiFi ecosystem. As the community grows, your journey grows with it.
           </p>
         </motion.div>
 
@@ -270,9 +270,9 @@ function SmartCitySection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
             {[
-              { label: 'Open-Source', sub: 'Shared Blueprints' },
-              { label: 'Peer Vetted', sub: 'Technical Reviews' },
-              { label: 'Infinite Teams', sub: 'Global Connections' },
+              { label: 'Learn', sub: 'Discover LiFi' },
+              { label: 'Connect', sub: 'Meet the Community' },
+              { label: 'Be Recognised', sub: 'Your Unique Identity' },
             ].map(({ label, sub }) => (
               <div key={label} className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-[var(--lumen-border)] shadow-md">
                 <div>
@@ -302,55 +302,25 @@ function SmartCitySection() {
   );
 }
 
-/* ── SECTION 4: ENGAGEMENT LEVELS ── */
-const levels = [
+/* ── SECTION 4: TESTIMONIALS ── */
+const testimonials = [
   {
-    name: 'Casual Member',
-    tag: 'Community Tier 1',
-    price: 'Free Access',
-    color: '#2AABDB',
-    gradient: 'linear-gradient(135deg, #2AABDB 0%, #1A6EBF 100%)',
-    features: [
-      'Access to core Discord chat channels',
-      'Entry to open community town halls',
-      'Public community documentation review',
-      'General technical newsletter updates',
-      'Invitations to general hackathons',
-    ],
-    cta: 'Register for Discord',
+    quote: 'LiFi opened my eyes to a completely new way of thinking about connectivity.',
+    name: 'Community Member',
+    role: 'LiFi Explorer',
+    featured: false,
   },
   {
-    name: 'Ecosystem Innovator',
-    tag: 'Community Tier 2',
-    price: 'Active Circle',
-    color: '#00C2C7',
-    gradient: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)',
+    quote: 'I joined because I was curious. I stayed because there was so much more to discover.',
+    name: 'LiFi Explorer',
+    role: 'Community Member',
     featured: true,
-    features: [
-      'Everything in Casual Member tier',
-      'Exclusive beta tester group access',
-      'Early releases of open-source libraries',
-      'Direct interaction channels with core devs',
-      'Community workshop presentations slot',
-      'Special platform profile badges',
-    ],
-    cta: 'Apply for Beta Hub',
   },
   {
-    name: 'Active Contributor',
-    tag: 'Community Tier 3',
-    price: 'Core Circle',
-    color: '#0FB89A',
-    gradient: 'linear-gradient(135deg, #00C2C7 0%, #0FB89A 100%)',
-    features: [
-      'Everything in Ecosystem Innovator tier',
-      'Repository code write privileges',
-      'Direct roadmap contribution sessions',
-      'Special advisory committee selection eligibility',
-      'Lumenfi merch drop qualification',
-      'Featured community spotlight exposure',
-    ],
-    cta: 'Submit Core Profile',
+    quote: 'Being part of the LiFi community feels like being early to something truly important.',
+    name: 'Community Member',
+    role: 'LiFi Enthusiast',
+    featured: false,
   },
 ];
 
@@ -366,54 +336,31 @@ function PartnerTiersSection() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
-            Find Your Absolute <span className="text-gradient-lumen">Focal Point</span>
+            Hear It From People Already <span className="text-gradient-lumen">Exploring LiFi.</span>
           </h2>
           <p className="text-[#4A6080] max-w-xl mx-auto text-base leading-relaxed">
-            Whether you want to learn from afar or jump directly into the code base, choose the level of involvement that fits your style.
+            Real feedback from real people exploring the future of LiFi.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {levels.map((tier, idx) => (
-            <motion.div key={tier.name} custom={idx} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              className={`relative flex flex-col rounded-3xl border transition-all duration-300 overflow-hidden ${tier.featured
-                ? 'border-[#1A6EBF] shadow-2xl shadow-[rgba(0,194,199,0.15)] scale-[1.02]'
-                : 'border-[var(--lumen-border)] shadow-md hover:shadow-xl hover:border-[#1A6EBF] hover:scale-[1.01]'} bg-white`}>
-              {tier.featured && (
-                <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: tier.gradient }} />
+          {testimonials.map((t, idx) => (
+            <motion.div key={idx} custom={idx} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              className="relative flex flex-col rounded-3xl border border-[var(--lumen-border)] shadow-md hover:shadow-xl hover:border-[#1A6EBF] hover:scale-[1.01] transition-all duration-300 bg-white overflow-hidden">
+              {t.featured && (
+                <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }} />
               )}
-              <div className="p-7 pb-5">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#4A6080]">{tier.tag}</span>
-                  {tier.featured && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-white font-mono text-[9px] font-bold uppercase tracking-wider"
-                      style={{ background: tier.gradient }}>
-                      <Star size={9} /> High Activity
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-xl font-black text-[#0D2240] mb-1">{tier.name}</h3>
-                <div className="font-black text-3xl tracking-tight mt-3 mb-0" style={{ color: tier.color }}>{tier.price}</div>
-              </div>
-              <div className="mx-7 border-t border-[var(--lumen-border)]" />
-              <div className="p-7 flex-grow">
-                <ul className="space-y-3">
-                  {tier.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2.5">
-                      <CheckCircle size={14} className="shrink-0 mt-0.5" style={{ color: tier.color }} />
-                      <span className="text-xs text-[#4A6080] leading-relaxed">{feat}</span>
-                    </li>
+              <div className="p-7 flex-grow flex flex-col">
+                <div className="flex items-center gap-2 mb-5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="#00C2C7" stroke="none" />
                   ))}
-                </ul>
-              </div>
-              <div className="p-7 pt-0">
-                <a href="#join"
-                  className="flex items-center justify-center gap-2 w-full h-11 rounded-xl font-bold text-xs uppercase tracking-wider transition-all hover:scale-[1.02] duration-200"
-                  style={tier.featured
-                    ? { background: tier.gradient, color: 'white', boxShadow: `0 8px 24px rgba(0,194,199,0.25)` }
-                    : { border: `2px solid ${tier.color}`, color: tier.color, background: 'transparent' }}>
-                  {tier.cta} <ArrowRight size={13} />
-                </a>
+                </div>
+                <p className="text-[#4A6080] text-sm leading-relaxed flex-grow italic">&ldquo;{t.quote}&rdquo;</p>
+                <div className="mt-6 pt-5 border-t border-[var(--lumen-border)]">
+                  <div className="font-black text-sm text-[#0D2240]">{t.name}</div>
+                  <div className="text-[11px] font-mono text-[#1A6EBF] mt-0.5 uppercase tracking-wider">{t.role}</div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -423,13 +370,13 @@ function PartnerTiersSection() {
   );
 }
 
-/* ── SECTION 5: ECOSYSTEM ADVANTAGES ── */
+/* ── SECTION 5: JOURNEY STARTS HERE ── */
 function LegacySection() {
   const benefits = [
-    { icon: TrendingUp, title: 'Collaborative Growth', desc: 'Connect early with developers setting the trajectory of high-speed light arrays before they achieve generic adoption.' },
-    { icon: Globe, title: 'Cross-Domain Synergy', desc: 'Work alongside a balanced cross-section of data scientists, hardware developers, creators, and hobbyists.' },
-    { icon: Rocket, title: 'Open Source Accelerators', desc: 'Gain immediate access to documentation, interface maps, and toolkits built to reduce deployment friction.' },
-    { icon: Handshake, title: 'Interactive Channels', desc: 'Participate in engineering panels, community build reviews, and feedback pipelines alongside core designers.' },
+    { icon: TrendingUp, title: 'For the Curious', desc: 'Just discovered LiFi? This is the perfect place to start learning without pressure.' },
+    { icon: Globe, title: 'For the Explorer', desc: 'Explore new opportunities and possibilities that LiFi is unlocking across industries and everyday life.' },
+    { icon: Rocket, title: 'For the Builder', desc: 'Building something meaningful with LiFi? Connect with others on the same path and grow together.' },
+    { icon: Handshake, title: 'For the Community Seeker', desc: 'Looking for your tribe? Find people who are as excited about LiFi as you are.' },
   ];
 
   return (
@@ -443,10 +390,10 @@ function LegacySection() {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-6 leading-tight">
-                Innovation Thrives<br /> in the <span className="text-gradient-lumen">Light.</span>
+                Your LiFi Journey<br /> Starts <span className="text-gradient-lumen">Here.</span>
               </h2>
               <p className="text-[#4A6080] text-base leading-relaxed mb-10">
-                Lumenfi isn’t just rolling out standard gear; we are championing a complete shift in how networks perform. Join hands with pioneers globally to build the shared standard.
+                You don't need to be an expert. You don't need to know everything about LiFi. You just need to be curious. Tell us a little about yourself and become part of a growing community discovering what comes next.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -472,18 +419,18 @@ function LegacySection() {
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
               className="absolute -bottom-6 -left-6 bg-white rounded-2xl border border-[var(--lumen-border)] shadow-xl p-5 max-w-[200px]">
-              <div className="font-black text-3xl text-gradient-lumen mb-1">Open</div>
-              <div className="text-[11px] font-mono uppercase tracking-wider text-[#4A6080]">Repository Frameworks<br />for Global Devs</div>
+              <div className="font-black text-3xl text-gradient-lumen mb-1">Curious</div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#4A6080]">That's all you<br />need to start</div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: -20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.5 }}
               className="absolute -top-5 -right-5 bg-white rounded-2xl border border-[var(--lumen-border)] shadow-xl p-4 max-w-[180px]">
               <div className="flex items-center gap-2 mb-2">
                 <span className="h-2 w-2 rounded-full bg-[#00C2C7] animate-pulse" />
-                <span className="text-[10px] font-mono font-bold text-[#4A6080] uppercase">Active Hubs</span>
+                <span className="text-[10px] font-mono font-bold text-[#4A6080] uppercase">Community Growing</span>
               </div>
-              <div className="font-black text-2xl text-[#0D2240]">5,000+</div>
-              <div className="text-[10px] font-mono text-[#4A6080] mt-0.5">Members across world regions</div>
+              <div className="font-black text-2xl text-[#0D2240]">Join Now</div>
+              <div className="text-[10px] font-mono text-[#4A6080] mt-0.5">Be part of what comes next</div>
             </motion.div>
           </div>
         </div>
@@ -528,10 +475,10 @@ function ApplicationForm() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
-            Claim Your Spot.<br /><span className="text-gradient-lumen">Register for Community Onboarding.</span>
+            Join the <span className="text-gradient-lumen">LiFi Community.</span>
           </h2>
           <p className="text-[#4A6080] max-w-xl mx-auto text-base leading-relaxed">
-            Fill out your handle information below and our team will forward access credentials to jump straight inside.
+            Tell us a little about yourself and become part of a growing community discovering what comes next. You just need to be curious.
           </p>
         </motion.div>
 
@@ -544,8 +491,8 @@ function ApplicationForm() {
               <Users size={15} className="text-white" />
             </div>
             <div>
-              <div className="text-xs font-black text-[#0D2240] uppercase tracking-wider">Community Registration Form</div>
-              <div className="text-[10px] font-mono text-[#4A6080]">Your platform identifiers stay secure</div>
+              <div className="text-xs font-black text-[#0D2240] uppercase tracking-wider">Become a Community Member</div>
+              <div className="text-[10px] font-mono text-[#4A6080]">Your information stays secure</div>
             </div>
             <div className="ml-auto flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#00C2C7] animate-pulse" />
@@ -561,15 +508,15 @@ function ApplicationForm() {
                 style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}>
                 <CheckCircle size={36} className="text-white" />
               </motion.div>
-              <h3 className="text-2xl font-black text-[#0D2240] mb-3">Registration Successful!</h3>
+              <h3 className="text-2xl font-black text-[#0D2240] mb-3">Welcome to the Future!</h3>
               <p className="text-[#4A6080] max-w-md leading-relaxed text-sm">
-                Welcome to the collective brain trust. Check your inbox or system coordinates. Onboarding guides are heading your way right now.
+                You are now part of the LiFi community. The next chapter of connectivity is being written now — and you are part of the story. Check your inbox for what comes next.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-4 text-center">
                 {[
-                  { val: 'Instant', label: 'Discord Link' },
-                  { val: '100%', label: 'Open Access' },
-                  { val: 'Global', label: 'Ecosystem' },
+                  { val: 'Learn', label: 'Discover LiFi' },
+                  { val: 'Connect', label: 'Meet the Community' },
+                  { val: 'Grow', label: 'Shape the Future' },
                 ].map(({ val, label }) => (
                   <div key={label}>
                     <div className="font-black text-xl text-gradient-lumen">{val}</div>
@@ -580,60 +527,24 @@ function ApplicationForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="comm-firstName" className={labelCls}>First Name *</label>
-                  <input id="comm-firstName" name="firstName" type="text" required placeholder="John" value={formState.firstName} onChange={handleChange} className={inputCls} />
-                </div>
-                <div>
-                  <label htmlFor="comm-lastName" className={labelCls}>Last Name *</label>
-                  <input id="comm-lastName" name="lastName" type="text" required placeholder="Doe" value={formState.lastName} onChange={handleChange} className={inputCls} />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="comm-email" className={labelCls}>Email Address *</label>
-                  <input id="comm-email" name="email" type="email" required placeholder="john@domain.com" value={formState.email} onChange={handleChange} className={inputCls} />
-                </div>
-                <div>
-                  <label htmlFor="comm-discord" className={labelCls}>Discord Handle</label>
-                  <input id="comm-discord" name="discordHandle" type="text" placeholder="username#0000 or username" value={formState.discordHandle} onChange={handleChange} className={inputCls} />
-                </div>
+              <div>
+                <label htmlFor="comm-name" className={labelCls}>Name *</label>
+                <input id="comm-name" name="firstName" type="text" required placeholder="Your name" value={formState.firstName} onChange={handleChange} className={inputCls} />
               </div>
               <div>
-                <label htmlFor="comm-github" className={labelCls}>GitHub Profile / Personal Site</label>
-                <input id="comm-github" name="githubProfile" type="text" placeholder="https://github.com/username" value={formState.githubProfile} onChange={handleChange} className={inputCls} />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="comm-interest" className={labelCls}>Primary Ecosystem Interest *</label>
-                  <select id="comm-interest" name="primaryInterest" required value={formState.primaryInterest} onChange={handleChange} className={inputCls}>
-                    <option value="" disabled>Select choice...</option>
-                    <option>Open-Source Libraries &amp; APIs</option>
-                    <option>Streaming &amp; Creator Gear Configs</option>
-                    <option>AI Model Processing Links</option>
-                    <option>Hobbyist Hardware Modding</option>
-                    <option>Smart Infrastructure Design</option>
-                    <option>General Optical Networking Tech</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="comm-level" className={labelCls}>Engagement Preference *</label>
-                  <select id="comm-level" name="engagementLevel" required value={formState.engagementLevel} onChange={handleChange} className={inputCls}>
-                    <option value="" disabled>Select desired layer...</option>
-                    <option>Casual Member (Observe &amp; Learn)</option>
-                    <option>Ecosystem Innovator (Beta Testing)</option>
-                    <option>Active Contributor (Code &amp; Blueprints)</option>
-                    <option>Unsure — Show me options</option>
-                  </select>
-                </div>
+                <label htmlFor="comm-email" className={labelCls}>Email Address *</label>
+                <input id="comm-email" name="email" type="email" required placeholder="your@email.com" value={formState.email} onChange={handleChange} className={inputCls} />
               </div>
               <div>
-                <label htmlFor="comm-message" className={labelCls}>Tell Us What You Want To Explore</label>
-                <textarea id="comm-message" name="message" rows={4}
-                  placeholder="Share details about what custom configurations you are running, or what tech you are hoping to integrate..."
-                  value={formState.message} onChange={handleChange} className={`${inputCls} resize-none`} />
+                <label htmlFor="comm-interest" className={labelCls}>What brings you to LiFi? *</label>
+                <select id="comm-interest" name="primaryInterest" required value={formState.primaryInterest} onChange={handleChange} className={inputCls}>
+                  <option value="" disabled>Select an option...</option>
+                  <option>I want to learn</option>
+                  <option>I want to explore opportunities</option>
+                  <option>I want to connect with the community</option>
+                  <option>I am interested in becoming a partner</option>
+                  <option>I am simply curious</option>
+                </select>
               </div>
               <label className="flex items-start gap-3 cursor-pointer group">
                 <div className="relative mt-0.5 shrink-0">
@@ -657,10 +568,10 @@ function ApplicationForm() {
                   <>
                     <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
                       className="h-4 w-4 border-2 border-white/40 border-t-white rounded-full" />
-                    Generating Profile Keys...
+                    Joining Community...
                   </>
                 ) : (
-                  <>Enter the Community Space <ArrowRight size={16} /></>
+                  <>Become a Community Member <ArrowRight size={16} /></>
                 )}
               </button>
             </form>
@@ -670,9 +581,9 @@ function ApplicationForm() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
           className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { icon: Shield, label: 'Anti-Spam Standards', desc: 'No unauthorized cross-promotions or bot loops.' },
-            { icon: Mail, label: 'Instant Dispatch', desc: 'Invitation metrics arrive in your feed immediately.' },
-            { icon: MessageSquare, label: 'Moderated Arenas', desc: 'Maintained environments designed for smart engineering work.' },
+            { icon: Shield, label: 'Your Data is Safe', desc: 'We keep your information secure and never share it without your consent.' },
+            { icon: Mail, label: 'Quick Response', desc: 'We will be in touch soon after you submit — no long waits.' },
+            { icon: MessageSquare, label: 'Welcoming Space', desc: 'A friendly, open community where every question is a good question.' },
           ].map(({ icon: TIcon, label, desc }) => (
             <div key={label} className="flex items-start gap-3 p-4 rounded-2xl bg-[#EAF3FA] border border-[var(--lumen-border)]">
               <TIcon size={15} className="shrink-0 mt-0.5 text-[#1A6EBF]" />
@@ -700,21 +611,21 @@ function FinalBanner() {
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
-            Ready to Sync Frequencies?<br />
-            <span className="text-gradient-lumen">Enter the Collective Hub.</span>
+            Welcome to the Future.<br />
+            <span className="text-gradient-lumen">The next chapter starts now.</span>
           </h2>
           <p className="text-blue-200/70 text-base leading-relaxed max-w-2xl mx-auto mb-10">
-            Be part of the dynamic network creating open solutions with light array technology. The onboarding channels are active. Register now and anchor your setup inside the network ecosystem.
+            The next chapter of connectivity is being written now. Come be part of the community shaping it.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#join"
               className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-[1.03]"
               style={{ background: 'linear-gradient(135deg, #00C2C7 0%, #0FB89A 100%)', boxShadow: '0 8px 32px rgba(0,194,199,0.35)' }}>
-              Join the Hub <ArrowRight size={16} />
+              Join the Community <ArrowRight size={16} />
             </a>
             <Link href="/contact"
               className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl font-bold text-sm tracking-wider border-2 border-white/15 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300">
-              Contact Community Leaders
+              Contact Us
             </Link>
           </div>
         </motion.div>
@@ -728,9 +639,9 @@ export default function CommunityPage() {
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans bg-[#F4F9FC] text-[#0D2240]">
       <Head>
-        <title>Join the Lumenfi Community — Connect via Light Speed</title>
-        <meta name="description" content="Step inside the dynamic global community for Lumenfi developers, creators, and technical enthusiasts. Collaborate on high-speed optical hardware layouts." />
-        <meta property="og:title" content="Join the Lumenfi Community — Connect via Light Speed" />
+        <title>Join the LiFi Community — Be Part of What Comes Next</title>
+        <meta name="description" content="Join the LiFi community and be part of the movement shaping the future of connected spaces. Whether you are curious, learning, or building — there is a place for you here." />
+        <meta property="og:title" content="Join the LiFi Community — Be Part of What Comes Next" />
         <meta property="og:description" content="Step inside the dynamic global community for Lumenfi developers, creators, and technical enthusiasts." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
