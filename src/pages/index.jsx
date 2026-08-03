@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,10 +7,11 @@ import heroImg from '../../public/images/hero/hero.png';
 import logoPl from '../../public/brand/logo.png';
 import roomBg from '../../public/images/hero/room-bg.jpg';
 
+
 import {
   ArrowRight, CheckCircle, Zap, Shield, Lock, Wifi, WifiOff,
   Monitor, Gamepad2, Cpu, Home, Building2, Factory, GraduationCap,
-  Stethoscope, ChevronRight, Star, Sparkles, Orbit, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb, Globe
+  Stethoscope, ChevronRight, Star, Sparkles, Car, Orbit, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb, Globe, Trophy
 } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -42,6 +43,54 @@ const fadeUp = {
   }),
 };
 
+const columns = [
+  {
+    id: 'wifi',
+    name: 'Wi-Fi',
+    speed: '20 Mbps',
+    time: '11 hr 23 min',
+    HeaderIcon: Wifi,
+    BarIcon: Wifi,
+    heightPercent: 12,
+    barGradient: 'from-orange-600 via-orange-500 to-amber-400',
+    glowColor: 'rgba(249, 115, 22, 0.3)',
+    borderColor: 'border-orange-500/30',
+    textColor: 'text-orange-400',
+    duration: 4.5,
+    delay: 0.3,
+  },
+  {
+    id: 'fiber',
+    name: 'Fiber',
+    speed: '1 Gbps',
+    time: '13 min 20 sec',
+    HeaderIcon: Car,
+    BarIcon: Car,
+    heightPercent: 48,
+    barGradient: 'from-blue-600 via-blue-500 to-cyan-400',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
+    borderColor: 'border-blue-500/30',
+    textColor: 'text-blue-400',
+    duration: 2.5,
+    delay: 0.3,
+  },
+  {
+    id: 'lifi',
+    name: 'Li-Fi',
+    speed: '10 Gbps+',
+    time: '1 min 20 sec',
+    HeaderIcon: Zap,
+    BarIcon: Zap,
+    heightPercent: 95,
+    barGradient: 'from-cyan-500 via-teal-400 to-emerald-300',
+    glowColor: 'rgba(0, 245, 255, 0.5)',
+    borderColor: 'border-cyan-400/50',
+    textColor: 'text-cyan-300',
+    duration: 1.2,
+    delay: 0.3,
+    isWinner: true,
+  },
+];
 /* ─────────────────────────────────────────────────────────────
    SECTION 1 — HERO SHOWCASE
 ───────────────────────────────────────────────────────────── */
@@ -155,236 +204,136 @@ function HeroSection() {
    SECTION 2 — SPEED COMPARISON MATRIX
 ───────────────────────────────────────────────────────────── */
 function SpeedTableSection() {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 
   return (
-    /* --- 🎨 FIXED BACKGROUND COLOR TO MATCH UPPER SECTION TINT --- */
-    <section className="relative overflow-hidden py-16 bg-[#EBF3FC] text-slate-900" id="speed">
+    <section
+      className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden py-12 px-4 bg-[#071B34] text-white"
+      id="speed-vertical"
+    >
+      {/* Background Ambient Glows */}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-[#00F5FF] blur-[160px] opacity-15 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#3B82F6] blur-[150px] opacity-10 pointer-events-none" />
 
-      {/* --- 🌟 YOUR RADIAL GRADIENT GLOWS INTEGRATED --- */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div
-          className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
-          style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }}
-        />
-        <div
-          className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-50 dark:opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.15) 0%, transparent 70%)' }}
-        />
-      </div>
+      <div className="w-full max-w-4xl mx-auto relative z-10 flex flex-col justify-between h-auto">
 
-      {/* --- 🌐 VECTOR GRID MATRIX OVERLAY --- */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-40"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }}
-      />
-
-      {/* --- MAIN INTERACTION CONTAINER --- */}
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-
-        {/* --- HERO HEADER --- */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-6 md:mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-3 text-slate-900">
-            🏁 Race to Download a 2.5 Hour 4K Movie
-            <span className="block text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-600 via-blue-600 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,180,216,0.1)] mt-1">
-              Who finishes downloading a 100GB 4K movie first?
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs md:text-sm font-mono font-bold mb-3 bg-white/5 border border-white/10 text-cyan-400 shadow-[0_0_15px_rgba(0,245,255,0.15)]">
+            <Zap size={14} className="animate-pulse" /> Live Performance Dashboard
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-2">
+            Download Race: <span className="bg-gradient-to-r from-[#00F5FF] via-[#3B82F6] to-[#FFD700] bg-clip-text text-transparent">100 GB 4K Movie</span>
           </h2>
-          <p className="text-slate-600 max-w-xl mx-auto text-sm">
-            Start moving simultaneously at <strong>GO!</strong> Watch Li-Fi blast to the finish while legacy connections struggle down the track.
+          <p className="text-slate-300 max-w-xl mx-auto text-sm md:text-base">
+            Watch bandwidth capacity in action as Li-Fi dominates standard transmission channels in real-time.
           </p>
         </motion.div>
 
-        {/* --- 🏎️ THE HIGH-SPEED SPEEDWAY TRACK PANEL --- */}
-        <div className="backdrop-blur-xl bg-white/60 border border-slate-200/80 rounded-2xl p-5 md:p-6 shadow-[0_20px_50px_rgba(15,23,42,0.08)] mb-6">
+        {/* Dashboard Arena Container (Dynamic Height) */}
+        <div
+          ref={containerRef}
+          className="backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-3xl p-4 md:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] flex flex-col justify-between h-auto"
+        >
+          {/* 3-Column Visual Chart Stage with Taller Space */}
+          <div className="relative grid grid-cols-3 gap-3 md:gap-8 h-auto items-end px-2 md:px-6 pt-12 pb-2">
 
-          {/* Race Track Top Utilities */}
-          <div className="flex justify-between items-center text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-slate-200/60 pb-3">
-            <div>🚦 START</div>
-            <div className="text-center bg-cyan-600/10 text-cyan-700 px-3 py-0.5 rounded-full border border-cyan-400/20 animate-pulse">
-              3... 2... 1... GO! 🚀
+            {/* Background Y-Axis Grid Lines */}
+            <div className="absolute inset-x-0 top-12 bottom-12 flex flex-col justify-between pointer-events-none opacity-20 border-b border-white/10">
+              <div className="border-b border-dashed border-white/30 w-full text-xs font-mono text-slate-400 pl-1">100% (100 GB)</div>
+              <div className="border-b border-dashed border-white/30 w-full text-xs font-mono text-slate-400 pl-1">75%</div>
+              <div className="border-b border-dashed border-white/30 w-full text-xs font-mono text-slate-400 pl-1">50%</div>
+              <div className="border-b border-dashed border-white/30 w-full text-xs font-mono text-slate-400 pl-1">25%</div>
+              <div className="w-full text-xs font-mono text-slate-400 pl-1">0%</div>
             </div>
-            <div className="text-amber-500 flex items-center gap-1">🏁 FINISH</div>
-          </div>
 
-          {/* Speedway Tracks Container */}
-          <div className="space-y-5 relative">
-            {[
-              {
-                id: 'wifi',
-                name: 'Wi-Fi',
-                emoji: '🐢',
-                icon: Wifi,
-                speed: '300 Mbps',
-                time: '11 hr 23 min',
-                color: '#FF8A00',
-                bgBar: 'bg-orange-500',
-                duration: 18,
-                statusText: 'Still crawling... ☕',
-              },
-              {
-                id: 'fiber',
-                name: 'Fiber',
-                emoji: '🚗',
-                icon: Orbit,
-                speed: '1 Gbps',
-                time: '13 min 20 sec',
-                color: '#3B82F6',
-                bgBar: 'bg-blue-500',
-                duration: 8,
-                statusText: 'Moving steadily...',
-                winnerText: '✓ Complete',
-              },
-              {
-                id: 'lifi',
-                name: 'Li-Fi',
-                emoji: '⚡',
-                icon: Zap,
-                speed: '10 Gbps+',
-                time: '1 min 20 sec',
-                color: '#00D8E2',
-                bgBar: 'bg-cyan-500',
-                duration: 3,
-                statusText: 'Blasting at light speed! 💥',
-                winnerText: '✓ Download Complete 🏆',
-                isWinner: true,
-              },
-            ].map((row) => {
-              const IconComponent = row.icon;
+            {columns.map((col) => {
+              const HeaderIcon = col.HeaderIcon;
+              const BarIcon = col.BarIcon;
+
               return (
-                <div key={row.id} className="space-y-1.5">
-                  {/* Track Meta Header */}
-                  <div className="flex justify-between items-end px-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">{row.emoji}</span>
-                      <span className="font-bold tracking-tight text-xs md:text-sm text-slate-800">{row.name}</span>
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                        {row.speed}
+                <div key={col.id} className="relative flex flex-col justify-end items-center z-10 group">
+
+                  {/* Floating Winner Trophy */}
+                  {col.isWinner && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -20, scale: 0.5 }}
+                      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                      transition={{ delay: col.duration + 0.2, type: "spring", stiffness: 200 }}
+                      className="absolute -top-14 flex flex-col items-center z-20"
+                    >
+                      <div className="relative">
+                        <Trophy size={32} className="text-[#FFD700] drop-shadow-[0_0_15px_rgba(255,215,0,0.8)] animate-bounce" />
+                        <Sparkles size={16} className="absolute -top-1 -right-2 text-cyan-300 animate-pulse" />
+                      </div>
+                      <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-wider text-[#FFD700] bg-black/60 px-2 py-0.5 rounded-full border border-[#FFD700]/40 backdrop-blur-md">
+                        Winner
                       </span>
+                    </motion.div>
+                  )}
+
+                  {/* Column Icon + Title */}
+                  <div className="mb-3 flex flex-col items-center gap-1">
+                    <div className="p-1.5 md:p-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 backdrop-blur-md shadow-sm">
+                      <HeaderIcon size={18} />
                     </div>
-                    <div className="text-[11px] font-mono font-bold text-slate-500">
-                      {row.time}
-                    </div>
+                    <span className={`text-xs md:text-base font-black ${col.textColor}`}>{col.name}</span>
                   </div>
 
-                  {/* Visual Rail Container */}
-                  <div className="relative h-10 bg-slate-900 rounded-lg flex items-center border border-slate-950/10 overflow-hidden px-3">
-                    <div className="absolute inset-x-0 h-[1px] border-t border-dashed border-white/10 pointer-events-none" />
+                  {/* Glassmorphism Bar Frame - Increased Height (h-72 / md:h-96) */}
+                  <div className="relative w-full max-w-[120px] h-72 md:h-96 bg-slate-950/60 rounded-2xl p-1.5 md:p-2 border border-white/10 flex items-end overflow-hidden shadow-inner">
+                    <motion.div
+                      initial={{ height: "0%" }}
+                      animate={isInView ? { height: `${col.heightPercent}%` } : {}}
+                      transition={{
+                        duration: col.duration,
+                        delay: col.delay,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
+                      className={`w-full rounded-xl bg-gradient-to-t ${col.barGradient} relative flex flex-col justify-between items-center p-1.5 md:p-2`}
+                      style={{
+                        boxShadow: `0 0 25px ${col.glowColor}`,
+                      }}
+                    >
+                      <div className="w-full h-1 bg-white/70 rounded-full blur-[1px]" />
 
-                    <div className="absolute left-3 right-12 top-0 bottom-0 flex items-center">
-                      {/* Dynamic Filling Tail Glow Behind Icon */}
-                      <motion.div
-                        className={`absolute left-0 h-1 rounded-full ${row.bgBar} filter blur-[1px]`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '100%' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: row.duration, ease: 'linear' }}
-                      />
-
-                      {/* Moving Icon Object Layer */}
-                      <motion.div
-                        className="absolute"
-                        initial={{ left: '0%' }}
-                        whileInView={{ left: '100%' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: row.duration, ease: 'linear' }}
-                        style={{ x: '-50%' }}
-                      >
-                        <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center border text-white font-black relative"
-                          style={{
-                            backgroundColor: row.color,
-                            borderColor: row.color,
-                            boxShadow: `0 0 15px ${row.color}BF`
-                          }}
-                        >
-                          <IconComponent size={14} strokeWidth={2.5} />
-
-                          {/* Confetti / Burst Particle Flash Effects for Winner */}
-                          {row.isWinner && (
-                            <>
-                              <motion.span
-                                className="absolute -inset-2 rounded-lg border border-cyan-400 opacity-0 pointer-events-none"
-                                whileInView={{ scale: [1, 1.4, 1.1], opacity: [0, 0.8, 0] }}
-                                viewport={{ once: true }}
-                                transition={{ delay: row.duration, duration: 0.5 }}
-                              />
-                              <motion.span
-                                className="absolute -top-0.5 -right-0.5 flex h-2 w-2"
-                                initial={{ scale: 0 }}
-                                whileInView={{ scale: [0, 1.2, 1] }}
-                                viewport={{ once: true }}
-                                transition={{ delay: row.duration, duration: 0.3 }}
-                              >
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300"></span>
-                              </motion.span>
-                            </>
-                          )}
+                      {col.heightPercent > 30 && (
+                        <div className="p-1.5 rounded-lg bg-black/20 backdrop-blur-xs text-white my-auto hidden md:block">
+                          <BarIcon size={18} />
                         </div>
-                      </motion.div>
+                      )}
+                    </motion.div>
+                  </div>
+
+                  {/* Bottom Column Stats */}
+                  <div className="mt-3 text-center space-y-0.5">
+                    <div className="text-xs md:text-base font-mono font-bold text-white tracking-tight">
+                      {col.speed}
                     </div>
-
-                    <div className="absolute right-3 text-xs text-amber-400 opacity-60 select-none z-10">🏁</div>
+                    <div className="text-[10px] md:text-xs font-mono text-slate-400">
+                      {col.time}
+                    </div>
                   </div>
 
-                  {/* Status Update Indicators */}
-                  <div className="flex justify-between items-center px-1 text-[11px] font-mono leading-none">
-                    <span className="text-slate-400">{row.statusText}</span>
-                    {row.winnerText && (
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: row.duration, type: 'spring', stiffness: 120 }}
-                        className={`font-bold uppercase tracking-wider text-[10px] ${row.isWinner ? 'text-cyan-600 drop-shadow-[0_0_12px_rgba(6,182,212,0.3)]' : 'text-blue-600'}`}
-                      >
-                        {row.winnerText}
-                      </motion.span>
-                    )}
-                  </div>
                 </div>
               );
             })}
           </div>
+
+          {/* Technical Footnote */}
+          <div className="mt-6 pt-4 border-t border-white/5 text-center">
+            <p className="text-[10px] md:text-xs font-mono text-slate-400">
+              ⚡ <strong>Li-Fi transfers data via light waves</strong>, achieving multi-gigabit speeds instantly without spectrum congestion.
+            </p>
+          </div>
+
         </div>
-
-        {/* --- 🚀 SPEED METRIC INSIGHT VERDICT CARDS --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/80 rounded-xl border border-slate-200 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
-          >
-            <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-600 shrink-0 text-lg font-bold">🚀</div>
-            <div>
-              <span className="block text-[9px] font-mono tracking-wider text-cyan-600 uppercase font-bold">Next-Gen Light Wave Metric</span>
-              <h4 className="text-base font-black text-slate-900">8.5× Faster than Fiber</h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">By the time traditional fiber infrastructure finishes a single movie stream, Li-Fi could download 10 additional movies.</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/80 rounded-xl border border-slate-200 p-4 flex items-center gap-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
-          >
-            <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0 text-lg font-bold">⚡</div>
-            <div>
-              <span className="block text-[9px] font-mono tracking-wider text-orange-600 uppercase font-bold">Legacy Protocol Decay</span>
-              <h4 className="text-base font-black text-slate-900">500× Faster than Old Wi-Fi</h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">Li-Fi completely satisfies the full multi-gigabit file download package before standard home airwaves reach even 2% total progress.</p>
-            </div>
-          </motion.div>
-        </div>
-
       </div>
     </section>
   );
@@ -715,7 +664,7 @@ function HomeFeaturesSection() {
               >
                 <div className="w-full lg:w-1/2">
                   <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border bg-[#0D2240] border-[var(--lumen-border)] group">
-                    <Image src={item.img} alt={item.title} fill sizes="(max-width: 1024px) 100vw, 600px" className="object-contain w-full h-full p-2 transition-transform duration-500 group-hover:scale-[1.01]" />
+                    <Image src={item.img} alt={item.title} fill loading="lazy" sizes="(max-width: 1024px) 100vw, 600px" className="object-contain w-full h-full p-2 transition-transform duration-500 group-hover:scale-[1.01]" />
                   </div>
                 </div>
 
@@ -1029,6 +978,24 @@ export default function HomePage() {
           name="description"
           content="Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
           key="description"
+        />
+        <meta property="og:title" content="LumenFi | The Speed of Light in Your Living Room" />
+        <meta property="og:description" content="Experience 8.5x faster speeds than fiber with LiFi technology." />
+        <meta property="og:image" content="https://lifilumen.com/_next/static/media/hero.1021c54e.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://lifilumen.com/" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "LumenFi",
+              "url": "https://lifilumen.com",
+              "logo": "https://lifilumen.com/logo.png",
+              "description": "Provider of cutting-edge LiFi technology for high-speed, secure wireless communication via light."
+            })
+          }}
         />
         <meta name="google-site-verification" content="T6efBcvjmi30fle2K8zsdweDzPT2YH_t9b9mM6CzjKU" />
 

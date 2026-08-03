@@ -60,7 +60,9 @@ export default function Footer() {
         </div>
         {/* Links Column 1 */}
         <div className="md:col-span-2 space-y-4">
-          <h4
+          <div
+            role="heading"
+            aria-level="2"
             className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
             style={{
               color: '#0D2240',
@@ -68,7 +70,7 @@ export default function Footer() {
             }}
           >
             Ecosystem
-          </h4>
+          </div>
 
           <ul
             className="space-y-2.5 text-xs font-medium"

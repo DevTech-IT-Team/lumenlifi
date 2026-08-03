@@ -8,16 +8,10 @@ import {
   X,
   ArrowUpRight,
   Zap,
-  BookOpen,
-  FileText,
-  Users, // Used for 'Join our community'
-  Clock,
-  Briefcase,
+  Users,
   Lightbulb,
-  Cpu,
   HelpCircle,
   Box,
-  FlaskConical
 } from 'lucide-react';
 import logoPl from '/public/brand/logo.png';
 
@@ -39,7 +33,7 @@ const navConfig = [
   {
     label: 'Join our community',
     href: '/join-our-community',
-    icon: Users, // Appropriately changed from Briefcase to Users for community focus
+    icon: Users,
     hoverClass: 'hover:text-[#00C2C7]',
     iconColor: 'group-hover:text-[#00C2C7]',
     activeIconColor: 'text-[#00C2C7]',
@@ -84,11 +78,11 @@ export default function Header() {
     <header
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 border-b ${scrolled
-        ? 'border-[rgba(26,110,191,0.15)] py-1 shadow-lg shadow-[rgba(0,194,199,0.08)]'
-        : 'border-[rgba(26,110,191,0.08)] py-1.5'
+          ? 'border-[rgba(26,110,191,0.15)] py-2 shadow-lg shadow-[rgba(0,194,199,0.08)]'
+          : 'border-[rgba(26,110,191,0.08)] py-3'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full h-12">
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center group shrink-0">
@@ -97,6 +91,7 @@ export default function Header() {
               src={logoPl}
               alt="LumenFi — Light Connectivity"
               fill
+              priority
               sizes="(max-width: 640px) 130px, (max-width: 768px) 150px, 170px"
               className="object-contain transition-transform duration-200 group-hover:scale-[1.01]"
             />
@@ -109,16 +104,14 @@ export default function Header() {
             const isOpen_ = activeDropdown === item.label;
             const NavIcon = item.icon;
 
-            // Common styles shared between direct link and dropdown button
             const navItemClasses = `group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
-              ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
-              : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
+                ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
+                : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
               } ${item.hoverClass}`;
 
             return (
               <div key={item.label} className="relative">
                 {item.dropdown ? (
-                  /* If it has a dropdown, keep it as a button */
                   <button
                     onClick={() => toggleDropdown(item.label)}
                     className={navItemClasses}
@@ -128,7 +121,6 @@ export default function Header() {
                     <ChevronDown className={`w-3 h-3 transition-transform duration-200 text-[#2AABDB]/60 ${isOpen_ ? 'rotate-180' : ''}`} />
                   </button>
                 ) : (
-                  /* If no dropdown, render as a direct Link component and omit Chevron Down arrow */
                   <Link
                     href={item.href}
                     className={navItemClasses}
@@ -169,14 +161,22 @@ export default function Header() {
           })}
         </nav>
 
-        {/* ── CTA ── */}
-        <div className="hidden lg:flex items-center gap-4">
+        {/* ── CTA Action Buttons ── */}
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
           <Link
             href="/products"
-            className="flex items-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-white transition-all hover:scale-[1.03] shadow-md"
+            className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-white transition-all hover:scale-[1.03] shadow-md"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)', boxShadow: '0 4px 20px rgba(0,194,199,0.25)' }}
           >
             <span>Get Started</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+
+          <Link
+            href="https://lmsathena.com/login"
+            className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-[#1A6EBF] border border-[rgba(26,110,191,0.25)] bg-[rgba(26,110,191,0.04)] hover:bg-[rgba(26,110,191,0.08)] hover:border-[#1A6EBF] transition-all hover:scale-[1.03]"
+          >
+            <span>Login</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -204,7 +204,6 @@ export default function Header() {
               return (
                 <div key={item.label} className="border-b border-[rgba(26,110,191,0.08)] pb-2 last:border-0 last:pb-0">
                   {item.dropdown ? (
-                    /* Mobile: Dropdown expand button */
                     <>
                       <button
                         onClick={() => toggleMobileExpanded(item.label)}
@@ -232,7 +231,6 @@ export default function Header() {
                       )}
                     </>
                   ) : (
-                    /* Mobile: Direct link item with no down arrow */
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
@@ -247,14 +245,24 @@ export default function Header() {
                 </div>
               );
             })}
-            <div className="pt-4 border-t border-[rgba(26,110,191,0.10)] mt-2">
+
+            {/* Mobile CTAs */}
+            <div className="pt-4 border-t border-[rgba(26,110,191,0.10)] mt-2 flex flex-col gap-2.5">
               <Link
                 href="/products"
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center gap-2 w-full text-center text-white py-3.5 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
+                className="flex justify-center items-center gap-2 w-full text-center text-white py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
                 style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
               >
                 <span>Get Started</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="https://lmsathena.com/login"
+                onClick={() => setIsOpen(false)}
+                className="flex justify-center items-center gap-2 w-full text-center text-[#1A6EBF] border border-[rgba(26,110,191,0.25)] bg-[rgba(26,110,191,0.04)] py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
+              >
+                <span>Login</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>

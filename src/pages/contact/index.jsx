@@ -65,7 +65,8 @@ export default function ContactPage() {
           <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_70px_rgba(13,34,64,0.15)] border border-[var(--lumen-border)] aspect-[4/3]">
             <Image
               src={partnerHeroImg}
-              alt="Lumenfi Partner — Building the Future Together"
+              alt="Lumenfi Partner - Building the Future Together"
+              priority
               fill
               className="object-cover"
               
