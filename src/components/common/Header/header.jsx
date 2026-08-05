@@ -31,8 +31,8 @@ const navConfig = [
     ],
   },
   {
-    label: 'Join our community',
-    href: '/join-our-community',
+    label: 'Lumen Lifi Academy',
+    href: '/Academy',
     icon: Users,
     hoverClass: 'hover:text-[#00C2C7]',
     iconColor: 'group-hover:text-[#00C2C7]',
@@ -78,8 +78,8 @@ export default function Header() {
     <header
       ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 border-b ${scrolled
-          ? 'border-[rgba(26,110,191,0.15)] py-2 shadow-lg shadow-[rgba(0,194,199,0.08)]'
-          : 'border-[rgba(26,110,191,0.08)] py-3'
+        ? 'border-[rgba(26,110,191,0.15)] py-2 shadow-lg shadow-[rgba(0,194,199,0.08)]'
+        : 'border-[rgba(26,110,191,0.08)] py-3'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full h-12">
@@ -105,8 +105,8 @@ export default function Header() {
             const NavIcon = item.icon;
 
             const navItemClasses = `group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
-                ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
-                : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
+              ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
+              : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
               } ${item.hoverClass}`;
 
             return (

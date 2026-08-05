@@ -11,7 +11,7 @@ import roomBg from '../../public/images/hero/room-bg.jpg';
 import {
   ArrowRight, CheckCircle, Zap, Shield, Lock, Wifi, WifiOff,
   Monitor, Gamepad2, Cpu, Home, Building2, Factory, GraduationCap,
-  Stethoscope, ChevronRight, Star, Sparkles, Car, Orbit, Eye, ShieldCheck, Activity, Sliders, Flame, Lightbulb, Globe, Trophy
+  Stethoscope, ChevronRight, Star, Sparkles, Car, Orbit, Eye, ShieldCheck, Activity, Mail, Sliders, Flame, Lightbulb, Globe, Trophy
 } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -848,7 +848,8 @@ function useCounter(targetValue, startTrigger, duration = 2000) {
 function FinalCTASection() {
   return (
     <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-      <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill />
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Image src={ctaImg} alt="cta" fill />
         <div
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
           style={{ background: 'radial-gradient(circle, var(--lumen-cyan) 0%, transparent 75%)' }}
@@ -889,11 +890,12 @@ function FinalCTASection() {
                 </span>
               </h2>
 
-              <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-12 max-w-xl mx-auto font-medium leading-relaxed">
+              <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto font-medium leading-relaxed">
                 Upgrade your home or office to the fastest and safest internet ever made. It is clean, private, and works instantly.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
+              {/* Primary Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Link
                   href="/what-is-lifi"
                   className="glow-cyan inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-2xl text-[#0D2240] font-black text-sm tracking-wider transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_30px_rgba(0,194,199,0.4)] w-full sm:w-auto"
@@ -913,6 +915,19 @@ function FinalCTASection() {
                 </Link>
               </div>
 
+              {/* Direct Sales Email Link */}
+              <div className="mb-12 flex items-center justify-center gap-2 text-xs font-mono text-blue-200/70">
+                <Mail size={14} className="text-[#00C2C7]" />
+                <span>Sales ID:</span>
+                <a
+                  href="mailto:rupali@lifilumen.com"
+                  className="text-white hover:text-[#00C2C7] underline underline-offset-4 font-semibold transition-colors"
+                >
+                  rupali@lifilumen.com
+                </a>
+              </div>
+
+              {/* Feature Tags */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
                 {[
                   { icon: Sparkles, label: '10 Gbps Active Ready' },
@@ -936,7 +951,6 @@ function FinalCTASection() {
     </section>
   );
 }
-
 /* ─────────────────────────────────────────────────────────────
    ROOT PAGE GLOBAL SYSTEM MODULE EXPORT
 ───────────────────────────────────────────────────────────── */

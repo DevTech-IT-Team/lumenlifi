@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Send, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Send, ShieldCheck, ArrowUpRight, Mail } from 'lucide-react';
 import logoPl from '/public/brand/logo.png';
+
 export default function Footer() {
   return (
     <footer
@@ -27,7 +28,6 @@ export default function Footer() {
               alt="LumenFi Logo"
               fill
               className="object-contain object-left"
-            
             />
           </div>
 
@@ -42,6 +42,12 @@ export default function Footer() {
             <br />
             LiFi makes it easy to get online using bright light beams instead of regular Wi-Fi radio waves. It is super fast wireless internet powered by pure light!
           </p>
+
+          {/* Sales ID Contact */}
+          <div className="flex items-center gap-2 text-xs font-mono" style={{ color: '#4A6080' }}>
+            <Mail className="w-4 h-4 text-[#1A6EBF]" />
+            <span>Sales ID: <a href="mailto:rupali@lifilumen.com" className="font-bold text-[#0D2240] hover:text-[#1A6EBF] transition-colors">rupali@lifilumen.com</a></span>
+          </div>
 
           <div
             className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-lg w-max"
@@ -58,6 +64,7 @@ export default function Footer() {
             <span>Built to Official Global LiFi Technology Standards</span>
           </div>
         </div>
+
         {/* Links Column 1 */}
         <div className="md:col-span-2 space-y-4">
           <div
@@ -146,7 +153,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       {/* Bottom bar */}
       <div
         className="max-w-7xl mx-auto px-6 mt-16 pt-6 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4"
