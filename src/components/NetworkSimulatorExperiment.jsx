@@ -20,21 +20,10 @@ export default function WhyJFVideoSection() {
   };
 
   return (
-    <section style={{
-      background: 'linear-gradient(135deg, var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
-      padding: '10px 25px 72px',
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
-      {/* Grid Overlay Vector Matrix */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
-        style={{
-          backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
-          backgroundSize: '64px 64px'
-        }}
-      />
-
+    <section
+      className="relative overflow-hidden"
+      style={{ padding: '10px 25px 72px' }}
+    >
       {/* subtle radial glow */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',

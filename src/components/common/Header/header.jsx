@@ -95,6 +95,7 @@ export default function Header() {
               sizes="(max-width: 640px) 130px, (max-width: 768px) 150px, 170px"
               className="object-contain transition-transform duration-200 group-hover:scale-[1.01]"
             />
+            {/* Logo is small and critical; keep priority. All other header images should be lazy. */}
           </div>
         </Link>
 
@@ -123,6 +124,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
+                    prefetch={false}
                     className={navItemClasses}
                   >
                     <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 text-[#2AABDB]/60 ${item.iconColor}`} />
@@ -138,6 +140,7 @@ export default function Header() {
                         <Link
                           key={subItem.href}
                           href={subItem.href}
+                          prefetch={false}
                           className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-[rgba(0,194,199,0.06)] transition-colors"
                         >
                           <div className="mt-0.5 p-1.5 rounded-lg bg-[rgba(26,110,191,0.06)] border border-[rgba(26,110,191,0.10)] text-[#2AABDB] group-hover:bg-[rgba(0,194,199,0.10)] group-hover:border-[rgba(0,194,199,0.25)] group-hover:text-[#00C2C7] transition-colors shrink-0">
@@ -233,6 +236,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
+                      prefetch={false}
                       onClick={() => setIsOpen(false)}
                       className={mobileItemClasses}
                     >

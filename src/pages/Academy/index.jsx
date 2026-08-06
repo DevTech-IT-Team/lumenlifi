@@ -173,22 +173,22 @@ function HeroSection() {
 
         const absDist = Math.abs(normalizedDistance);
 
-        const rotateY = -normalizedDistance * 32;
-        const rotateX = absDist * 5;
-        const translateY = absDist * 24;
+        const rotateY = -normalizedDistance * 18;
+        const rotateX = absDist * 3;
+        const translateY = absDist * 10;
 
         let translateZ = 0;
         let scale = 1;
 
         if (absDist < 0.15) {
-          scale = 1.1;
-          translateZ = 160;
+          scale = 1.05;
+          translateZ = 100;
         } else if (absDist < 0.55) {
-          scale = 0.85 + (1 - (absDist - 0.15) / 0.4) * (1.1 - 0.85);
-          translateZ = 70 + (1 - (absDist - 0.15) / 0.4) * 90;
+          scale = 0.92 + (1 - (absDist - 0.15) / 0.4) * (1.05 - 0.92);
+          translateZ = 40 + (1 - (absDist - 0.15) / 0.4) * 60;
         } else {
-          scale = 0.7 + (1 - Math.min(1, (absDist - 0.55) / 0.45)) * (0.85 - 0.7);
-          translateZ = -50 + (1 - Math.min(1, (absDist - 0.55) / 0.45)) * 120;
+          scale = 0.88 + (1 - Math.min(1, (absDist - 0.55) / 0.45)) * (0.92 - 0.88);
+          translateZ = -20 + (1 - Math.min(1, (absDist - 0.55) / 0.45)) * 60;
         }
 
         const zIndex = Math.round(1000 - absDist * 800);
@@ -201,26 +201,26 @@ function HeroSection() {
 
         if (absDist < 0.18) {
           item.style.opacity = '1';
-          item.style.filter = 'brightness(1.1) saturate(1.2)';
+          item.style.filter = 'brightness(1.06) saturate(1.1)';
           item.style.boxShadow =
-            '0 30px 90px rgba(0, 0, 0, 0.4), 0 0 80px rgba(188, 203, 216, 0.3)';
+            '0 24px 70px rgba(0, 0, 0, 0.28), 0 0 50px rgba(0, 194, 199, 0.18)';
 
-          if (img) img.style.filter = 'saturate(1.2)';
+          if (img) img.style.filter = 'saturate(1.1)';
           if (glow) glow.style.opacity = '1';
         } else if (absDist < 0.5) {
-          item.style.opacity = '0.75';
-          item.style.filter = 'brightness(0.85) saturate(0.9)';
+          item.style.opacity = '0.92';
+          item.style.filter = 'brightness(0.95) saturate(0.98)';
           item.style.boxShadow =
-            '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 50px rgba(0, 194, 199, 0.1)';
+            '0 16px 45px rgba(0, 0, 0, 0.22), 0 0 30px rgba(0, 194, 199, 0.08)';
 
           if (img) img.style.filter = 'saturate(1)';
           if (glow) glow.style.opacity = '0';
         } else {
-          item.style.opacity = '0.25';
-          item.style.filter = 'brightness(0.6) saturate(0.7)';
-          item.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
+          item.style.opacity = '0.82';
+          item.style.filter = 'brightness(0.9) saturate(0.95)';
+          item.style.boxShadow = '0 12px 30px rgba(0,0,0,0.25)';
 
-          if (img) img.style.filter = 'saturate(0.8)';
+          if (img) img.style.filter = 'saturate(0.95)';
           if (glow) glow.style.opacity = '0';
         }
       });
@@ -239,41 +239,35 @@ function HeroSection() {
   }, []);
 
   return (
-    <section
-      className="relative w-full pt-28 pb-21 overflow-hidden"
-      style={{
-        background: 'linear-gradient(to bottom, #fff 100%, #eaf5f7 50%, #def3f9 0%)',
-      }}
-    >
+    <section className="relative w-full pt-28 pb-21 overflow-x-hidden overflow-y-visible lumen-hero-wash-academy">
       <style
         dangerouslySetInnerHTML={{
           __html: `
-      /* Carousel Container with extended vertical overflow so scaling cards aren't clipped */
       .carousel-container {
         perspective: 1800px;
-        overflow-x: hidden;
-        overflow-y: blur;
+        overflow-x: clip;
+        overflow-y: visible;
         width: 100%;
-        padding: 80px 0;
-        mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%);
+        min-height: 390px;
+        padding: 28px 0 36px;
       }
 
-      /* Continuous Track */
       .carousel-track {
         display: flex;
-        gap: 32px;
+        align-items: center;
+        gap: 28px;
         width: max-content;
         animation: scroll 55s linear infinite;
         transform-style: preserve-3d;
+        padding: 0 12px;
       }
 
       .carousel-track:hover {
         animation-play-state: paused;
       }
 
-      /* TRANSPARENT BACKGROUND CARDS: 260px x 350px */
       .carousel-item {
+        flex-shrink: 0;
         width: 260px;
         height: 350px;
         border-radius: 20px;
@@ -282,38 +276,29 @@ function HeroSection() {
         transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
         transform-origin: center center;
         will-change: transform, opacity, filter;
-
-        /* Fully Transparent Card Background */
-        background: transparent;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(13, 34, 64, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
       }
 
-      /* PREMIUM SUBTLE HOVER */
       .carousel-item:hover {
         transform:
           perspective(1800px)
-          translateZ(80px)
+          translateZ(60px)
           rotateY(0deg)
           rotateX(0deg)
-          translateY(-8px)
-          scale(1.06) !important;
+          translateY(-6px)
+          scale(1.04) !important;
 
         z-index: 999 !important;
         opacity: 1 !important;
-
         filter: brightness(1.08) saturate(1.1) !important;
-
         box-shadow:
           0 20px 50px rgba(0, 0, 0, 0.20),
           0 0 35px rgba(0, 194, 199, 0.25) !important;
-
         border-color: rgba(0, 194, 199, 0.6);
-        background: transparent !important;
+        background: rgba(13, 34, 64, 0.12) !important;
       }
 
-      /* Animated Light Sweep */
       .carousel-item::before {
         content: "";
         position: absolute;
@@ -321,7 +306,7 @@ function HeroSection() {
         left: -120%;
         width: 70%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
         transform: skewX(-25deg);
         animation: shine 6s infinite ease-in-out;
         z-index: 15;
@@ -333,31 +318,29 @@ function HeroSection() {
         100% { left: 220%; }
       }
 
-      /* Image Parallax */
       .carousel-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1.04);
+        transform: scale(1.02);
         transition: transform 0.35s ease;
       }
 
       .carousel-item:hover img {
-        transform: scale(1.08) translateY(-2px);
+        transform: scale(1.05) translateY(-2px);
       }
 
-      /* Transparent Gradient Overlay for Text Legibility */
       .carousel-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent 20%, rgba(4, 18, 40, 0.85) 100%);
+        background: linear-gradient(180deg, transparent 15%, rgba(4, 18, 40, 0.55) 100%);
         pointer-events: none;
         z-index: 5;
       }
 
       @keyframes scroll {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-50% - 16px)); }
+        100% { transform: translateX(calc(-50% - 14px)); }
       }
 
       .floating-particle {
@@ -387,15 +370,6 @@ function HeroSection() {
           }}
         />
 
-        <div
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              'linear-gradient(var(--lumen-border, #1A6EBF) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border, #1A6EBF) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-
         <div className="absolute top-1/4 left-1/5 w-2 h-2 rounded-full bg-[#00C2C7]/60 blur-[1px] floating-particle" style={{ animationDelay: '0s' }} />
         <div className="absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-[#1A6EBF]/50 blur-[2px] floating-particle" style={{ animationDelay: '3s' }} />
         <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 rounded-full bg-[#00C2C7]/40 blur-[1px] floating-particle" style={{ animationDelay: '6s' }} />
@@ -408,7 +382,7 @@ function HeroSection() {
           variants={heroFadeUp}
           initial="hidden"
           animate="visible"
-          className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] mb-4 text-[#0D2240] max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.25] sm:leading-[1.2] mb-4 text-[#0D2240] max-w-4xl overflow-visible pb-1"
         >
           Welcome to <span className="text-gradient-lumen">LumenFi Academy</span>
           <br />
@@ -425,73 +399,68 @@ function HeroSection() {
         >
           Our free membership grants you access to live classes, a thriving community of innovators, and an incredible opportunity to monetize this cutting-edge technology.
         </motion.p>
+      </div>
 
-        {/* Holographic 3D Floating Carousel */}
-        <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="w-full my-2 relative"
-        >
-          <div className="carousel-container">
-            <div className="carousel-track" ref={trackRef}>
-              {[...heroSectors, ...heroSectors].map((sector, index) => {
-                const IconComponent = sector.icon;
-                return (
+      {/* Holographic 3D Floating Carousel — full width, outside constrained container */}
+      <motion.div
+        custom={3}
+        variants={fadeUp}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 w-full my-4"
+      >
+        <div className="carousel-container">
+          <div className="carousel-track" ref={trackRef}>
+            {[...heroSectors, ...heroSectors].map((sector, index) => {
+              const IconComponent = sector.icon;
+              return (
+                <div
+                  className="carousel-item flex flex-col justify-end p-5 text-left"
+                  key={`${sector.id}-${index}`}
+                >
                   <div
-                    className="carousel-item flex flex-col justify-end p-5 text-left"
-                    key={`${sector.id}-${index}`}
-                  >
-                    {/* Active Hero Background Glow */}
-                    <div
-                      className="hero-glow absolute -inset-10 -z-10 rounded-full blur-[100px] opacity-0 transition-opacity duration-500 pointer-events-none"
-                      style={{
-                        background: 'radial-gradient(circle, rgba(0, 194, 199, 0.6) 0%, rgba(26, 110, 191, 0.3) 60%, transparent 80%)',
-                      }}
-                    />
+                    className="hero-glow absolute -inset-10 -z-10 rounded-full blur-[100px] opacity-0 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: 'radial-gradient(circle, rgba(0, 194, 199, 0.6) 0%, rgba(26, 110, 191, 0.3) 60%, transparent 80%)',
+                    }}
+                  />
 
-                    {/* Card Background Image */}
-                    <img
-                      src={typeof sector.img === 'string' ? sector.img : sector.img?.src}
-                      alt={sector.title}
-                      className="absolute inset-0 z-0"
-                    />
+                  <img
+                    src={typeof sector.img === 'string' ? sector.img : sector.img?.src}
+                    alt={sector.title}
+                    className="absolute inset-0 z-0 object-cover w-full h-full"
+                  />
 
-                    <div className="carousel-overlay" />
+                  <div className="carousel-overlay" />
 
-                    {/* Compact Typography & Content Layout */}
-                    <div className="relative z-10 space-y-1.5">
-                      {/* Glass Pill Badge */}
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_12px_rgba(0,194,199,0.25)]">
-                        <IconComponent className="w-3 h-3 text-cyan-300" />
-                        <span className="font-mono text-[10px] font-bold text-cyan-300 tracking-wide">
-                          {sector.metric}
-                        </span>
-                      </div>
-
-                      {/* Subtitle */}
-                      <p className="font-mono text-[11px] uppercase tracking-[1.5px] text-[#b8c4ff] font-semibold pt-0.5">
-                        {sector.subtitle}
-                      </p>
-
-                      {/* Title */}
-                      <h3 className="font-bold text-[18px] text-white leading-snug tracking-tight">
-                        {sector.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-[12px] leading-[1.5] text-slate-200 line-clamp-2">
-                        {sector.desc}
-                      </p>
+                  <div className="relative z-10 space-y-1.5">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_12px_rgba(0,194,199,0.25)]">
+                      <IconComponent className="w-3 h-3 text-cyan-300" />
+                      <span className="font-mono text-[10px] font-bold text-cyan-300 tracking-wide">
+                        {sector.metric}
+                      </span>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
 
+                    <p className="font-mono text-[11px] uppercase tracking-[1.5px] text-[#b8c4ff] font-semibold pt-0.5">
+                      {sector.subtitle}
+                    </p>
+
+                    <h3 className="font-bold text-[18px] text-white leading-snug tracking-tight">
+                      {sector.title}
+                    </h3>
+
+                    <p className="text-[12px] leading-[1.5] text-slate-200 line-clamp-2">
+                      {sector.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
         {/* Center Action Buttons */}
         <motion.div
           custom={4}
@@ -542,7 +511,7 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 h-16 bg-gradient-to-b from-transparent to-[#EBF3FC]" />
+      <div className="relative z-10 h-16 bg-gradient-to-b from-transparent to-white" />
     </section>
   );
 }
@@ -560,9 +529,7 @@ function CurriculumSection() {
   ];
 
   return (
-    <section id="curriculum" className="relative overflow-hidden py-24 bg-white">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-30"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+    <section id="curriculum" className="relative overflow-hidden py-24 section-wash-white">
       <div className="absolute bottom-0 left-0 w-[600px] h-[400px] rounded-full blur-[160px] opacity-35 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.15) 0%, transparent 70%)' }} />
 
@@ -581,7 +548,7 @@ function CurriculumSection() {
           transition={{ duration: 0.7 }}
           className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_80px_rgba(13,34,64,0.12)] border border-[var(--lumen-border)] mb-14"
           style={{ aspectRatio: '16/6' }}>
-          <Image src={communityCreatorImg} alt="Lumenfi Curriculum" fill className="object-cover" sizes="100vw" />
+          <Image src={communityCreatorImg} alt="Lumenfi Curriculum" fill loading="lazy" className="object-cover" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
             {[
@@ -666,9 +633,7 @@ function ApplicationsSection() {
   const ActiveIcon = active.icon;
 
   return (
-    <section className="relative overflow-hidden py-24 bg-[#EBF3FC]">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+    <section className="relative overflow-hidden py-24 section-wash-secondary">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.18) 0%, transparent 70%)' }} />
 
@@ -706,7 +671,7 @@ function ApplicationsSection() {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl border border-[var(--lumen-border)] shadow-xl overflow-hidden">
             <div className="relative w-full aspect-video lg:aspect-auto min-h-[280px]">
-              <Image src={active.image} alt={active.alt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src={active.image} alt={active.alt} fill loading="lazy" className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               <div className="absolute top-4 left-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-white font-mono text-[10px] font-bold uppercase tracking-wider"
                   style={{ background: `linear-gradient(135deg, ${active.color} 0%, #00C2C7 100%)` }}>
@@ -758,9 +723,7 @@ function CommunityExperienceSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 bg-[#F4F9FC]">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+    <section className="relative overflow-hidden py-24 section-wash-primary">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[180px] opacity-25 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.2) 0%, rgba(26,110,191,0.15) 50%, transparent 100%)' }} />
 
@@ -808,9 +771,7 @@ function MonetizeSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 bg-[#EBF3FC]">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+    <section className="relative overflow-hidden py-24 section-wash-secondary">
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -844,7 +805,7 @@ function MonetizeSection() {
           <div className="relative">
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--lumen-border)] aspect-[4/3]">
-              <Image src={communityFactoryImg} alt="Turnkey Business Opportunities" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src={communityFactoryImg} alt="Turnkey Business Opportunities" fill loading="lazy" className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -892,9 +853,7 @@ function ApplicationForm() {
   const labelCls = "block text-xs font-bold font-mono uppercase tracking-wider text-[#4A6080] mb-1.5";
 
   return (
-    <section id="join" className="relative overflow-hidden py-24 bg-white">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-30"
-        style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
+    <section id="join" className="relative overflow-hidden py-24 section-wash-white">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[160px] opacity-30 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.2) 0%, transparent 70%)' }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[140px] opacity-25 pointer-events-none"
@@ -1037,7 +996,7 @@ function ApplicationForm() {
 function FinalCTASection() {
   return (
     <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-      <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill />
+      <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill loading="lazy" />
         <div
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
           style={{ background: 'radial-gradient(circle, var(--lumen-cyan) 0%, transparent 75%)' }}
@@ -1055,19 +1014,11 @@ function FinalCTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden bg-[#0D2240] text-white shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
-
-            <div
-              className="absolute inset-0 pointer-events-none opacity-25 mix-blend-overlay transition-transform duration-1000 group-hover:scale-105"
-              style={{
-                backgroundImage: 'linear-gradient(rgba(0,194,199,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,194,199,0.15) 1px, transparent 1px)',
-                backgroundSize: '40px 40px'
-              }}
-            />
+          <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
 
             <div
               className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
-              style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.18) 0%, transparent 50%)' }}
+              style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.12) 0%, transparent 50%)' }}
             />
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
@@ -1129,7 +1080,7 @@ function FinalCTASection() {
 /* ── ROOT PAGE EXPORT ── */
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans bg-[#F4F9FC] text-[#0D2240]">
+    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[#0D2240]">
       <Head>
         <title>LumenFi Academy — Shaping the Future of Light Connectivity</title>
         <meta name="description" content="At LumenFi Academy, we provide you with the tools, knowledge, and community to master Li-Fi technology." />

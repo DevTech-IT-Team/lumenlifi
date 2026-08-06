@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -117,7 +118,7 @@ export default function ProductsPage() {
   const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
 
   return (
-    <div className="min-h-screen font-sans bg-white text-slate-800 antialiased selection:bg-emerald-100">
+    <div className="min-h-screen font-sans lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
         <title>Lumen LIFI</title>
         <meta name="description" content={activeProduct ? activeProduct.tagline : 'Lumen LIFI — optical wireless products and services.'} />
@@ -271,7 +272,14 @@ export default function ProductsPage() {
                 <div className="lg:col-span-5 relative">
                   <div className={`absolute inset-0 bg-gradient-to-tr ${activeProduct.accent} rounded-[50px_20px_80px_40px] transform rotate-2 scale-[1.02] opacity-15 blur-sm`} />
                   <div className="w-full aspect-[4/5] rounded-[50px_20px_80px_40px] overflow-hidden border-4 border-slate-50 shadow-xl relative">
-                    <img src={activeProduct.imageUrl} alt={activeProduct.name} className="w-full h-full object-cover" />
+                    <Image
+                      src={activeProduct.imageUrl}
+                      alt={activeProduct.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
 

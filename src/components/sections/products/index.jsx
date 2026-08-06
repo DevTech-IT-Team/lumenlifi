@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 // Residential Use Case Assets (Images 1-5)
 import homeAutomationImg from '../../public/images/features/home-automation.png';   // image_58265e.png / item 1
@@ -90,7 +91,7 @@ export default function LumenPhiProductsSuite() {
     const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
 
     return (
-        <div className="min-h-screen font-sans bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-emerald-100 dark:selection:bg-emerald-950 transition-colors duration-300">
+        <div className="min-h-screen font-sans lumen-page-bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-emerald-100 dark:selection:bg-emerald-950 transition-colors duration-300">
             <Head>
                 <title>Lumen LIFI</title>
                 <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
@@ -366,7 +367,14 @@ export default function LumenPhiProductsSuite() {
                                 <div className="lg:col-span-5 relative">
                                     <div className={`absolute inset-0 bg-gradient-to-tr ${activeProduct.accent} rounded-2xl transform rotate-2 scale-[1.02] opacity-10 blur-sm`} />
                                     <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 dark:border-slate-800 relative">
-                                        <img src={activeProduct.imageUrl} alt={activeProduct.name} className="w-full h-full object-cover opacity-90" />
+                                        <Image
+                      src={activeProduct.imageUrl}
+                      alt={activeProduct.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-cover opacity-90"
+                      loading="lazy"
+                    />
                                     </div>
                                 </div>
 

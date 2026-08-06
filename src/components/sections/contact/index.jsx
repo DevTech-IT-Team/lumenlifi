@@ -1,1 +1,1 @@
-export { ContactFormBlock } from './contact';
+export { default as ContactFormBlock } from './contact';

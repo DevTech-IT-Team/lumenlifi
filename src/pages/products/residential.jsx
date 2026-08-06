@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -68,7 +69,7 @@ export default function LumenPhiProductsSuite() {
     const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
 
     return (
-        <div className="min-h-screen font-sans bg-white text-slate-800 antialiased selection:bg-emerald-100">
+        <div className="min-h-screen font-sans lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
             <Head>
                 <title>Lumen LIFI</title>
                 <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
@@ -101,9 +102,10 @@ export default function LumenPhiProductsSuite() {
                         >
                             <div className="max-w-7xl mx-auto px-6 mb-20">
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-950 rounded-3xl p-8 sm:p-12 text-white overflow-hidden relative shadow-2xl">
-                                    <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+                                    <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-35 pointer-events-none z-0" />
+                                    <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none z-0" />
 
-                                    <div className="lg:col-span-7 space-y-6">
+                                    <div className="lg:col-span-7 space-y-6 relative z-10">
                                         <span className="text-xs font-bold font-mono tracking-widest text-emerald-400 uppercase bg-emerald-950 border border-emerald-800/60 px-3 py-1 rounded-full w-max block">
                                             The Next Big Step for Home Internet
                                         </span>
@@ -126,7 +128,7 @@ export default function LumenPhiProductsSuite() {
                                         </div>
                                     </div>
 
-                                    <div className="lg:col-span-5 bg-slate-900 border border-slate-800/80 p-6 rounded-2xl space-y-4">
+                                    <div className="lg:col-span-5 bg-slate-900 border border-slate-800/80 p-6 rounded-2xl space-y-4 relative z-10">
                                         <div className="flex items-center gap-2 text-amber-400">
                                             <Info className="w-4 h-4 shrink-0" />
                                             <h3 className="text-xs font-mono font-bold uppercase tracking-wider">Important Science Fact</h3>
@@ -154,7 +156,14 @@ export default function LumenPhiProductsSuite() {
                                         return (
                                             <div key={product.slug} className="flex flex-col rounded-2xl border border-slate-200/80 bg-white shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                                                 <div className="relative w-full aspect-video bg-slate-950 overflow-hidden">
-                                                    <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:opacity-100 hover:mix-blend-normal transition-all duration-500" />
+                                                    <Image
+                                                      src={product.imageUrl}
+                                                      alt={product.name}
+                                                      fill
+                                                      sizes="(max-width: 768px) 100vw, 600px"
+                                                      className="object-cover opacity-80 mix-blend-luminosity hover:opacity-100 hover:mix-blend-normal transition-all duration-500"
+                                                      loading="lazy"
+                                                    />
                                                     <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest border border-slate-700">Product Picture</div>
                                                 </div>
 
@@ -286,7 +295,14 @@ export default function LumenPhiProductsSuite() {
                                 <div className="lg:col-span-5 relative">
                                     <div className={`absolute inset-0 bg-gradient-to-tr ${activeProduct.accent} rounded-2xl transform rotate-2 scale-[1.02] opacity-10 blur-sm`} />
                                     <div className="w-full aspect-square rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 relative">
-                                        <img src={activeProduct.imageUrl} alt={activeProduct.name} className="w-full h-full object-cover opacity-90" />
+                                        <Image
+                                          src={activeProduct.imageUrl}
+                                          alt={activeProduct.name}
+                                          fill
+                                          sizes="(max-width: 768px) 100vw, 600px"
+                                          className="object-cover opacity-90"
+                                          loading="lazy"
+                                        />
                                     </div>
                                 </div>
 

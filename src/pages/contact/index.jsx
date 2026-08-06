@@ -10,11 +10,13 @@ const partnerHeroImg = "/images/hero/partner-hero.png";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col justify-between">
+    <div className="min-h-screen lumen-page-bg-light text-slate-800 antialiased flex flex-col justify-between">
 
       {/* ── Main Hero Section Area ── */}
-      <main className="flex-grow pt-32 pb-20">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <main className="flex-grow">
+        <section className="relative pt-32 pb-20 overflow-hidden lumen-hero-wash">
+          <div className="absolute inset-0 lumen-grid-pattern-hero opacity-45 pointer-events-none z-0" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Hero Content Grid Column */}
           <div className="flex flex-col items-start text-left">
@@ -86,7 +88,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-        </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

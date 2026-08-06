@@ -31,11 +31,34 @@
     --lumen-teal: #0FB89A;
 
     /* ── Surfaces ── */
-    --lumen-bg: #F4F9FC;
+    --lumen-bg: #F8FCFE;
     --lumen-surface: #FFFFFF;
-    --lumen-light: #EAF3FA;
+    --lumen-light: #EEF6FB;
     --lumen-border: rgba(26, 110, 191, 0.12);
     --lumen-muted: #4A6080;
+
+    /* Grid pattern tokens — soft fade lines, not hard 1px cuts */
+    --lumen-grid-size: 72px;
+    --lumen-grid-fade-light: rgba(0, 194, 199, 0.065);
+    --lumen-grid-fade-overlay: rgba(0, 194, 199, 0.085);
+    --lumen-grid-fade-dark: rgba(0, 245, 255, 0.075);
+    --lumen-grid-fade-hero: rgba(0, 194, 199, 0.14);
+    --lumen-grid-fade-hero-dark: rgba(0, 245, 255, 0.13);
+    --lumen-grid-image-light:
+      linear-gradient(to right, var(--lumen-grid-fade-light), transparent 1px),
+      linear-gradient(to bottom, var(--lumen-grid-fade-light), transparent 1px);
+    --lumen-grid-image-overlay:
+      linear-gradient(to right, var(--lumen-grid-fade-overlay), transparent 1px),
+      linear-gradient(to bottom, var(--lumen-grid-fade-overlay), transparent 1px);
+    --lumen-grid-image-dark:
+      linear-gradient(to right, var(--lumen-grid-fade-dark), transparent 1px),
+      linear-gradient(to bottom, var(--lumen-grid-fade-dark), transparent 1px);
+    --lumen-grid-image-hero:
+      linear-gradient(to right, var(--lumen-grid-fade-hero), transparent 1px),
+      linear-gradient(to bottom, var(--lumen-grid-fade-hero), transparent 1px);
+    --lumen-grid-image-hero-dark:
+      linear-gradient(to right, var(--lumen-grid-fade-hero-dark), transparent 1px),
+      linear-gradient(to bottom, var(--lumen-grid-fade-hero-dark), transparent 1px);
   }
 
 
@@ -51,9 +74,9 @@
   body {
     @apply antialiased font-sans;
     background-color: var(--lumen-bg);
-    /* always #F4F9FC */
+    background-image: var(--lumen-grid-image-light);
+    background-size: var(--lumen-grid-size) var(--lumen-grid-size);
     color: var(--lumen-navy);
-    /* always #0D2240 */
   }
 }
 
@@ -76,7 +99,11 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
+    display: inline;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-bottom: 0.12em;
+    line-height: 1.25;
   }
 
   /* .dark .text-gradient-lumen REMOVED — site is light-mode only */
@@ -112,15 +139,111 @@
    ============================================================ */
 .section-wash-primary {
   background-color: var(--lumen-bg);
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
 }
 
 .section-wash-secondary {
   background-color: var(--lumen-light);
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+.section-wash-white {
+  background-color: #ffffff;
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
 }
 
 .card-surface {
   background-color: var(--lumen-surface);
   border: 1px solid var(--lumen-border);
+}
+
+/* Lumen cyan grid pattern overlay — slightly stronger than baked-in bg */
+.lumen-grid-pattern {
+  background-image: var(--lumen-grid-image-overlay);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+/* Full-page backgrounds with baked-in grid */
+.lumen-page-bg {
+  background-color: var(--lumen-bg);
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+.lumen-page-bg-white {
+  background-color: #ffffff;
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+.lumen-page-bg-light {
+  background-color: #f8fafc;
+  background-image: var(--lumen-grid-image-light);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+/* Dark navy section backgrounds with soft cyan grid */
+.section-wash-dark {
+  background-color: #071b34;
+  background-image: var(--lumen-grid-image-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+  color: #ffffff;
+}
+
+.section-wash-navy {
+  background-color: #0d2240;
+  background-image: var(--lumen-grid-image-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+  color: #ffffff;
+}
+
+.section-wash-deep {
+  background-color: #081a35;
+  background-image: var(--lumen-grid-image-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+  color: #ffffff;
+}
+
+.section-wash-midnight {
+  background-color: #030712;
+  background-image: var(--lumen-grid-image-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+.lumen-grid-pattern-dark {
+  background-image: var(--lumen-grid-image-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+/* Hero sections — grid baked into gradient wash so it stays visible */
+.lumen-hero-wash {
+  background-color: #f4f9fc;
+  background-image:
+    var(--lumen-grid-image-hero),
+    linear-gradient(to bottom, #f4f9fc, #fafdff, #f4f9fc);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size), 100% 100%;
+}
+
+.lumen-hero-wash-academy {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(to right, rgba(0, 194, 199, 0.1), transparent 1px),
+    linear-gradient(to bottom, rgba(0, 194, 199, 0.1), transparent 1px),
+    linear-gradient(to bottom, #ffffff 0%, #f4f9fc 55%, #eef6fb 100%);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size), var(--lumen-grid-size) var(--lumen-grid-size), 100% 100%;
+}
+
+.lumen-grid-pattern-hero {
+  background-image: var(--lumen-grid-image-hero);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
+}
+
+.lumen-grid-pattern-hero-dark {
+  background-image: var(--lumen-grid-image-hero-dark);
+  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
 }
 
 /* Lock headings to navy on all light-bg sections —

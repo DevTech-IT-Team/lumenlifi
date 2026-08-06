@@ -27,6 +27,7 @@ export default function Footer() {
               src={logoPl}
               alt="LumenFi Logo"
               fill
+              loading="lazy"
               className="object-contain object-left"
             />
           </div>

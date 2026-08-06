@@ -12,7 +12,7 @@ const EMAIL = 'operations@lumenlifi.com';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="relative overflow-hidden min-h-screen bg-white text-slate-800 antialiased selection:bg-emerald-100">
+    <div className="relative overflow-hidden min-h-screen lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
         <title>Lumen LIFI — Privacy Policy</title>
         <meta
@@ -20,15 +20,6 @@ export default function PrivacyPolicy() {
           content={`${BRAND} privacy policy — how we collect, use, and protect your personal and payment information.`}
         />
       </Head>
-
-      {/* ── ABSOLUTE BACKGROUND GRID LAYER ── */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
-        style={{
-          backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
-          backgroundSize: '64px 64px'
-        }}
-      />
 
       <div className="relative z-10">
         <Header />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
@@ -202,7 +203,7 @@ export default function ProductsPage() {
     : productsData.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen font-sans bg-[#FBFDFB] text-slate-900 antialiased relative overflow-hidden selection:bg-green-500 selection:text-white">
+    <div className="min-h-screen font-sans lumen-page-bg text-slate-900 antialiased relative overflow-hidden selection:bg-green-500 selection:text-white">
       {/* Immersive Structural Background Layout Layers */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#E7F2EC,transparent_65%)] pointer-events-none z-0" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#DAE3DF_1px,transparent_1px),linear-gradient(to_bottom,#DAE3DF_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-35 z-0" />
@@ -225,10 +226,18 @@ export default function ProductsPage() {
             >
               {/* --- HERO COMPONENT --- */}
               <div
-                className="relative w-full min-h-[560px] lg:min-h-[640px] bg-cover bg-center bg-no-repeat rounded-[2rem] border border-slate-800/80 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden shadow-2xl group"
-                style={{ backgroundImage: "url('/images/products/fullbg.png')" }}
+                className="relative w-full min-h-[560px] lg:min-h-[640px] rounded-[2rem] border border-slate-800/80 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden shadow-2xl group"
               >
+                <Image
+                  src="/images/products/fullbg.png"
+                  alt="Products hero background"
+                  fill
+                  priority
+                  className="absolute inset-0 object-cover"
+                  sizes="100vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#060B16]/80 via-[#060B16]/20 to-transparent pointer-events-none z-0" />
+                <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-40 pointer-events-none z-[1]" />
                 <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
                 <div className="absolute -bottom-20 -left-10 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-[100px] pointer-events-none z-0" />
 
@@ -310,7 +319,14 @@ export default function ProductsPage() {
                   </div>
 
                   <div className="lg:col-span-8 bg-[#F5FAF6] border border-slate-300 rounded-2xl flex flex-col justify-between relative shadow-inner overflow-hidden">
-                    <img src="/images/products/Lumenfi Product overview.png" alt="Lumen Kit" className="w-full h-full object-cover" />
+                    <Image
+                      src="/images/products/Lumenfi Product overview.png"
+                      alt="Lumen Kit"
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 1024px) 100vw, 600px"
+                      className="object-cover"
+                    />
                   </div>
                 </div>
 
@@ -382,7 +398,14 @@ export default function ProductsPage() {
 
                       <div className="space-y-4">
                         <div className="aspect-[16/10] rounded-xl overflow-hidden bg-white/60 border border-slate-100/60 relative">
-                          <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+                          <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 600px"
+                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                            loading="lazy"
+                          />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#F6FAF8] via-transparent to-transparent pointer-events-none" />
                         </div>
 
@@ -637,7 +660,14 @@ export default function ProductsPage() {
 
                 <div className="lg:col-span-5 relative">
                   <div className="w-full aspect-square rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white flex items-center justify-center">
-                    <img src={activeProduct.imageUrl} alt={activeProduct.name} className="w-full h-full object-cover opacity-80" />
+                    <Image
+                      src={activeProduct.imageUrl}
+                      alt={activeProduct.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 600px"
+                      className="object-cover opacity-80"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="p-3 bg-white border border-slate-200 rounded-xl text-[11px] font-mono flex items-center justify-between text-slate-600 shadow-inner">
                     <span>SHIPPING SPEED:</span>

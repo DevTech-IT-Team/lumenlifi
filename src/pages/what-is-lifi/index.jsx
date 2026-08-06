@@ -115,28 +115,24 @@ export default function WhatIsLiFiPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans transition-colors duration-300 bg-[var(--lumen-bg)] text-[var(--lumen-navy)] selection:bg-cyan-500/20">
+    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[var(--lumen-navy)] selection:bg-cyan-500/20">
       <Head>
         <title>What is LiFi? Technology & Applications — Lumen LiFi</title>
         <meta name="description" content="Discover LiFi technology: a fast, reliable, and secure mobile wireless communications technology that uses light waves rather than radio frequencies to transmit data." />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
       <Header />
 
       <main className="flex-grow">
 
         {/* 1. HERO SHOWCASE SECTION */}
-        <section className="relative w-full pt-32 pb-20 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #EAF3FA, #F4F9FC, #EAF3FA)' }}>
+        <section className="relative w-full pt-32 pb-20 overflow-hidden lumen-hero-wash">
           <div className="absolute inset-0 pointer-events-none z-0">
             <div className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
               style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
             <div className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-50 dark:opacity-30"
               style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.15) 0%, transparent 70%)' }} />
+            <div className="absolute inset-0 lumen-grid-pattern-hero opacity-45" />
           </div>
-
-          <div className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
-            style={{ backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)', backgroundSize: '64px 64px' }} />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-mono font-bold shadow-sm bg-[rgba(26,110,191,0.06)] border border-[var(--lumen-border)] text-[#1A6EBF]">
@@ -173,6 +169,7 @@ export default function WhatIsLiFiPage() {
                   alt="Lumen LiFi Architecture Topology Diagram"
                   width={1200}
                   height={650}
+                  loading="lazy"
                   className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.01]"
 
                 />
@@ -183,16 +180,7 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden py-18 bg-[#EAF3FA]">
-          {/* ── ABSOLUTE BACKGROUND GRID LAYER ── */}
-          <div
-            className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
-            style={{
-              backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
-              backgroundSize: '64px 64px'
-            }}
-          />
-
+        <section className="relative overflow-hidden py-18 section-wash-secondary">
           {/* ── CONTENT CONTAINER ── */}
           <div className="relative z-10 max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
@@ -227,15 +215,6 @@ export default function WhatIsLiFiPage() {
 
         {/* 3. CORE MATRIX SHOWCASE (Matches Section Wash Primary / Secondary Alternation Layout) */}
         <section className="relative overflow-hidden py-24 section-wash-primary">
-          {/* Grid Overlay Vector Matrix */}
-          <div
-            className="absolute inset-0 pointer-events-none z-0 opacity-50 dark:opacity-30"
-            style={{
-              backgroundImage: 'linear-gradient(var(--lumen-border) 1px, transparent 1px), linear-gradient(90deg, var(--lumen-border) 1px, transparent 1px)',
-              backgroundSize: '64px 64px'
-            }}
-          />
-
           <div className="relative z-10 max-w-6xl mx-auto px-6 space-y-24">
 
             {/* Row A: Military-Grade Security */}
@@ -246,6 +225,7 @@ export default function WhatIsLiFiPage() {
                     src="/images/lifi/security.png"
                     alt="Physical Boundary Containment Mapping Network Data Cones"
                     fill
+                    loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 600px"
                     className="object-contain w-full h-full p-2 transition-transform duration-500 group-hover:scale-[1.01]"
                   />
@@ -272,6 +252,7 @@ export default function WhatIsLiFiPage() {
                     src="/images/lifi/how.jpg"
                     alt="LiFi Real-World High Throughput Performance Tracking Chart"
                     fill
+                    loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 600px"
                     className="object-contain w-full h-full p-2 transition-transform duration-500 group-hover:scale-[1.01]"
                   />
@@ -299,7 +280,7 @@ export default function WhatIsLiFiPage() {
 
         {/* 4. PERFORMANCE PILLARS GRID */}
         <section
-          className="relative py-32 bg-[#081A35] overflow-hidden border-t border-b border-white/10 transition-all duration-300"
+          className="relative py-32 section-wash-deep overflow-hidden border-t border-b border-white/10 transition-all duration-300"
           id="technology-benefits"
         >
           {/* Background Glows (Option B - Radial Glow) */}
@@ -357,11 +338,11 @@ export default function WhatIsLiFiPage() {
               </div>
 
               {/* Center Illustration Container (Strict Sizing: 780px Max) */}
-              <div className="lg:col-span-2 flex justify-center items-center order-1 lg:order-2 px-2">
+              <div className="lg:col-span-2 flex justify-center items-center order-1 lg:order-2 px-2 w-full">
                 <div
-                  className="w-full max-w-[780px] rounded-[28px] border border-white/[0.12] bg-slate-950/20 p-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#00D4FF]/30"
+                  className="relative w-full max-w-[780px] rounded-[28px] border border-white/[0.12] bg-slate-950/20 p-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#00D4FF]/30"
                   style={{
-                    boxShadow: '0 0 80px rgba(0,170,255,0.15)'
+                    boxShadow: '0 0 80px rgba(0,170,255,0.15)',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow = '0 0 95px rgba(0,170,255,0.3)';
@@ -370,10 +351,14 @@ export default function WhatIsLiFiPage() {
                     e.currentTarget.style.boxShadow = '0 0 80px rgba(0,170,255,0.15)';
                   }}
                 >
-                  <img
+                  <Image
                     src="/images/lifi/how.jpg"
                     alt="LiFi Showcase Illustration"
-                    className="w-full h-auto max-h-[480px] object-contain rounded-[24px]"
+                    width={1024}
+                    height={559}
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 780px"
+                    className="w-full h-auto object-contain rounded-[24px]"
                   />
                 </div>
               </div>
@@ -432,7 +417,7 @@ export default function WhatIsLiFiPage() {
         <NetworkSimulatorExperiment />
         {/* 6. CALL TO ACTION: PREMIUM NEWSLETTER UPGRADE */}
         <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-          <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill />
+          <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill loading="lazy" />
             <div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
               style={{ background: 'radial-gradient(circle, var(--lumen-cyan) 0%, transparent 75%)' }}
@@ -450,18 +435,10 @@ export default function WhatIsLiFiPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden bg-[#0D2240] text-white shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-25 mix-blend-overlay transition-transform duration-1000 group-hover:scale-105"
-                  style={{
-                    backgroundImage: 'linear-gradient(rgba(0,194,199,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,194,199,0.15) 1px, transparent 1px)',
-                    backgroundSize: '40px 40px'
-                  }}
-                />
-
+              <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
                 <div
                   className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
-                  style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.18) 0%, transparent 50%)' }}
+                  style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.12) 0%, transparent 50%)' }}
                 />
 
                 <div className="relative z-10 text-center max-w-3xl mx-auto">
