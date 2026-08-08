@@ -873,11 +873,11 @@ function ApplicationForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 w-full overflow-hidden"
+            className="lg:col-span-7 w-full flex justify-center"
           >
             <iframe
               src="https://api.wonderengine.ai/widget/form/0LXv19xiVsNzt9xtK3Ih"
-              style={{ width: '100%', minHeight: '560px', height: '580px', border: 'none', borderRadius: '16px' }}
+              style={{ width: '100%', minHeight: '660px', height: '670px', border: 'none', borderRadius: '16px' }}
               id="inline-0LXv19xiVsNzt9xtK3Ih"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
@@ -887,7 +887,7 @@ function ApplicationForm() {
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
               data-form-name="Architecture Studio"
-              data-height="580"
+              data-height="657"
               data-layout-iframe-id="inline-0LXv19xiVsNzt9xtK3Ih"
               data-form-id="0LXv19xiVsNzt9xtK3Ih"
               title="Architecture Studio"
