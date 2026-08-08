@@ -21,7 +21,7 @@ import communityHeroImg from '../../../public/images/hero/partner-hero.png';
 import communitySmartCityImg from '../../../public/images/hero/partner-smart-city.png';
 import communityCreatorImg from '../../../public/images/hero/partner-creator.png';
 import communityEvImg from '../../../public/images/hero/partner-ev.png';
-import communityFactoryImg from '../../../public/images/hero/partner-factory.png';
+import communityFactoryImg from '../../../public/images/academy/community.webp';
 import communityAiImg from '../../../public/images/hero/partner-ai.png';
 import ctaImg from '../../../public/images/hero/cta.png';
 /* ── Animation Variants ── */
@@ -549,20 +549,6 @@ function CurriculumSection() {
           className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_80px_rgba(13,34,64,0.12)] border border-[var(--lumen-border)] mb-14"
           style={{ aspectRatio: '16/6' }}>
           <Image src={communityCreatorImg} alt="Lumenfi Curriculum" fill loading="lazy" className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
-            {[
-              { label: 'Beginner to Expert', sub: 'Actionable Lessons' },
-              { label: 'Complex Concepts', sub: 'Easy to Understand' },
-            ].map(({ label, sub }) => (
-              <div key={label} className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/90 backdrop-blur-md border border-[var(--lumen-border)] shadow-md">
-                <div>
-                  <div className="font-black text-sm text-[#0D2240]">{label}</div>
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#4A6080]">{sub}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -804,24 +790,13 @@ function MonetizeSection() {
 
           <div className="relative">
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--lumen-border)] aspect-[4/3]">
-              <Image src={communityFactoryImg} alt="Turnkey Business Opportunities" fill loading="lazy" className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl border border-[var(--lumen-border)] shadow-xl p-5 max-w-[200px]">
-              <div className="font-black text-3xl text-gradient-lumen mb-1">Empower</div>
-              <div className="text-[11px] font-mono uppercase tracking-wider text-[#4A6080]">Lucrative<br />Business Model</div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: -20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute -top-5 -right-5 bg-white rounded-2xl border border-[var(--lumen-border)] shadow-xl p-4 max-w-[180px]">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-2 w-2 rounded-full bg-[#00C2C7] animate-pulse" />
-                <span className="text-[10px] font-mono font-bold text-[#4A6080] uppercase">Certified Resellers</span>
-              </div>
-              <div className="font-black text-2xl text-[#0D2240]">Join Now</div>
-              <div className="text-[10px] font-mono text-[#4A6080] mt-0.5">Start building today</div>
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--lumen-border)] bg-white">
+              <Image
+                src={communityFactoryImg}
+                alt="Turnkey Business Opportunities"
+                className="w-full h-auto object-contain block"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </motion.div>
           </div>
         </div>
