@@ -809,37 +809,17 @@ function MonetizeSection() {
 
 /* ── SECTION 6: REGISTRATION FORM ── */
 function ApplicationForm() {
-  const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    interest: '',
-    agreed: false,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
-  };
-
-  const inputCls =
-    'w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-[#0D2240] placeholder:text-slate-400 focus:outline-none focus:border-[#009688] focus:ring-2 focus:ring-[#009688]/15 transition-all duration-200';
-  const labelCls = 'block text-xs font-semibold text-[#0D2240] mb-1.5';
+  useEffect(() => {
+    if (!document.querySelector('script[src="https://api.wonderengine.ai/js/form_embed.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://api.wonderengine.ai/js/form_embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
 
   return (
-    <section id="join" className="relative overflow-hidden pt-12 pb-10 sm:pt-16 sm:pb-14 bg-[#F8FCFE] border-t border-[var(--lumen-border)]">
+    <section id="join" className="relative overflow-hidden py-16 sm:py-20 bg-[#F8FCFE] border-t border-[var(--lumen-border)]">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[160px] opacity-20 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.3) 0%, transparent 70%)' }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[140px] opacity-20 pointer-events-none"
@@ -888,135 +868,25 @@ function ApplicationForm() {
               </div>
             </div>
 
-            {/* Right Column: Clean Native Form */}
-            <div className="lg:col-span-7 w-full border-t lg:border-t-0 lg:border-l border-[var(--lumen-border)] pt-6 lg:pt-0 lg:pl-8">
-              {submitted ? (
-                <div className="py-16 px-4 flex flex-col items-center justify-center text-center">
-                  <div className="h-16 w-16 rounded-full bg-[#009688]/10 text-[#009688] flex items-center justify-center mb-4">
-                    <CheckCircle size={32} />
-                  </div>
-                  <h3 className="text-2xl font-black text-[#0D2240] mb-2">Welcome to the Academy!</h3>
-                  <p className="text-[#4A6080] text-sm max-w-md leading-relaxed">
-                    You are now enrolled in LumenFi Academy. Check your inbox for details on accessing live classes, community forums, and certification programs.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="text-left mb-6">
-                    <h3 className="text-2xl font-black text-[#0D2240] leading-tight mb-2">
-                      Light turns into Internet data.
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#4A6080] leading-relaxed">
-                      Tell us a little about yourself and what you have in mind. Whether you are at the idea stage or ready to build, we would love to hear from you.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="acad-fname" className={labelCls}>First Name *</label>
-                      <input
-                        id="acad-fname"
-                        name="firstName"
-                        type="text"
-                        required
-                        placeholder="Enter your first name"
-                        value={formState.firstName}
-                        onChange={handleChange}
-                        className={inputCls}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="acad-lname" className={labelCls}>Last Name *</label>
-                      <input
-                        id="acad-lname"
-                        name="lastName"
-                        type="text"
-                        required
-                        placeholder="Enter your last name"
-                        value={formState.lastName}
-                        onChange={handleChange}
-                        className={inputCls}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="acad-phone" className={labelCls}>Phone</label>
-                      <input
-                        id="acad-phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+1 (555) 000-0000"
-                        value={formState.phone}
-                        onChange={handleChange}
-                        className={inputCls}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="acad-email" className={labelCls}>Email *</label>
-                      <input
-                        id="acad-email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="your@email.com"
-                        value={formState.email}
-                        onChange={handleChange}
-                        className={inputCls}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="acad-goal" className={labelCls}>Primary Goal</label>
-                    <select
-                      id="acad-goal"
-                      name="interest"
-                      required
-                      value={formState.interest}
-                      onChange={handleChange}
-                      className={inputCls}
-                    >
-                      <option value="" disabled>Select an option</option>
-                      <option>I want to learn about Li-Fi</option>
-                      <option>I want to become a certified reseller</option>
-                      <option>I want to join the community</option>
-                      <option>I want to explore industry applications</option>
-                    </select>
-                  </div>
-
-                  <label className="flex items-start gap-3 cursor-pointer pt-1 group">
-                    <input
-                      type="checkbox"
-                      name="agreed"
-                      required
-                      checked={formState.agreed}
-                      onChange={handleChange}
-                      className="mt-1 h-4 w-4 rounded border-slate-300 text-[#009688] focus:ring-[#009688] shrink-0"
-                    />
-                    <span className="text-xs text-[#0D2240] leading-relaxed">
-                      By checking this box, I agree to Lumenfi&apos;s{' '}
-                      <Link href="/terms" className="font-bold underline text-[#0D2240] hover:text-[#009688]" target="_blank">
-                        Terms &amp; conditions
-                      </Link>
-                      {' '}and{' '}
-                      <Link href="/privacy" className="font-bold underline text-[#0D2240] hover:text-[#009688]" target="_blank">
-                        Privacy Policy
-                      </Link>
-                      . I consent to receiving academy updates and class modules.
-                    </span>
-                  </label>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full h-12 mt-2 rounded-xl bg-[#008080] hover:bg-[#007070] text-white font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-70"
-                  >
-                    {loading ? 'Submitting...' : 'SUBMIT'}
-                  </button>
-                </form>
-              )}
+            {/* Right Column: WonderEngine Form Embed */}
+            <div className="lg:col-span-7 w-full flex flex-col justify-start border-t lg:border-t-0 lg:border-l border-[var(--lumen-border)] pt-6 lg:pt-0 lg:pl-8">
+              <iframe
+                src="https://api.wonderengine.ai/widget/form/0LXv19xiVsNzt9xtK3Ih"
+                style={{ width: '100%', height: '100%', minHeight: '620px', border: 'none', borderRadius: '8px' }}
+                id="inline-0LXv19xiVsNzt9xtK3Ih"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Lumen Li-Fi Contact Form"
+                data-height="616"
+                data-layout-iframe-id="inline-0LXv19xiVsNzt9xtK3Ih"
+                data-form-id="0LXv19xiVsNzt9xtK3Ih"
+                title="Lumen Li-Fi Contact Form"
+              />
             </div>
           </div>
         </motion.div>
