@@ -13,7 +13,7 @@ const nextConfig = withBundleAnalyzer({
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react'],
   },
   images: {
     domains: ['images.unsplash.com'],
