@@ -26,10 +26,10 @@ import {
   Sliders,
   Star,
   CheckCircle2,
-  Leaf
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import RevFSystemKitExplorer from '../../components/sections/products/RevFSystemKitExplorer';
 
 const productsData = [
   {
@@ -178,18 +178,9 @@ const productsData = [
   }
 ];
 
-const installationSteps = [
-  { step: '01', title: 'Connect Router Box', desc: 'Plug your standard house internet feed directly into the LumenFi safe-enclosure central routing box assembly.' },
-  { step: '02', title: 'Inject Plus Power', desc: 'Run the data cable into the PoE+ Injector to safely combine high-speed data streams and electricity into one wire.' },
-  { step: '03', title: 'Link RevF Controller', desc: 'Connect that powered line directly into the RevF Access Point to handle master signal balancing duties.' },
-  { step: '04', title: 'Mount Light Antennas', desc: 'Secure the two Photonic Antennas onto your ceiling surfaces to stream active data light-cones down over the entire room.' },
-  { step: '05', title: 'Activate USB Dongles', desc: 'Pop the two mini USB LiFi Dongles directly into user laptops or computers to catch wireless optical signals instantly.' }
-];
-
 export default function ProductsPage() {
   const [selectedProductSlug, setSelectedProductSlug] = useState(null);
   const [activeFaq, setActiveFaq] = useState(-1);
-  const [activeKitItem, setActiveKitItem] = useState('ap');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [cartCount, setCartCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);   // FAQ page: 1 = Q1–10, 2 = Q11–20
@@ -275,90 +266,7 @@ export default function ProductsPage() {
               </div>
 
               {/* --- REST OF THE CONTENT LAYOUT --- */}
-              <div id="concept-runbook" className="bg-[#E7F2EC]/80 backdrop-blur-xl border border-slate-300/80 rounded-3xl p-6 sm:p-10 space-y-10 scroll-mt-32 shadow-xl shadow-slate-100">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-2 border-b border-slate-300/80">
-                  <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-orange-700 uppercase bg-orange-100/50 border border-orange-300 px-2.5 py-0.5 rounded-full w-max block">
-                      Engineering Deployment Lab
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
-                      RevF System Kit: Component Concept Diagram
-                    </h2>
-                    <p className="text-xs text-slate-700 font-sans">
-                      Select individual module channels to inspect active node responsibilities inside the complete residential framework.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                  <div className="lg:col-span-4 flex flex-col justify-between h-full gap-2">
-                    {[
-                      { id: 'ap', name: 'LumenFi RevF Access Point', sub: 'Main Waveform Balanced Controller' },
-                      { id: 'antennas', name: 'Photonic Antennas (2)', sub: 'Ceiling Ambient Broadcast Nodes' },
-                      { id: 'dongles', name: 'USB LiFi Dongles (2)', sub: 'Device Signal Decoders' },
-                      { id: 'poe', name: 'Power over Ethernet Injector', sub: 'Single-Cable Energy Circuit' },
-                      { id: 'router', name: 'LumenFi Router Box', sub: 'Enclosure Enclosure & Intake Hub' }
-                    ].map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => setActiveKitItem(item.id)}
-                        className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between font-mono group ${activeKitItem === item.id
-                          ? 'bg-[#F2F8F5] border-green-300 shadow-lg shadow-green-100'
-                          : 'bg-transparent border-slate-300/60 hover:border-slate-400 hover:bg-slate-100'
-                          }`}
-                      >
-                        <div>
-                          <p className={`text-xs font-bold ${activeKitItem === item.id ? 'text-green-700' : 'text-slate-900'}`}>
-                            {item.name}
-                          </p>
-                          <p className="text-[10px] text-slate-600 uppercase mt-0.5 tracking-wider">{item.sub}</p>
-                        </div>
-                        <ArrowRight size={14} className={`text-slate-600 transition-transform ${activeKitItem === item.id ? 'translate-x-1 text-green-700' : 'group-hover:translate-x-0.5'}`} />
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="lg:col-span-8 bg-[#F5FAF6] border border-slate-300 rounded-2xl flex flex-col justify-between relative shadow-inner overflow-hidden">
-                    <Image
-                      src="/images/products/Lumenfi Product overview.png"
-                      alt="Lumen Kit"
-                      fill
-                      loading="lazy"
-                      sizes="(max-width: 1024px) 100vw, 600px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-6 w-full">
-                  <a href="https://rzp.io/rzp/vv8HFbfc" target="_blank" rel="noopener noreferrer" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                    <ShoppingCart size={18} /> Buy Now
-                  </a>
-                </div>
-
-                <div className="pt-8 border-t border-slate-300 space-y-6">
-                  <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-slate-600">
-                    <Leaf size={14} className="text-green-600" /> SYSTEM ARCHITECTURE &amp; INSTALLATION STEPS
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
-                    {installationSteps.map((stepObj) => (
-                      <div key={stepObj.step} className="bg-[#FAFFFB] border border-slate-200/80 p-4 rounded-xl space-y-2 relative hover:border-green-300 transition-colors shadow-inner">
-                        <div className="flex justify-between items-center">
-                          <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-green-700 border border-slate-200">
-                            PHASE {stepObj.step}
-                          </span>
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-600 animate-pulse" />
-                        </div>
-                        <h4 className="text-xs font-bold text-slate-950 font-mono tracking-tight">{stepObj.title}</h4>
-                        <p className="text-[11px] text-slate-700 leading-normal font-sans font-light">
-                          {stepObj.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <RevFSystemKitExplorer />
 
               {/* --- COMMERCE CATALOG MATRIX --- */}
               {/* <div className="space-y-8">

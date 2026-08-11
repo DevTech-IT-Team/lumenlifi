@@ -13,7 +13,7 @@ import {
   HelpCircle,
   Box,
 } from 'lucide-react';
-import logoPl from '/public/brand/logo.png';
+import logoPl from '/public/brand/logo.webp';
 
 /* ---------- Nav config ---------- */
 const navConfig = [
@@ -49,13 +49,22 @@ export default function Header() {
   const navRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setActiveDropdown(null);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       window.removeEventListener('scroll', handleScroll);

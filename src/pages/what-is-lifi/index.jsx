@@ -125,7 +125,7 @@ export default function WhatIsLiFiPage() {
       <main className="flex-grow">
 
         {/* 1. HERO SHOWCASE SECTION */}
-        <section className="relative w-full pt-32 pb-20 overflow-hidden lumen-hero-wash">
+        <section className="relative w-full pt-32 pb-20 overflow-hidden bg-white">
           <div className="absolute inset-0 pointer-events-none z-0">
             <div className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
               style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
@@ -163,16 +163,8 @@ export default function WhatIsLiFiPage() {
                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
                 <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
               </div>
-              <div className="relative w-full overflow-hidden rounded-b-2xl group bg-slate-900">
-                <Image
-                  src="/images/lifi/what-is-lifi.png"
-                  alt="Lumen LiFi Architecture Topology Diagram"
-                  width={1200}
-                  height={650}
-                  loading="lazy"
-                  className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.01]"
-
-                />
+              <div className="relative w-full overflow-hidden rounded-b-2xl bg-slate-900">
+                <NetworkSimulatorExperiment embedded />
               </div>
             </div>
           </motion.div>
@@ -180,28 +172,34 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden py-18 section-wash-secondary">
+        <section className="relative overflow-hidden py-18 bg-[#0D2240]">
+          {/* Cyan Grid Background */}
+          <div className="absolute inset-0 pointer-events-none z-0 select-none">
+            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#00C2C7 1.5px, transparent 0)', backgroundSize: '32px 32px' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#00C2C7]/5 rounded-full blur-[120px]" />
+          </div>
+
           {/* ── CONTENT CONTAINER ── */}
           <div className="relative z-10 max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
               <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white border border-[var(--lumen-border)] text-[#1A6EBF]">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#0A192F] border border-white/10 text-cyan-400">
                   <Zap size={12} /> Operational Overview
                 </div>
-                <h2 className="text-4xl font-black tracking-tight text-[#0D2240]">
+                <h2 className="text-4xl font-black tracking-tight text-white">
                   What is LiFi & <br />
                   <span className="text-gradient-lumen">How Does it Work?</span>
                 </h2>
-                <p className="text-[#4A6080] text-base leading-relaxed">
+                <p className="text-blue-100/80 text-base leading-relaxed">
                   LiFi is a fully networked mobile wireless communications technology that uses light rather than radio frequencies to transmit data. The experience of using LiFi mirrors standard WiFi but offers unprecedented physical layer speed and scaling vectors.
                 </p>
-                <p className="text-[#4A6080] text-base leading-relaxed">
+                <p className="text-blue-100/80 text-base leading-relaxed">
                   It introduces immediate connectivity optimization targets for high-density settings, secure office complexes, immersive spatial rendering setups, and zero-RF hazardous configurations.
                 </p>
               </div>
 
               <div className="lg:col-span-5 lg:pt-8 flex lg:justify-end">
-                <Link href="/products" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)] hover:scale-[1.02] transition-all">
+                <Link href="/products" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-white/20 text-white hover:bg-white/5 transition-all">
                   <HelpCircle size={14} /> View LiFi FAQs
                 </Link>
               </div>
@@ -214,7 +212,7 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 3. CORE MATRIX SHOWCASE (Matches Section Wash Primary / Secondary Alternation Layout) */}
-        <section className="relative overflow-hidden py-24 section-wash-primary">
+        <section className="relative overflow-hidden py-24 bg-white">
           <div className="relative z-10 max-w-6xl mx-auto px-6 space-y-24">
 
             {/* Row A: Military-Grade Security */}
@@ -280,7 +278,7 @@ export default function WhatIsLiFiPage() {
 
         {/* 4. PERFORMANCE PILLARS GRID */}
         <section
-          className="relative py-32 section-wash-deep overflow-hidden border-t border-b border-white/10 transition-all duration-300"
+          className="relative py-32 bg-[#0D2240] overflow-hidden border-t border-b border-white/10 transition-all duration-300"
           id="technology-benefits"
         >
           {/* Background Glows (Option B - Radial Glow) */}
@@ -413,11 +411,9 @@ export default function WhatIsLiFiPage() {
         </section>
 
 
-        {/* 5. GLOBAL STANDARDS ALLIANCE SECTOR */}
-        <NetworkSimulatorExperiment />
         {/* 6. CALL TO ACTION: PREMIUM NEWSLETTER UPGRADE */}
-        <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-          <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} alt="cta" fill loading="lazy" />
+        <section className="py-28 relative overflow-hidden bg-white" id="cta-final">
+          <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} filter="brightness(20%)" alt="cta" fill loading="lazy" />
             <div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
               style={{ background: 'radial-gradient(circle, var(--lumen-cyan) 0%, transparent 75%)' }}

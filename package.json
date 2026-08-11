@@ -10,6 +10,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "start": "next start",
     "start:prod": "npm run build && next start",
+    "preview": "next start",
     "lighthouse": "npm run build && next start -p 3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,10 +32,11 @@
   },
   "browserslist": {
     "production": [
-      "chrome >= 92",
-      "firefox >= 91",
-      "safari >= 15.4",
-      "edge >= 92"
+      "last 2 Chrome versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 Edge versions",
+      "not dead"
     ],
     "development": [
       "last 1 chrome version",

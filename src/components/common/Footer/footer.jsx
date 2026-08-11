@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Send, ShieldCheck, ArrowUpRight, Mail } from 'lucide-react';
-import logoPl from '/public/brand/logo.png';
+import logoPl from '/public/brand/logo.webp';
 
 export default function Footer() {
   return (

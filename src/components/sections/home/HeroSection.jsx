@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import logoPl from '/public/brand/logo.png';
+import logoPl from '/public/brand/logo.webp';
 
 const HeroVisual = dynamic(() => import('./HeroVisual'), {
   ssr: false,

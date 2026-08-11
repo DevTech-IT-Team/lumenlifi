@@ -1,14 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import {
-  Wifi,
-  Sun,
-  ShieldAlert,
-  ShieldCheck,
-  Unlock
-} from 'lucide-react';
-
-export default function WhyJFVideoSection() {
+import React, { useState, useRef } from 'react';
+export default function WhyJFVideoSection({ embedded = false }) {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
@@ -19,39 +10,42 @@ export default function WhyJFVideoSection() {
     }
   };
 
+  const Wrapper = embedded ? 'div' : 'section';
+
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{ padding: '10px 25px 72px' }}
+    <Wrapper
+      className={embedded ? 'relative w-full h-full' : 'relative overflow-hidden'}
+      style={embedded ? undefined : { padding: '10px 25px 72px' }}
     >
-      {/* subtle radial glow */}
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '900px', height: '500px',
-        background: 'radial-gradient(ellipse, rgba(255,210,0,0.06), transparent 70%)',
-        filter: 'blur(60px)', pointerEvents: 'none',
-      }} />
+      {!embedded && (
+        <div style={{
+          position: 'absolute', top: '50%', left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '900px', height: '500px',
+          background: 'radial-gradient(ellipse, rgba(255,210,0,0.06), transparent 70%)',
+          filter: 'blur(60px)', pointerEvents: 'none',
+        }} />
+      )}
 
-      {/* Heading */}
-      <div style={{ textAlign: 'center', marginBottom: '40px', position: 'relative', zIndex: 2 }}>
-        <span style={{
-          display: 'inline-block',
-          fontSize: '11px', fontWeight: '800',
-          letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: 'var(--lumen-cyan)', marginBottom: '18px',
-        }}>LUMEN LIFI</span>
-      </div>
+      {!embedded && (
+        <div style={{ textAlign: 'center', marginBottom: '40px', position: 'relative', zIndex: 2 }}>
+          <span style={{
+            display: 'inline-block',
+            fontSize: '11px', fontWeight: '800',
+            letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: 'var(--lumen-cyan)', marginBottom: '18px',
+          }}>LUMEN LIFI</span>
+        </div>
+      )}
 
-      {/* Video Wrapper */}
       <div style={{
         position: 'relative', zIndex: 2,
-        maxWidth: '1100px',
+        maxWidth: embedded ? '100%' : '1100px',
         margin: '0 auto',
-        borderRadius: '20px',
+        borderRadius: embedded ? 0 : '20px',
         overflow: 'hidden',
-        border: '1px solid rgba(255,255,255,0.12)',
-        boxShadow: '0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,210,0,0.08)',
+        border: embedded ? 'none' : '1px solid rgba(255,255,255,0.12)',
+        boxShadow: embedded ? 'none' : '0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,210,0,0.08)',
         aspectRatio: '16/9',
       }}>
         <video
@@ -108,6 +102,6 @@ export default function WhyJFVideoSection() {
           pointerEvents: 'none',
         }} />
       </div>
-    </section>
+    </Wrapper>
   );
 }

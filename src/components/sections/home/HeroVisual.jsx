@@ -18,10 +18,11 @@ export default function HeroVisual() {
             src={heroImg}
             alt="Lumen LiFi Ecosystem Matrix Graphic"
             fill
-            loading="lazy"
+            priority
+            loading="eager"
             quality={60}
             className="object-contain w-full h-full p-2"
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 80vw, 1169px"
+            sizes="(max-width: 768px) 100vw, 450px"
           />
         </div>
       </div>
