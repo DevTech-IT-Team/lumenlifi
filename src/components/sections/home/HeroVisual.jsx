@@ -107,24 +107,24 @@ const VideoCard = React.memo(({ video, isActive, isPlaying, onTogglePlay, onEnde
     onEnded();
   };
 
-  const handleButtonClick = (e) => {
+  const handleCardClick = (e) => {
     e.stopPropagation();
+    onClick();
     onTogglePlay();
   };
 
   return (
     <article
-      onClick={onClick}
-      className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border-2 transition-all duration-300 select-none ${
-        isActive ? 'scale-105 z-20' : 'opacity-70 hover:opacity-100 hover:scale-[1.02]'
-      }`}
+      onClick={handleCardClick}
+      className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border-2 transition-all duration-300 select-none ${isActive ? 'scale-[1.02] z-20' : 'opacity-70 hover:opacity-100'
+        }`}
       style={{
-        height: 'clamp(320px, 54svh, 540px)',
+        height: 'clamp(320px, 52svh, 540px)',
         aspectRatio: '9 / 16',
         borderColor: video.accent,
         boxShadow: isActive
-          ? `0 0 40px ${video.glow}, 0 10px 30px rgba(0,0,0,0.8)`
-          : `0 0 18px ${video.glow}`,
+          ? `0 0 35px ${video.glow}, 0 10px 30px rgba(0,0,0,0.8)`
+          : `0 0 15px ${video.glow}`,
         backgroundColor: '#061022',
       }}
     >
@@ -144,26 +144,6 @@ const VideoCard = React.memo(({ video, isActive, isPlaying, onTogglePlay, onEnde
 
       {/* Gradient overlay */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-      {/* Scaled Play / Pause Toggle Button */}
-      <button
-        type="button"
-        onClick={handleButtonClick}
-        className="absolute left-1/2 top-1/2 z-20 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-[#030712]/75 text-white shadow-2xl backdrop-blur-md transition-all hover:scale-110 active:scale-95"
-        aria-label={isPlaying ? `Pause ${video.title}` : `${hasEnded ? 'Replay' : 'Play'} ${video.title}`}
-      >
-        {isPlaying ? (
-          /* Pause Icon */
-          <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-          </svg>
-        ) : (
-          /* Play Icon */
-          <svg className="ml-1 h-6 w-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        )}
-      </button>
     </article>
   );
 });
@@ -171,13 +151,32 @@ const VideoCard = React.memo(({ video, isActive, isPlaying, onTogglePlay, onEnde
 VideoCard.displayName = 'VideoCard';
 
 /**
- * Draggable Horizontal Video Carousel
+ * Full-Width Draggable Video Carousel with Arrow Controls
  */
 function VideoCarousel({ videos, activeIndex, playingIndex, onSelectVideo, onTogglePlay, onVideoEnded }) {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Smooth scroll to target video card index
+  const scrollToIndex = useCallback((index) => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const children = Array.from(container.children);
+    if (children[index]) {
+      children[index].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'start',
+        block: 'nearest',
+      });
+    }
+  }, []);
+
+  // Sync scrolling when activeIndex changes via controls
+  useEffect(() => {
+    scrollToIndex(activeIndex);
+  }, [activeIndex, scrollToIndex]);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -198,17 +197,18 @@ function VideoCarousel({ videos, activeIndex, playingIndex, onSelectVideo, onTog
   };
 
   const handleScroll = useCallback(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || isDragging) return;
     const container = containerRef.current;
-    const centerPosition = container.scrollLeft + container.offsetWidth / 2;
-
     const children = Array.from(container.children);
+
     let closestIndex = 0;
     let minDistance = Infinity;
 
     children.forEach((child, idx) => {
-      const childCenter = child.offsetLeft + child.offsetWidth / 2;
-      const distance = Math.abs(centerPosition - childCenter);
+      const rect = child.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const distance = Math.abs(rect.left - containerRect.left);
+
       if (distance < minDistance) {
         minDistance = distance;
         closestIndex = idx;
@@ -218,30 +218,69 @@ function VideoCarousel({ videos, activeIndex, playingIndex, onSelectVideo, onTog
     if (closestIndex !== activeIndex) {
       onSelectVideo(closestIndex);
     }
-  }, [activeIndex, onSelectVideo]);
+  }, [activeIndex, isDragging, onSelectVideo]);
+
+  const slideLeft = () => {
+    const newIdx = Math.max(0, activeIndex - 1);
+    onSelectVideo(newIdx);
+  };
+
+  const slideRight = () => {
+    const newIdx = Math.min(videos.length - 1, activeIndex + 1);
+    onSelectVideo(newIdx);
+  };
 
   return (
-    <div
-      ref={containerRef}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseLeaveOrUp}
-      onMouseLeave={handleMouseLeaveOrUp}
-      onMouseMove={handleMouseMove}
-      onScroll={handleScroll}
-      className="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto py-6 px-[calc(50vw-150px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
-    >
-      {videos.map((video, idx) => (
-        <div key={`${video.src}-${idx}`} className="snap-center flex-shrink-0">
-          <VideoCard
-            video={video}
-            isActive={idx === activeIndex}
-            isPlaying={idx === playingIndex}
-            onTogglePlay={() => onTogglePlay(idx)}
-            onEnded={onVideoEnded}
-            onClick={() => onSelectVideo(idx)}
-          />
-        </div>
-      ))}
+    <div className="relative w-full group">
+      {/* Left Slide Arrow */}
+      {activeIndex > 0 && (
+        <button
+          onClick={slideLeft}
+          className="absolute left-4 top-1/2 z-30 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#030712]/80 text-white shadow-2xl backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 active:scale-95"
+          aria-label="Previous Video"
+        >
+          <svg className="h-6 w-6 fill-current mr-0.5" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+      )}
+
+      {/* Right Slide Arrow */}
+      {activeIndex < videos.length - 1 && (
+        <button
+          onClick={slideRight}
+          className="absolute right-4 top-1/2 z-30 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#030712]/80 text-white shadow-2xl backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 active:scale-95"
+          aria-label="Next Video"
+        >
+          <svg className="h-6 w-6 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+          </svg>
+        </button>
+      )}
+
+      {/* Carousel Track */}
+      <div
+        ref={containerRef}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseLeaveOrUp}
+        onMouseLeave={handleMouseLeaveOrUp}
+        onMouseMove={handleMouseMove}
+        onScroll={handleScroll}
+        className="flex w-full snap-x snap-mandatory gap-5 overflow-x-auto py-4 px-6 sm:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
+      >
+        {videos.map((video, idx) => (
+          <div key={`${video.src}-${idx}`} className="snap-start flex-shrink-0">
+            <VideoCard
+              video={video}
+              isActive={idx === activeIndex}
+              isPlaying={idx === playingIndex}
+              onTogglePlay={() => onTogglePlay(idx)}
+              onEnded={onVideoEnded}
+              onClick={() => onSelectVideo(idx)}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -333,11 +372,10 @@ function ProgressDots({ total, activeIndex, onSelect }) {
         <button
           key={idx}
           onClick={() => onSelect(idx)}
-          className={`h-2 rounded-full transition-all duration-300 focus:outline-none ${
-            idx === activeIndex
-              ? 'w-6 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
-              : 'w-2 bg-white/20 hover:bg-white/40'
-          }`}
+          className={`h-2 rounded-full transition-all duration-300 focus:outline-none ${idx === activeIndex
+            ? 'w-6 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+            : 'w-2 bg-white/20 hover:bg-white/40'
+            }`}
           aria-label={`Go to slide ${idx + 1}`}
         />
       ))}
