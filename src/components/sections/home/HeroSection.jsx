@@ -1,16 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import logoPl from '/public/brand/logo.webp';
-
-const HeroVisual = dynamic(() => import('./HeroVisual'), {
-  ssr: false,
-  loading: () => <div className="min-h-[420px] sm:min-h-[520px]" aria-hidden="true" />,
-});
+import MainLiFiVideoSection from './MainLiFiVideoSection';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full pt-32 pb-20 overflow-hidden lumen-hero-wash">
+    <section className="relative w-full pt-32  overflow-hidden lumen-hero-wash">
       <div className="absolute inset-0 pointer-events-none z-0 lumen-grid-pattern-hero opacity-45" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
@@ -56,7 +51,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <HeroVisual />
+      <MainLiFiVideoSection />
     </section>
   );
 }

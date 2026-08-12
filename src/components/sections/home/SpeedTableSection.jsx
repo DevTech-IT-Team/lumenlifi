@@ -6,8 +6,8 @@ const columns = [
   {
     id: 'wifi',
     name: 'Wi-Fi',
-    speed: '20 Mbps',
-    time: '11 hr 23 min',
+    speed: '300 Mbps',
+    time: '1hr 23 min',
     HeaderIcon: Wifi,
     BarIcon: Wifi,
     heightPercent: 12,

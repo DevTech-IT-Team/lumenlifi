@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,7 +31,10 @@ import {
     Laptop,
     Radio,
     Sun,
-    ShieldAlert
+    ShieldAlert,
+    ChevronLeft,
+    ChevronRight,
+    Images
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
@@ -81,14 +84,49 @@ const productsData = [
     }
 ];
 
+const productGalleryImages = [
+    { id: 'gallery-a', src: '/images/products/A.jpg', alt: 'Lumen LiFi product gallery view A', label: 'System View 01' },
+    { id: 'gallery-b', src: '/images/products/B.jpg', alt: 'Lumen LiFi product gallery view B', label: 'System View 02' },
+    { id: 'gallery-c', src: '/images/products/C.jpg', alt: 'Lumen LiFi product gallery view C', label: 'System View 03' },
+    { id: 'gallery-d', src: '/images/products/D.jpg', alt: 'Lumen LiFi product gallery view D', label: 'System View 04' },
+    { id: 'gallery-e', src: '/images/products/E.jpg', alt: 'Lumen LiFi product gallery view E', label: 'System View 05' },
+    { id: 'gallery-f', src: '/images/products/F.jpg', alt: 'Lumen LiFi product gallery view F', label: 'System View 06' },
+    { id: 'gallery-g', src: '/images/products/G.jpg', alt: 'Lumen LiFi product gallery view G', label: 'System View 07' },
+    { id: 'gallery-h', src: '/images/products/H.jpg', alt: 'Lumen LiFi product gallery view H', label: 'System View 08' },
+];
+
 /* ==========================================================================
    2. MAIN PRODUCTION ROUTE INTEGRATION
    ========================================================================== */
 export default function LumenPhiProductsSuite() {
     const [selectedProductSlug, setSelectedProductSlug] = useState(null);
     const [activeFaq, setActiveFaq] = useState(0);
+    const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
+    const galleryTouchStart = useRef(null);
 
     const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
+    const activeGalleryImage = productGalleryImages[activeGalleryIndex];
+
+    const showPreviousGalleryImage = () => {
+        setActiveGalleryIndex((current) => (
+            current === 0 ? productGalleryImages.length - 1 : current - 1
+        ));
+    };
+
+    const showNextGalleryImage = () => {
+        setActiveGalleryIndex((current) => (
+            current === productGalleryImages.length - 1 ? 0 : current + 1
+        ));
+    };
+
+    const handleGalleryTouchEnd = (event) => {
+        if (galleryTouchStart.current === null) return;
+        const distance = galleryTouchStart.current - event.changedTouches[0].clientX;
+        galleryTouchStart.current = null;
+        if (Math.abs(distance) < 50) return;
+        if (distance > 0) showNextGalleryImage();
+        else showPreviousGalleryImage();
+    };
 
     return (
         <div className="min-h-screen font-sans lumen-page-bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased selection:bg-emerald-100 dark:selection:bg-emerald-950 transition-colors duration-300">
@@ -303,6 +341,111 @@ export default function LumenPhiProductsSuite() {
                                 </div>
 
                             </div>
+
+                            {/* MANUALLY CONTROLLED PRODUCT IMAGE GALLERY */}
+                            <section className="relative max-w-7xl mx-auto px-6 mb-24" aria-labelledby="product-gallery-title">
+                                <div className="text-center max-w-2xl mx-auto mb-10">
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-emerald-700">
+                                        <Images className="w-3.5 h-3.5" aria-hidden="true" />
+                                        Product Gallery
+                                    </div>
+                                    <h2 id="product-gallery-title" className="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
+                                        Explore Lumen LiFi Up Close
+                                    </h2>
+                                    <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                                        Browse every angle of the system. Use the controls, thumbnails, or swipe to move through the gallery.
+                                    </p>
+                                </div>
+
+                                <div className="relative overflow-hidden rounded-[28px] border border-slate-200 dark:border-slate-800 bg-[#07111F] shadow-[0_24px_70px_rgba(15,23,42,0.16)]">
+                                    <div
+                                        className="relative aspect-[16/10] sm:aspect-[16/9] w-full touch-pan-y"
+                                        onTouchStart={(event) => {
+                                            galleryTouchStart.current = event.touches[0].clientX;
+                                        }}
+                                        onTouchEnd={handleGalleryTouchEnd}
+                                    >
+                                        <AnimatePresence mode="wait" initial={false}>
+                                            <motion.div
+                                                key={activeGalleryImage.id}
+                                                initial={{ opacity: 0, x: 30 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -30 }}
+                                                transition={{ duration: 0.28, ease: 'easeOut' }}
+                                                className="absolute inset-0"
+                                            >
+                                                <Image
+                                                    src={activeGalleryImage.src}
+                                                    alt={activeGalleryImage.alt}
+                                                    fill
+                                                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
+                                                    className="object-contain"
+                                                    loading="lazy"
+                                                />
+                                            </motion.div>
+                                        </AnimatePresence>
+
+                                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020817]/65 via-transparent to-[#020817]/10" />
+
+                                        <div className="absolute left-4 top-4 sm:left-6 sm:top-6 rounded-full border border-white/15 bg-[#07111F]/75 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md">
+                                            {activeGalleryImage.label}
+                                        </div>
+
+                                        <button
+                                            type="button"
+                                            onClick={showPreviousGalleryImage}
+                                            className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                                            aria-label="Show previous product image"
+                                        >
+                                            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            onClick={showNextGalleryImage}
+                                            className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                                            aria-label="Show next product image"
+                                        >
+                                            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                                        </button>
+
+                                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-[#07111F]/75 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.16em] text-white backdrop-blur-md">
+                                            {String(activeGalleryIndex + 1).padStart(2, '0')} / {String(productGalleryImages.length).padStart(2, '0')}
+                                        </div>
+                                    </div>
+
+                                    <div className="border-t border-white/10 bg-[#07111F] p-3 sm:p-4">
+                                        <div className="flex gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Choose gallery image">
+                                            {productGalleryImages.map((image, index) => {
+                                                const isActive = index === activeGalleryIndex;
+                                                return (
+                                                    <button
+                                                        key={image.id}
+                                                        type="button"
+                                                        onClick={() => setActiveGalleryIndex(index)}
+                                                        className={`relative h-16 w-24 sm:h-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${
+                                                            isActive
+                                                                ? 'border-emerald-400 opacity-100 shadow-[0_0_18px_rgba(52,211,153,0.25)]'
+                                                                : 'border-white/10 opacity-55 hover:border-white/30 hover:opacity-100'
+                                                        }`}
+                                                        aria-label={`Show ${image.label}`}
+                                                        aria-current={isActive ? 'true' : undefined}
+                                                    >
+                                                        <Image
+                                                            src={image.src}
+                                                            alt=""
+                                                            fill
+                                                            sizes="112px"
+                                                            className="object-cover"
+                                                            loading="lazy"
+                                                        />
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
 
                             {/* CONSUMER COMPETITOR FAQ COMPARISON SECTION (Airtel, Jio Framework) */}
                             <div className="max-w-4xl mx-auto px-6 mb-12">

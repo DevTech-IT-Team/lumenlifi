@@ -119,11 +119,11 @@ function FeaturedCard({ item }) {
               <Icon className="w-5 h-5" />
             </div>
           </div>
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl font-light">{item.desc}</p>
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl font-light">{item.desc}</p>
         </div>
         <div className="flex items-center gap-2 mt-6 pt-4 border-t border-white/[0.06]">
           <Icon className="w-4 h-4 text-cyan-400" />
-          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Featured Experience</span>
+          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Featured Experience</span>
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ function SecondaryCard({ item, index, onSelect }) {
           <Icon className="w-4 h-4" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[9px] font-mono text-slate-500 uppercase tracking-wider">{item.sub}</p>
+          <p className="text-[9px] font-mono text-slate-400 uppercase tracking-wider">{item.sub}</p>
           <p className="text-sm font-bold text-white truncate mt-0.5">{item.title}</p>
         </div>
         <span className="text-cyan-500/50 text-sm">→</span>
@@ -183,7 +183,7 @@ export default function ConsciousHomeSection() {
               <br className="hidden sm:block" />
               <span className="text-white"> Powered by Lumen LiFi.</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto mt-5 font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mt-5 font-light leading-relaxed">
               When you use light instead of slow Wi-Fi, your house feels alive — everything connects instantly, without apps or buttons.
             </p>
           </div>
@@ -217,7 +217,7 @@ export default function ConsciousHomeSection() {
               className="text-center px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08]"
             >
               <p className="text-lg sm:text-xl font-black text-white tracking-tight">{s.display}</p>
-              <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mt-1">{s.label}</p>
+              <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1">{s.label}</p>
             </div>
           ))}
         </div>
@@ -243,7 +243,7 @@ export default function ConsciousHomeSection() {
               style={{ width: `${((activeIndex + 1) / experiences.length) * 100}%` }}
             />
           </div>
-          <p className="text-[10px] font-mono tracking-[0.2em] text-slate-500 uppercase">
+          <p className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase">
             Experience {activeIndex + 1} of {experiences.length} — {active.title}
           </p>
         </div>

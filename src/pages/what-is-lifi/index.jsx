@@ -16,7 +16,6 @@ import {
   Smartphone,
   Eye,
   ArrowRight,
-  HelpCircle,
   Network,
   Lock,
   Radio,
@@ -172,41 +171,108 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden py-18 bg-[#0D2240]">
-          {/* Cyan Grid Background */}
-          <div className="absolute inset-0 pointer-events-none z-0 select-none">
-            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#00C2C7 1.5px, transparent 0)', backgroundSize: '32px 32px' }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#00C2C7]/5 rounded-full blur-[120px]" />
+        <section className="relative overflow-hidden border-y border-white/10 bg-[#071b34] py-24 sm:py-28">
+          <div className="pointer-events-none absolute inset-0 z-0 select-none">
+            <div
+              className="absolute inset-0 opacity-[0.16]"
+              style={{
+                backgroundImage: 'radial-gradient(rgba(0,194,199,0.8) 1px, transparent 1px)',
+                backgroundSize: '34px 34px',
+                maskImage: 'linear-gradient(to right, black, transparent 75%)',
+              }}
+            />
+            <div className="absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#1A6EBF]/15 blur-[150px]" />
+            <div className="absolute -right-32 top-1/3 h-[520px] w-[520px] rounded-full bg-[#00C2C7]/10 blur-[140px]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00C2C7]/60 to-transparent" />
           </div>
 
-          {/* ── CONTENT CONTAINER ── */}
-          <div className="relative z-10 max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#0A192F] border border-white/10 text-cyan-400">
-                  <Zap size={12} /> Operational Overview
-                </div>
-                <h2 className="text-4xl font-black tracking-tight text-white">
-                  What is LiFi & <br />
-                  <span className="text-gradient-lumen">How Does it Work?</span>
+          <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20">
+              <div className="lg:col-span-7">
+                
+
+                <h2 className="mt-6 max-w-3xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
+                  The internet you know,{' '}
+                  <span className="bg-gradient-to-r from-[#38bdf8] via-[#00C2C7] to-[#5eead4] bg-clip-text text-transparent">
+                    delivered through light.
+                  </span>
                 </h2>
-                <p className="text-blue-100/80 text-base leading-relaxed">
-                  LiFi is a fully networked mobile wireless communications technology that uses light rather than radio frequencies to transmit data. The experience of using LiFi mirrors standard WiFi but offers unprecedented physical layer speed and scaling vectors.
+
+                <p className="mt-6 max-w-2xl text-base leading-8 text-blue-100/75 sm:text-lg">
+                  LiFi is a wireless communication technology that carries data through rapid, invisible changes in light. Your devices connect just like WiFi—but with greater speed, privacy, and freedom from radio interference.
                 </p>
-                <p className="text-blue-100/80 text-base leading-relaxed">
-                  It introduces immediate connectivity optimization targets for high-density settings, secure office complexes, immersive spatial rendering setups, and zero-RF hazardous configurations.
-                </p>
+
+                <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                  {[
+                    { number: '01', icon: Lightbulb, title: 'Light transmits', text: 'An LED sends data at imperceptible speed.' },
+                    { number: '02', icon: Network, title: 'Receiver decodes', text: 'A LiFi receiver converts light into data.' },
+                    { number: '03', icon: Zap, title: 'Devices connect', text: 'Your internet responds with near-zero delay.' },
+                  ].map(({ number, icon: StepIcon, title, text }) => (
+                    <div
+                      key={number}
+                      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.07]"
+                    >
+                      <div className="mb-5 flex items-center justify-between">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-300">
+                          <StepIcon size={18} aria-hidden="true" />
+                        </div>
+                        <span className="font-mono text-[10px] font-bold tracking-[0.18em] text-white/30">{number}</span>
+                      </div>
+                      <h3 className="text-sm font-bold text-white">{title}</h3>
+                      <p className="mt-2 text-xs leading-relaxed text-blue-100/60">{text}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 flex flex-wrap gap-3">
+                  {['No radio frequencies', 'Room-level privacy', 'High-density ready'].map((benefit) => (
+                    <span
+                      key={benefit}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0A192F]/70 px-3.5 py-2 text-[11px] font-semibold text-blue-100/75"
+                    >
+                      <span className="text-[#00C2C7]">✓</span>
+                      {benefit}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="lg:col-span-5 lg:pt-8 flex lg:justify-end">
-                <Link href="/products" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-2xl font-bold text-sm tracking-wide border-2 border-white/20 text-white hover:bg-white/5 transition-all">
-                  <HelpCircle size={14} /> View LiFi FAQs
-                </Link>
+              <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
+                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C2C7]/20 blur-[80px]" />
+                <div className="relative w-full max-w-[350px]">
+                  <div className="relative overflow-hidden rounded-[28px] border border-cyan-300/30 bg-[#061022] p-2 shadow-[0_35px_90px_rgba(0,0,0,0.45),0_0_50px_rgba(0,194,199,0.12)]">
+                    <div className="flex h-9 items-center justify-between px-2 pb-2">
+                      <div className="flex gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]/80" />
+                      </div>
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-cyan-300/70">
+                        LiFi explained
+                      </span>
+                    </div>
+
+                    <div className="relative aspect-[9/16] overflow-hidden rounded-[20px] bg-[#020817]">
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        controls
+                        preload="metadata"
+                        className="h-full w-full object-cover"
+                        aria-label="Explanation of how LiFi technology works"
+                      >
+                        <source src="/videos/lifi explain.mp4" type="video/mp4" />
+                        Your browser does not support HTML video.
+                      </video>
+                      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#020817]/50 to-transparent" />
+                    
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* LIVE COMPARISON SIMULATOR CONTAINER ENGINE */}
-
           </div>
         </section>
 
@@ -350,7 +416,7 @@ export default function WhatIsLiFiPage() {
                   }}
                 >
                   <Image
-                    src="/images/lifi/how.jpg"
+                    src="/images/lifi/Lumen.jpg"
                     alt="LiFi Showcase Illustration"
                     width={1024}
                     height={559}

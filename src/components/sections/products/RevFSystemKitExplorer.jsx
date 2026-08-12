@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+// Temporarily disabled until EmailJS/SMTP credentials are configured in .env.local.
+// import TermsEmailModal from '../../ui/TermsEmailModal';
 import {
   ArrowRight,
   Check,
@@ -219,6 +221,7 @@ function Hotspot({ x, y, label, active, highlighted, onSelect, onHover, onLeave 
 export default function RevFSystemKitExplorer() {
   const [activeId, setActiveId] = useState('router');
   const [hoveredId, setHoveredId] = useState(null);
+  // const [showEmailModal, setShowEmailModal] = useState(false);
   const timelineRef = useRef(null);
   const timelineInView = useInView(timelineRef, { once: true, margin: '-60px' });
 
@@ -231,6 +234,7 @@ export default function RevFSystemKitExplorer() {
     'bg-white/70 backdrop-blur-[20px] border border-white/30 shadow-lg shadow-slate-200/40';
 
   return (
+    <>
     <motion.section
       id="concept-runbook"
       className={`${glass} rounded-3xl p-6 sm:p-10 space-y-10 scroll-mt-32`}
@@ -595,9 +599,7 @@ export default function RevFSystemKitExplorer() {
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <motion.a
               href="https://rzp.io/rzp/vv8HFbfc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl text-white font-bold text-sm tracking-wide shadow-lg glow-blue w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl text-white font-bold text-sm tracking-wide shadow-lg glow-blue w-full sm:w-auto cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
               whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(0,194,199,0.35)' }}
               whileTap={{ scale: 0.98 }}
@@ -619,5 +621,9 @@ export default function RevFSystemKitExplorer() {
         </div>
       </motion.div>
     </motion.section>
+
+    {/* Email collection modal temporarily disabled until EmailJS/SMTP credentials
+        are available in .env.local. Buy Now links directly to Razorpay above. */}
+    </>
   );
 }
