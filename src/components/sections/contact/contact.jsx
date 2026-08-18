@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Mail, ShieldCheck, Clock, MapPin } from 'lucide-react';
 
-const OPERATIONS_EMAIL = 'operations@lumenlifi.com';
 const SALES_EMAIL = 'rupali@lifilumen.com';
 const FORM_ID = '0LXv19xiVsNzt9xtK3Ih';
 const FORM_EMBED_SCRIPT = 'https://api.wonderengine.ai/js/form_embed.js';
@@ -61,12 +60,6 @@ export default function ContactFormBlock() {
             Direct Contact
           </h3>
           {[
-            {
-              icon: Mail,
-              label: 'General & Operations',
-              value: OPERATIONS_EMAIL,
-              href: `mailto:${OPERATIONS_EMAIL}`,
-            },
             {
               icon: Mail,
               label: 'Sales',
