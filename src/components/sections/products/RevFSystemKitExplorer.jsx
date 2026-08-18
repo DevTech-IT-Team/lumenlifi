@@ -592,7 +592,7 @@ export default function RevFSystemKitExplorer() {
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-slate-950">Buy RevF Kit</h3>
             <p className="text-3xl font-black text-[#1A6EBF]">
-              $499
+              $3,371
               <span className="text-sm font-normal text-slate-500 ml-2">Ships Worldwide</span>
             </p>
           </div>
