@@ -12,6 +12,7 @@ import {
   Lightbulb,
   HelpCircle,
   Box,
+  Router,
 } from 'lucide-react';
 import logoPl from '/public/brand/logo.webp';
 
@@ -29,6 +30,14 @@ const navConfig = [
       { label: 'All Products Catalog', desc: 'Browse full optical networking line array', href: '/products', icon: Box },
       { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
     ],
+  },
+  {
+    label: 'LumenFi Router',
+    href: '/products/lumenfi-router',
+    icon: Router,
+    hoverClass: 'hover:text-[#1A6EBF]',
+    iconColor: 'group-hover:text-[#1A6EBF]',
+    activeIconColor: 'text-[#1A6EBF]',
   },
   {
     label: 'Lumen Lifi Academy',
@@ -176,6 +185,14 @@ export default function Header() {
         {/* ── CTA Action Buttons ── */}
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           <Link
+            href="/contact"
+            prefetch={false}
+            className="flex items-center justify-center h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-[#4A6080] hover:text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.06)] transition-all"
+          >
+            Contact
+          </Link>
+
+          <Link
             href="/products"
             className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-white transition-all hover:scale-[1.03] shadow-md"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)', boxShadow: '0 4px 20px rgba(0,194,199,0.25)' }}
@@ -261,6 +278,14 @@ export default function Header() {
 
             {/* Mobile CTAs */}
             <div className="pt-4 border-t border-[rgba(26,110,191,0.10)] mt-2 flex flex-col gap-2.5">
+              <Link
+                href="/contact"
+                prefetch={false}
+                onClick={() => setIsOpen(false)}
+                className="flex justify-center items-center gap-2 w-full text-center text-[#4A6080] border border-[rgba(26,110,191,0.15)] py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98] hover:text-[#1A6EBF]"
+              >
+                Contact Us
+              </Link>
               <Link
                 href="/products"
                 onClick={() => setIsOpen(false)}

@@ -85,6 +85,7 @@ export default function Footer() {
             style={{ color: '#4A6080' }}
           >
             {[
+              { label: 'LumenFi Router', href: '/products/lumenfi-router' },
               { label: 'Home Kits', href: '/products' },
               { label: 'Enterprise', href: '/#enterprise' },
               { label: 'Hardware Core', href: '/products' },
@@ -227,6 +228,13 @@ export default function Footer() {
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
+          <Link
+            href="/contact"
+            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
+          >
+            Contact Us
+          </Link>
+
           <Link
             href="/privacy"
             className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
