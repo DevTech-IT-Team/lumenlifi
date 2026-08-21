@@ -99,7 +99,7 @@ const heroSectors = [
     subtitle: 'HIGH-SPEED NEURAL TRAINING',
     desc: 'Stream gigabytes of real-time AI sensor data instantaneously.',
     img: aiMesh,
-    metric: '100 Gbps Link',
+    metric: 'Fast Link',
     icon: Cpu,
     border: 'border-[#38bdf8]',
     glow: 'rgba(56, 189, 248, 0.45)',
@@ -973,7 +973,7 @@ function FinalCTASection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
                 {[
-                  { icon: Sparkles, label: '10 Gbps Active Ready' },
+                  { icon: Sparkles, label: 'Fast Active Ready' },
                   { icon: ShieldCheck, label: 'Military-Grade Security' },
                   { icon: Sliders, label: 'Zero Router Congestion' },
                 ].map((feat, fIdx) => {

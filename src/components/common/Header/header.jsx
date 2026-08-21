@@ -31,14 +31,14 @@ const navConfig = [
       { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
     ],
   },
-  {
-    label: 'LumenFi Router',
-    href: '/products/lumenfi-router',
-    icon: Router,
-    hoverClass: 'hover:text-[#1A6EBF]',
-    iconColor: 'group-hover:text-[#1A6EBF]',
-    activeIconColor: 'text-[#1A6EBF]',
-  },
+  // {
+  //   label: 'LumenFi Router',
+  //   href: '/products/lumenfi-router',
+  //   icon: Router,
+  //   hoverClass: 'hover:text-[#1A6EBF]',
+  //   iconColor: 'group-hover:text-[#1A6EBF]',
+  //   activeIconColor: 'text-[#1A6EBF]',
+  // },
   {
     label: 'Lumen Lifi Academy',
     href: '/Academy',

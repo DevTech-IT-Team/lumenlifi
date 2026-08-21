@@ -85,7 +85,7 @@ export default function Footer() {
             style={{ color: '#4A6080' }}
           >
             {[
-              { label: 'LumenFi Router', href: '/products/lumenfi-router' },
+              // { label: 'LumenFi Router', href: '/products/lumenfi-router' },
               { label: 'Home Kits', href: '/products' },
               { label: 'Enterprise', href: '/#enterprise' },
               { label: 'Hardware Core', href: '/products' },

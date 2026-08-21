@@ -404,7 +404,7 @@ export default function ProductsPage() {
 
               <section className="w-full max-w-6xl mx-auto mb-20" aria-labelledby="product-gallery-title">
                 <div className="text-center max-w-2xl mx-auto mb-9">
-              
+
                   <h2 id="product-gallery-title" className="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-slate-950">
                     Explore Lumen LiFi Up Close
                   </h2>
@@ -477,11 +477,10 @@ export default function ProductsPage() {
                             key={image.id}
                             type="button"
                             onClick={() => setActiveGalleryIndex(index)}
-                            className={`relative h-16 w-24 sm:h-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${
-                              isActive
-                                ? 'border-green-400 opacity-100 shadow-[0_0_18px_rgba(74,222,128,0.25)]'
-                                : 'border-white/10 opacity-55 hover:border-white/30 hover:opacity-100'
-                            }`}
+                            className={`relative h-16 w-24 sm:h-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${isActive
+                              ? 'border-green-400 opacity-100 shadow-[0_0_18px_rgba(74,222,128,0.25)]'
+                              : 'border-white/10 opacity-55 hover:border-white/30 hover:opacity-100'
+                              }`}
                             aria-label={`Show ${image.label}`}
                             aria-current={isActive ? 'true' : undefined}
                           >
@@ -526,7 +525,7 @@ export default function ProductsPage() {
                       a: "Each individual photonic antenna covers 500 square feet. Because each kit includes two antennas, you receive 1,000 square feet of total coverage right out of the box."
                     },
                     {
-                      q: "4. Can I expand my coverage if my space is larger than 1,000 sq ft?",
+                      q: "4. Can I expand my coverage ?",
                       a: "Absolutely. We offer the ability to purchase additional photonic antennas to increase your total coverage area according to your needs."
                     },
                     {

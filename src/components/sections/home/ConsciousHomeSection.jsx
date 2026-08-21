@@ -39,7 +39,7 @@ const experiences = [
 ];
 
 const stats = [
-  { label: 'Peak Speed', display: '100 Gbps' },
+  { label: 'Peak Speed', display: 'Fast' },
   { label: 'Latency', display: '<2 ms' },
   { label: 'RF Interference', display: '0 RF' },
   { label: 'Signal Type', display: 'Private Light Signal' },
@@ -231,9 +231,8 @@ export default function ConsciousHomeSection() {
                 type="button"
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Experience ${i + 1}`}
-                className={`w-2.5 h-2.5 rounded-full border transition-colors duration-200 ${
-                  i === activeIndex ? 'bg-cyan-400 border-cyan-300' : 'bg-transparent border-slate-600 hover:border-slate-400'
-                }`}
+                className={`w-2.5 h-2.5 rounded-full border transition-colors duration-200 ${i === activeIndex ? 'bg-cyan-400 border-cyan-300' : 'bg-transparent border-slate-600 hover:border-slate-400'
+                  }`}
               />
             ))}
           </div>

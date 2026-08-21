@@ -52,7 +52,7 @@ export default function HomePage() {
 
       <main className="flex-grow">
         <HeroSection />
-        <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="100vh" />
+        {/* <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="100vh" /> */}
         <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="900px" />
         <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="80vh" />
         <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="60vh" />

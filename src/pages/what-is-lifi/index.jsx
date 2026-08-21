@@ -75,7 +75,6 @@ export default function WhatIsLiFiPage() {
     '💡 Radio Frequencies are congested.',
     '⚡ Light offers 1,000x data density.',
     '🔒 Photons do not penetrate solid walls.',
-    '🚀 Fully integrated multi-gigabit ecosystem.',
   ];
 
   useEffect(() => {
@@ -189,7 +188,7 @@ export default function WhatIsLiFiPage() {
           <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20">
               <div className="lg:col-span-7">
-                
+
 
                 <h2 className="mt-6 max-w-3xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
                   The internet you know,{' '}
@@ -267,7 +266,7 @@ export default function WhatIsLiFiPage() {
                         Your browser does not support HTML video.
                       </video>
                       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#020817]/50 to-transparent" />
-                    
+
                     </div>
                   </div>
                 </div>
@@ -387,7 +386,7 @@ export default function WhatIsLiFiPage() {
                   <div className="text-white/80 group-hover:text-[#00D4FF] transition-colors mb-3">
                     <Zap size={24} className="stroke-[2]" />
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight">224 Gbps</div>
+                  <div className="text-3xl font-black text-white tracking-tight">Fast</div>
                   <div className="text-xs font-bold text-[#7DF9FF] uppercase tracking-wider mt-1">Peak Speed</div>
                 </div>
 
@@ -538,7 +537,7 @@ export default function WhatIsLiFiPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
                     {[
-                      { icon: Sparkles, label: '10 Gbps Active Ready' },
+                      { icon: Sparkles, label: 'Fast Active Ready' },
                       { icon: ShieldCheck, label: 'Military-Grade Security' },
                       { icon: Sliders, label: 'Zero Router Congestion' },
                     ].map((feat, fIdx) => {
