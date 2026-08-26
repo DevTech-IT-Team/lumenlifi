@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -26,9 +26,6 @@ import {
   Sliders,
   Star,
   CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  Images,
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
@@ -181,15 +178,37 @@ const productsData = [
   }
 ];
 
-const productGalleryImages = [
-  { id: 'gallery-a', src: '/images/products/A.jpg', alt: 'Lumen LiFi product gallery view A', label: 'System View 01' },
-  { id: 'gallery-b', src: '/images/products/B.jpg', alt: 'Lumen LiFi product gallery view B', label: 'System View 02' },
-  { id: 'gallery-c', src: '/images/products/C.jpg', alt: 'Lumen LiFi product gallery view C', label: 'System View 03' },
-  { id: 'gallery-d', src: '/images/products/D.jpg', alt: 'Lumen LiFi product gallery view D', label: 'System View 04' },
-  { id: 'gallery-e', src: '/images/products/E.jpg', alt: 'Lumen LiFi product gallery view E', label: 'System View 05' },
-  { id: 'gallery-f', src: '/images/products/F.jpg', alt: 'Lumen LiFi product gallery view F', label: 'System View 06' },
-  { id: 'gallery-g', src: '/images/products/G.jpg', alt: 'Lumen LiFi product gallery view G', label: 'System View 07' },
-  { id: 'gallery-h', src: '/images/products/H.jpg', alt: 'Lumen LiFi product gallery view H', label: 'System View 08' },
+const KIT_CLOSEUP_PRODUCTS = [
+  {
+    id: 'router',
+    name: 'Router Box',
+    sub: 'The core of your system',
+    src: '/images/products/B.jpg',
+  },
+  {
+    id: 'poe',
+    name: 'PoE+ Injector',
+    sub: 'Power + connectivity',
+    src: '/images/products/C.jpg',
+  },
+  {
+    id: 'ap',
+    name: 'Access Point',
+    sub: 'Extend your connection',
+    src: '/images/products/D.jpg',
+  },
+  {
+    id: 'antennas',
+    name: 'Two Antennas',
+    sub: 'Built for better coverage',
+    src: '/images/products/E.jpg',
+  },
+  {
+    id: 'dongles',
+    name: 'Two Dongles',
+    sub: 'Connect your devices',
+    src: '/images/products/F.jpg',
+  },
 ];
 
 export default function ProductsPage() {
@@ -199,51 +218,25 @@ export default function ProductsPage() {
   const [cartCount, setCartCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);   // FAQ page: 1 = Q1–10, 2 = Q11–20
   const [isExpanded, setIsExpanded] = useState(false);  // false = show 5, true = show 10
-  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
-  const galleryTouchStart = useRef(null);
+  const [activeKitId, setActiveKitId] = useState(KIT_CLOSEUP_PRODUCTS[0].id);
 
   const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
-  const activeGalleryImage = productGalleryImages[activeGalleryIndex];
+  const activeKitProduct = KIT_CLOSEUP_PRODUCTS.find((item) => item.id === activeKitId) || KIT_CLOSEUP_PRODUCTS[0];
   const categories = ['All', 'Network Foundation', 'Entertainment & Computing', 'Security & Perimeter', 'Conscious Appliances & Home Automation'];
-
-  const showPreviousGalleryImage = () => {
-    setActiveGalleryIndex((current) => (
-      current === 0 ? productGalleryImages.length - 1 : current - 1
-    ));
-  };
-
-  const showNextGalleryImage = () => {
-    setActiveGalleryIndex((current) => (
-      current === productGalleryImages.length - 1 ? 0 : current + 1
-    ));
-  };
-
-  const handleGalleryTouchEnd = (event) => {
-    if (galleryTouchStart.current === null) return;
-    const distance = galleryTouchStart.current - event.changedTouches[0].clientX;
-    galleryTouchStart.current = null;
-    if (Math.abs(distance) < 50) return;
-    if (distance > 0) showNextGalleryImage();
-    else showPreviousGalleryImage();
-  };
 
   const filteredProducts = selectedCategory === 'All'
     ? productsData
     : productsData.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen font-sans lumen-page-bg text-slate-900 antialiased relative overflow-hidden selection:bg-green-500 selection:text-white">
-      {/* Immersive Structural Background Layout Layers */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#E7F2EC,transparent_65%)] pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#DAE3DF_1px,transparent_1px),linear-gradient(to_bottom,#DAE3DF_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-35 z-0" />
-
+    <div className="relative min-h-screen overflow-x-clip font-sans lumen-page-bg text-slate-900 antialiased selection:bg-green-500 selection:text-white">
       <Head>
         <title>LumenFi Hardware Hub | Next-Gen E-Commerce Wireless LiFi Store</title>
         <meta name="description" content="Deploy military-grade optical internet architecture directly into your luxury living space." />
       </Head>
       <Header />
 
-      <main className="pt-36 pb-24 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <main className="relative z-10 pb-16 pt-24 sm:pb-24 sm:pt-28">
         <AnimatePresence mode="wait">
           {!activeProduct ? (
             <motion.div
@@ -251,59 +244,50 @@ export default function ProductsPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="space-y-16"
+              className="space-y-8"
             >
-              {/* --- HERO COMPONENT --- */}
-              <div
-                className="relative w-full min-h-[560px] lg:min-h-[640px] rounded-[2rem] border border-slate-800/80 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden shadow-2xl group"
-              >
-                <Image
-                  src="/images/products/fullbg.png"
-                  alt="Products hero background"
-                  fill
-                  priority
-                  className="absolute inset-0 object-cover"
-                  sizes="100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#060B16]/80 via-[#060B16]/20 to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-40 pointer-events-none z-[1]" />
-                <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
-                <div className="absolute -bottom-20 -left-10 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-[100px] pointer-events-none z-0" />
-
-                <div className="relative z-10 max-w-xl space-y-4">
-                  <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.05]">
-                    Shop the <span className='text-gradient-lumen' style={{ color: 'var(--color-lumen-cyan)' }}>Conscious Home</span> <br />
-                    <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent opacity-90">
-                      Light Network
-                    </span>
-                  </h1>
-                  <p className="text-slate-200/90 text-sm sm:text-base font-normal leading-relaxed max-w-lg drop-shadow-md">
-                    Welcome to the world's first home run entirely on light. Every device in our family has built-in light receivers. This gives you zero lag, completely safe security, and unlimited internet speed.
-                  </p>
+              <section className="relative w-full overflow-hidden bg-[#06131d]">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/images/products/fullbg.png"
+                    alt=""
+                    fill
+                    priority
+                    className="object-cover object-center"
+                    sizes="100vw"
+                  />
                 </div>
-
-                <div className="relative z-10 w-full flex justify-center pt-12 lg:pt-0">
-                  <div className="relative max-w-xl w-full bg-gradient-to-b from-[#D4AF37]/25 via-[#AA7C11]/15 to-[#5A4106]/35 backdrop-blur-md border border-[#D4AF37]/40 rounded-xl p-4 px-6 text-center shadow-2xl flex flex-col items-center justify-center gap-2 overflow-hidden group/gold">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/gold:translate-x-full transition-transform duration-1000 ease-out" />
-                    <div className="absolute top-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="flex items-center justify-center">
-                      <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 border border-white/20" />
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm font-sans font-medium text-amber-100 tracking-wide leading-relaxed">
-                      Stop trying to fix a broken Wi-Fi network. <br className="hidden sm:inline" />
-                      <span className="font-bold text-white">Build a smart home run on light.</span>
+                <div className="absolute inset-0 bg-[#060B16]/45 pointer-events-none" />
+                <div className="relative z-10 mx-auto flex min-h-[70svh] w-full max-w-7xl flex-col justify-between px-4 py-12 sm:min-h-[calc(100svh-7rem)] sm:px-6 sm:py-16 lg:px-8">
+                  <div className="max-w-4xl space-y-5">
+                    <h1 className="page-hero-heading lumen-display-light text-left">
+                      <span className="block">Shop the Conscious Home</span>
+                      <span className="products-hero-accent block">Light Network</span>
+                    </h1>
+                    <p className="lumen-lead-light max-w-lg drop-shadow-md">
+                      Welcome to the world&apos;s first home run entirely on light. Every device in our family has built-in light receivers. This gives you zero lag, completely safe security, and unlimited internet speed.
                     </p>
                   </div>
-                </div>
-              </div>
 
-              {/* --- REST OF THE CONTENT LAYOUT --- */}
+                  <div className="relative z-10 mt-10 flex w-full justify-center">
+                    <div className="relative max-w-xl w-full bg-gradient-to-b from-[#00C2C7]/30 via-[#1A6EBF]/20 to-[#0D2240]/50 backdrop-blur-md border border-[#00C2C7]/45 rounded-lg p-4 px-6 text-center shadow-2xl flex flex-col items-center justify-center gap-2 overflow-hidden group/cyan">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/cyan:translate-x-full transition-transform duration-1000 ease-out" />
+                      <div className="flex items-center justify-center">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 border border-white/20" />
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm font-sans font-medium text-cyan-50 tracking-wide leading-relaxed">
+                        Stop trying to fix a broken Wi-Fi network. <br className="hidden sm:inline" />
+                        <span className="font-bold text-white">Build a smart home run on light.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div className="mx-auto max-w-7xl px-4 pt-8 pb-4 sm:px-6 lg:px-8">
               <RevFSystemKitExplorer />
 
               {/* --- COMMERCE CATALOG MATRIX --- */}
@@ -402,107 +386,128 @@ export default function ProductsPage() {
                 </div>
               </div> */}
 
-              <section className="w-full max-w-6xl mx-auto mb-20" aria-labelledby="product-gallery-title">
-                <div className="text-center max-w-2xl mx-auto mb-9">
-              
-                  <h2 id="product-gallery-title" className="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-slate-950">
-                    Explore Lumen LiFi Up Close
-                  </h2>
-                  <p className="mt-3 text-sm text-slate-600">
-                    Use the arrows, thumbnails, or swipe to browse all eight product views.
-                  </p>
-                </div>
+              </div>
 
-                <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-[#07111F] shadow-[0_24px_70px_rgba(15,23,42,0.16)]">
-                  <div
-                    className="relative aspect-[16/10] sm:aspect-[16/9] w-full touch-pan-y"
-                    onTouchStart={(event) => {
-                      galleryTouchStart.current = event.touches[0].clientX;
-                    }}
-                    onTouchEnd={handleGalleryTouchEnd}
-                  >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.div
-                        key={activeGalleryImage.id}
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -30 }}
-                        transition={{ duration: 0.28, ease: 'easeOut' }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={activeGalleryImage.src}
-                          alt={activeGalleryImage.alt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
-                          className="object-contain"
-                          loading="lazy"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
+              <section className="section-wash-navy relative w-full overflow-hidden py-16 sm:py-20" aria-labelledby="product-gallery-title">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                  <div className="mx-auto mb-12 max-w-2xl text-center">
+                    <h2 id="product-gallery-title" className="lumen-h2-light mt-4">
+                      Purchase Now
+                    </h2>
+                    <p className="lumen-body-sm-light mt-3">
+                      Every product in the RevF System Kit — tap a card to view it full size.
+                    </p>
+                  </div>
 
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020817]/65 via-transparent to-[#020817]/10" />
-                    <div className="absolute left-4 top-4 sm:left-6 sm:top-6 rounded-full border border-white/15 bg-[#07111F]/75 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md">
-                      {activeGalleryImage.label}
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={showPreviousGalleryImage}
-                      className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-400"
-                      aria-label="Show previous product image"
-                    >
-                      <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={showNextGalleryImage}
-                      className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-400"
-                      aria-label="Show next product image"
-                    >
-                      <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                    </button>
-
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-[#07111F]/75 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.16em] text-white backdrop-blur-md">
-                      {String(activeGalleryIndex + 1).padStart(2, '0')} / {String(productGalleryImages.length).padStart(2, '0')}
+                  <div className="relative z-10 mb-12 rounded-lg border border-white/15 bg-white/[0.06] p-6 sm:p-8">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-1 text-amber-400">
+                          {[1, 2, 3, 4, 5].map((s) => (
+                            <Star key={s} size={14} fill="currentColor" />
+                          ))}
+                          <span className="ml-1 font-mono text-xs text-white/60">4.9 · 128 reviews</span>
+                        </div>
+                        <h3 className="lumen-h3">Buy RevF Kit</h3>
+                        <p className="lumen-price text-[var(--lumen-cyan)]">
+                          $3,371
+                          <span className="ml-2 text-sm font-normal text-white/60">Ships Worldwide</span>
+                        </p>
+                      </div>
+                      <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+                        <motion.a
+                          href="https://rzp.io/rzp/vv8HFbfc"
+                          className="inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg px-8 text-sm font-bold tracking-wide text-white sm:w-auto"
+                          style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <ShoppingCart size={18} />
+                          Buy Now
+                          <ArrowRight size={16} />
+                        </motion.a>
+                        <a
+                          href="#"
+                          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[var(--lumen-cyan)]/40 bg-transparent px-8 text-sm font-bold text-[var(--lumen-cyan)] transition-colors hover:border-[var(--lumen-cyan)] hover:bg-white/5 sm:w-auto"
+                        >
+                          <Download size={16} />
+                          View Datasheet
+                        </a>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="border-t border-white/10 bg-[#07111F] p-3 sm:p-4">
-                    <div className="flex gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Choose gallery image">
-                      {productGalleryImages.map((image, index) => {
-                        const isActive = index === activeGalleryIndex;
-                        return (
-                          <button
-                            key={image.id}
-                            type="button"
-                            onClick={() => setActiveGalleryIndex(index)}
-                            className={`relative h-16 w-24 sm:h-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${
-                              isActive
-                                ? 'border-green-400 opacity-100 shadow-[0_0_18px_rgba(74,222,128,0.25)]'
-                                : 'border-white/10 opacity-55 hover:border-white/30 hover:opacity-100'
-                            }`}
-                            aria-label={`Show ${image.label}`}
-                            aria-current={isActive ? 'true' : undefined}
-                          >
-                            <Image src={image.src} alt="" fill sizes="112px" className="object-cover" loading="lazy" />
-                          </button>
-                        );
-                      })}
+                  <div className="relative z-10 mb-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
+                    {KIT_CLOSEUP_PRODUCTS.map((item) => {
+                      const isActive = item.id === activeKitId;
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setActiveKitId(item.id)}
+                          className={`group overflow-hidden rounded-lg border text-left transition-all ${
+                            isActive
+                              ? 'border-[var(--lumen-cyan)] bg-white/[0.08] shadow-[0_10px_28px_rgba(0,194,199,0.2)]'
+                              : 'border-white/15 bg-white/[0.04] hover:border-[var(--lumen-cyan)]/40'
+                          }`}
+                          aria-pressed={isActive}
+                          aria-label={`View ${item.name}`}
+                        >
+                          <div className="relative aspect-square bg-[#07111F]">
+                            <Image
+                              src={item.src}
+                              alt={item.name}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 20vw"
+                              className="object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="p-4">
+                            <p className={`kit-closeup-title ${isActive ? 'text-[var(--lumen-cyan)]' : 'text-white'}`}>
+                              {item.name}
+                            </p>
+                            <p className="kit-closeup-sub mt-1 text-white/60">{item.sub}</p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="relative z-10 overflow-hidden rounded-lg border border-white/15 bg-[#07111F]">
+                    <div className="relative aspect-square w-full sm:aspect-[16/10]">
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                          key={activeKitProduct.id}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.25, ease: 'easeOut' }}
+                          className="absolute inset-0"
+                        >
+                          <Image
+                            src={activeKitProduct.src}
+                            alt={activeKitProduct.name}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
+                            className="object-contain"
+                            loading="lazy"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* --- SYSTEM VALIDATION FAQ BLOCK --- */}
-              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
-              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
-              <div className="w-full max-w-4xl mx-auto pt-10 border-t border-slate-300">
+              <section id="products-faq" className="section-wash-white relative overflow-hidden py-16 sm:py-24">
+              <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
                 {/* Header text segment */}
-                <div className="space-y-1 mb-6 text-center sm:text-left">
-                  <h2 className="text-xl font-bold text-slate-950 font-mono tracking-tight">
-                    Frequently Asked Questions: Lumenfi Li-Fi
+                <div className="space-y-1 mb-8 text-center sm:text-left">
+                  <h2 className="lumen-h2">
+                    Frequently Asked Questions:{' '}
+                    <span className="text-[var(--lumen-cyan)]">Lumenfi</span> Li-Fi
                   </h2>
                   <p className="text-[11px] font-mono text-green-700 uppercase tracking-widest">
                     Getting Started &amp; Technical Specifications Protocol
@@ -605,23 +610,24 @@ export default function ProductsPage() {
                         <div
                           key={globalId}
                           style={{
-                            maxHeight: isOpen ? '280px' : '54px',
+                            maxHeight: isOpen ? '320px' : '4.25rem',
                             transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                             overflow: 'hidden'
                           }}
-                          className={`border border-slate-200/80 rounded-xl p-4 cursor-pointer transition-colors ${isOpen ? 'bg-white border-green-400 shadow-xs' : 'bg-[#F5FAF6] hover:border-green-300'
-                            }`}
+                          className={`cursor-pointer rounded-lg border border-[var(--lumen-border)] bg-white p-4 transition-colors ${
+                            isOpen ? 'border-[var(--lumen-cyan)]/50' : 'hover:border-[var(--lumen-cyan)]/35'
+                          }`}
                           onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
                         >
-                          <div className="flex justify-between items-center gap-4 h-6">
-                            <h4 className="text-xs font-bold text-slate-950 font-mono tracking-wide">
+                          <div className="flex min-h-[1.75rem] items-center justify-between gap-4">
+                            <h4 className="products-faq-q">
                               {faq.q}
                             </h4>
                             <span style={{
                               transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                               transition: 'transform 0.3s ease',
                               fontSize: '11px',
-                              color: isOpen ? '#15803d' : '#64748b'
+                              color: isOpen ? 'var(--lumen-cyan)' : '#64748b'
                             }}>
                               ▼
                             </span>
@@ -629,7 +635,7 @@ export default function ProductsPage() {
 
                           <div
                             style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}
-                            className="text-xs text-slate-700 mt-2.5 border-t border-slate-200/60 pt-2.5 leading-relaxed font-sans font-light"
+                            className="products-faq-a mt-2.5 border-t border-slate-200/60 pt-2.5"
                           >
                             {faq.a}
                           </div>
@@ -674,17 +680,16 @@ export default function ProductsPage() {
                 </div>
 
               </div>
-
+              </section>
             </motion.div>
           ) : (
-            /* --- DETAILED COMPONENT LAYOUT --- */
             <motion.section
               key="detail-view"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="max-w-5xl mx-auto py-4"
+              className="mx-auto max-w-5xl px-4 py-4 sm:px-6"
             >
               <button
                 onClick={() => setSelectedProductSlug(null)}
@@ -720,13 +725,13 @@ export default function ProductsPage() {
 
                   <div className="flex justify-between items-start gap-4 border-b border-slate-200 pb-4">
                     <div>
-                      <h1 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-tight">{activeProduct.name}</h1>
+                      <h1 className="lumen-h2 text-slate-950">{activeProduct.name}</h1>
                       <div className="flex items-center gap-1 mt-1 text-xs text-orange-600 font-mono">
                         <Star size={12} fill="currentColor" />
                         <span>{activeProduct.rating} ({activeProduct.reviews} customer ratings)</span>
                       </div>
                     </div>
-                    <span className="text-2xl font-mono font-bold text-green-700 tracking-tight">{activeProduct.price}</span>
+                    <span className="lumen-price text-green-700">{activeProduct.price}</span>
                   </div>
 
                   <p className="text-xs text-orange-700 font-semibold font-mono">✓ {activeProduct.tagline}</p>

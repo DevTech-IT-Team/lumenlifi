@@ -1,38 +1,37 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Send, ShieldCheck, ArrowUpRight, Mail } from 'lucide-react';
-import logoPl from '/public/brand/logo.webp';
+import { Send, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer
-      className="relative pt-20 pb-12 overflow-hidden"
+      className="relative overflow-hidden pt-12 pb-10 sm:pt-20 sm:pb-12"
       style={{
         background: 'linear-gradient(160deg, #F0F8FF 0%, #EAF9F9 100%)',
         borderTop: '1px solid rgba(26,110,191,0.10)',
       }}
     >
-      {/* Ambient glow */}
-      <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[200px] rounded-full blur-[100px] pointer-events-none"
-        style={{ background: 'rgba(0,194,199,0.08)' }}
-      />
+          {/* Ambient glow */}
+          <div
+            className="absolute bottom-0 right-1/4 w-[500px] h-[200px] rounded-full blur-[100px] pointer-events-none"
+            style={{ background: 'rgba(0,194,199,0.08)' }}
+          />
 
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 z-10">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 md:grid-cols-12 md:gap-12">
         {/* Brand Column */}
         <div className="md:col-span-4 space-y-5">
           {/* Extra-Large Logo Container matching Hero sizing */}
-          <div className="relative w-64 h-20 sm:w-80 sm:h-24 flex items-center justify-start">
+          <div className="relative flex h-16 w-48 items-center justify-start sm:h-24 sm:w-80">
             <Image
-              src={logoPl}
+              src="/brand/logo.webp"
               alt="LumenFi Logo"
               fill
               loading="lazy"
+              sizes="320px"
               className="object-contain object-left"
             />
           </div>
 
-          {/* Simplified, easy-to-read text for a 6th-grade level */}
           <p
             className="text-sm leading-relaxed max-w-sm"
             style={{ color: '#4A6080' }}
@@ -41,29 +40,15 @@ export default function Footer() {
               Light turns into Internet data.
             </strong>
             <br />
-            LiFi makes it easy to get online using bright light beams instead of regular Wi-Fi radio waves. It is super fast wireless internet powered by pure light!
+            LiFi gets you online with light instead of Wi-Fi radio waves — fast wireless internet powered by light.
           </p>
 
-          {/* Sales ID Contact */}
-          <div className="flex items-center gap-2 text-xs font-mono" style={{ color: '#4A6080' }}>
-            <Mail className="w-4 h-4 text-[#1A6EBF]" />
-            <span>Sales ID: <a href="mailto:rupali@lifilumen.com" className="font-bold text-[#0D2240] hover:text-[#1A6EBF] transition-colors">rupali@lifilumen.com</a></span>
-          </div>
-
-          <div
-            className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-lg w-max"
-            style={{
-              background: 'rgba(0,194,199,0.10)',
-              border: '1px solid rgba(0,194,199,0.20)',
-              color: '#1A6EBF',
-            }}
-          >
-            <ShieldCheck
-              className="w-4 h-4"
-              style={{ color: '#00C2C7' }}
-            />
-            <span>Built to Official Global LiFi Technology Standards</span>
-          </div>
+          <p className="text-sm" style={{ color: '#4A6080' }}>
+            Sales:{' '}
+            <a href="mailto:rupali@lifilumen.com" className="font-semibold text-[#0D2240] hover:text-[#00C2C7]">
+              rupali@lifilumen.com
+            </a>
+          </p>
         </div>
 
         {/* Links Column 1 */}
@@ -71,13 +56,13 @@ export default function Footer() {
           <div
             role="heading"
             aria-level="2"
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
+            className="text-xs font-bold tracking-wider uppercase pb-2"
             style={{
               color: '#0D2240',
               borderBottom: '1px solid rgba(26,110,191,0.12)',
             }}
           >
-            Ecosystem
+            Explore
           </div>
 
           <ul
@@ -109,13 +94,13 @@ export default function Footer() {
           <div
             role="heading"
             aria-level="2"
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
+            className="text-xs font-bold tracking-wider uppercase pb-2"
             style={{
               color: '#0D2240',
               borderBottom: '1px solid rgba(26,110,191,0.12)',
             }}
           >
-            Social Stack
+            Follow
           </div>
 
           <ul className="space-y-2.5" aria-label="Lumen LiFi social media">
@@ -148,8 +133,8 @@ export default function Footer() {
                   aria-label={`Follow Lumen LiFi on ${label}`}
                 >
                   <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border bg-white shadow-sm transition-all group-hover:-translate-y-0.5 group-hover:shadow-md"
-                    style={{ color, borderColor: `${color}35` }}
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white"
+                    style={{ color }}
                   >
                     <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d={path} />
@@ -166,28 +151,26 @@ export default function Footer() {
         {/* Newsletter Column */}
         <div className="md:col-span-4 space-y-4">
           <h4
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
+            className="text-xs font-bold tracking-wider uppercase pb-2"
             style={{
               color: '#0D2240',
               borderBottom: '1px solid rgba(26,110,191,0.12)',
             }}
           >
-            Engineering Digest
+            Newsletter
           </h4>
 
           <p
             className="text-xs leading-relaxed"
             style={{ color: '#4A6080' }}
           >
-            Receive deployment logs, specification revisions, and operational
-            hardware notifications.
+            Get product updates and hardware notes.
           </p>
 
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="relative flex items-center mt-2 rounded-xl p-1 transition-all duration-200"
+            className="relative flex items-center mt-2 rounded-xl p-1"
             style={{
-              border: '1px solid rgba(26,110,191,0.15)',
               background: 'white',
             }}
           >
@@ -195,7 +178,7 @@ export default function Footer() {
               type="email"
               placeholder="Enter your email..."
               required
-              className="bg-transparent placeholder:text-[#94A3B8] font-mono text-xs px-3 py-2 w-full focus:outline-none pr-12"
+              className="bg-transparent placeholder:text-[#94A3B8] text-xs px-3 py-2 w-full focus:outline-none pr-12"
               style={{ color: '#0D2240' }}
             />
 
@@ -203,8 +186,7 @@ export default function Footer() {
               type="submit"
               className="absolute right-1 p-2 text-white rounded-lg transition-all duration-200 flex items-center justify-center"
               style={{
-                background:
-                  'linear-gradient(135deg, #1A6EBF, #00C2C7)',
+                background: '#0D2240',
               }}
               aria-label="Subscribe"
             >
@@ -216,7 +198,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div
-        className="max-w-7xl mx-auto px-6 mt-16 pt-6 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4"
+        className="max-w-7xl mx-auto mt-16 pt-6 text-[11px] flex flex-col md:flex-row justify-between items-center gap-4"
         style={{
           borderTop: '1px solid rgba(26,110,191,0.10)',
           color: '#94A3B8',
@@ -230,23 +212,23 @@ export default function Footer() {
         <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/contact"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
+            className="hover:text-[#0D2240] transition-colors"
           >
-            Contact Us
+            Contact
           </Link>
 
           <Link
             href="/privacy"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
+            className="hover:text-[#0D2240] transition-colors"
           >
-            Privacy Policy
+            Privacy
           </Link>
 
           <Link
             href="/terms"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
+            className="hover:text-[#0D2240] transition-colors"
           >
-            Terms & Conditions
+            Terms
           </Link>
         </div>
       </div>

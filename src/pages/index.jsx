@@ -3,13 +3,14 @@ import Head from 'next/head';
 import Header from '../components/common/Header';
 import HeroSection from '../components/sections/home/HeroSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
+import FinalCTASection from '../components/sections/home/FinalCTASection';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
 
 const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[var(--lumen-navy)]">
+    <div className="flex min-h-screen flex-col overflow-x-clip antialiased font-sans lumen-page-bg text-[var(--lumen-navy)]">
       <Head>
         <title key="title">Lumen LiFi &mdash; Internet at the Speed of Light</title>
         <meta
@@ -52,13 +53,12 @@ export default function HomePage() {
 
       <main className="flex-grow">
         <HeroSection />
-        <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="100vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="900px" />
-        <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="80vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="60vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="80vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/HeroVisual')} minHeight="700px" />
-        <LazyOnVisible load={() => import('../components/sections/home/FinalCTASection')} minHeight="60vh" />
+        <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="28rem" />
+        <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="28rem" />
+        <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="28rem" />
+        <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" />
+        <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="28rem" />
+        <FinalCTASection />
       </main>
 
       <Footer />

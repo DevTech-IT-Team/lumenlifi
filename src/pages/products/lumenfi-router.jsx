@@ -7,7 +7,6 @@ import {
   Zap,
   Coins,
   ShieldCheck,
-  Layers3,
   ShoppingCart,
 } from 'lucide-react';
 import Header from '../../components/common/Header';
@@ -98,7 +97,7 @@ const STACK_STATS = [
 
 export default function LumenFiRouterPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
+    <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
       <Head>
         <title>Lumen LIFI — LumenFi 3-in-1 Router</title>
         <meta
@@ -112,21 +111,19 @@ export default function LumenFiRouterPage() {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="relative pt-36 pb-24 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-          {/* Ambient Glow Elements */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-sky-500/15 via-teal-500/20 to-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none z-0" />
+        <section className="page-screen-top relative overflow-hidden lumen-hero-wash">
+          <div className="absolute inset-0 lumen-grid-pattern-hero opacity-40 pointer-events-none z-0" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white overflow-visible">
+                <h1 className="lumen-display mb-6">
                   Meet the LumenFi 3-in-1 Router:{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-teal-400">
+                  <span className="text-gradient-lumen">
                     The Future of Connectivity is Here
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg leading-relaxed text-slate-400 mb-8 max-w-xl">
+                <p className="lumen-lead mb-8 max-w-xl">
                   Stop paying for internet hardware that only does one thing and constantly costs you money.
                   The LumenFi router is the world&apos;s first complete connectivity hub, fusing the universal
                   reach of Wi-Fi 7, the unbreakable security of optical Li-Fi, and a revolutionary economic
@@ -142,7 +139,7 @@ export default function LumenFiRouterPage() {
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl font-bold text-sm tracking-wide border border-slate-700/80 text-slate-200 bg-slate-900/50 hover:bg-slate-800/80 hover:border-slate-600 backdrop-blur-md transition-all duration-200"
+                    className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl font-bold text-sm tracking-wide border-2 border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-white"
                   >
                     Contact Sales
                     <ArrowRight className="w-4 h-4 text-slate-400" />
@@ -152,7 +149,7 @@ export default function LumenFiRouterPage() {
 
               {/* Product Showcase Container */}
               <div className="relative group">
-                <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-cyan-500 to-teal-500 opacity-20 blur-xl group-hover:opacity-40 transition duration-500" />
+                <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 opacity-20 blur-xl group-hover:opacity-40 transition duration-500" />
                 <div className="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/90 shadow-2xl aspect-[4/3]">
                   <Image
                     src="/images/products/router.jpg"
@@ -170,7 +167,7 @@ export default function LumenFiRouterPage() {
                           key={s.label}
                           className="rounded-xl bg-slate-900/70 backdrop-blur-md border border-slate-700/50 p-3 text-center transition-all hover:bg-slate-800/80 hover:border-slate-600"
                         >
-                          <p className="text-sm sm:text-base font-extrabold text-white tracking-wide">{s.value}</p>
+                          <p className="lumen-stat text-white">{s.value}</p>
                           <p className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 mt-1 font-semibold">
                             {s.label}
                           </p>
@@ -187,71 +184,74 @@ export default function LumenFiRouterPage() {
         {/* Three Layers Section */}
         {LAYERS.map((layer, index) => {
           const Icon = layer.icon;
+          const isDark = index % 2 === 0;
+          const featuresOnRight = index % 2 === 0;
 
           return (
             <section
               key={layer.id}
               id={layer.id}
-              className={`relative py-20 sm:py-24 border-t border-slate-800/60 ${
-                index % 2 === 0 ? 'bg-slate-950' : 'bg-slate-900/40'
+              className={`relative overflow-hidden py-16 sm:py-24 ${
+                isDark ? 'section-wash-navy' : 'section-wash-white'
               }`}
             >
-              <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-                  <div className="lg:col-span-4">
-                    <div
-                      className="sticky top-28 rounded-3xl border p-8 shadow-xl backdrop-blur-xl relative overflow-hidden group"
-                      style={{
-                        backgroundColor: 'rgba(15, 23, 42, 0.6)',
-                        borderColor: layer.border,
-                      }}
+              <div className="mx-auto max-w-6xl px-4 sm:px-6">
+                <div
+                  className={`flex flex-col gap-12 lg:items-center lg:gap-20 ${
+                    featuresOnRight ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                  }`}
+                >
+                  <div className="lg:w-[42%] lg:shrink-0">
+                    <span
+                      className="router-layer-kicker"
+                      style={{ color: layer.accent }}
                     >
-                      <div 
-                        className="absolute -top-12 -right-12 w-32 h-32 rounded-full blur-2xl opacity-20 pointer-events-none"
-                        style={{ backgroundColor: layer.accent }}
-                      />
-                      <div
-                        className="inline-flex p-3.5 rounded-2xl mb-6 shadow-inner"
-                        style={{ backgroundColor: layer.accentBg, color: layer.accent }}
-                      >
-                        <Icon className="w-8 h-8" strokeWidth={2} />
-                      </div>
-                      <p
-                        className="text-xs font-mono font-bold uppercase tracking-widest mb-2"
-                        style={{ color: layer.accent }}
-                      >
-                        {layer.badge}
-                      </p>
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3 leading-tight">
-                        {layer.title}
-                      </h2>
-                      <p className="text-sm text-slate-400 leading-relaxed">{layer.subtitle}</p>
+                      {layer.badge}
+                    </span>
+                    <div
+                      className="mt-5 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg"
+                      style={{ backgroundColor: layer.accentBg, color: layer.accent }}
+                    >
+                      <Icon className="h-5 w-5" strokeWidth={2} />
                     </div>
+                    <h2 className={`${isDark ? 'lumen-h2-light' : 'lumen-h2'} mb-4`}>
+                      {layer.title}
+                    </h2>
+                    <p className={isDark ? 'lumen-body-sm-light' : 'lumen-body-sm'}>
+                      {layer.subtitle}
+                    </p>
                   </div>
 
-                  {/* Feature List */}
-                  <div className="lg:col-span-8 space-y-4">
-                    {layer.features.map((feature, fi) => (
-                      <div
-                        key={feature.title}
-                        className="group rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-8 hover:border-slate-700 hover:bg-slate-900/90 hover:shadow-lg hover:shadow-slate-950/50 transition-all duration-300"
-                      >
-                        <div className="flex items-start gap-5">
+                  <div className="lg:min-w-0 lg:flex-1">
+                    <ul className="space-y-8">
+                      {layer.features.map((feature, fi) => (
+                        <li
+                          key={feature.title}
+                          className={`flex gap-5 ${
+                            fi < layer.features.length - 1
+                              ? isDark
+                                ? 'border-b border-white/10 pb-8'
+                                : 'border-b border-[var(--lumen-border)] pb-8'
+                              : ''
+                          }`}
+                        >
                           <span
-                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-mono text-xs font-bold text-slate-950 shadow-md"
-                            style={{ backgroundColor: layer.accent }}
+                            className="router-layer-num mt-0.5 shrink-0"
+                            style={{ color: layer.accent }}
                           >
                             0{fi + 1}
                           </span>
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                            <h3 className={`router-layer-feat-title mb-2 ${isDark ? 'text-white' : 'text-[var(--lumen-navy)]'}`}>
                               {feature.title}
                             </h3>
-                            <p className="text-sm text-slate-400 leading-relaxed">{feature.desc}</p>
+                            <p className={`router-layer-feat-desc ${isDark ? 'text-white/70' : 'text-[var(--lumen-muted)]'}`}>
+                              {feature.desc}
+                            </p>
                           </div>
-                        </div>
-                      </div>
-                    ))}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -259,60 +259,32 @@ export default function LumenFiRouterPage() {
           );
         })}
 
-        {/* Stack Summary Section */}
-        <section className="relative py-24 sm:py-32 overflow-hidden bg-slate-950 border-t border-slate-800">
-          {/* Accent lighting for summary */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-t from-cyan-500/10 via-transparent to-transparent pointer-events-none" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
-              {LAYERS.map((layer) => {
-                const Icon = layer.icon;
-                return (
-                  <div
-                    key={layer.id}
-                    className="rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md p-8 text-center transition-all duration-300 hover:border-slate-700 hover:scale-[1.02]"
-                  >
-                    <div
-                      className="inline-flex p-3 rounded-2xl mb-4 shadow-inner"
-                      style={{ backgroundColor: layer.accentBg, color: layer.accent }}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-bold text-lg text-white mb-1.5">{layer.title}</h3>
-                    <p className="text-xs text-slate-400 font-mono uppercase tracking-wider font-semibold">{layer.badge}</p>
-                  </div>
-                );
-              })}
+        <section className="relative overflow-hidden py-16 sm:py-24 section-wash-white">
+          <div className="relative z-10 mx-auto max-w-2xl px-4 text-center sm:px-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(0,194,199,0.08)] border border-[var(--lumen-border)] text-[var(--lumen-blue)] text-xs font-semibold uppercase tracking-wider mb-6">
+              <ShieldCheck className="w-4 h-4 text-[var(--lumen-cyan)]" />
+              One Router. Three Revolutions.
             </div>
-
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-300 font-mono text-xs font-semibold uppercase tracking-wider mb-6 backdrop-blur-md">
-                <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                One Router. Three Revolutions.
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-5 leading-tight">
-                Upgrade Your Network Today
-              </h2>
-              <p className="text-slate-400 text-base leading-relaxed mb-10">
-                Wi-Fi 7 for every device you own. Li-Fi for speed and security that radio cannot match.
-                DePIN rewards that turn your router into an asset—not another monthly expense.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl text-slate-950 font-bold text-sm bg-white hover:bg-slate-200 transition-all duration-200 w-full sm:w-auto shadow-lg shadow-white/10"
-                >
-                  Explore Full Catalog
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/what-is-lifi"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl font-bold text-sm text-slate-200 border border-slate-700 bg-slate-900/60 hover:bg-slate-800 hover:border-slate-600 transition-all duration-200 w-full sm:w-auto backdrop-blur-md"
-                >
-                  Learn About Li-Fi
-                </Link>
-              </div>
+            <h2 className="lumen-h2 mb-5">Upgrade Your Network Today</h2>
+            <p className="lumen-body mb-10">
+              Wi-Fi 7 for every device you own. Li-Fi for speed and security that radio cannot match.
+              DePIN rewards that turn your router into an asset—not another monthly expense.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl text-white font-bold text-sm w-full sm:w-auto"
+                style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+              >
+                Explore Full Catalog
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl font-bold text-sm text-[var(--lumen-blue)] border-2 border-[var(--lumen-blue)] bg-white w-full sm:w-auto"
+              >
+                View All Products
+              </Link>
             </div>
           </div>
         </section>

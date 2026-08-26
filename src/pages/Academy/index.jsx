@@ -203,7 +203,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-28 pb-20 overflow-x-hidden overflow-y-visible bg-[#030712] text-white">
+    <section className="page-screen-top relative w-full overflow-x-hidden overflow-y-visible bg-[#030712] text-white">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -325,14 +325,14 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#02050f]/30 to-[#02050f]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-10 sm:pt-14 md:pt-20 lg:pt-24 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14 md:pt-20 lg:pt-24 flex flex-col items-center text-center">
         {/* Main Heading */}
         <motion.h1
           custom={1}
           variants={heroFadeUp}
           initial="hidden"
           animate="visible"
-          className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+          className="page-hero-heading lumen-display-light max-w-4xl drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
         >
           LumenFi Academy
         </motion.h1>
@@ -343,7 +343,7 @@ function HeroSection() {
           variants={heroFadeUp}
           initial="hidden"
           animate="visible"
-          className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-2 mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#00C2C7] to-[#818cf8] drop-shadow-[0_0_20px_rgba(0,194,199,0.35)]"
+          className="lumen-h2-light mt-2 mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#00C2C7] to-[#818cf8] drop-shadow-[0_0_20px_rgba(0,194,199,0.35)]"
         >
           Shaping the Future of Light Connectivity!
         </motion.h2>
@@ -354,7 +354,7 @@ function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="text-xs sm:text-sm md:text-base max-w-2xl mb-4 leading-relaxed text-slate-200"
+          className="lumen-body-sm-light max-w-2xl mb-4"
         >
           Our free membership grants you access to live classes, a thriving community of innovators, and an incredible opportunity to monetize this cutting-edge technology.
         </motion.p>
@@ -463,7 +463,7 @@ function HeroSection() {
         </div>
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
         {/* Center Action Buttons */}
         <motion.div
           custom={4}
@@ -504,7 +504,7 @@ function HeroSection() {
             { val: 'Monetize', label: 'Lucrative Biz' },
           ].map(({ val, label }) => (
             <div key={label} className="flex flex-col items-center text-center">
-              <div className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white drop-shadow-[0_0_12px_rgba(0,194,199,0.4)]">
+              <div className="lumen-stat text-white drop-shadow-[0_0_12px_rgba(0,194,199,0.4)]">
                 {val}
               </div>
               <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest mt-1 text-cyan-300">
@@ -531,17 +531,17 @@ function CurriculumSection() {
   ];
 
   return (
-    <section id="curriculum" className="relative overflow-hidden py-24 section-wash-white">
+    <section id="curriculum" className="page-screen relative overflow-hidden section-wash-white">
       <div className="absolute bottom-0 left-0 w-[600px] h-[400px] rounded-full blur-[160px] opacity-35 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.15) 0%, transparent 70%)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
+          <h2 className="lumen-h2 mb-4">
             What You Will <span className="text-gradient-lumen">Learn.</span>
           </h2>
-          <p className="text-[#4A6080] max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="lumen-body max-w-2xl mx-auto">
             LumenFi Academy is designed to take you from a curious beginner to a Li-Fi expert. Our curriculum covers a wide range of subjects, breaking down complex concepts into easy-to-understand, actionable lessons.
           </p>
         </motion.div>
@@ -561,8 +561,8 @@ function CurriculumSection() {
                 style={{ background: 'linear-gradient(135deg, rgba(26,110,191,0.1) 0%, rgba(0,194,199,0.1) 100%)', border: '1px solid var(--lumen-border)' }}>
                 <PillarIcon size={18} className="text-[#1A6EBF]" />
               </div>
-              <h4 className="font-black text-sm text-[#0D2240] mb-2">{label}</h4>
-              <p className="text-xs text-[#4A6080] leading-relaxed">{desc}</p>
+              <h4 className="lumen-h5 mb-2">{label}</h4>
+              <p className="lumen-caption">{desc}</p>
             </motion.div>
           ))}
         </div>
@@ -621,17 +621,17 @@ function ApplicationsSection() {
   const ActiveIcon = active.icon;
 
   return (
-    <section className="relative overflow-hidden py-24 section-wash-secondary">
+    <section className="page-screen relative overflow-hidden section-wash-navy">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.18) 0%, transparent 70%)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
+          <h2 className="lumen-h2-light mb-4">
             Industry <span className="text-gradient-lumen">Applications.</span>
           </h2>
-          <p className="text-[#4A6080] max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="lumen-body-light max-w-2xl mx-auto">
             We break down how Li-Fi is transforming critical sectors globally.
           </p>
         </motion.div>
@@ -642,9 +642,9 @@ function ApplicationsSection() {
             const isActive = idx === activeIdx;
             return (
               <button key={idx} onClick={() => setActiveIdx(idx)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 border ${isActive
-                  ? 'bg-white border-[#1A6EBF] text-[#0D2240] shadow-md'
-                  : 'bg-white/50 border-[var(--lumen-border)] text-[#4A6080] hover:border-[#1A6EBF] hover:text-[#0D2240]'}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border ${isActive
+                  ? 'bg-white border-white text-[#0D2240]'
+                  : 'bg-white/10 border-white/20 text-white/80'}`}
                 style={isActive ? { boxShadow: `0 0 0 2px ${opp.color}22, 0 4px 20px rgba(26,110,191,0.12)` } : {}}>
                 <TabIcon size={13} style={{ color: isActive ? opp.color : undefined }} />
                 {opp.tag}
@@ -668,8 +668,8 @@ function ApplicationsSection() {
               </div>
             </div>
             <div className="flex flex-col justify-center p-8 lg:p-12">
-              <h3 className="text-2xl md:text-3xl font-black text-[#0D2240] mb-4 leading-tight">{active.title}</h3>
-              <p className="text-[#4A6080] leading-relaxed mb-6 text-sm md:text-base">{active.desc}</p>
+              <h3 className="lumen-h3 mb-4">{active.title}</h3>
+              <p className="lumen-body mb-6">{active.desc}</p>
               <div className="flex items-start gap-3 p-4 rounded-2xl bg-[#EAF3FA] border border-[var(--lumen-border)]">
                 <Zap size={16} className="shrink-0 mt-0.5" style={{ color: active.color }} />
                 <p className="text-sm font-semibold text-[#0D2240]">{active.highlight}</p>
@@ -711,17 +711,17 @@ function CommunityExperienceSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 section-wash-primary">
+    <section className="page-screen relative overflow-hidden section-wash-primary">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[180px] opacity-25 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.2) 0%, rgba(26,110,191,0.15) 50%, transparent 100%)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
 
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-4">
+          <h2 className="lumen-h2 mb-4">
             The LumenFi <span className="text-gradient-lumen">Community Experience.</span>
           </h2>
-          <p className="text-[#4A6080] max-w-xl mx-auto text-base leading-relaxed">
+          <p className="lumen-body max-w-xl mx-auto">
             Learning doesn't happen in a vacuum. By joining LumenFi Academy, you become part of a movement.
           </p>
         </motion.div>
@@ -738,8 +738,8 @@ function CommunityExperienceSection() {
                     style={{ background: 'linear-gradient(135deg, rgba(26,110,191,0.1) 0%, rgba(0,194,199,0.1) 100%)' }}>
                     <ExpIcon size={24} className="text-[#1A6EBF]" />
                   </div>
-                  <h3 className="font-black text-xl text-[#0D2240] mb-3">{exp.title}</h3>
-                  <p className="text-[#4A6080] text-sm leading-relaxed flex-grow">{exp.desc}</p>
+                  <h3 className="lumen-h3 mb-3">{exp.title}</h3>
+                  <p className="lumen-body-sm flex-grow">{exp.desc}</p>
                 </div>
               </motion.div>
             )
@@ -759,17 +759,17 @@ function MonetizeSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-24 section-wash-secondary">
+    <section className="page-screen relative overflow-hidden section-wash-navy">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0D2240] mb-6 leading-tight">
+              <h2 className="lumen-h2-light mb-6">
                 Your Opportunity:<br /> <span className="text-gradient-lumen">Monetize the Future.</span>
               </h2>
-              <p className="text-[#4A6080] text-base leading-relaxed mb-10">
+              <p className="lumen-body-light mb-10">
                 LumenFi Academy isn't just about education; it's about empowerment. We provide a unique opportunity for our members to turn their knowledge into a lucrative business.
               </p>
             </motion.div>
@@ -782,8 +782,8 @@ function MonetizeSection() {
                     <BIcon size={20} className="text-[#1A6EBF]" />
                   </div>
                   <div>
-                    <h4 className="font-black text-base text-[#0D2240] mb-1">{title}</h4>
-                    <p className="text-xs text-[#4A6080] leading-relaxed">{desc}</p>
+                    <h4 className="lumen-h5 mb-1">{title}</h4>
+                    <p className="lumen-caption">{desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -819,7 +819,7 @@ function ApplicationForm() {
   }, []);
 
   return (
-    <section id="join" className="relative overflow-hidden py-16 sm:py-20 bg-[#F8FCFE] border-t border-[var(--lumen-border)]">
+    <section id="join" className="page-screen relative overflow-hidden bg-[#F8FCFE]">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[160px] opacity-20 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.3) 0%, transparent 70%)' }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[140px] opacity-20 pointer-events-none"
@@ -841,11 +841,11 @@ function ApplicationForm() {
                 Free Registration
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#0D2240] mb-3 leading-tight">
+              <h2 className="lumen-h2 mb-3">
                 Join <span className="text-gradient-lumen">LumenFi Academy</span> Today.
               </h2>
 
-              <p className="text-[#4A6080] text-sm leading-relaxed mb-6">
+              <p className="lumen-body-sm mb-6">
                 Join LumenFi Academy today for FREE and start building your future at the speed of light!
               </p>
 
@@ -860,8 +860,8 @@ function ApplicationForm() {
                       <TIcon size={16} className="text-[#1A6EBF]" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#0D2240]">{label}</div>
-                      <div className="text-[11px] text-[#4A6080] mt-0.5 leading-relaxed">{desc}</div>
+                      <div className="lumen-label text-[var(--lumen-navy)]">{label}</div>
+                      <div className="lumen-caption mt-0.5">{desc}</div>
                     </div>
                   </div>
                 ))}
@@ -898,7 +898,7 @@ function ApplicationForm() {
 /* ── SECTION 7: FINAL CALL TO ACTION ── */
 function FinalCTASection() {
   return (
-    <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
+    <section className="page-screen relative overflow-hidden section-wash-navy" id="cta-final">
       <div className="absolute inset-0 pointer-events-none z-0">
         <Image src={ctaImg} alt="cta" fill loading="lazy" />
         <div
@@ -911,21 +911,21 @@ function FinalCTASection() {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 35, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
+          <div className="rounded-lg p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
             <div
               className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
               style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.12) 0%, transparent 50%)' }}
             />
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h2 className="!text-white text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
+              <h2 className="lumen-display-light mb-6">
                 Leave old radio waves behind.
                 <br />
                 <span
@@ -936,7 +936,7 @@ function FinalCTASection() {
                 </span>
               </h2>
 
-              <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto font-medium leading-relaxed">
+              <p className="lumen-lead-light mb-10 max-w-xl mx-auto font-medium">
                 Upgrade your home or office to the fastest and safest internet ever made. It is clean, private, and works instantly.
               </p>
 
@@ -997,7 +997,7 @@ function FinalCTASection() {
 /* ── ROOT PAGE EXPORT ── */
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[#0D2240]">
+    <div className="flex min-h-screen flex-col overflow-x-clip antialiased font-sans lumen-page-bg text-[#0D2240]">
       <Head>
         <title>LumenFi Academy — Shaping the Future of Light Connectivity</title>
         <meta name="description" content="At LumenFi Academy, we provide you with the tools, knowledge, and community to master Li-Fi technology." />

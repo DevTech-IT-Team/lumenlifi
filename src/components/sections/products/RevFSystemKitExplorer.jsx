@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 // Temporarily disabled until EmailJS/SMTP credentials are configured in .env.local.
 // import TermsEmailModal from '../../ui/TermsEmailModal';
 import {
   ArrowRight,
   Check,
-  Download,
-  ShoppingCart,
-  Star,
   Zap,
   Shield,
   Cable,
@@ -221,9 +218,6 @@ function Hotspot({ x, y, label, active, highlighted, onSelect, onHover, onLeave 
 export default function RevFSystemKitExplorer() {
   const [activeId, setActiveId] = useState('router');
   const [hoveredId, setHoveredId] = useState(null);
-  // const [showEmailModal, setShowEmailModal] = useState(false);
-  const timelineRef = useRef(null);
-  const timelineInView = useInView(timelineRef, { once: true, margin: '-60px' });
 
   const active = KIT_COMPONENTS.find((c) => c.id === activeId) || KIT_COMPONENTS[0];
   const focusId = hoveredId || activeId;
@@ -237,21 +231,20 @@ export default function RevFSystemKitExplorer() {
     <>
     <motion.section
       id="concept-runbook"
-      className={`${glass} rounded-3xl p-6 sm:p-10 space-y-10 scroll-mt-32`}
+      className="space-y-5 scroll-mt-28"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-40px' }}
       variants={stagger}
     >
-      {/* Header */}
-      <motion.div variants={fadeUp} className="text-center space-y-2 pb-6 border-b border-white/40">
+      <motion.div variants={fadeUp} className="space-y-1.5 text-center">
         <span className="inline-block text-[10px] font-mono font-bold tracking-[0.22em] text-[#1A6EBF] uppercase">
           Interactive Product Explorer
         </span>
-        <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
+        <h2 className="lumen-h2 text-slate-950">
           RevF System Kit
         </h2>
-        <p className="text-sm text-slate-600 max-w-lg mx-auto">
+        <p className="lumen-body-sm max-w-lg mx-auto">
           Understand every component in 30 seconds — hover hotspots or select a module to explore.
         </p>
       </motion.div>
@@ -301,7 +294,7 @@ export default function RevFSystemKitExplorer() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <p className={`text-sm font-bold truncate ${isActive ? 'text-[#1A6EBF]' : 'text-slate-900'}`}>
+                      <p className={`kit-card-title ${isActive ? 'text-[#1A6EBF]' : 'text-slate-900'}`}>
                         {item.name}
                       </p>
                       <motion.span animate={isActive ? { x: 4 } : { x: 0 }}>
@@ -311,22 +304,22 @@ export default function RevFSystemKitExplorer() {
                         />
                       </motion.span>
                     </div>
-                    <p className="text-[10px] text-slate-500 uppercase mt-0.5 tracking-wider">{item.sub}</p>
+                    <p className="kit-card-sub text-slate-500 uppercase mt-0.5">{item.sub}</p>
                     {isActive && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         className="flex items-center gap-3 mt-2 pt-2 border-t border-slate-200/60"
                       >
-                        <span className="flex items-center gap-1 text-[10px] font-mono font-bold text-cyan-700">
+                        <span className="kit-card-meta flex items-center gap-1 text-cyan-700">
                           <Zap size={10} />
                           <CountUp value={item.specs.speed} suffix=" Gbps" />
                         </span>
-                        <span className="flex items-center gap-1 text-[10px] font-mono font-bold text-[#1A6EBF]">
+                        <span className="kit-card-meta flex items-center gap-1 text-[#1A6EBF]">
                           <Shield size={10} />
                           <CountUp value={item.specs.latency} suffix=" ms" />
                         </span>
-                        <span className="text-[9px] font-mono text-green-600 flex items-center gap-1">
+                        <span className="kit-card-meta text-green-600 flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                           Selected
                         </span>
@@ -345,30 +338,16 @@ export default function RevFSystemKitExplorer() {
         {/* Right — interactive diagram */}
         <motion.div
           variants={fadeUp}
-          className={`lg:col-span-8 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[460px] rounded-2xl overflow-hidden ${glass}`}
+          className="lg:col-span-8 relative min-h-[340px] sm:min-h-[400px] lg:min-h-[520px] overflow-hidden rounded-lg"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F5FAF6] to-[#E8F4EC]" />
-
-          {/* Zoomable product image */}
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              scale: focus.zoom.scale,
-            }}
-            style={{
-              transformOrigin: `${focus.zoom.originX}% ${focus.zoom.originY}%`,
-            }}
-            transition={{ type: 'spring', stiffness: 120, damping: 22 }}
-          >
-            <Image
-              src="/images/products/Lumenfi Product overview.png"
-              alt="RevF System Kit diagram"
-              fill
-              loading="lazy"
-              sizes="(max-width: 1024px) 100vw, 700px"
-              className="object-contain p-4 sm:p-6"
-            />
-          </motion.div>
+          <Image
+            src="/images/products/Lumenfi Product overview.png"
+            alt="RevF System Kit diagram"
+            fill
+            loading="lazy"
+            sizes="(max-width: 1024px) 100vw, 700px"
+            className="object-contain object-center"
+          />
 
           {/* SVG connection lines */}
           <svg
@@ -462,26 +441,26 @@ export default function RevFSystemKitExplorer() {
               transition={{ type: 'spring', stiffness: 280, damping: 26 }}
               className={`absolute bottom-3 left-3 right-3 sm:left-auto sm:right-3 sm:max-w-xs p-4 rounded-xl ${glass} z-30`}
             >
-              <p className="text-[10px] font-mono font-bold text-[#1A6EBF] uppercase tracking-wider mb-1">
+              <p className="kit-preview-kicker text-[#1A6EBF] uppercase mb-1">
                 {focus.fullName}
               </p>
-              <p className="text-xs text-slate-700 leading-relaxed mb-3">{focus.description}</p>
-              <div className="grid grid-cols-2 gap-2 text-[10px]">
+              <p className="kit-preview-body text-slate-700 mb-3">{focus.description}</p>
+              <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <p className="font-mono font-bold text-slate-500 uppercase mb-1">Ports</p>
-                  <ul className="space-y-0.5 text-slate-600">
+                  <p className="kit-preview-label text-slate-500 uppercase mb-1">Ports</p>
+                  <ul className="space-y-0.5">
                     {focus.ports.map((p) => (
-                      <li key={p} className="flex items-center gap-1">
+                      <li key={p} className="kit-preview-item flex items-center gap-1 text-slate-600">
                         <Check size={9} className="text-green-600 shrink-0" /> {p}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="font-mono font-bold text-slate-500 uppercase mb-1">Benefits</p>
-                  <ul className="space-y-0.5 text-slate-600">
+                  <p className="kit-preview-label text-slate-500 uppercase mb-1">Benefits</p>
+                  <ul className="space-y-0.5">
                     {focus.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-1">
+                      <li key={b} className="kit-preview-item flex items-center gap-1 text-slate-600">
                         <Check size={9} className="text-cyan-600 shrink-0" /> {b}
                       </li>
                     ))}
@@ -492,134 +471,6 @@ export default function RevFSystemKitExplorer() {
           </AnimatePresence>
         </motion.div>
       </div>
-
-      {/* Installation timeline */}
-      <motion.div variants={fadeUp} ref={timelineRef} className="space-y-5 pt-4 border-t border-white/40">
-        <p className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase text-center">
-          Installation Timeline
-        </p>
-
-        {/* Progress rail */}
-        <div className="relative hidden sm:flex items-center justify-between px-4 max-w-3xl mx-auto">
-          <div className="absolute left-8 right-8 top-1/2 h-0.5 bg-slate-200 -translate-y-1/2" />
-          <motion.div
-            className="absolute left-8 top-1/2 h-0.5 bg-gradient-to-r from-[#1A6EBF] to-[#00C2C7] -translate-y-1/2 origin-left"
-            initial={{ scaleX: 0 }}
-            animate={timelineInView ? { scaleX: (activeIndex + 1) / TIMELINE.length } : { scaleX: 0 }}
-            style={{ width: 'calc(100% - 4rem)' }}
-            transition={{ duration: 0.9, ease: 'easeInOut' }}
-          />
-          {TIMELINE.map((stage, idx) => {
-            const lit = idx <= activeIndex;
-            return (
-              <button
-                key={stage.id}
-                type="button"
-                onClick={() => setActiveId(stage.id)}
-                className="relative z-10 flex flex-col items-center gap-1.5 group"
-              >
-                <motion.span
-                  className={`w-3 h-3 rounded-full border-2 transition-colors ${
-                    lit
-                      ? 'bg-cyan-500 border-white shadow-[0_0_12px_rgba(0,194,199,0.6)]'
-                      : 'bg-white border-slate-300 group-hover:border-[#1A6EBF]'
-                  }`}
-                  animate={lit && idx === activeIndex ? { scale: [1, 1.25, 1] } : {}}
-                  transition={{ duration: 1.5, repeat: lit && idx === activeIndex ? Infinity : 0 }}
-                />
-                <span
-                  className={`text-[9px] font-mono font-bold uppercase tracking-wide ${
-                    lit ? 'text-[#1A6EBF]' : 'text-slate-400'
-                  }`}
-                >
-                  {stage.label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Phase cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          {TIMELINE.map((stage, idx) => {
-            const lit = idx <= activeIndex;
-            const isCurrent = idx === activeIndex;
-            return (
-              <motion.button
-                key={stage.id}
-                type="button"
-                onClick={() => setActiveId(stage.id)}
-                className={`text-left p-4 rounded-2xl border transition-all ${glass} ${
-                  isCurrent
-                    ? 'border-[#1A6EBF]/40 ring-1 ring-[#1A6EBF]/20'
-                    : lit
-                      ? 'border-green-200/60'
-                      : 'opacity-70 hover:opacity-100'
-                }`}
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <span
-                    className={`text-lg font-black ${isCurrent ? 'text-[#1A6EBF]' : lit ? 'text-green-600' : 'text-slate-400'}`}
-                  >
-                    {lit && !isCurrent ? '✓' : PHASE_NUMBERS[idx]}
-                  </span>
-                  <span className="text-[9px] font-mono text-slate-500">{stage.duration}</span>
-                </div>
-                <h4 className="text-xs font-bold text-slate-950 font-mono leading-tight mb-1">
-                  {stage.title.replace(/^LumenFi |\(2\)/g, '').slice(0, 28)}
-                </h4>
-                <p className="text-[10px] text-slate-600 leading-snug line-clamp-2">{stage.desc}</p>
-              </motion.button>
-            );
-          })}
-        </div>
-      </motion.div>
-
-      {/* CTA */}
-      <motion.div
-        variants={fadeUp}
-        className={`rounded-2xl p-6 sm:p-8 ${glass} border-[#1A6EBF]/20`}
-      >
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-1 text-amber-500">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <Star key={s} size={14} fill="currentColor" />
-              ))}
-              <span className="text-xs text-slate-500 ml-1 font-mono">4.9 · 128 reviews</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-950">Buy RevF Kit</h3>
-            <p className="text-3xl font-black text-[#1A6EBF]">
-              $3,371
-              <span className="text-sm font-normal text-slate-500 ml-2">Ships Worldwide</span>
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <motion.a
-              href="https://rzp.io/rzp/vv8HFbfc"
-              className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl text-white font-bold text-sm tracking-wide shadow-lg glow-blue w-full sm:w-auto cursor-pointer"
-              style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
-              whileHover={{ scale: 1.03, boxShadow: '0 12px 40px rgba(0,194,199,0.35)' }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <ShoppingCart size={18} />
-              Buy Now
-              <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-                <ArrowRight size={16} />
-              </motion.span>
-            </motion.a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-xl font-bold text-sm border-2 border-[#1A6EBF]/30 text-[#1A6EBF] bg-white/50 hover:bg-white/80 transition-colors w-full sm:w-auto"
-            >
-              <Download size={16} />
-              View Datasheet
-            </a>
-          </div>
-        </div>
-      </motion.div>
     </motion.section>
 
     {/* Email collection modal temporarily disabled until EmailJS/SMTP credentials

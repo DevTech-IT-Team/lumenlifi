@@ -69,7 +69,7 @@ export default function LumenPhiProductsSuite() {
     const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
 
     return (
-        <div className="min-h-screen font-sans lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+        <div className="min-h-screen overflow-x-clip font-sans lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
             <Head>
                 <title>Lumen LIFI</title>
                 <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
@@ -77,7 +77,7 @@ export default function LumenPhiProductsSuite() {
 
             <Header />
 
-            <main className="pt-24 select-none">
+            <main className="pt-24 select-none min-h-[100svh]">
                 <div className="bg-slate-900 text-slate-200 text-xs py-2.5 px-4 border-b border-slate-800">
                     <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
                         <p className="flex items-center gap-2 font-mono">
@@ -100,7 +100,7 @@ export default function LumenPhiProductsSuite() {
                             exit={{ opacity: 0 }}
                             className="py-12"
                         >
-                            <div className="max-w-7xl mx-auto px-6 mb-20">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-20">
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-950 rounded-3xl p-8 sm:p-12 text-white overflow-hidden relative shadow-2xl">
                                     <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-35 pointer-events-none z-0" />
                                     <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -109,13 +109,13 @@ export default function LumenPhiProductsSuite() {
                                         <span className="text-xs font-bold font-mono tracking-widest text-emerald-400 uppercase bg-emerald-950 border border-emerald-800/60 px-3 py-1 rounded-full w-max block">
                                             The Next Big Step for Home Internet
                                         </span>
-                                        <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                                        <h1 className="page-hero-heading lumen-display-light">
                                             Internet Delivered at the <br />
                                             <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                                                 Speed of Light.
                                             </span>
                                         </h1>
-                                        <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
+                                        <p className="lumen-body-sm-light max-w-xl">
                                             Lumen LiFi replaces crowded, slow home internet with super-fast light technology. Enjoy a private, clean connection made for smooth video streaming, home school, working from home, and fast apps.
                                         </p>
                                         <div className="flex flex-wrap gap-4 pt-2">
@@ -144,9 +144,9 @@ export default function LumenPhiProductsSuite() {
                                 </div>
                             </div>
 
-                            <div className="max-w-7xl mx-auto px-6 mb-24">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-24">
                                 <div className="max-w-3xl mb-12 space-y-2">
-                                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">How Our System Works</h2>
+                                    <h2 className="lumen-h2">How Our System Works</h2>
                                     <p className="text-slate-500 text-xs font-medium font-mono">LOOK AT THE SMART DEVICES THAT BRING LIGHT-SPEED INTERNET TO YOUR HOME:</p>
                                 </div>
 
@@ -175,7 +175,7 @@ export default function LumenPhiProductsSuite() {
                                                             </div>
                                                             <span className="text-[10px] font-bold font-mono tracking-wider text-slate-400 uppercase">{product.badge}</span>
                                                         </div>
-                                                        <h3 className="text-lg font-black text-slate-900 tracking-tight">{product.name}</h3>
+                                                        <h3 className="lumen-h4">{product.name}</h3>
                                                         <p className="text-xs text-slate-500 leading-relaxed font-normal">{product.desc}</p>
                                                     </div>
 
@@ -205,7 +205,7 @@ export default function LumenPhiProductsSuite() {
                                 </div>
                             </div>
 
-                            <div className="max-w-7xl mx-auto px-6 mb-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
                                 <div className="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
                                     <div className="flex items-center gap-2 text-slate-900">
                                         <FileText className="w-4 h-4 text-emerald-600" />
@@ -249,9 +249,9 @@ export default function LumenPhiProductsSuite() {
                                 </div>
                             </div>
 
-                            <div className="max-w-4xl mx-auto px-6 mb-12">
+                            <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
                                 <div className="text-center space-y-2 mb-12">
-                                    <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">Common Questions</h2>
+                                    <h2 className="lumen-h2">Common Questions</h2>
                                     <p className="text-slate-500 text-xs font-mono">LEARN HOW LUMEN LIFI MAKES INDIAN HOME INTERNET BETTER:</p>
                                 </div>
 
@@ -285,7 +285,7 @@ export default function LumenPhiProductsSuite() {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -15 }}
-                            className="max-w-6xl mx-auto px-6 py-12 pb-24"
+                            className="max-w-6xl mx-auto px-4 sm:px-6 py-12 pb-24"
                         >
                             <button onClick={() => setSelectedProductSlug(null)} className="inline-flex items-center gap-2 font-mono text-xs text-slate-400 hover:text-emerald-600 transition-colors mb-12 group font-bold">
                                 ← BACK TO ALL PRODUCTS
@@ -310,7 +310,7 @@ export default function LumenPhiProductsSuite() {
                                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-500 font-mono text-[10px] font-bold uppercase">
                                         PRODUCT TYPE: {activeProduct.badge}
                                     </span>
-                                    <h2 className="text-3xl font-black text-slate-900 tracking-tight">{activeProduct.name}</h2>
+                                    <h2 className="lumen-h3">{activeProduct.name}</h2>
                                     <p className="text-sm text-slate-500 font-mono font-medium leading-relaxed">{activeProduct.tagline}</p>
 
                                     <div className="p-5 bg-slate-50 border border-slate-200/80 rounded-xl text-xs text-slate-600 leading-relaxed">{activeProduct.desc}</div>

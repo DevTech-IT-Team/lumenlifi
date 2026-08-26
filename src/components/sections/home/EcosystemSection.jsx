@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Building2, Factory, Cpu, GraduationCap, Sparkles, ShieldCheck, Mail, Sliders } from 'lucide-react';
+import { ArrowRight, Building2, Check, Factory, GraduationCap, Server } from 'lucide-react';
 import corporateBoardroomImg from '../../../../public/images/hero/corporate.png';
 import manufacturingImg from '../../../../public/images/hero/manufacturing.png';
 import datacenterImg from '../../../../public/images/hero/data-centers.png';
@@ -11,127 +9,94 @@ import schoolImg from '../../../../public/images/hero/education.png';
 const sectors = [
   {
     id: 'corp',
-    title: 'Holographic Boardroom',
-    subtitle: 'Corporate Office Sectors',
+    tab: 'Holographic Boardroom',
     icon: Building2,
-    desc: 'Make office teamwork better with fast light hubs. Show smooth 3D presentations, share files instantly, and remove all messy internet cables from the building.',
+    sector: 'Corporate office sectors',
+    heading: 'Lumen for Holographic Boardroom',
+    desc: 'Make office teamwork better with fast light hubs. Show smooth 3D presentations, share files instantly, and remove messy internet cables from the building.',
+    feature: 'Private Walls Protection',
     img: corporateBoardroomImg,
-    metric: 'Private Walls Protection',
   },
   {
     id: 'factory',
-    title: 'Industrial Manufacturing Floors',
-    subtitle: 'Heavy Machinery Automation',
+    tab: 'Industrial Floors',
     icon: Factory,
-    desc: 'Keep factory robots running smoothly without any network problems. Light waves never get mixed up by big factory machines, sending data right where it needs to go.',
+    sector: 'Heavy machinery',
+    heading: 'Lumen for Industrial Floors',
+    desc: 'Keep factory robots running smoothly without network problems. Light waves never get mixed up by big machines, sending data right where it needs to go.',
+    feature: 'Zero radio interference',
     img: manufacturingImg,
-    metric: '0% Radio Interference',
   },
   {
     id: 'data',
-    title: 'Next-Gen Data Centers',
-    subtitle: 'Inter-Rack Optical Pipes',
-    icon: Cpu,
-    desc: 'Get rid of messy piles of internet cables by using fast beams of light between server racks. This keeps computer rooms cooler and makes them transfer files much faster.',
+    tab: 'Next-Gen Data Centers',
+    icon: Server,
+    sector: 'Optical between racks',
+    heading: 'Lumen for Next-Gen Data Centers',
+    desc: 'Replace piles of cables with beams of light between server racks. Computer rooms stay cooler and files move much faster.',
+    feature: 'Faster core links',
     img: datacenterImg,
-    metric: 'Fast Core Node Matrix',
   },
   {
     id: 'school',
-    title: 'Smart Schools & Campuses',
-    subtitle: 'High-Density Classroom Networks',
+    tab: 'Smart Campuses',
     icon: GraduationCap,
-    desc: 'Stop school internet from slowing down when all students go online at once. Every light bulb gives a direct connection straight down to each desk without any lag.',
+    sector: 'High-density classrooms',
+    heading: 'Lumen for Smart Campuses',
+    desc: 'Stop school internet from slowing down when every student goes online. Each light gives a direct connection down to the desk.',
+    feature: 'Lag-free classrooms',
     img: schoolImg,
-    metric: 'Safe and Lag-Free Link',
   },
 ];
 
 export default function EcosystemSection() {
-  const [activeTab, setActiveTab] = useState('corp');
-  const current = sectors.find((s) => s.id === activeTab) || sectors[0];
-
   return (
-    <section className="py-24 section-wash-primary border-t border-b border-[var(--lumen-border)]" id="shop">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold mb-4 section-wash-secondary border border-[var(--lumen-border)] text-[var(--lumen-blue)]">
-            🛒 Business Places
-          </div>
-          <h2 className="text-4xl font-black tracking-tight text-[var(--lumen-navy)]">Made for Businesses</h2>
-        </motion.div>
+    <section className="page-screen section-wash-white" id="shop">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
+        <h2 className="lumen-h2 mb-8 text-center sm:mb-10">Made for Businesses</h2>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {sectors.map((s) => {
             const Icon = s.icon;
-            const isActive = s.id === activeTab;
             return (
-              <button
+              <article
                 key={s.id}
-                onClick={() => setActiveTab(s.id)}
-                className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold font-mono tracking-wider transition-all border shadow-sm"
-                style={{
-                  background: isActive ? '#0D2240' : 'var(--lumen-surface)',
-                  color: isActive ? 'var(--lumen-cyan)' : 'var(--lumen-muted)',
-                  borderColor: isActive ? '#0D2240' : 'var(--lumen-border)',
-                }}
+                className="eco-card flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-[0_16px_50px_rgba(13,34,64,0.08)]"
               >
-                <Icon size={16} style={{ color: isActive ? 'var(--lumen-cyan)' : 'var(--lumen-blue)' }} />
-                {s.title}
-              </button>
+                <div className="relative aspect-[16/10] w-full shrink-0 bg-[#0A192F]">
+                  <Image
+                    src={s.img}
+                    alt={s.heading}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex min-h-0 flex-1 flex-col p-5">
+                  <p className="eco-card-kicker inline-flex items-start gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-[var(--lumen-blue)]">
+                    <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    {s.sector}
+                  </p>
+                  <h3 className="eco-card-title mt-3">{s.tab}</h3>
+                  <p className="eco-card-desc mt-3">{s.desc}</p>
+                  <div className="eco-card-chip mt-auto inline-flex items-center gap-2 self-start rounded-full bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-800">
+                    <Check className="h-3.5 w-3.5 shrink-0" />
+                    {s.feature}
+                  </div>
+                </div>
+              </article>
             );
           })}
         </div>
 
-        <div className="card-surface rounded-3xl p-6 lg:p-10 shadow-xl flex flex-col lg:flex-row gap-10 items-center">
-          <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--lumen-blue)] mb-2 block">
-              {current.subtitle}
-            </span>
-            <h3 className="text-3xl font-black text-[var(--lumen-navy)] tracking-tight mb-4">Lumen for {current.title}</h3>
-            <p className="text-sm sm:text-base leading-relaxed text-[var(--lumen-muted)] mb-8">{current.desc}</p>
-            <div className="inline-flex self-start px-4 py-2 rounded-xl text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/60">
-              ✓ Core Features: {current.metric}
-            </div>
-          </div>
-
-          <div className="w-full lg:w-1/2">
-            <div className="relative w-full aspect-video bg-[#0D2240] rounded-2xl overflow-hidden border border-[var(--lumen-border)]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.id}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative w-full h-full"
-                >
-                  <Image
-                    src={current.img}
-                    alt={current.title}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 1024px) 100vw, 600px"
-                    className="object-contain w-full h-full p-2"
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <Link
             href="/products"
-            className="glow-blue inline-flex items-center gap-2 h-12 px-8 rounded-2xl text-white font-bold text-sm transition-all hover:scale-[1.03] hover:shadow-xl"
-            style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+            className="inline-flex items-center gap-2 h-12 px-8 rounded-full text-white font-semibold text-sm bg-[linear-gradient(90deg,#1A6EBF_0%,#00C2C7_100%)]"
           >
-            View Production Catalog <ArrowRight size={16} />
+            View Production Catalog
+            <ArrowRight size={16} />
           </Link>
         </div>
       </div>

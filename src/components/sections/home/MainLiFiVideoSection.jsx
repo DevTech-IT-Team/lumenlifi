@@ -16,19 +16,14 @@ export default function MainLiFiVideoSection() {
   };
 
   return (
-    <section className="relative z-10 px-5 pb-24 sm:px-6 lg:px-8" aria-labelledby="main-lifi-video-title">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[760px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,194,199,0.12),transparent_68%)] blur-3xl" />
+    <section id="main-lifi-video" className="page-screen relative z-10 flex !py-5 section-wash-white" aria-labelledby="main-lifi-video-title">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[80vh] w-[90vw] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(0,194,199,0.1),transparent_68%)] blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-6xl">
-        <div className="relative w-full overflow-hidden rounded-3xl border border-[var(--lumen-border)] bg-[#0D2240] p-2 shadow-[0_24px_70px_rgba(13,34,64,0.15)]">
-          <div className="flex h-11 w-full items-center gap-2 rounded-t-2xl border-b border-white/5 bg-[#0A192F] px-4">
-            <div className="h-3 w-3 rounded-full bg-[#FF5F56]/80" />
-            <div className="h-3 w-3 rounded-full bg-[#FFBD2E]/80" />
-            <div className="h-3 w-3 rounded-full bg-[#27C93F]/80" />
-          </div>
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <div className="relative w-full overflow-hidden rounded-lg shadow-[0_24px_70px_rgba(13,34,64,0.15)]">
 
-          <div className="relative aspect-video w-full overflow-hidden rounded-b-2xl bg-[#020817]">
-            <img src="/images/hero/hero.png" alt="Lumen LiFi main video" className="block h-full w-full object-contain" />
+          <div className="relative aspect-video w-full overflow-hidden rounded-b-lg bg-[#020817]">
+            <img src="/images/hero/hero.png" alt="Lumen LiFi main video" className="block h-full w-full object-cover" />
             {/* <video
               ref={videoRef}
               autoPlay

@@ -12,7 +12,7 @@ const premiumShowcase = [
     desc: 'Normal Wi-Fi bounces waves around the house, which causes lag and ruins your games. LiFi sends a straight beam of light to your device so your moves happen instantly. It is faster than plugging a cable into the wall.',
     img: gamingImg,
     badge: 'Pure Light Connection',
-    accent: 'var(--lumen-blue)',
+    accent: 'var(--lumen-cyan)',
   },
   {
     title: 'Smooth 4K & 8K Streaming',
@@ -28,7 +28,7 @@ const premiumShowcase = [
     desc: "Too many smart devices can easily slow down normal Wi-Fi. With LiFi's massive speed, you can connect hundreds of smart gadgets in one room and your internet will never get slow.",
     img: infiniteDevicesImg,
     badge: 'No Signal Jams',
-    accent: 'var(--lumen-blue)',
+    accent: 'var(--lumen-cyan)',
   },
   {
     title: 'Hidden Network Hardware',
@@ -36,31 +36,31 @@ const premiumShowcase = [
     desc: 'Stop hiding ugly routers and big antennas behind your furniture. Our tech integrates the internet directly into your photonic antennas for a seamless, clutter-free connection.',
     img: invisibleInfraImg,
     badge: 'Clean Ceiling Build',
-    accent: 'var(--lumen-cyan)',
+    accent: 'var(--lumen-teal)',
   },
 ];
 
 export default function HomeFeaturesSection() {
   return (
-    <section className="py-24 section-wash-secondary">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="page-screen section-wash-navy home-features">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-20 text-center max-w-3xl mx-auto"
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-20"
         >
-          <h2 className="text-4xl font-black tracking-tight text-[var(--lumen-navy)] leading-tight">
+          <h2 className="lumen-h2-light text-center">
             WiFi connects your tech.
             <br />
-            <span className="text-gradient-lumen">LiFi connects your life!</span>
+            <span className="text-[var(--lumen-cyan)]">LiFi connects your life.</span>
           </h2>
-          <p className="text-sm md:text-base text-[var(--lumen-muted)] mt-4 font-mono font-bold uppercase tracking-widest text-[var(--lumen-blue)]">
+          <p className="lumen-body-sm-light mt-4 [word-spacing:0.45em]">
             Leave old radio waves behind and move at the speed of light.
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-12 sm:gap-24">
           {premiumShowcase.map((item, idx) => {
             const isEven = idx % 2 === 0;
             return (
@@ -73,7 +73,7 @@ export default function HomeFeaturesSection() {
                 className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10 lg:gap-16`}
               >
                 <div className="w-full lg:w-1/2">
-                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border bg-[#0D2240] border-[var(--lumen-border)] group">
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-[#0D2240] group">
                     <Image
                       src={item.img}
                       alt={item.title}
@@ -85,12 +85,12 @@ export default function HomeFeaturesSection() {
                   </div>
                 </div>
 
-                <div className="w-full lg:w-1/2 flex flex-col">
-                  <span className="text-xs font-mono font-bold tracking-widest uppercase mb-2" style={{ color: item.accent }}>
+                <div className="features-card-copy w-full lg:w-1/2 flex flex-col">
+                  <span className="features-card-kicker font-mono font-bold tracking-widest uppercase mb-2" style={{ color: item.accent }}>
                     {item.subtitle}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[var(--lumen-navy)] tracking-tight mb-4">{item.title}</h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-[var(--lumen-muted)]">{item.desc}</p>
+                  <h3 className="lumen-h3-light mb-4">{item.title}</h3>
+                  <p className="lumen-body-sm-light">{item.desc}</p>
                 </div>
               </motion.div>
             );

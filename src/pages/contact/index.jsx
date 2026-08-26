@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowRight, MessageSquare, Headphones, ShoppingBag, Handshake } from 'lucide-react';
+import { ArrowRight, Headphones, ShoppingBag, Handshake } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import { ContactFormBlock } from '../../components/sections/contact';
@@ -26,9 +26,44 @@ const TOPICS = [
   },
 ];
 
+function BackgroundPaths() {
+  const paths = Array.from({ length: 18 }, (_, i) => ({
+    id: i,
+    d: `M-${200 + i * 20} ${100 + i * 15} C ${200 + i * 30} ${300 - i * 10}, ${400 + i * 20} ${-50 + i * 20}, ${1200 + i * 30} ${200 + i * 15}`,
+    duration: 15 + (i % 5) * 3,
+    delay: (i % 4) * 0.5,
+  }));
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+      <svg
+        className="h-full min-h-[300px] w-full min-w-[1000px]"
+        viewBox="0 0 1200 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {paths.map((path) => (
+          <path
+            key={path.id}
+            d={path.d}
+            stroke="var(--lumen-cyan, #00bdc7)"
+            strokeWidth="1.2"
+            strokeOpacity="0.4"
+            className="animate-pulse"
+            style={{
+              animationDuration: `${path.duration}s`,
+              animationDelay: `${path.delay}s`,
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen lumen-page-bg-white text-slate-800 antialiased">
+    <div className="relative min-h-screen overflow-x-hidden lumen-page-bg-white text-slate-800 antialiased">
       <Head>
         <title>Lumen LIFI — Contact Us</title>
         <meta
@@ -41,41 +76,32 @@ export default function ContactPage() {
       <Header />
 
       <main className="relative z-10">
-        {/* Hero */}
-        <section className="relative pt-32 pb-16 overflow-hidden lumen-hero-wash">
-          <div className="absolute inset-0 lumen-grid-pattern-hero opacity-45 pointer-events-none z-0" />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[var(--lumen-border)] text-[var(--lumen-blue)] font-mono text-[10px] font-bold uppercase tracking-widest mb-6 shadow-sm">
-              <MessageSquare className="w-3 h-3" />
-              Contact Us
+        <section className="contact-hero section-wash-white relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-20">
+          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto mb-8 flex max-w-2xl flex-col items-center text-center sm:mb-12">
+              <span className="contact-hero-kicker">Contact</span>
+              <h1 className="contact-hero-title">
+                Let&apos;s <span>connect.</span>
+              </h1>
+              <p className="contact-hero-lead">
+                Exploring LiFi for your home, need help with an order, or want to partner with us — we&apos;d love to hear from you.
+              </p>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.15] mb-5 text-[var(--lumen-navy)] overflow-visible pb-1">
-              Let&apos;s{' '}
-              <span className="text-gradient-lumen">Connect</span>
-            </h1>
-            <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-[var(--lumen-muted)]">
-              Whether you&apos;re exploring LiFi for your home, need help with an order, or want to partner with us — we&apos;d love to hear from you.
-            </p>
-          </div>
-        </section>
 
-        {/* Topic cards */}
-        <section className="relative py-12 border-b border-[var(--lumen-border)]">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid w-full grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 md:items-stretch">
               {TOPICS.map(({ icon: Icon, title, desc, email }) => (
                 <a
                   key={title}
                   href={`mailto:${email}?subject=${encodeURIComponent(title)}`}
-                  className="group p-6 rounded-2xl bg-white border border-[var(--lumen-border)] hover:border-[var(--lumen-cyan)]/40 hover:shadow-md transition-all"
+                  className="group flex h-full flex-col rounded-lg border border-[var(--lumen-border)] bg-white p-5 sm:p-6 text-left transition-all hover:border-[var(--lumen-cyan)]/40 hover:shadow-md"
                 >
-                  <div className="p-2.5 rounded-xl bg-[rgba(26,110,191,0.06)] text-[var(--lumen-blue)] w-fit mb-4 group-hover:bg-[rgba(0,194,199,0.10)] group-hover:text-[var(--lumen-cyan)] transition-colors">
-                    <Icon className="w-5 h-5" />
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--lumen-cyan)]/30 text-[var(--lumen-cyan)] transition-colors group-hover:border-[var(--lumen-cyan)]">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h2 className="text-base font-bold text-[var(--lumen-navy)] mb-2">{title}</h2>
-                  <p className="text-sm text-[var(--lumen-muted)] leading-relaxed mb-3">{desc}</p>
-                  <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[var(--lumen-blue)] group-hover:gap-2 transition-all">
-                    Email us <ArrowRight className="w-3 h-3" />
+                  <h2 className="contact-hero-card-title">{title}</h2>
+                  <p className="contact-hero-card-text">{desc}</p>
+                  <span className="mt-auto inline-flex items-center gap-1 pt-5 text-xs font-semibold uppercase tracking-wider text-[var(--lumen-blue)] transition-all group-hover:gap-2">
+                    Email us <ArrowRight className="h-3 w-3" />
                   </span>
                 </a>
               ))}
@@ -84,30 +110,30 @@ export default function ContactPage() {
         </section>
 
         {/* Form */}
-        <section id="contact-form" className="relative py-16 sm:py-20">
-          <div className="max-w-7xl mx-auto px-6">
+        <section id="contact-form" className="relative section-wash-navy py-12 sm:py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <ContactFormBlock />
           </div>
         </section>
 
-        {/* FAQ strip */}
-        <section className="relative py-12 bg-[rgba(26,110,191,0.03)] border-t border-[var(--lumen-border)]">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-sm text-[var(--lumen-muted)] leading-relaxed">
+        <section className="relative flex items-center justify-center overflow-hidden border-t border-[var(--lumen-border)]/20 py-16 sm:py-20 section-wash-navy">
+          <BackgroundPaths />
+          <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
+            <p className="lumen-body-sm-light text-base leading-relaxed sm:text-lg">
               Looking for policy details? Read our{' '}
-              <Link href="/privacy" className="text-[var(--lumen-blue)] font-semibold hover:underline">
+              <Link href="/privacy" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
                 Privacy Policy
               </Link>{' '}
               and{' '}
-              <Link href="/terms" className="text-[var(--lumen-blue)] font-semibold hover:underline">
+              <Link href="/terms" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
                 Terms &amp; Conditions
               </Link>
               . For product info, visit the{' '}
-              <Link href="/products" className="text-[var(--lumen-blue)] font-semibold hover:underline">
+              <Link href="/products" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
                 Products
               </Link>{' '}
               page or{' '}
-              <Link href="/what-is-lifi" className="text-[var(--lumen-blue)] font-semibold hover:underline">
+              <Link href="/what-is-lifi" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
                 What is LiFi?
               </Link>
             </p>

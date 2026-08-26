@@ -23,6 +23,8 @@ import {
   Gauge,
   Sparkles,
   Sliders,
+  Check,
+  Router,
   Star,
   Globe,
   Shield,
@@ -114,7 +116,7 @@ export default function WhatIsLiFiPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[var(--lumen-navy)] selection:bg-cyan-500/20">
+    <div className="flex min-h-screen flex-col overflow-x-clip antialiased font-sans lumen-page-bg text-[var(--lumen-navy)] selection:bg-cyan-500/20">
       <Head>
         <title>What is LiFi? Technology & Applications — Lumen LiFi</title>
         <meta name="description" content="Discover LiFi technology: a fast, reliable, and secure mobile wireless communications technology that uses light waves rather than radio frequencies to transmit data." />
@@ -124,7 +126,7 @@ export default function WhatIsLiFiPage() {
       <main className="flex-grow">
 
         {/* 1. HERO SHOWCASE SECTION */}
-        <section className="relative w-full pt-32 pb-20 overflow-hidden bg-white">
+        <section className="page-screen-top relative w-full overflow-hidden bg-white">
           <div className="absolute inset-0 pointer-events-none z-0">
             <div className="absolute top-0 left-1/4 w-[600px] h-[500px] rounded-full blur-[140px] opacity-60 dark:opacity-40"
               style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.18) 0%, transparent 75%)' }} />
@@ -133,7 +135,7 @@ export default function WhatIsLiFiPage() {
             <div className="absolute inset-0 lumen-grid-pattern-hero opacity-45" />
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
+          <div className="relative z-10 mx-auto mb-10 flex max-w-5xl flex-col items-center px-4 text-center sm:mb-16 sm:px-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-mono font-bold shadow-sm bg-[rgba(26,110,191,0.06)] border border-[var(--lumen-border)] text-[#1A6EBF]">
               <span className="w-2 h-2 rounded-full animate-pulse inline-block bg-[var(--lumen-cyan)]" />
               <AnimatePresence mode="wait">
@@ -143,26 +145,21 @@ export default function WhatIsLiFiPage() {
               </AnimatePresence>
             </div>
 
-            <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 max-w-4xl text-[#0D2240]">
+            <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible" className="page-hero-heading lumen-display mb-6 max-w-4xl">
               Wireless Data at the{' '}
               <span className="text-gradient-lumen bg-clip-text text-transparent bg-gradient-to-r from-[#1A6EBF] to-[#00C2C7]">
                 Speed of Light
               </span>
             </motion.h1>
 
-            <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
+            <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible" className="lumen-lead max-w-2xl mb-8">
               LiFi holds the key to solving challenges faced by WiFi and 5G networks. It is fast, highly reliable, virtually interference-free, and uniquely secure.
             </motion.p>
           </div>
 
-          <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible" className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative w-full rounded-3xl overflow-hidden shadow-[0_24px_70px_rgba(13,34,64,0.15)] border bg-[#0D2240] border-[var(--lumen-border)] p-2">
-              <div className="w-full h-11 bg-[#0A192F] flex items-center px-4 gap-2 border-b border-white/5 rounded-t-2xl">
-                <div className="w-3 h-3 rounded-full bg-[#FF5F56]/80" />
-                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
-                <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
-              </div>
-              <div className="relative w-full overflow-hidden rounded-b-2xl bg-slate-900">
+          <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible" className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-5">
+            <div className="relative w-full overflow-hidden rounded-lg shadow-[0_24px_70px_rgba(13,34,64,0.15)]">
+              <div className="relative aspect-video w-full overflow-hidden bg-[#020817]">
                 <NetworkSimulatorExperiment embedded />
               </div>
             </div>
@@ -170,107 +167,74 @@ export default function WhatIsLiFiPage() {
         </section>
 
 
-        {/* 2. OPERATIONAL OVERVIEW SECTION (WITH EMBEDDED SIMULATOR ARRAY) */}
-        <section className="relative overflow-hidden border-y border-white/10 bg-[#071b34] py-24 sm:py-28">
-          <div className="pointer-events-none absolute inset-0 z-0 select-none">
-            <div
-              className="absolute inset-0 opacity-[0.16]"
-              style={{
-                backgroundImage: 'radial-gradient(rgba(0,194,199,0.8) 1px, transparent 1px)',
-                backgroundSize: '34px 34px',
-                maskImage: 'linear-gradient(to right, black, transparent 75%)',
-              }}
-            />
-            <div className="absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#1A6EBF]/15 blur-[150px]" />
-            <div className="absolute -right-32 top-1/3 h-[520px] w-[520px] rounded-full bg-[#00C2C7]/10 blur-[140px]" />
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00C2C7]/60 to-transparent" />
-          </div>
-
-          <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20">
-              <div className="lg:col-span-7">
-                
-
-                <h2 className="mt-6 max-w-3xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-white sm:text-5xl lg:text-6xl">
-                  The internet you know,{' '}
-                  <span className="bg-gradient-to-r from-[#38bdf8] via-[#00C2C7] to-[#5eead4] bg-clip-text text-transparent">
-                    delivered through light.
-                  </span>
+        <section className="lifi-features-ui relative overflow-hidden pt-24 pb-16">
+          <div className="relative z-10 mx-auto max-w-[1280px]">
+            <div className="relative z-10 flex flex-col items-center gap-10 text-center">
+              <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
+                <span className="lifi-features-kicker">The internet you know</span>
+                <h2 className="lifi-features-title">
+                  Delivered through <span>Light.</span>
                 </h2>
-
-                <p className="mt-6 max-w-2xl text-base leading-8 text-blue-100/75 sm:text-lg">
-                  LiFi is a wireless communication technology that carries data through rapid, invisible changes in light. Your devices connect just like WiFi—but with greater speed, privacy, and freedom from radio interference.
+                <p className="lifi-features-lead">
+                  LiFi is a wireless communication technology that carries data through rapid, invisible changes
+                  in light. Your devices connect just like WiFi—but with greater speed, privacy, and freedom from
+                  radio interference.
                 </p>
+              </div>
 
-                <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              <div className="relative mx-auto mt-4 w-full max-w-5xl">
+                <div className="lifi-features-cone pointer-events-none absolute -top-10 left-1/2 h-[120%] w-[80%] -translate-x-1/2 -z-10 opacity-40" />
+                <div className="grid grid-cols-1 justify-center gap-6 md:grid-cols-3">
                   {[
-                    { number: '01', icon: Lightbulb, title: 'Light transmits', text: 'An LED sends data at imperceptible speed.' },
-                    { number: '02', icon: Network, title: 'Receiver decodes', text: 'A LiFi receiver converts light into data.' },
-                    { number: '03', icon: Zap, title: 'Devices connect', text: 'Your internet responds with near-zero delay.' },
-                  ].map(({ number, icon: StepIcon, title, text }) => (
-                    <div
-                      key={number}
-                      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.07]"
-                    >
-                      <div className="mb-5 flex items-center justify-between">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10 text-cyan-300">
-                          <StepIcon size={18} aria-hidden="true" />
+                    {
+                      number: '01',
+                      icon: Lightbulb,
+                      title: 'Light transmits',
+                      text: 'An LED sends data at imperceptible speed.',
+                      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAY7OCfB-1lfibyWmZifYKKpGwpvfyyQVtYxWvp7_nDd2CPX9QkvOsqfp4Pt2mN7-orajFcKa1g9JRIdmk9XYbs3xkeRVTOfX4XIIVKhohFnxGoAb23SVqPpoRNoCwXEJH-kW9iapsGyhGt9ygYBiBjVK6-BPJgwGZ3slsgarn2VTLK1Kd6TX94CIXYQudq91wCLdrbwus5-XByxN-MJhqhypVgswdpTS_QsqnmScKY-TpSWyy32m9JsQ',
+                      object: 'object-left',
+                    },
+                    {
+                      number: '02',
+                      icon: Router,
+                      title: 'Receiver decodes',
+                      text: 'A LiFi receiver converts light into data.',
+                      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGzCjupHuwTNGQG9ZS2AKiLrkveaqaqjgYP3RPCEVr0T9IbTJ0D-YevnkayC5JDA5oGNifXIGaTNQIp4XktsahS-MY9GtmOn-nXU3blaNwQeIeD8ruRAf3Zbq7ywyb52R-FDRDdjisL-i-6Y-bWLNTWlp1LNqcsGiYmCtthoIuwrziqB7x6BNhGYaOJ1fFa3UzcbNnn0R0dWWxKrp3V64QYKyNoL35p9g1100I0ESNNtz8jtq7XJZzeA',
+                      object: 'object-center',
+                    },
+                    {
+                      number: '03',
+                      icon: Zap,
+                      title: 'Devices connect',
+                      text: 'Your internet responds with near-zero delay.',
+                      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQoAke4Ij3HnQf5wuU3EqHlL5-tqaLtSnDvdD1e5J4ErtRw6kGYqmfbCOL_A6okvp0B9-toldED8PWZ0Nvt5HFQ7Rl3QyouhTVpncxkTMmoJ5eAeCcPlXkqPiTotjrDFcDc-JEYp8gLy8fbRAm0xS2DsZRrDMmstydZD-Y32Qi_8HlLHkTE3hTT76OCkfCYt8Ldh8_mNAqghdVOueA8iY2u53LPlJtii62mnIdVHZJhT_bfH2yrQtVnw',
+                      object: 'object-right',
+                    },
+                  ].map(({ number, icon: StepIcon, title, text, img, object }) => (
+                    <div key={number} className="lifi-features-card group relative w-full text-left">
+                      <div className="lifi-features-card-inner relative flex w-full flex-col p-8">
+                        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-20">
+                          <img src={img} alt="" className={`h-full w-full object-cover ${object}`} />
                         </div>
-                        <span className="font-mono text-[10px] font-bold tracking-[0.18em] text-white/30">{number}</span>
+                        <div className="lifi-features-num absolute right-4 top-4">{number}</div>
+                        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-[#44d9e4]/30 text-[#44d9e4] transition-colors group-hover:border-[#44d9e4]">
+                          <StepIcon size={22} strokeWidth={1.75} fill="currentColor" />
+                        </div>
+                        <h3 className="lifi-features-card-title">{title}</h3>
+                        <p className="lifi-features-card-text">{text}</p>
                       </div>
-                      <h3 className="text-sm font-bold text-white">{title}</h3>
-                      <p className="mt-2 text-xs leading-relaxed text-blue-100/60">{text}</p>
                     </div>
-                  ))}
-                </div>
-
-                <div className="mt-7 flex flex-wrap gap-3">
-                  {['No radio frequencies', 'Room-level privacy', 'High-density ready'].map((benefit) => (
-                    <span
-                      key={benefit}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0A192F]/70 px-3.5 py-2 text-[11px] font-semibold text-blue-100/75"
-                    >
-                      <span className="text-[#00C2C7]">✓</span>
-                      {benefit}
-                    </span>
                   ))}
                 </div>
               </div>
 
-              <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00C2C7]/20 blur-[80px]" />
-                <div className="relative w-full max-w-[350px]">
-                  <div className="relative overflow-hidden rounded-[28px] border border-cyan-300/30 bg-[#061022] p-2 shadow-[0_35px_90px_rgba(0,0,0,0.45),0_0_50px_rgba(0,194,199,0.12)]">
-                    <div className="flex h-9 items-center justify-between px-2 pb-2">
-                      <div className="flex gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]/80" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/80" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]/80" />
-                      </div>
-                      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-cyan-300/70">
-                        LiFi explained
-                      </span>
-                    </div>
-
-                    <div className="relative aspect-[9/16] overflow-hidden rounded-[20px] bg-[#020817]">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        controls
-                        preload="metadata"
-                        className="h-full w-full object-cover"
-                        aria-label="Explanation of how LiFi technology works"
-                      >
-                        <source src="/videos/lifi explain.mp4" type="video/mp4" />
-                        Your browser does not support HTML video.
-                      </video>
-                      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#020817]/50 to-transparent" />
-                    
-                    </div>
+              <div className="mt-8 flex w-full flex-wrap justify-center gap-3">
+                {['No radio frequencies', 'Room-level privacy', 'High-density ready'].map((benefit) => (
+                  <div key={benefit} className="lifi-features-chip">
+                    <Check size={14} className="text-[#44d9e4]" strokeWidth={2.5} />
+                    {benefit}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -278,8 +242,8 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 3. CORE MATRIX SHOWCASE (Matches Section Wash Primary / Secondary Alternation Layout) */}
-        <section className="relative overflow-hidden py-24 bg-white">
-          <div className="relative z-10 max-w-6xl mx-auto px-6 space-y-24">
+        <section className="page-screen relative overflow-hidden bg-white">
+          <div className="relative z-10 mx-auto max-w-6xl space-y-16 px-4 sm:space-y-24 sm:px-6">
 
             {/* Row A: Military-Grade Security */}
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
@@ -298,8 +262,8 @@ export default function WhatIsLiFiPage() {
 
               <div className="w-full lg:w-1/2 flex flex-col space-y-4 order-1 lg:order-2">
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-[var(--lumen-blue)]">Digital Privacy Vault</span>
-                <h3 className="text-3xl font-black text-[#0D2240] tracking-tight">Military Grade Security</h3>
-                <p className="text-sm sm:text-base leading-relaxed text-[#4A6080]">
+                <h3 className="lumen-h2">Military Grade Security</h3>
+                <p className="lumen-body-sm">
                   LiFi wireless communications provide native physical isolation by default. Light does not penetrate walls or leak through materials like canvas or curtains. This effectively eliminates interception loops and man-in-the-middle exploits completely outside the room footprint.
                 </p>
                 <div className="inline-flex self-start px-4 py-2 rounded-xl text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/60">
@@ -328,8 +292,8 @@ export default function WhatIsLiFiPage() {
 
               <div className="w-full lg:w-1/2 flex flex-col space-y-4">
                 <span className="text-xs font-mono font-bold tracking-widest uppercase text-[var(--lumen-cyan)]">Unthrottled Throughput</span>
-                <h3 className="text-3xl font-black text-[#0D2240] tracking-tight">Real World Performance</h3>
-                <p className="text-sm sm:text-base leading-relaxed text-[#4A6080]">
+                <h3 className="lumen-h2">Real World Performance</h3>
+                <p className="lumen-body-sm">
                   Radio frequency (RF) paths suffer from localized degradation, signal absorption, and multi-user throttling. LiFi overcomes these constraints completely by delivering consistent high-bandwidth streams that remain entirely unaffected by surrounding electronic ambient noise.
                 </p>
                 <div className="inline-flex self-start px-4 py-2 rounded-xl text-xs font-mono font-bold text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/30 border border-cyan-100 dark:border-cyan-900/60">
@@ -344,35 +308,25 @@ export default function WhatIsLiFiPage() {
 
         {/* 4. PERFORMANCE PILLARS GRID */}
         <section
-          className="relative py-32 bg-[#0D2240] overflow-hidden border-t border-b border-white/10 transition-all duration-300"
+          className="page-screen section-wash-navy relative overflow-hidden border-t border-b border-white/10 transition-all duration-300"
           id="technology-benefits"
         >
-          {/* Background Glows (Option B - Radial Glow) */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
             <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#0095ff]/10 rounded-full blur-[140px] z-0" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#7DF9FF]/5 rounded-full blur-[120px] z-0" />
           </div>
 
-          {/* Background Faint Network Grid (Option C - 3% Opacity) */}
-          <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 select-none"
-            style={{
-              backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0)`,
-              backgroundSize: '24px 24px'
-            }}
-          />
-
-          <div className="relative max-w-7xl mx-auto px-6 z-10 flex flex-col items-center">
+          <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-4 sm:px-6">
 
             {/* Header Section */}
             <div className="text-center max-w-[700px] mx-auto mb-20 relative z-20 w-full flex flex-col items-center">
               {/* Premium Typography Header */}
-              <h2 className="text-5xl md:text-[72px] font-extrabold tracking-[-2px] leading-[1.1] bg-gradient-to-b from-[#FFFFFF] via-[#7DD3FC] to-[#00E5FF] bg-clip-text text-transparent drop-shadow-md mb-6 pb-2">
+              <h2 className="lumen-display-light bg-gradient-to-b from-[#FFFFFF] via-[#7DD3FC] to-[#00E5FF] bg-clip-text text-transparent drop-shadow-md mb-6 pb-2">
                 Why LiFi <br /> Changes Everything
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[18px] text-white/70 font-medium leading-relaxed max-w-[650px]">
+              <p className="lumen-lead-light max-w-[650px]">
                 LiFi transmits data using light instead of radio waves, delivering unmatched speed, security, and reliability.
               </p>
             </div>
@@ -383,20 +337,20 @@ export default function WhatIsLiFiPage() {
               {/* Left Metrics Stack */}
               <div className="flex flex-col gap-6 order-2 lg:order-1">
                 {/* Card 1: Speed */}
-                <div className="group relative rounded-[20px] bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
+                <div className="group relative rounded-lg bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
                   <div className="text-white/80 group-hover:text-[#00D4FF] transition-colors mb-3">
                     <Zap size={24} className="stroke-[2]" />
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight">224 Gbps</div>
+                  <div className="lumen-stat text-white">224 Gbps</div>
                   <div className="text-xs font-bold text-[#7DF9FF] uppercase tracking-wider mt-1">Peak Speed</div>
                 </div>
 
                 {/* Card 2: Security */}
-                <div className="group relative rounded-[20px] bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
+                <div className="group relative rounded-lg bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
                   <div className="text-white/80 group-hover:text-[#00D4FF] transition-colors mb-3">
                     <Shield size={24} className="stroke-[2]" />
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight">100%</div>
+                  <div className="lumen-stat text-white">100%</div>
                   <div className="text-xs font-bold text-[#7DF9FF] uppercase tracking-wider mt-1">Light Contained / Secure</div>
                 </div>
               </div>
@@ -404,7 +358,7 @@ export default function WhatIsLiFiPage() {
               {/* Center Illustration Container (Strict Sizing: 780px Max) */}
               <div className="lg:col-span-2 flex justify-center items-center order-1 lg:order-2 px-2 w-full">
                 <div
-                  className="relative w-full max-w-[780px] rounded-[28px] border border-white/[0.12] bg-slate-950/20 p-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#00D4FF]/30"
+                  className="relative w-full max-w-[780px] rounded-lg border border-white/[0.12] bg-slate-950/20 p-2 overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#00D4FF]/30"
                   style={{
                     boxShadow: '0 0 80px rgba(0,170,255,0.15)',
                   }}
@@ -422,7 +376,7 @@ export default function WhatIsLiFiPage() {
                     height={559}
                     loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 780px"
-                    className="w-full h-auto object-contain rounded-[24px]"
+                    className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
               </div>
@@ -430,20 +384,20 @@ export default function WhatIsLiFiPage() {
               {/* Right Metrics Stack */}
               <div className="flex flex-col gap-6 order-3">
                 {/* Card 3: Spectrum */}
-                <div className="group relative rounded-[20px] bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
+                <div className="group relative rounded-lg bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
                   <div className="text-white/80 group-hover:text-[#00D4FF] transition-colors mb-3">
                     <Radio size={24} className="stroke-[2]" />
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight">1000×</div>
+                  <div className="lumen-stat text-white">1000×</div>
                   <div className="text-xs font-bold text-[#7DF9FF] uppercase tracking-wider mt-1">More Spectrum</div>
                 </div>
 
                 {/* Card 4: Zero RF */}
-                <div className="group relative rounded-[20px] bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
+                <div className="group relative rounded-lg bg-white/[0.04] backdrop-blur-[20px] border border-white/[0.12] p-6 shadow-xl transition-all duration-300 hover:border-[#00D4FF]/40 hover:-translate-y-1">
                   <div className="text-white/80 group-hover:text-[#00D4FF] transition-colors mb-3">
                     <Globe size={24} className="stroke-[2]" />
                   </div>
-                  <div className="text-3xl font-black text-white tracking-tight">Zero RF</div>
+                  <div className="lumen-stat text-white">Zero RF</div>
                   <div className="text-xs font-bold text-[#7DF9FF] uppercase tracking-wider mt-1">Sustainable Tech</div>
                 </div>
 
@@ -478,7 +432,7 @@ export default function WhatIsLiFiPage() {
 
 
         {/* 6. CALL TO ACTION: PREMIUM NEWSLETTER UPGRADE */}
-        <section className="py-28 relative overflow-hidden bg-white" id="cta-final">
+        <section className="page-screen relative overflow-hidden bg-white" id="cta-final">
           <div className="absolute inset-0 pointer-events-none z-0"><Image src={ctaImg} filter="brightness(20%)" alt="cta" fill loading="lazy" />
             <div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
@@ -490,68 +444,20 @@ export default function WhatIsLiFiPage() {
             />
           </div>
 
-          <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 35, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
+              <div className="rounded-lg p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
                 <div
                   className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
                   style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.12) 0%, transparent 50%)' }}
                 />
 
-                <div className="relative z-10 text-center max-w-3xl mx-auto">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]" style={{ color: "#FFFFFF" }}>
-                    Step out of the radio age.<br />
-
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C2C7] via-[#0FB89A] to-[#00C2C7] bg-[size:200%_auto] animate-pulse" style={{ animationDuration: '4s' }}>
-                      Live at the speed of light.
-                    </span>
-                  </h2>
-
-                  <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-12 max-w-xl mx-auto font-medium leading-relaxed">
-                    Upgrade your environment's footprint to the ultimate benchmark in light wave hardware wireless throughput. Secure, radiant, instantaneous.
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
-                    <Link
-                      href="/products"
-                      className="glow-cyan inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-2xl text-[#0D2240] font-black text-sm tracking-wider transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_30px_rgba(0,194,199,0.4)] w-full sm:w-auto"
-                      style={{ background: 'linear-gradient(135deg, #00C2C7 0%, #0FB89A 100%)' }}
-                    >
-                      Explore Home Kits
-                      <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}>
-                        <ArrowRight size={16} />
-                      </motion.span>
-                    </Link>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl font-bold text-sm tracking-wider border-2 border-white/10 text-white hover:border-white/40 hover:bg-white/5 bg-transparent transition-all duration-300 w-full sm:w-auto"
-                    >
-                      Request a Demo
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
-                    {[
-                      { icon: Sparkles, label: '10 Gbps Active Ready' },
-                      { icon: ShieldCheck, label: 'Military-Grade Security' },
-                      { icon: Sliders, label: 'Zero Router Congestion' },
-                    ].map((feat, fIdx) => {
-                      const FeatIcon = feat.icon;
-                      return (
-                        <div key={fIdx} className="flex sm:flex-col items-center gap-3 sm:gap-1.5 justify-start sm:justify-center">
-                          <FeatIcon size={14} className="text-[var(--lumen-cyan)] shrink-0" />
-                          <span className="text-xs font-mono font-medium tracking-wide text-blue-200/60 uppercase">{feat.label}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                
               </div>
             </motion.div>
           </div>

@@ -12,7 +12,7 @@ const EMAIL = 'operations@lumenlifi.com';
 
 export default function TermsAndConditions() {
   return (
-    <div className="relative overflow-hidden min-h-screen lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+    <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
         <title>Lumen LIFI — Terms &amp; Conditions</title>
         <meta
@@ -24,7 +24,7 @@ export default function TermsAndConditions() {
       <div className="relative z-10">
         <Header />
 
-        <main className="pt-32 pb-24 max-w-4xl mx-auto px-6 font-sans">
+        <main className="mx-auto min-h-0 max-w-4xl px-4 pb-16 pt-28 font-sans sm:min-h-[100svh] sm:px-6 sm:pb-24 sm:pt-32">
           <Link
             href="/"
             className="inline-flex items-center gap-2 font-mono text-xs text-slate-400 hover:text-emerald-600 transition-colors mb-12 font-bold group"
@@ -37,11 +37,11 @@ export default function TermsAndConditions() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-600 font-mono text-[10px] font-bold uppercase">
               <Scale className="w-3.5 h-3.5" /> Institutional Service Charter
             </div>
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">Terms &amp; Conditions</h1>
+            <h1 className="lumen-h1">Terms &amp; Conditions</h1>
             <p className="text-sm text-slate-400 font-mono">Effective Date: June 17, 2026</p>
           </div>
 
-          <div className="prose prose-slate max-w-none text-xs sm:text-sm leading-relaxed space-y-6 text-slate-600">
+          <div className="lumen-prose">
             <p>
               These Terms &amp; Conditions (&quot;Terms&quot;) govern your access to and use of the website at{' '}
               <a href={`https://${WEBSITE}`} className="text-emerald-600 hover:underline">
@@ -53,16 +53,16 @@ export default function TermsAndConditions() {
             </p>
 
             <div className="p-4 bg-slate-50 border border-slate-200/60 rounded-xl space-y-2">
-              <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <h3 className="flex items-center gap-2">
                 <FileText className="w-3.5 h-3.5 text-slate-700" /> Agreement
               </h3>
-              <p className="text-xs text-slate-500">
+              <p>
                 Please read these Terms carefully before using our services. If you do not agree to these Terms,
                 you may not access or use our website or purchase our products.
               </p>
             </div>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               1. Services &amp; Products
             </h3>
             <p>
@@ -72,7 +72,7 @@ export default function TermsAndConditions() {
               prior notice.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               2. Eligibility
             </h3>
             <p>
@@ -80,7 +80,7 @@ export default function TermsAndConditions() {
               use our services. By using our services, you represent and warrant that you meet these requirements.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               3. Account Registration
             </h3>
             <p>
@@ -89,7 +89,7 @@ export default function TermsAndConditions() {
               You agree to provide accurate, current, and complete information and to update it as necessary.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               4. Pricing &amp; Payment
             </h3>
             <p>
@@ -106,7 +106,7 @@ export default function TermsAndConditions() {
               Failed payments may result in suspension of service until the outstanding balance is resolved.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               5. Subscriptions &amp; Billing
             </h3>
             <p>
@@ -123,7 +123,7 @@ export default function TermsAndConditions() {
               provided for unused portions of a billing period unless required by law.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               6. Shipping &amp; Delivery
             </h3>
             <p>
@@ -137,7 +137,7 @@ export default function TermsAndConditions() {
             </p>
 
             {/* ── UPDATED SECTION 7: NON-REFUNDABLE POLICY ── */}
-            <h3 id="refund-policy" className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3 id="refund-policy">
               7. Non-Refundable Policy
             </h3>
             <p>
@@ -147,7 +147,7 @@ export default function TermsAndConditions() {
               Once an order is confirmed or a subscription renewal period commences, no transactions can be reversed or cancelled for cash returns, dynamic store credit variations, or balance evaluations. Exceptional cases involving validated system performance anomalies during target rollouts remain bound strictly to individual evaluation metrics managed entirely at the technical choice of {COMPANY}.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               8. Hardware Ownership &amp; Warranty
             </h3>
             <p>
@@ -157,11 +157,11 @@ export default function TermsAndConditions() {
               warranty does not cover damage caused by misuse, unauthorized modification, or normal wear.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               9. Acceptable Use
             </h3>
             <p>You agree not to:</p>
-            <ul className="list-disc pl-5 space-y-1">
+            <ul>
               <li>Use our services for any unlawful purpose or in violation of any applicable laws.</li>
               <li>Interfere with or disrupt the integrity or performance of our network or services.</li>
               <li>Attempt to gain unauthorized access to our systems, networks, or other users&apos; accounts.</li>
@@ -169,7 +169,7 @@ export default function TermsAndConditions() {
               <li>Resell or redistribute our services without prior written authorization.</li>
             </ul>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               10. Service Availability &amp; Limitations
             </h3>
             <p>
@@ -179,7 +179,7 @@ export default function TermsAndConditions() {
               reasonable control.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               11. Intellectual Property
             </h3>
             <p>
@@ -188,7 +188,7 @@ export default function TermsAndConditions() {
               copy, modify, distribute, or create derivative works without our prior written consent.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               12. Limitation of Liability
             </h3>
             <p>
@@ -202,7 +202,7 @@ export default function TermsAndConditions() {
               exceed the amount you paid to us in the twelve (12) months preceding the claim.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               13. Indemnification
             </h3>
             <p>
@@ -211,7 +211,7 @@ export default function TermsAndConditions() {
               services.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               14. Governing Law &amp; Dispute Resolution
             </h3>
             <p>
@@ -224,7 +224,7 @@ export default function TermsAndConditions() {
               to attempt informal resolution.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               15. Changes to These Terms
             </h3>
             <p>
@@ -233,7 +233,7 @@ export default function TermsAndConditions() {
               services after changes constitutes acceptance of the revised Terms.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               16. Contact Information
             </h3>
             <p>For questions about these Terms, billing, refunds, or cancellations, contact:</p>

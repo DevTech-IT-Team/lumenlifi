@@ -1,100 +1,92 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, ShieldCheck, Mail, Sliders } from 'lucide-react';
-import ctaImg from '../../../../public/images/hero/cta.png';
+import { ArrowRight } from 'lucide-react';
+
+function BackgroundPaths() {
+  const paths = Array.from({ length: 18 }, (_, i) => ({
+    id: i,
+    d: `M-${200 + i * 20} ${100 + i * 15} C ${200 + i * 30} ${300 - i * 10}, ${400 + i * 20} ${-50 + i * 20}, ${1200 + i * 30} ${200 + i * 15}`,
+    duration: 15 + (i % 5) * 3,
+    delay: (i % 4) * 0.5,
+  }));
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+      <svg
+        className="h-full min-h-[300px] w-full min-w-[1000px]"
+        viewBox="0 0 1200 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {paths.map((path) => (
+          <path
+            key={path.id}
+            d={path.d}
+            stroke="var(--lumen-cyan, #00C2C7)"
+            strokeWidth="1.2"
+            strokeOpacity="0.4"
+            className="animate-pulse"
+            style={{
+              animationDuration: `${path.duration}s`,
+              animationDelay: `${path.delay}s`,
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 export default function FinalCTASection() {
   return (
-    <section className="py-28 relative overflow-hidden section-wash-primary" id="cta-final">
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <Image src={ctaImg} alt="cta" fill loading="lazy" />
-        <div
-          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[140px] opacity-40"
-          style={{ background: 'radial-gradient(circle, var(--lumen-cyan) 0%, transparent 75%)' }}
-        />
-        <div
-          className="absolute -bottom-36 left-1/3 w-[500px] h-[350px] rounded-full blur-[120px] opacity-30"
-          style={{ background: 'radial-gradient(circle, rgba(26,110,191,0.2) 0%, transparent 75%)' }}
-        />
-      </div>
+    <section
+      className="cta-banner page-screen relative w-full overflow-hidden"
+      id="cta-final"
+      style={{
+        background:
+          'radial-gradient(ellipse 80% 90% at 85% 20%, rgba(0,194,199,0.22), transparent 55%), radial-gradient(ellipse 70% 80% at 10% 90%, rgba(13,34,64,0.9), transparent 50%), #071820',
+      }}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-50"
+        style={{
+          backgroundImage: 'var(--lumen-grid-image-dark)',
+          backgroundSize: 'var(--lumen-grid-size) var(--lumen-grid-size)',
+        }}
+      />
+      <BackgroundPaths />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center">
         <motion.div
-          initial={{ opacity: 0, y: 35, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl text-left"
         >
-          <div className="rounded-[2.5rem] p-10 sm:p-14 md:p-20 relative overflow-hidden section-wash-navy shadow-[0_32px_80px_rgba(13,34,64,0.3)] border border-white/5 group">
-            <div
-              className="absolute inset-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-80"
-              style={{ background: 'radial-gradient(circle at 50% 10%, rgba(0,194,199,0.12) 0%, transparent 50%)' }}
-            />
-
-            <div className="relative z-10 text-center max-w-3xl mx-auto">
-              <h2 className="!text-white text-4xl sm:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-[1.05]">
-                Leave old radio waves behind.
-                <br />
-                <span
-                  className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C2C7] via-[#0FB89A] to-[#00C2C7] bg-[size:200%_auto] animate-pulse"
-                  style={{ animationDuration: '4s' }}
-                >
-                  Live at the speed of light.
-                </span>
-              </h2>
-
-              <p className="text-blue-100/80 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto font-medium leading-relaxed">
-                Upgrade your home or office to the fastest and safest internet ever made. It is clean, private, and works instantly.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                <Link
-                  href="/what-is-lifi"
-                  className="glow-cyan inline-flex items-center justify-center gap-2.5 h-14 px-10 rounded-2xl text-[#0D2240] font-black text-sm tracking-wider transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_30px_rgba(0,194,199,0.4)] w-full sm:w-auto"
-                  style={{ background: 'linear-gradient(135deg, #00C2C7 0%, #0FB89A 100%)' }}
-                >
-                  What is LiFi?
-                  <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}>
-                    <ArrowRight size={16} />
-                  </motion.span>
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl font-bold text-sm tracking-wider border-2 border-white/10 text-white hover:border-white/40 hover:bg-white/5 bg-transparent transition-all duration-300 w-full sm:w-auto"
-                >
-                  Request a Demo
-                </Link>
-              </div>
-
-              <div className="mb-12 flex items-center justify-center gap-2 text-xs font-mono text-blue-200/70">
-                <Mail size={14} className="text-[#00C2C7]" />
-                <span>Sales ID:</span>
-                <a
-                  href="mailto:rupali@lifilumen.com"
-                  className="text-white hover:text-[#00C2C7] underline underline-offset-4 font-semibold transition-colors"
-                >
-                  rupali@lifilumen.com
-                </a>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-2xl mx-auto text-left sm:text-center">
-                {[
-                  { icon: Sparkles, label: '10 Gbps Active Ready' },
-                  { icon: ShieldCheck, label: 'Military-Grade Security' },
-                  { icon: Sliders, label: 'Zero Router Congestion' },
-                ].map((feat, fIdx) => {
-                  const FeatIcon = feat.icon;
-                  return (
-                    <div key={fIdx} className="flex sm:flex-col items-center gap-3 sm:gap-1.5 justify-start sm:justify-center">
-                      <FeatIcon size={14} className="text-[var(--lumen-cyan)] shrink-0" />
-                      <span className="text-xs font-mono font-medium tracking-wide text-blue-200/60 uppercase">{feat.label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+          <h2 className="lumen-display-light mb-5">
+            Leave old radio waves behind.
+            <br />
+            <span className="text-[var(--lumen-cyan)]">Live at the speed of light.</span>
+          </h2>
+          <p className="lumen-lead-light mb-8 max-w-xl">
+            Upgrade your home to internet delivered through light — faster, private, and free of radio congestion.
+          </p>
+          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <Link
+              href="/products"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg px-8 text-sm font-bold tracking-wide text-white"
+              style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+            >
+              Order Now
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/25 px-8 text-sm font-bold text-white transition-colors hover:border-[var(--lumen-cyan)] hover:text-[var(--lumen-cyan)]"
+            >
+              Contact Us
+            </Link>
           </div>
         </motion.div>
       </div>
