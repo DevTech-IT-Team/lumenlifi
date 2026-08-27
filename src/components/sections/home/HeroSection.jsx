@@ -25,7 +25,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
-          The world&apos;s first home Internet provider run entirely on invisible infrared light and radio waves.
+          The world&apos;s first home Internet provider run entirely on invisible infrared light (Li-Fi) and radio waves (Wi-Fi).
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4">
