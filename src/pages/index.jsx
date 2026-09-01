@@ -4,6 +4,8 @@ import Header from '../components/common/Header';
 import HeroSection from '../components/sections/home/HeroSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
+import LiFiEcosystem from '../components/sections/home/LiFiEcosystem';
+
 
 const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
 
@@ -53,7 +55,8 @@ export default function HomePage() {
       <main className="flex-grow">
         <HeroSection />
         {/* <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="100vh" /> */}
-        <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="900px" />
+        {/* <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="900px" /> */}
+        <LiFiEcosystem />
         <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="80vh" />
         <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="60vh" />
         <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="80vh" />

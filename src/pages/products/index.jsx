@@ -255,51 +255,35 @@ export default function ProductsPage() {
             >
               {/* --- HERO COMPONENT --- */}
               <div
-                className="relative w-full min-h-[560px] lg:min-h-[640px] rounded-[2rem] border border-slate-800/80 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden shadow-2xl group"
+                className="relative w-full rounded-[2rem] border border-slate-800/80 overflow-hidden shadow-2xl group bg-black"
               >
                 <Image
-                  src="/images/products/fullbg.png"
-                  alt="Products hero background"
-                  fill
+                  src="/images/lifi/conscioushero.jpeg"
+                  alt="Lumenfi Unified Hero"
+                  width={1920}
+                  height={1080}
                   priority
-                  className="absolute inset-0 object-cover"
-                  sizes="100vw"
+                  className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#060B16]/80 via-[#060B16]/20 to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-40 pointer-events-none z-[1]" />
-                <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
-                <div className="absolute -bottom-20 -left-10 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-[100px] pointer-events-none z-0" />
+                
+                {/* Overlay removed per user request */}
 
-                <div className="relative z-10 max-w-xl space-y-4">
-                  <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.05]">
-                    Shop the <span className='text-gradient-lumen' style={{ color: 'var(--color-lumen-cyan)' }}>Conscious Home</span> <br />
-                    <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent opacity-90">
-                      Light Network
-                    </span>
-                  </h1>
-                  <p className="text-slate-200/90 text-sm sm:text-base font-normal leading-relaxed max-w-lg drop-shadow-md">
-                    Welcome to the world's first home run entirely on light. Every device in our family has built-in light receivers. This gives you zero lag, completely safe security, and unlimited internet speed.
-                  </p>
-                </div>
-
-                <div className="relative z-10 w-full flex justify-center pt-12 lg:pt-0">
-                  <div className="relative max-w-xl w-full bg-gradient-to-b from-[#D4AF37]/25 via-[#AA7C11]/15 to-[#5A4106]/35 backdrop-blur-md border border-[#D4AF37]/40 rounded-xl p-4 px-6 text-center shadow-2xl flex flex-col items-center justify-center gap-2 overflow-hidden group/gold">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/gold:translate-x-full transition-transform duration-1000 ease-out" />
-                    <div className="absolute top-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="flex items-center justify-center">
-                      <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 border border-white/20" />
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm font-sans font-medium text-amber-100 tracking-wide leading-relaxed">
-                      Stop trying to fix a broken Wi-Fi network. <br className="hidden sm:inline" />
-                      <span className="font-bold text-white">Build a smart home run on light.</span>
-                    </p>
+                <div className="absolute top-4 left-4 sm:top-8 sm:left-8 lg:top-10 lg:left-10 z-10 max-w-xl">
+                  <div className="mb-2 sm:mb-3">
+                    <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold tracking-tight mb-0 sm:mb-1 leading-[1.1]">
+                      <span className="text-white">LUMENFI </span>
+                      <span className="text-[#00C2C7]">UNIFIED:</span>
+                    </h2>
+                    <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-[1.1]">
+                      The Blended Future <br />
+                      of Home Networking.
+                    </h1>
                   </div>
+                  <p className="text-slate-200/90 text-[11px] sm:text-[13px] lg:text-[15px] font-normal leading-snug lg:leading-relaxed drop-shadow-md pt-1">
+                    Experience a new era of connectivity where ultra-fast <br className="hidden sm:block" />
+                    Light Fidelity and dependable Wi-Fi coexist <br className="hidden sm:block" />
+                    perfectly. <span className="font-bold text-white">Pre-Order Your Kit Today.</span>
+                  </p>
                 </div>
               </div>
 

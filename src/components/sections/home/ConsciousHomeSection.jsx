@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Activity, Eye, ShieldCheck, Zap } from 'lucide-react';
-import bg3Img from '../../../../public/images/hero/bg3.webp';
+import lifiImg from '../../../../public/images/lifi/conscioushero.jpeg';
 
 const experiences = [
   {
@@ -159,94 +159,100 @@ export default function ConsciousHomeSection() {
   return (
     <section
       id="conscious-home"
-      className="relative overflow-hidden text-slate-300 min-h-[880px] flex flex-col justify-center py-24 sm:py-28"
+      className="relative w-full overflow-hidden py-12 sm:py-20"
     >
-      <Image src={bg3Img} alt="" fill loading="lazy" className="object-cover" sizes="100vw" />
-
-      <div className="absolute inset-0 bg-[#020617]/65 z-[1]" />
-      <div
-        className="absolute inset-0 z-[2] pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,110,191,0.28), transparent 60%), radial-gradient(ellipse 50% 40% at 85% 90%, rgba(0,194,199,0.1), transparent)',
-        }}
-      />
-      <div className="absolute inset-0 lumen-grid-pattern-dark opacity-[0.06] pointer-events-none z-[3]" />
-
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="max-w-3xl mx-auto mb-14 sm:mb-16 p-[1px] rounded-2xl bg-gradient-to-br from-cyan-500/40 to-violet-500/30">
-          <div className="rounded-[14px] bg-[#050b14]/80 px-6 sm:px-10 py-8 text-center">
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-              Welcome to the{' '}
-              <span className="text-cyan-400">&ldquo;Conscious Home&rdquo;</span>
-              <br className="hidden sm:block" />
-              <span className="text-white"> Powered by Lumen LiFi.</span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mt-5 font-light leading-relaxed">
-              When you use light instead of slow Wi-Fi, your house feels alive — everything connects instantly, without apps or buttons.
-            </p>
-          </div>
-        </div>
-
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-14 sm:mb-16">
-          <div className="lg:col-span-8">
-            <FeaturedCard item={active} />
-          </div>
-          <div className="lg:col-span-4 flex flex-col gap-3">
-            {experiences.map((item, idx) =>
-              idx !== activeIndex ? (
-                <SecondaryCard
-                  key={item.id}
-                  item={item}
-                  index={idx}
-                  onSelect={setActiveIndex}
-                />
-              ) : null
-            )}
-          </div>
-        </div>
-
-        {/* Stats — static, no counters */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="text-center px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08]"
-            >
-              <p className="text-lg sm:text-xl font-black text-white tracking-tight">{s.display}</p>
-              <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Progress indicator — CSS only */}
-        <div className="max-w-md mx-auto text-center space-y-3">
-          <div className="flex items-center justify-center gap-2">
-            {experiences.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveIndex(i)}
-                aria-label={`Experience ${i + 1}`}
-                className={`w-2.5 h-2.5 rounded-full border transition-colors duration-200 ${i === activeIndex ? 'bg-cyan-400 border-cyan-300' : 'bg-transparent border-slate-600 hover:border-slate-400'
-                  }`}
-              />
-            ))}
-          </div>
-          <div className="h-0.5 bg-slate-800 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-cyan-400 to-violet-500 transition-[width] duration-300 ease-out"
-              style={{ width: `${((activeIndex + 1) / experiences.length) * 100}%` }}
-            />
-          </div>
-          <p className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase">
-            Experience {activeIndex + 1} of {experiences.length} — {active.title}
-          </p>
-        </div>
+      <div className="max-w-5xl mx-auto px-6">
+        <Image src={lifiImg} alt="" loading="lazy" className="w-full h-auto rounded-3xl border border-white/10 shadow-2xl" sizes="100vw" />
       </div>
+
+      {false && (
+        <>
+          <div className="absolute inset-0 bg-[#020617]/65 z-[1]" />
+          <div
+            className="absolute inset-0 z-[2] pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(26,110,191,0.28), transparent 60%), radial-gradient(ellipse 50% 40% at 85% 90%, rgba(0,194,199,0.1), transparent)',
+            }}
+          />
+          <div className="absolute inset-0 lumen-grid-pattern-dark opacity-[0.06] pointer-events-none z-[3]" />
+
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+            {/* Heading */}
+            <div className="max-w-3xl mx-auto mb-14 sm:mb-16 p-[1px] rounded-2xl bg-gradient-to-br from-cyan-500/40 to-violet-500/30">
+              <div className="rounded-[14px] bg-[#050b14]/80 px-6 sm:px-10 py-8 text-center">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
+                  Welcome to the{' '}
+                  <span className="text-cyan-400">&ldquo;Conscious Home&rdquo;</span>
+                  <br className="hidden sm:block" />
+                  <span className="text-white"> Powered by Lumen LiFi.</span>
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mt-5 font-light leading-relaxed">
+                  When you use light instead of slow Wi-Fi, your house feels alive — everything connects instantly, without apps or buttons.
+                </p>
+              </div>
+            </div>
+
+
+            {/* Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-14 sm:mb-16">
+              <div className="lg:col-span-8">
+                <FeaturedCard item={active} />
+              </div>
+              <div className="lg:col-span-4 flex flex-col gap-3">
+                {experiences.map((item, idx) =>
+                  idx !== activeIndex ? (
+                    <SecondaryCard
+                      key={item.id}
+                      item={item}
+                      index={idx}
+                      onSelect={setActiveIndex}
+                    />
+                  ) : null
+                )}
+              </div>
+            </div>
+
+            {/* Stats — static, no counters */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12">
+              {stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="text-center px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/[0.08]"
+                >
+                  <p className="text-lg sm:text-xl font-black text-white tracking-tight">{s.display}</p>
+                  <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest mt-1">{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Progress indicator — CSS only */}
+            <div className="max-w-md mx-auto text-center space-y-3">
+              <div className="flex items-center justify-center gap-2">
+                {experiences.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setActiveIndex(i)}
+                    aria-label={`Experience ${i + 1}`}
+                    className={`w-2.5 h-2.5 rounded-full border transition-colors duration-200 ${i === activeIndex ? 'bg-cyan-400 border-cyan-300' : 'bg-transparent border-slate-600 hover:border-slate-400'
+                      }`}
+                  />
+                ))}
+              </div>
+              <div className="h-0.5 bg-slate-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-cyan-400 to-violet-500 transition-[width] duration-300 ease-out"
+                  style={{ width: `${((activeIndex + 1) / experiences.length) * 100}%` }}
+                />
+              </div>
+              <p className="text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase">
+                Experience {activeIndex + 1} of {experiences.length} — {active.title}
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 }
