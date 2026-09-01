@@ -10,7 +10,7 @@ const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-clip antialiased font-sans lumen-page-bg text-[var(--lumen-navy)]">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-[#030914] antialiased font-sans text-white">
       <Head>
         <title key="title">Lumen LiFi &mdash; Internet at the Speed of Light</title>
         <meta

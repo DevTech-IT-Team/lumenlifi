@@ -1,64 +1,109 @@
+import { useLayoutEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { Instrument_Serif } from 'next/font/google';
 import MainLiFiVideoSection from './MainLiFiVideoSection';
 
-const PARTNERS = ['IEEE 802.11bb', 'LiFi Consortium', 'IEC', 'ITU-T', 'ISO'];
+const speedOfLightFont = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: 'italic',
+  display: 'swap',
+});
+
+const STATS = [
+  { value: '10 Gbps', label: 'Max connection speed' },
+  { value: '100%', label: 'Radio-free connectivity' },
+  { value: '8.5x', label: 'Faster than fiber' },
+];
 
 export default function HeroSection() {
+  const speedOfLightRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const line = speedOfLightRef.current;
+    if (!line) return;
+
+    line.style.setProperty('font-family', speedOfLightFont.style.fontFamily, 'important');
+    line.style.setProperty('font-style', 'italic', 'important');
+    line.style.setProperty('font-weight', '400', 'important');
+    line.style.setProperty('letter-spacing', '0.01em', 'important');
+  }, []);
+
   return (
     <>
-      <section className="home-hero page-screen-hero relative isolate w-full overflow-hidden bg-[#06131d]">
-        <div className="absolute inset-0 -z-20">
-          <Image
-            src="/images/hero/Homebg.png"
-            alt="LumenFi home LiFi connectivity"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-center"
-          />
+      <section className="home-hero-landscape relative isolate h-[100svh] min-h-[100svh] w-full overflow-hidden text-white">
+        <div className="absolute inset-0 -z-20 h-full w-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+            aria-hidden="true"
+          >
+            <source src="/videos/vidd.mp4" type="video/mp4" />
+          </video>
         </div>
 
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,19,29,0.38)_0%,rgba(6,19,29,0.52)_45%,rgba(6,19,29,0.78)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-transparent via-[#030914]/25 to-[#030914]/20" />
 
-        <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-[1100px] flex-1 flex-col items-center justify-center gap-6 px-4 pb-12 pt-24 text-center sm:gap-10 sm:px-6 sm:pb-16 sm:pt-28">
-          <p className="hero-eyebrow">Light-powered connectivity</p>
+        <div className="relative z-10 mx-auto flex h-full min-h-[100svh] w-full max-w-[1380px] flex-col px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-28">
+          <div className="flex flex-1 flex-col justify-center">
+            <div className="max-w-xl lg:max-w-2xl">
+              <h2 className="m-0 text-left font-semibold tracking-[-0.03em] text-white !text-[clamp(1.25rem,3.2vw,2rem)] !leading-[1.15]">
+                <span
+                  className="block text-white"
+                  style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
+                >
+                  The{' '}
+                  <span
+                    ref={speedOfLightRef}
+                    className={`${speedOfLightFont.className} text-white `}
+                    style={{
+                      fontSize: 'inherit',
+                      lineHeight: 'inherit',
+                      color: '#ffffff',
+                      
+                    }}
+                  >
+                    Speed of Light
+                  </span>
+                  .
+                </span>
+                <span
+                  className="block font-sans text-white"
+                  style={{
+                    fontSize: 'inherit',
+                    lineHeight: 'inherit',
+                    fontFamily: 'var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif',
+                  }}
+                >
+                  Now in Your Living Room.
+                </span>
+              </h2>
 
-          <h1 className="hero-heading">
-            <span className="hero-heading-main">The Speed of Light</span>
-            <span className="hero-heading-accent">Now in Your Living Room</span>
-          </h1>
+              <p className="home-hero-landscape-copy">
+                Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet
+                connection. No Wi-Fi, no radio waves — just pure light-speed connectivity.
+              </p>
 
-          <p className="hero-copy">
-            The world&apos;s first home internet powered entirely by invisible infrared light — delivering
-            secure, ultra-fast connectivity without radio waves.
-          </p>
+              <Link href="/products" prefetch={false} className="home-hero-landscape-cta">
+                Get started
+              </Link>
 
-          <div className="hero-actions">
-            <Link href="/products" prefetch={false} className="hero-btn-primary">
-              Order Now
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link href="/what-is-lifi" prefetch={false} className="hero-btn-secondary">
-              Watch How It Works
-            </Link>
+              <div className="home-hero-landscape-stats">
+                {STATS.map((stat) => (
+                  <div key={stat.label} className="home-hero-landscape-stat">
+                    <p className="home-hero-landscape-stat-value">{stat.value}</p>
+                    <p className="home-hero-landscape-stat-label">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-
-          <p className="hero-proof">Secure · Fast · Radio-free</p>
         </div>
       </section>
-
-      <div className="hero-partners">
-        <p>As featured by</p>
-        <div className="hero-partner-row">
-          {PARTNERS.map((name) => (
-            <span key={name}>{name}</span>
-          ))}
-        </div>
-      </div>
-
       <MainLiFiVideoSection />
     </>
   );
