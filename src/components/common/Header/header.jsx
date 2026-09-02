@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { LayoutGroup, motion } from 'framer-motion';
+import styles from './Header.module.css';
 
 const navConfig = [
   { label: 'About', href: '/what-is-lifi' },
@@ -29,6 +30,9 @@ function isNavActive(pathname, item) {
   }
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
+
+const getStartedBtnClass =
+  'inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#161C3B]/10 bg-[#EBF5FF] px-4 py-2 text-[11px] !font-normal !text-black transition-colors duration-300 hover:bg-[#dcecff] xl:text-xs';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +64,12 @@ export default function Header() {
   }, []);
 
   const navLinks = () => (
-    <nav className="hidden items-center gap-4 lg:flex xl:gap-5" aria-label="Primary">
+    <nav
+      className={`hidden items-center lg:flex ${
+        compactNav ? 'gap-5 xl:gap-7' : 'gap-4 xl:gap-5'
+      }`}
+      aria-label="Primary"
+    >
       {navConfig.map((item) => {
         const active = isNavActive(router.pathname, item);
         return (
@@ -68,7 +77,7 @@ export default function Header() {
             key={item.label}
             href={item.href}
             prefetch={false}
-            className={`whitespace-nowrap text-[11px] !font-normal transition-colors duration-300 xl:text-xs ${
+            className={`whitespace-nowrap  !font-normal transition-colors duration-300 xl:!text-sm ${
               active ? 'text-white' : 'text-white/55 hover:text-white'
             }`}
           >
@@ -104,11 +113,7 @@ export default function Header() {
     <motion.div layoutId="nav-get-started" transition={layoutTransition}>
       <Link
         href="https://lmsathena.com/login"
-        className={
-          inline
-            ? 'inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/20 px-4 py-2 text-[11px] !font-normal text-white transition-colors duration-300 hover:bg-white/5 xl:text-xs'
-            : 'inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/20 bg-[#0a1520]/40 px-4 py-2.5 text-[11px] !font-normal text-white backdrop-blur-xl transition-colors duration-300 hover:bg-white/5 xl:text-xs'
-        }
+        className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
       >
         <span>Get Started</span>
         <ArrowRight className="h-3 w-3" />
@@ -117,7 +122,7 @@ export default function Header() {
   );
 
   return (
-    <header ref={navRef} className="fixed top-0 inset-x-0 z-50 pb-2 pt-4 sm:pb-2.5 sm:pt-5">
+    <header ref={navRef} className={`${styles.navbar} fixed top-0 inset-x-0 z-50 pb-2 pt-4 sm:pb-2.5 sm:pt-5`}>
       <LayoutGroup>
         <motion.div
           layout
@@ -130,13 +135,22 @@ export default function Header() {
             layout
             layoutId="nav-left-pill"
             transition={layoutTransition}
-            className={`${pillClass} min-w-0 px-4 py-2.5 lg:flex-none lg:px-5 lg:py-2.5 ${
-              compactNav ? 'flex-initial' : 'flex-1 lg:flex-none'
+            className={`${pillClass} min-w-0 py-2.5 ${
+              compactNav
+                ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
+                : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
             } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
           >
             {brandLink}
-            <div className="mx-3 hidden h-4 w-px shrink-0 bg-white/20 lg:block" aria-hidden="true" />
-            {navLinks()}
+            <div
+              className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${
+                compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
+              }`}
+              aria-hidden="true"
+            />
+            <div className={compactNav ? 'flex flex-1 justify-center' : 'contents'}>
+              {navLinks()}
+            </div>
 
             {compactNav && (
               <>
@@ -146,7 +160,7 @@ export default function Header() {
                   animate={{ opacity: 1, width: 'auto' }}
                   exit={{ opacity: 0, width: 0 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="mx-3 hidden h-4 w-px shrink-0 bg-white/20 lg:block"
+                  className="mx-6 hidden h-4 w-px shrink-0 bg-white/20 lg:mx-10 lg:block"
                   aria-hidden="true"
                 />
                 <div className="hidden lg:block">{getStartedMotion(true)}</div>
@@ -169,7 +183,7 @@ export default function Header() {
       </LayoutGroup>
 
       {isOpen && (
-        <div className="mx-auto mt-2 max-w-[1380px] px-4 sm:px-6 lg:hidden">
+        <div className={`${styles.navbar} mx-auto mt-2 max-w-[1380px] px-4 sm:px-6 lg:hidden`}>
           <div className="animate-in fade-in slide-in-from-top-2 space-y-0.5 rounded-2xl border border-white/15 bg-[#0a1520]/90 p-2.5 shadow-2xl backdrop-blur-2xl">
             {navConfig.map((item) => (
               <Link
@@ -190,7 +204,7 @@ export default function Header() {
               <Link
                 href="https://lmsathena.com/login"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-1.5 rounded-full border border-white/20 px-3 py-2 text-xs !font-normal text-white"
+                className={`${getStartedBtnClass} w-full justify-center`}
               >
                 <span>Get Started</span>
                 <ArrowRight className="h-3 w-3" />

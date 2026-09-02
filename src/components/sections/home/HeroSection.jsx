@@ -51,7 +51,7 @@ export default function HeroSection() {
         <div className="relative z-10 mx-auto flex h-full min-h-[100svh] w-full max-w-[1380px] flex-col px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-28">
           <div className="flex flex-1 flex-col justify-center">
             <div className="max-w-xl lg:max-w-2xl">
-              <h2 className="m-0 text-left font-semibold tracking-[-0.03em] text-white !text-[clamp(1.25rem,3.2vw,2rem)] !leading-[1.15]">
+              <h1 className="m-0 text-left font-semibold tracking-[-0.03em] text-white text-6xl">
                 <span
                   className="block text-white"
                   style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
@@ -81,7 +81,7 @@ export default function HeroSection() {
                 >
                   Now in Your Living Room.
                 </span>
-              </h2>
+              </h1>
 
               <p className="home-hero-landscape-copy">
                 Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet
@@ -104,7 +104,7 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
-      <MainLiFiVideoSection />
+      {/* <MainLiFiVideoSection /> */}
     </>
   );
 }

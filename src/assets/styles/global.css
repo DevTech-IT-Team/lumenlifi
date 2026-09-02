@@ -104,7 +104,7 @@
   html, body, *,
   *::before,
   *::after {
-    font-family: var(--font-geist-sans), sans-serif !important;
+    font-family: var(--font-geist-sans), sans-serif ;
     font-style: normal;
   }
 
@@ -296,8 +296,8 @@ section.bg-\[\#F8FCFE\] {
 [class~="max-w-[1280px]"],
 [class~="max-w-[1100px]"],
 [class~="max-w-[92rem]"] {
-  padding-left: var(--page-pad-x) !important;
-  padding-right: var(--page-pad-x) !important;
+  padding-left: var(--page-pad-x) ;
+  padding-right: var(--page-pad-x) ;
 }
 
 /* Lumen cyan grid pattern overlay — slightly stronger than baked-in bg */
@@ -335,8 +335,6 @@ section.bg-\[\#F8FCFE\] {
 
 .section-wash-navy {
   background-color: #0d2240;
-  background-image: var(--lumen-grid-image-dark);
-  background-size: var(--lumen-grid-size) var(--lumen-grid-size);
   color: #ffffff;
 }
 
@@ -349,14 +347,14 @@ section.bg-\[\#F8FCFE\] {
 .section-wash-white .lumen-h2,
 .section-wash-white .lumen-h3,
 .section-wash-white .lumen-display {
-  color: var(--lumen-navy) !important;
+  color: var(--lumen-navy) ;
 }
 
 .section-wash-white p,
 .section-wash-white .lumen-body,
 .section-wash-white .lumen-body-sm,
 .section-wash-white .lumen-lead {
-  color: var(--lumen-muted) !important;
+  color: var(--lumen-muted) ;
 }
 
 .section-wash-navy h1,
@@ -368,30 +366,30 @@ section.bg-\[\#F8FCFE\] {
 .section-wash-navy .lumen-h2-light,
 .section-wash-navy .lumen-h3-light,
 .section-wash-navy .lumen-display-light {
-  color: #ffffff !important;
+  color: #ffffff ;
 }
 
 .section-wash-navy p,
 .section-wash-navy .lumen-body-sm-light,
 .section-wash-navy .lumen-lead-light,
 .section-wash-navy .lumen-body-light {
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: rgba(255, 255, 255, 0.78) ;
 }
 
 .section-wash-navy .text-\[var\(--lumen-cyan\)\],
 .section-wash-white .text-\[var\(--lumen-cyan\)\] {
-  color: var(--lumen-cyan) !important;
+  color: var(--lumen-cyan) ;
 }
 
 #cta-final .cta-banner h2,
 #cta-final .cta-banner h2[class] {
-  color: #ffffff !important;
-  text-align: left !important;
+  color: #ffffff ;
+  text-align: left ;
 }
 
 #cta-final .cta-banner .lumen-lead-light,
 #cta-final .cta-banner p {
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: rgba(255, 255, 255, 0.78) ;
 }
 
 .section-wash-deep {
@@ -553,14 +551,14 @@ body::-webkit-scrollbar {
    NO SCROLLBAR UTILITY
    ============================================================ */
 .no-scrollbar::-webkit-scrollbar {
-  display: none !important;
-  width: 0px !important;
-  height: 0px !important;
+  display: none ;
+  width: 0px ;
+  height: 0px ;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
+  -ms-overflow-style: none ;
+  scrollbar-width: none ;
 }
 
 /* ============================================================
@@ -733,10 +731,10 @@ div,
 .lumen-body-light,
 .lumen-body-sm-light,
 .lumen-caption-light {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: var(--text-body) !important;
-  line-height: 1.6 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: var(--text-body) ;
+  line-height: 1.6 ;
+  font-weight: 600 ;
 }
 
 h1,
@@ -763,8 +761,8 @@ h6[class],
 .lumen-h4-light,
 .lumen-h5-light,
 .lumen-eyebrow {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-weight: 600 ;
 }
 
 h1,
@@ -776,8 +774,8 @@ h2[class],
 .lumen-h2,
 .lumen-display-light,
 .lumen-h2-light {
-  font-size: var(--text-heading) !important;
-  line-height: 1.2 !important;
+  font-size: var(--text-heading) ;
+  line-height: 1.2 ;
 }
 
 h3,
@@ -795,8 +793,8 @@ h6[class],
 .lumen-h4-light,
 .lumen-h5-light,
 .lumen-eyebrow {
-  font-size: var(--text-subheading) !important;
-  line-height: 1.35 !important;
+  font-size: var(--text-subheading) ;
+  line-height: 1.35 ;
 }
 
 h1 span,
@@ -816,20 +814,20 @@ h6 span,
 .lumen-h3-light span,
 .lumen-h4-light span,
 .lumen-h5-light span {
-  font-family: inherit !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
+  font-family: inherit ;
+  font-size: inherit ;
+  line-height: inherit ;
 }
 
 h1.hero-heading,
 h1.hero-heading[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: inherit !important;
-  line-height: 0.96 !important;
-  font-weight: 600 !important;
-  text-align: center !important;
-  width: auto !important;
-  max-width: none !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: inherit ;
+  line-height: 0.96 ;
+  font-weight: 600 ;
+  text-align: center ;
+  width: auto ;
+  max-width: none ;
   margin: 0 auto;
   display: block;
   color: #fff;
@@ -838,10 +836,10 @@ h1.hero-heading[class] {
 
 h1.page-hero-heading,
 h1.page-hero-heading[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: var(--text-hero) !important;
-  line-height: 1.05 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: var(--text-hero) ;
+  line-height: 1.05 ;
+  font-weight: 600 ;
   letter-spacing: -0.03em;
   overflow-wrap: normal;
   word-break: normal;
@@ -849,17 +847,17 @@ h1.page-hero-heading[class] {
 
 h1.page-hero-heading span,
 h1.page-hero-heading span[class] {
-  font-size: inherit !important;
-  line-height: inherit !important;
+  font-size: inherit ;
+  line-height: inherit ;
 }
 
 h1.page-hero-heading .products-hero-accent,
 h1.page-hero-heading .products-hero-accent[class] {
   margin-top: 0.2em;
-  font-size: clamp(1.5rem, 3.6vw, 2.75rem) !important;
-  line-height: 1.2 !important;
+  font-size: clamp(1.5rem, 3.6vw, 2.75rem) ;
+  line-height: 1.2 ;
   letter-spacing: -0.02em;
-  color: var(--lumen-cyan) !important;
+  color: var(--lumen-cyan) ;
   -webkit-text-fill-color: var(--lumen-cyan);
   opacity: 0.9;
 }
@@ -912,12 +910,12 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .home-hero-bg-title {
   margin: 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(3.5rem, 14vw, 9.5rem) !important;
-  font-weight: 600 !important;
-  line-height: 0.92 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(3.5rem, 14vw, 9.5rem) ;
+  font-weight: 600 ;
+  line-height: 0.92 ;
   letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.92) !important;
+  color: rgba(255, 255, 255, 0.92) ;
   text-align: center;
   white-space: nowrap;
 }
@@ -981,15 +979,15 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .home-hero-side-copy {
   margin: 0.85rem 0 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.9rem !important;
-  line-height: 1.65 !important;
-  font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.62) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.9rem ;
+  line-height: 1.65 ;
+  font-weight: 500 ;
+  color: rgba(255, 255, 255, 0.62) ;
 }
 
 .home-hero-side-left .hero-eyebrow {
-  text-align: left !important;
+  text-align: left ;
 }
 
 .home-hero-features {
@@ -1026,11 +1024,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   border-radius: 9999px;
   background: var(--lumen-cyan);
   padding: 0.45rem 0.45rem 0.45rem 1.25rem;
-  color: #06131d !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: #06131d ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.9rem ;
+  font-weight: 600 ;
+  line-height: 1 ;
   transition: opacity 0.2s ease;
 }
 
@@ -1050,35 +1048,35 @@ h1.page-hero-heading .products-hero-accent[class] {
 }
 
 .home-hero-side-link {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  color: rgba(255, 255, 255, 0.55) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.85rem ;
+  font-weight: 600 ;
+  color: rgba(255, 255, 255, 0.55) ;
   transition: color 0.2s ease;
 }
 
 .home-hero-side-link:hover {
-  color: #fff !important;
+  color: #fff ;
 }
 
 .home-hero-landscape-title {
   margin: 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(1.4rem, 1.5vw, 1.35rem) !important;
-  font-weight: 600 !important;
-  line-height: 1.12 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(1.4rem, 1.5vw, 1.35rem) ;
+  font-weight: 600 ;
+  line-height: 1.12 ;
   letter-spacing: -0.03em;
-  color: #fff !important;
+  color: #fff ;
 }
 
 .home-hero-landscape-copy {
   margin: 1.5rem 0 0;
   max-width: 32rem;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem) !important;
-  line-height: 1.65 !important;
-  font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.72) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem) ;
+  line-height: 1.65 ;
+  font-weight: 500 ;
+  color: rgba(255, 255, 255, 0.72) ;
 }
 
 .home-hero-landscape-cta {
@@ -1090,11 +1088,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.12);
   padding: 0.85rem 2rem;
-  color: #fff !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: #fff ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.95rem ;
+  font-weight: 600 ;
+  line-height: 1 ;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: background 0.2s ease, border-color 0.2s ease;
@@ -1119,20 +1117,20 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .home-hero-landscape-stat-value {
   margin: 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(1.15rem, 2vw, 1.5rem) !important;
-  font-weight: 600 !important;
-  line-height: 1.1 !important;
-  color: #fff !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(1.15rem, 2vw, 1.5rem) ;
+  font-weight: 600 ;
+  line-height: 1.1 ;
+  color: #fff ;
 }
 
 .home-hero-landscape-stat-label {
   margin: 0.2rem 0 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.65rem !important;
-  font-weight: 500 !important;
-  line-height: 1.35 !important;
-  color: rgba(255, 255, 255, 0.55) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.65rem ;
+  font-weight: 500 ;
+  line-height: 1.35 ;
+  color: rgba(255, 255, 255, 0.55) ;
 }
 
 @media (max-width: 767px) {
@@ -1144,25 +1142,25 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .home-hero .hero-eyebrow,
 .home-hero .hero-eyebrow[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 14px ;
+  font-weight: 600 ;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5) !important;
-  line-height: 1 !important;
+  color: rgba(255, 255, 255, 0.5) ;
+  line-height: 1 ;
   margin: 0;
 }
 
 .home-hero .hero-heading-main,
 .home-hero .hero-heading-main[class] {
   display: block;
-  font-family: var(--font-geist-sans) !important;
-  font-size: var(--text-hero) !important;
-  font-weight: 600 !important;
-  line-height: 1.05 !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: var(--text-hero) ;
+  font-weight: 600 ;
+  line-height: 1.05 ;
   letter-spacing: -0.03em;
-  color: #fff !important;
+  color: #fff ;
   -webkit-text-fill-color: #fff;
 }
 
@@ -1170,12 +1168,12 @@ h1.page-hero-heading .products-hero-accent[class] {
 .home-hero .hero-heading-accent[class] {
   display: block;
   margin-top: 0.28em;
-  font-family: var(--font-geist-sans) !important;
-  font-size: clamp(1.5rem, 3.6vw, 2.75rem) !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: clamp(1.5rem, 3.6vw, 2.75rem) ;
+  font-weight: 600 ;
+  line-height: 1.2 ;
   letter-spacing: -0.02em;
-  color: var(--lumen-cyan) !important;
+  color: var(--lumen-cyan) ;
   -webkit-text-fill-color: var(--lumen-cyan);
   opacity: 0.9;
 }
@@ -1184,11 +1182,11 @@ h1.page-hero-heading .products-hero-accent[class] {
 .home-hero .hero-copy[class] {
   max-width: 34rem;
   margin: 0 auto;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.65 !important;
-  font-weight: 600 !important;
-  color: rgba(255, 255, 255, 0.68) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 16px ;
+  line-height: 1.65 ;
+  font-weight: 600 ;
+  color: rgba(255, 255, 255, 0.68) ;
   text-align: center;
 }
 
@@ -1210,11 +1208,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   padding: 0 36px;
   border-radius: 999px;
   background: #fff;
-  color: #06131d !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: #06131d ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 16px ;
+  font-weight: 600 ;
+  line-height: 1 ;
   box-shadow: none;
 }
 
@@ -1227,26 +1225,26 @@ h1.page-hero-heading .products-hero-accent[class] {
   align-items: center;
   padding: 0;
   height: auto;
-  color: #fff !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
+  color: #fff ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 16px ;
+  font-weight: 600 ;
 }
 
 .home-hero .hero-btn-secondary:hover {
-  color: #fff !important;
+  color: #fff ;
 }
 
 .home-hero .hero-proof,
 .home-hero .hero-proof[class] {
   margin: 0;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 15px ;
+  font-weight: 700 ;
   letter-spacing: 0.08em;
   text-transform: none;
-  color: #fff !important;
-  line-height: 1.4 !important;
+  color: #fff ;
+  line-height: 1.4 ;
 }
 
 .hero-partners {
@@ -1259,12 +1257,12 @@ h1.page-hero-heading .products-hero-accent[class] {
 .hero-partners p,
 .hero-partners p[class] {
   margin: 0 0 16px;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 11px ;
+  font-weight: 600 ;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.32) !important;
+  color: rgba(255, 255, 255, 0.32) ;
 }
 
 .hero-partner-row {
@@ -1277,11 +1275,11 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .hero-partner-row span,
 .hero-partner-row span[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 0.8rem ;
+  font-weight: 600 ;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.28) !important;
+  color: rgba(255, 255, 255, 0.28) ;
   text-transform: none;
 }
 
@@ -1327,22 +1325,22 @@ h1.page-hero-heading .products-hero-accent[class] {
 .site-header .site-header-wordmark,
 .site-header a.site-header-wordmark,
 .site-header span.site-header-wordmark {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 1.05rem !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 1.05rem ;
+  font-weight: 600 ;
+  line-height: 1 ;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #fff !important;
+  color: #fff ;
   white-space: nowrap;
 }
 
 .site-header .site-header-wordmark span {
-  color: var(--lumen-cyan) !important;
+  color: var(--lumen-cyan) ;
   letter-spacing: 0.18em;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  font-family: inherit !important;
+  font-size: inherit ;
+  font-weight: inherit ;
+  font-family: inherit ;
 }
 
 .site-header-end {
@@ -1377,24 +1375,24 @@ h1.page-hero-heading .products-hero-accent[class] {
   background: none;
   border: 0;
   padding: 0 2px 10px;
-  color: rgba(255, 255, 255, 0.78) !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: rgba(255, 255, 255, 0.78) ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 11px ;
+  font-weight: 600 ;
+  line-height: 1 ;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .site-header .site-header-link:hover {
-  color: #fff !important;
+  color: #fff ;
 }
 
 .site-header .site-header-link.is-active,
 .site-header a.site-header-link.is-active,
 .site-header button.site-header-link.is-active {
-  color: #fff !important;
+  color: #fff ;
 }
 
 .site-header .site-header-link.is-active::after {
@@ -1426,7 +1424,7 @@ h1.page-hero-heading .products-hero-accent[class] {
   align-items: flex-start;
   gap: 10px;
   padding: 10px;
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7) ;
 }
 
 .site-header a.site-header-dropdown-item:hover {
@@ -1436,19 +1434,19 @@ h1.page-hero-heading .products-hero-accent[class] {
 .site-header a.site-header-dropdown-item strong {
   display: block;
   color: #fff;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 14px ;
+  font-weight: 600 ;
   text-transform: none;
   letter-spacing: 0;
 }
 
 .site-header a.site-header-dropdown-item span {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 12px !important;
-  line-height: 1.4 !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 12px ;
+  line-height: 1.4 ;
+  color: rgba(255, 255, 255, 0.5) ;
+  font-weight: 600 ;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -1506,16 +1504,16 @@ h1.page-hero-heading .products-hero-accent[class] {
   padding: 14px 0;
   border: 0;
   background: none;
-  color: rgba(255, 255, 255, 0.78) !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.78) ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 12px ;
+  font-weight: 600 ;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .site-header .site-header-mobile-link.is-active {
-  color: #fff !important;
+  color: #fff ;
 }
 
 @media (max-width: 1023px) {
@@ -1543,7 +1541,7 @@ h1.page-hero-heading .products-hero-accent[class] {
   }
 
   .home-hero-bg-title {
-    font-size: clamp(2.75rem, 12vw, 4.5rem) !important;
+    font-size: clamp(2.75rem, 12vw, 4.5rem) ;
     white-space: normal;
   }
 
@@ -1617,42 +1615,42 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .conscious-home .conscious-eyebrow,
 .conscious-home .conscious-eyebrow[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  letter-spacing: 1.6px !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 16px ;
+  font-weight: 600 ;
+  letter-spacing: 1.6px ;
   text-transform: uppercase;
-  color: var(--lumen-muted) !important;
+  color: var(--lumen-muted) ;
   margin: 0 0 16px;
-  line-height: 1.4 !important;
+  line-height: 1.4 ;
 }
 
 .conscious-home h2.conscious-heading,
 .conscious-home h2.conscious-heading[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: var(--text-heading) !important;
-  font-weight: 600 !important;
-  line-height: 1.05 !important;
-  color: var(--lumen-navy) !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: var(--text-heading) ;
+  font-weight: 600 ;
+  line-height: 1.05 ;
+  color: var(--lumen-navy) ;
   margin: 0;
-  text-align: left !important;
+  text-align: left ;
 }
 
 .conscious-home .conscious-lead,
 .conscious-home .conscious-lead[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(1.125rem, 2vw, 1.375rem) !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(1.125rem, 2vw, 1.375rem) ;
+  line-height: 1.6 ;
+  font-weight: 400 ;
+  color: var(--lumen-muted) ;
   margin: 20px 0 0;
   max-width: 440px;
 }
 
 .conscious-home .conscious-lead span {
   display: block;
-  font-size: inherit !important;
-  color: var(--lumen-muted) !important;
+  font-size: inherit ;
+  color: var(--lumen-muted) ;
 }
 
 .conscious-actions {
@@ -1671,11 +1669,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   padding: 0 28px;
   border-radius: 999px;
   background: #0d2240;
-  color: #fff !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: #fff ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 15px ;
+  font-weight: 600 ;
+  line-height: 1 ;
 }
 
 .conscious-btn-secondary,
@@ -1687,11 +1685,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   padding: 0 16px 0 8px;
   border: 1px solid #d4d4d4;
   border-radius: 999px;
-  color: var(--lumen-navy) !important;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  line-height: 1 !important;
+  color: var(--lumen-navy) ;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 15px ;
+  font-weight: 600 ;
+  line-height: 1 ;
 }
 
 .conscious-play {
@@ -1721,22 +1719,22 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .conscious-home .conscious-stat-value,
 .conscious-home .conscious-stat-value[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 1.5rem !important;
-  font-weight: 600 !important;
-  line-height: 1.1 !important;
-  color: var(--lumen-navy) !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 1.5rem ;
+  font-weight: 600 ;
+  line-height: 1.1 ;
+  color: var(--lumen-navy) ;
   margin: 0;
 }
 
 .conscious-home .conscious-stat-label,
 .conscious-home .conscious-stat-label[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 13px ;
+  font-weight: 400 ;
+  color: var(--lumen-muted) ;
   margin: 6px 0 0;
-  line-height: 1.3 !important;
+  line-height: 1.3 ;
 }
 
 .conscious-router {
@@ -1835,21 +1833,21 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .conscious-home a.conscious-card h3,
 .conscious-home a.conscious-card h3[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 1.25rem !important;
-  font-weight: 600 !important;
-  line-height: 1.25 !important;
-  color: var(--lumen-navy) !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 1.25rem ;
+  font-weight: 600 ;
+  line-height: 1.25 ;
+  color: var(--lumen-navy) ;
   margin: 0;
-  text-align: left !important;
+  text-align: left ;
 }
 
 .conscious-home a.conscious-card p,
 .conscious-home a.conscious-card p[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.55 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.95rem ;
+  line-height: 1.55 ;
+  color: var(--lumen-muted) ;
   margin: 0;
   flex: 1;
 }
@@ -1859,11 +1857,11 @@ h1.page-hero-heading .products-hero-accent[class] {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: var(--lumen-cyan) !important;
-  line-height: 1 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 14px ;
+  font-weight: 600 ;
+  color: var(--lumen-cyan) ;
+  line-height: 1 ;
 }
 
 .conscious-progress {
@@ -1875,10 +1873,10 @@ h1.page-hero-heading .products-hero-accent[class] {
 }
 
 .conscious-home .conscious-progress span {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 13px ;
+  font-weight: 500 ;
+  color: var(--lumen-muted) ;
 }
 
 .conscious-progress-track {
@@ -1904,49 +1902,49 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .home-features .features-card-copy .features-card-kicker,
 .home-features .features-card-copy .features-card-kicker[class] {
-  font-size: 1rem !important;
-  line-height: 1.4 !important;
+  font-size: 1rem ;
+  line-height: 1.4 ;
 }
 
 .home-features .features-card-copy h3,
 .home-features .features-card-copy h3[class] {
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem) !important;
-  line-height: 1.2 !important;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem) ;
+  line-height: 1.2 ;
 }
 
 .home-features .features-card-copy p,
 .home-features .features-card-copy p[class] {
-  font-size: 1.2rem !important;
-  line-height: 1.65 !important;
+  font-size: 1.2rem ;
+  line-height: 1.65 ;
 }
 
 .eco-card .eco-card-kicker,
 .eco-card .eco-card-kicker[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 11px !important;
-  line-height: 1.35 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 11px ;
+  line-height: 1.35 ;
+  font-weight: 600 ;
   min-height: calc(11px * 1.35 * 2);
   margin: 0;
 }
 
 .eco-card .eco-card-title,
 .eco-card .eco-card-title[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 1.2rem !important;
-  line-height: 1.25 !important;
-  font-weight: 600 !important;
-  color: var(--lumen-navy) !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 1.2rem ;
+  line-height: 1.25 ;
+  font-weight: 600 ;
+  color: var(--lumen-navy) ;
   margin: 0;
   min-height: calc(1.2rem * 1.25 * 2);
 }
 
 .eco-card .eco-card-desc,
 .eco-card .eco-card-desc[class] {
-  font-family: var(--font-geist-sans) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.5 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans) ;
+  font-size: 0.95rem ;
+  line-height: 1.5 ;
+  color: var(--lumen-muted) ;
   margin: 0 0 1rem;
   min-height: calc(0.95rem * 1.5 * 4);
   display: -webkit-box;
@@ -2029,72 +2027,72 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .lifi-features-ui .lifi-features-kicker,
 .lifi-features-ui .lifi-features-kicker[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.2em !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1 ;
+  font-weight: 600 ;
+  letter-spacing: 0.2em ;
   text-transform: uppercase;
-  color: #44d9e4 !important;
+  color: #44d9e4 ;
 }
 
 .lifi-features-ui h2.lifi-features-title,
 .lifi-features-ui h2.lifi-features-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
-  line-height: 1.15 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: clamp(2.5rem, 6vw, 4.5rem) ;
+  line-height: 1.15 ;
+  font-weight: 600 ;
   letter-spacing: -0.03em;
-  color: #d7e4ee !important;
-  text-align: center !important;
-  margin: 0 !important;
+  color: #d7e4ee ;
+  text-align: center ;
+  margin: 0 ;
 }
 
 .lifi-features-ui h2.lifi-features-title span {
-  color: #00bdc7 !important;
-  font-size: inherit !important;
+  color: #00bdc7 ;
+  font-size: inherit ;
 }
 
 .lifi-features-ui p.lifi-features-lead,
 .lifi-features-ui p.lifi-features-lead[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.125rem !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
-  color: #bbc9ca !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.125rem ;
+  line-height: 1.6 ;
+  font-weight: 400 ;
+  color: #bbc9ca ;
   max-width: 36rem;
-  margin: 0.5rem auto 0 !important;
+  margin: 0.5rem auto 0 ;
   text-align: center;
 }
 
 .lifi-features-ui .lifi-features-num,
 .lifi-features-ui .lifi-features-num[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  color: rgba(187, 201, 202, 0.5) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1 ;
+  font-weight: 600 ;
+  color: rgba(187, 201, 202, 0.5) ;
 }
 
 .lifi-features-ui h3.lifi-features-card-title,
 .lifi-features-ui h3.lifi-features-card-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.25rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
-  color: #d7e4ee !important;
-  text-align: left !important;
-  margin: 0 0 0.5rem !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.25rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
+  color: #d7e4ee ;
+  text-align: left ;
+  margin: 0 0 0.5rem ;
 }
 
 .lifi-features-ui p.lifi-features-card-text,
 .lifi-features-ui p.lifi-features-card-text[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1rem !important;
-  line-height: 1.55 !important;
-  font-weight: 400 !important;
-  color: #bbc9ca !important;
-  margin: 0 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1rem ;
+  line-height: 1.55 ;
+  font-weight: 400 ;
+  color: #bbc9ca ;
+  margin: 0 ;
   text-align: left;
 }
 
@@ -2113,94 +2111,94 @@ h1.page-hero-heading .products-hero-accent[class] {
 
 .contact-hero .contact-hero-kicker,
 .contact-hero .contact-hero-kicker[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.2em !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1 ;
+  font-weight: 600 ;
+  letter-spacing: 0.2em ;
   text-transform: uppercase;
-  color: var(--lumen-cyan) !important;
+  color: var(--lumen-cyan) ;
   margin-bottom: 0.75rem;
 }
 
 .contact-hero h1.contact-hero-title,
 .contact-hero h1.contact-hero-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: var(--text-hero) !important;
-  line-height: 1.05 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: var(--text-hero) ;
+  line-height: 1.05 ;
+  font-weight: 600 ;
   letter-spacing: -0.03em;
-  color: var(--lumen-navy) !important;
-  text-align: center !important;
-  margin: 0 0 0.75rem !important;
+  color: var(--lumen-navy) ;
+  text-align: center ;
+  margin: 0 0 0.75rem ;
 }
 
 .contact-hero h1.contact-hero-title span {
-  color: var(--lumen-cyan) !important;
-  font-size: inherit !important;
+  color: var(--lumen-cyan) ;
+  font-size: inherit ;
 }
 
 .contact-hero p.contact-hero-lead,
 .contact-hero p.contact-hero-lead[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.05rem !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
-  color: var(--lumen-muted) !important;
-  margin: 0 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.05rem ;
+  line-height: 1.6 ;
+  font-weight: 400 ;
+  color: var(--lumen-muted) ;
+  margin: 0 ;
 }
 
 .contact-hero h2.contact-hero-card-title,
 .contact-hero h2.contact-hero-card-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.15rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
-  color: var(--lumen-navy) !important;
-  text-align: left !important;
-  margin: 0 0 0.5rem !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.15rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
+  color: var(--lumen-navy) ;
+  text-align: left ;
+  margin: 0 0 0.5rem ;
 }
 
 .contact-hero p.contact-hero-card-text,
 .contact-hero p.contact-hero-card-text[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.55 !important;
-  font-weight: 400 !important;
-  color: var(--lumen-muted) !important;
-  margin: 0 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.95rem ;
+  line-height: 1.55 ;
+  font-weight: 400 ;
+  color: var(--lumen-muted) ;
+  margin: 0 ;
   text-align: left;
 }
 
 @media (max-width: 767px) {
   .contact-hero h1.contact-hero-title,
   .contact-hero h1.contact-hero-title[class] {
-    font-size: var(--text-hero-mobile) !important;
-    line-height: 1.08 !important;
-    margin: 0 0 0.65rem !important;
+    font-size: var(--text-hero-mobile) ;
+    line-height: 1.08 ;
+    margin: 0 0 0.65rem ;
   }
 
   .contact-hero p.contact-hero-lead,
   .contact-hero p.contact-hero-lead[class] {
-    font-size: 0.95rem !important;
-    line-height: 1.55 !important;
+    font-size: 0.95rem ;
+    line-height: 1.55 ;
     padding-inline: 0.25rem;
   }
 
   .contact-hero h2.contact-hero-card-title,
   .contact-hero h2.contact-hero-card-title[class] {
-    font-size: 1.05rem !important;
+    font-size: 1.05rem ;
   }
 
   #contact-form .lumen-h2-light,
   #contact-form .lumen-h2-light[class] {
-    font-size: clamp(1.85rem, 8vw, 2.5rem) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(1.85rem, 8vw, 2.5rem) ;
+    line-height: 1.15 ;
   }
 
   #contact-form .lumen-body-light,
   #contact-form .lumen-body-light[class] {
-    font-size: 0.95rem !important;
+    font-size: 0.95rem ;
   }
 }
 
@@ -2244,28 +2242,28 @@ h6 {
   .lumen-body-light[class],
   .lumen-body-sm-light,
   .lumen-body-sm-light[class] {
-    font-size: 0.95rem !important;
-    line-height: 1.55 !important;
+    font-size: 0.95rem ;
+    line-height: 1.55 ;
   }
 
   .home-hero .hero-heading-main,
   .home-hero .hero-heading-main[class],
   h1.page-hero-heading,
   h1.page-hero-heading[class] {
-    font-size: var(--text-hero-mobile) !important;
-    line-height: 1.08 !important;
+    font-size: var(--text-hero-mobile) ;
+    line-height: 1.08 ;
   }
 
   .home-hero .hero-heading-accent,
   .home-hero .hero-heading-accent[class],
   h1.page-hero-heading .products-hero-accent,
   h1.page-hero-heading .products-hero-accent[class] {
-    font-size: clamp(1.15rem, 5.4vw, 1.55rem) !important;
+    font-size: clamp(1.15rem, 5.4vw, 1.55rem) ;
   }
 
   .home-hero .hero-copy,
   .home-hero .hero-copy[class] {
-    font-size: 0.95rem !important;
+    font-size: 0.95rem ;
     max-width: 36rem;
   }
 
@@ -2280,7 +2278,7 @@ h6 {
     max-width: 20rem;
     height: 52px;
     padding: 0 24px;
-    font-size: 15px !important;
+    font-size: 15px ;
   }
 
   .hero-partners {
@@ -2293,22 +2291,22 @@ h6 {
 
   .lifi-features-ui h2.lifi-features-title,
   .lifi-features-ui h2.lifi-features-title[class] {
-    font-size: clamp(2.25rem, 9vw, 3rem) !important;
+    font-size: clamp(2.25rem, 9vw, 3rem) ;
   }
 
   .lifi-features-ui p.lifi-features-lead,
   .lifi-features-ui p.lifi-features-lead[class] {
-    font-size: 0.95rem !important;
+    font-size: 0.95rem ;
     padding-inline: 0.15rem;
   }
 
   .eco-card {
-    min-height: 0 !important;
+    min-height: 0 ;
   }
 
   #cta-final .cta-banner {
-    min-height: 0 !important;
-    padding: 1.75rem 1.15rem !important;
+    min-height: 0 ;
+    padding: 1.75rem 1.15rem ;
   }
 
   .conscious-home {
@@ -2317,142 +2315,142 @@ h6 {
 
   .conscious-home .conscious-eyebrow,
   .conscious-home .conscious-eyebrow[class] {
-    font-size: 13px !important;
+    font-size: 13px ;
   }
 
   .lumen-stat,
   .lumen-stat[class],
   .lumen-price,
   .lumen-price[class] {
-    font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+    font-size: clamp(1.25rem, 6vw, 1.75rem) ;
   }
 }
 
 #concept-runbook .kit-card-title,
 #concept-runbook .kit-card-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.05rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.05rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
 }
 
 #concept-runbook .kit-card-sub,
 #concept-runbook .kit-card-sub[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1.35 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1.35 ;
+  font-weight: 600 ;
   letter-spacing: 0.06em;
 }
 
 #concept-runbook .kit-card-meta,
 #concept-runbook .kit-card-meta[class],
 #concept-runbook .kit-card-meta span {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.625rem !important;
-  line-height: 1.2 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.625rem ;
+  line-height: 1.2 ;
+  font-weight: 600 ;
 }
 
 #concept-runbook .kit-preview-kicker,
 #concept-runbook .kit-preview-kicker[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.625rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.625rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
   letter-spacing: 0.08em;
 }
 
 #concept-runbook .kit-preview-body,
 #concept-runbook .kit-preview-body[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1.45 !important;
-  font-weight: 500 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1.45 ;
+  font-weight: 500 ;
 }
 
 #concept-runbook .kit-preview-label,
 #concept-runbook .kit-preview-label[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.5625rem !important;
-  line-height: 1.2 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.5625rem ;
+  line-height: 1.2 ;
+  font-weight: 600 ;
   letter-spacing: 0.08em;
 }
 
 #concept-runbook .kit-preview-item,
 #concept-runbook .kit-preview-item[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.6875rem !important;
-  line-height: 1.35 !important;
-  font-weight: 500 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.6875rem ;
+  line-height: 1.35 ;
+  font-weight: 500 ;
 }
 
 .router-layer-kicker {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1 ;
+  font-weight: 600 ;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .router-layer-num {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.75rem !important;
-  line-height: 1.4 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.75rem ;
+  line-height: 1.4 ;
+  font-weight: 600 ;
   letter-spacing: 0.08em;
 }
 
 .router-layer-feat-title,
 .router-layer-feat-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.05rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.05rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
 }
 
 .router-layer-feat-desc,
 .router-layer-feat-desc[class],
 .router-layer-feat-desc p {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.95rem ;
+  line-height: 1.6 ;
+  font-weight: 400 ;
 }
 
 #products-faq h4.products-faq-q,
 #products-faq h4.products-faq-q[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1.05rem !important;
-  line-height: 1.35 !important;
-  font-weight: 600 !important;
-  color: var(--lumen-navy) !important;
-  margin: 0 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1.05rem ;
+  line-height: 1.35 ;
+  font-weight: 600 ;
+  color: var(--lumen-navy) ;
+  margin: 0 ;
 }
 
 #products-faq .products-faq-a,
 #products-faq .products-faq-a[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.55 !important;
-  font-weight: 400 !important;
-  color: var(--lumen-muted) !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.95rem ;
+  line-height: 1.55 ;
+  font-weight: 400 ;
+  color: var(--lumen-muted) ;
 }
 
 .kit-closeup-title,
 .kit-closeup-title[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 1rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 1rem ;
+  line-height: 1.3 ;
+  font-weight: 600 ;
 }
 
 .kit-closeup-sub,
 .kit-closeup-sub[class] {
-  font-family: var(--font-geist-sans), sans-serif !important;
-  font-size: 0.8rem !important;
-  line-height: 1.4 !important;
-  font-weight: 500 !important;
+  font-family: var(--font-geist-sans), sans-serif ;
+  font-size: 0.8rem ;
+  line-height: 1.4 ;
+  font-weight: 500 ;
 }
