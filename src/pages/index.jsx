@@ -57,7 +57,7 @@ export default function HomePage() {
         <AboutSection />
         <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="28rem" />
         <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="28rem" />
-        <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" />
+        {/* <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" /> */}
         <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="28rem" />
         <FinalCTASection />
       </main>

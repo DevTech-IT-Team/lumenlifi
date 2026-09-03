@@ -1,94 +1,78 @@
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
-function BackgroundPaths() {
-  const paths = Array.from({ length: 18 }, (_, i) => ({
-    id: i,
-    d: `M-${200 + i * 20} ${100 + i * 15} C ${200 + i * 30} ${300 - i * 10}, ${400 + i * 20} ${-50 + i * 20}, ${1200 + i * 30} ${200 + i * 15}`,
-    duration: 15 + (i % 5) * 3,
-    delay: (i % 4) * 0.5,
-  }));
-
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
-      <svg
-        className="h-full min-h-[300px] w-full min-w-[1000px]"
-        viewBox="0 0 1200 400"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {paths.map((path) => (
-          <path
-            key={path.id}
-            d={path.d}
-            stroke="var(--lumen-cyan, #00C2C7)"
-            strokeWidth="1.2"
-            strokeOpacity="0.4"
-            className="animate-pulse"
-            style={{
-              animationDuration: `${path.duration}s`,
-              animationDelay: `${path.delay}s`,
-            }}
-          />
-        ))}
-      </svg>
-    </div>
-  );
-}
 
 export default function FinalCTASection() {
   return (
     <section
-      className="cta-banner page-screen relative w-full overflow-hidden"
       id="cta-final"
-      style={{
-        background:
-          'radial-gradient(ellipse 80% 90% at 85% 20%, rgba(0,194,199,0.22), transparent 55%), radial-gradient(ellipse 70% 80% at 10% 90%, rgba(13,34,64,0.9), transparent 50%), #071820',
-      }}
+      className="relative w-full overflow-hidden py-14 sm:py-16 lg:py-20"
+      style={{ backgroundColor: '#ffffff', backgroundImage: 'none' }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-50"
-        style={{
-          backgroundImage: 'var(--lumen-grid-image-dark)',
-          backgroundSize: 'var(--lumen-grid-size) var(--lumen-grid-size)',
-        }}
-      />
-      <BackgroundPaths />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl text-left"
+      <div className="mx-auto w-full max-w-[1380px] px-4 sm:px-6">
+        <div
+          className="relative overflow-hidden rounded-[1.75rem] px-8 py-12 sm:rounded-[2rem] sm:px-12 sm:py-14 lg:px-16 lg:py-16"
+          style={{
+            background:
+              'radial-gradient(ellipse 90% 120% at 100% 50%, rgba(0,194,199,0.55) 0%, transparent 55%), radial-gradient(ellipse 70% 100% at 85% 80%, rgba(26,110,191,0.5) 0%, transparent 50%), radial-gradient(ellipse 50% 80% at 70% 20%, rgba(13,34,64,0.9) 0%, transparent 45%), linear-gradient(115deg, #0a1220 0%, #0D2240 42%, #12304f 70%, #0a3d4a 100%)',
+          }}
         >
-          <h2 className="lumen-display-light mb-5">
-            Leave old radio waves behind.
-            <br />
-            <span className="text-[var(--lumen-cyan)]">Live at the speed of light.</span>
-          </h2>
-          <p className="lumen-lead-light mb-8 max-w-xl">
-            Upgrade your home to internet delivered through light — faster, private, and free of radio congestion.
-          </p>
-          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <Link
-              href="/products"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg px-8 text-sm font-bold tracking-wide text-white"
-              style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+          {/* Soft mesh glow accents */}
+          <div
+            className="pointer-events-none absolute -right-10 top-0 h-full w-[55%] opacity-70"
+            style={{
+              background:
+                'radial-gradient(circle at 60% 30%, rgba(0,194,199,0.35), transparent 50%), radial-gradient(circle at 80% 70%, rgba(26,110,191,0.4), transparent 45%)',
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+              maskImage: 'linear-gradient(90deg, transparent 0%, black 40%, black 100%)',
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 max-w-2xl text-left">
+            <h2
+              className="!m-0 !text-[clamp(1.85rem,4.5vw,3rem)] !font-normal leading-[1.15] tracking-[-0.02em] text-white"
+              style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
             >
-              Order Now
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/25 px-8 text-sm font-bold text-white transition-colors hover:border-[var(--lumen-cyan)] hover:text-[var(--lumen-cyan)]"
+              Leave old radio waves behind.
+              <br />
+              <span className="text-[var(--lumen-cyan)]">Live at the speed of light.</span>
+            </h2>
+
+            <p
+              className="!mt-5 max-w-xl !text-sm !font-normal leading-relaxed text-white/70 sm:!text-base"
+              style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
             >
-              Contact Us
-            </Link>
+              Upgrade your home to internet delivered through light — faster, private, and free of
+              radio congestion.
+            </p>
+
+            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Link
+                href="/products"
+                prefetch={false}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-8 text-sm !font-normal !text-[#0D2240] transition-opacity hover:opacity-90"
+              >
+                Order Now
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                prefetch={false}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/30 bg-transparent px-8 text-sm !font-normal text-white transition-colors hover:border-white hover:bg-white/5"
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

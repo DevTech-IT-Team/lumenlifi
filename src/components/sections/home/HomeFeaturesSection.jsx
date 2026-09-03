@@ -53,7 +53,7 @@ export default function HomeFeaturesSection() {
             prefetch={false}
             className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#161C3B]/10 bg-[#EBF5FF] px-6 py-3 text-sm !font-normal !text-black transition-colors hover:bg-[#dcecff]"
           >
-            Get Started
+            View Products
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </motion.div>
@@ -209,9 +209,9 @@ export default function HomeFeaturesSection() {
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c1228]/90 via-[#0c1228]/20 to-transparent" />
 
-            <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--lumen-cyan)] text-[#0c1228]">
+            {/* <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--lumen-cyan)] text-[#0c1228]">
               <ArrowUpRight className="h-4 w-4" />
-            </div>
+            </div> */}
 
             <div className="absolute bottom-5 left-5 right-5">
               <p
