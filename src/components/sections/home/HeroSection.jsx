@@ -42,7 +42,10 @@ export default function HeroSection() {
             className="absolute inset-0 h-full w-full object-cover object-top"
             aria-hidden="true"
           >
-            <source src="/videos/vidd.mp4" type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/jup2hjfk/video/upload/v1788596028/viiid_xwpoe0.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 

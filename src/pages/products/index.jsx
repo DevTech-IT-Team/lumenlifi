@@ -236,7 +236,7 @@ export default function ProductsPage() {
       </Head>
       <Header />
 
-      <main className="relative z-10 pb-16 pt-24 sm:pb-24 sm:pt-28">
+      <main className="relative z-10 pb-16 sm:pb-24">
         <AnimatePresence mode="wait">
           {!activeProduct ? (
             <motion.div
@@ -244,149 +244,63 @@ export default function ProductsPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="space-y-8"
+              className="space-y-0"
             >
-              <section className="relative w-full overflow-hidden bg-[#06131d]">
-                <div className="absolute inset-0">
+              <section className="relative isolate flex min-h-[min(100svh,920px)] w-full flex-col overflow-hidden bg-[#06131d]">
+                <div className="absolute inset-0 -z-20">
                   <Image
-                    src="/images/products/fullbg.png"
+                    src="/images/products/products_bgs.png"
                     alt=""
                     fill
                     priority
-                    className="object-cover object-center"
+                    className="object-contain object-center"
                     sizes="100vw"
                   />
                 </div>
-                <div className="absolute inset-0 bg-[#060B16]/45 pointer-events-none" />
-                <div className="relative z-10 mx-auto flex min-h-[70svh] w-full max-w-7xl flex-col justify-between px-4 py-12 sm:min-h-[calc(100svh-7rem)] sm:px-6 sm:py-16 lg:px-8">
-                  <div className="max-w-4xl space-y-5">
-                    <h1 className="page-hero-heading lumen-display-light text-left">
-                      <span className="block">Shop the Conscious Home</span>
-                      <span className="products-hero-accent block">Light Network</span>
-                    </h1>
-                    <p className="lumen-lead-light max-w-lg drop-shadow-md">
-                      Welcome to the world&apos;s first home run entirely on light. Every device in our family has built-in light receivers. This gives you zero lag, completely safe security, and unlimited internet speed.
-                    </p>
-                  </div>
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(6,19,29,0.72) 0%, rgba(6,19,29,0.35) 45%, rgba(6,19,29,0.1) 100%)',
+                  }}
+                  aria-hidden="true"
+                />
 
-                  <div className="relative z-10 mt-10 flex w-full justify-center">
-                    <div className="relative max-w-xl w-full bg-gradient-to-b from-[#00C2C7]/30 via-[#1A6EBF]/20 to-[#0D2240]/50 backdrop-blur-md border border-[#00C2C7]/45 rounded-lg p-4 px-6 text-center shadow-2xl flex flex-col items-center justify-center gap-2 overflow-hidden group/cyan">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/cyan:translate-x-full transition-transform duration-1000 ease-out" />
-                      <div className="flex items-center justify-center">
-                        <span className="relative flex h-2.5 w-2.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 border border-white/20" />
-                        </span>
-                      </div>
-                      <p className="text-xs sm:text-sm font-sans font-medium text-cyan-50 tracking-wide leading-relaxed">
-                        Stop trying to fix a broken Wi-Fi network. <br className="hidden sm:inline" />
-                        <span className="font-bold text-white">Build a smart home run on light.</span>
+                <div className="relative z-10 mx-auto flex w-full max-w-[1380px] flex-1 flex-col justify-end px-5 pb-12 pt-28 sm:px-8 sm:pb-14 lg:px-12 lg:pb-16">
+                  <div className="flex max-w-3xl flex-col items-start gap-10 sm:gap-14 lg:gap-16">
+                    <h1
+                      className="!m-0 max-w-[14ch] !text-[clamp(2.75rem,6.8vw,4.75rem)] !font-normal leading-[1.05] tracking-[-0.035em] text-[#EBF5FF]"
+                      style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+                    >
+                      Shop the
+                      <br />
+                      Conscious Home.
+                    </h1>
+
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                      <p
+                        className="!m-0 max-w-[280px] !text-[15px] !font-normal leading-snug text-white/65"
+                        style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                      >
+                        Every device has built-in light receivers — zero lag, safe security, and unlimited speed
+                      </p>
+                      <ArrowRight
+                        className="hidden h-4 w-4 shrink-0 text-white/40 sm:block"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                      <p
+                        className="!m-0 max-w-[200px] !text-[15px] !font-normal leading-snug text-white/65"
+                        style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                      >
+                        The world&apos;s first home run entirely on light
                       </p>
                     </div>
                   </div>
                 </div>
               </section>
 
-              <div className="mx-auto max-w-7xl px-4 pt-8 pb-4 sm:px-6 lg:px-8">
               <RevFSystemKitExplorer />
-
-              {/* --- COMMERCE CATALOG MATRIX --- */}
-              {/* <div className="space-y-8">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-slate-300">
-                  <div className="space-y-1">
-                    <h2 className="text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
-                      <Sliders size={16} className="text-green-600" /> Modular System Components Catalog
-                    </h2>
-                    <p className="text-xs text-slate-700">Expand your optical topology network piece by piece with standard industrial modules.</p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 w-full md:w-auto">
-                    {categories.map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedCategory(cat)}
-                        className={`px-3 py-1.5 rounded-lg text-[11px] font-mono font-bold tracking-tight transition-all border ${selectedCategory === cat
-                            ? 'bg-green-100 border-green-400 text-green-800'
-                            : 'bg-transparent border-slate-200 text-slate-600 hover:text-green-700 hover:border-green-300'
-                          }`}
-                      >
-                        {cat === 'All' ? 'ALL MODULES' : cat.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredProducts.map((product) => (
-                    <div
-                      key={product.slug}
-                      className="bg-[#F6FAF8] border border-slate-200 rounded-2xl p-5 flex flex-col justify-between hover:border-green-300 transition-all group hover:bg-[#F2FAF6] shadow-md relative"
-                    >
-                      <div className="absolute top-4 right-4 bg-white border border-slate-200 text-[9px] font-mono text-slate-500 px-2 py-0.5 rounded">
-                        IN STOCK
-                      </div>
-
-                      <div className="space-y-4">
-                        <div className="aspect-[16/10] rounded-xl overflow-hidden bg-white/60 border border-slate-100/60 relative">
-                          <Image
-                            src={product.imageUrl}
-                            alt={product.name}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 600px"
-                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#F6FAF8] via-transparent to-transparent pointer-events-none" />
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-start gap-2">
-                            <h3 className="text-sm font-bold text-slate-950 group-hover:text-green-700 transition-colors tracking-tight line-clamp-1">
-                              {product.name}
-                            </h3>
-                            <span className="text-sm font-mono font-bold text-green-700 shrink-0">{product.price}</span>
-                          </div>
-
-                          <div className="flex items-center gap-1.5 text-[10px] font-mono text-orange-600">
-                            <Star size={10} fill="currentColor" />
-                            <span>{product.rating}</span>
-                            <span className="text-slate-500 font-sans">({product.reviews} orders)</span>
-                          </div>
-                        </div>
-
-                        <p className="text-slate-700 text-xs leading-relaxed line-clamp-3 font-light">
-                          {product.desc}
-                        </p>
-
-                        <div className="pt-2 flex flex-wrap gap-1.5">
-                          {product.specs.slice(0, 2).map((spec, sIdx) => (
-                            <span key={sIdx} className="text-[9px] font-mono text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
-                              ▪ {spec}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-5 mt-4 border-t border-slate-200 flex gap-2">
-                        <button
-                          onClick={() => setSelectedProductSlug(product.slug)}
-                          className="flex-grow py-2 bg-white border border-slate-200 text-[10px] font-mono font-bold text-slate-600 rounded-lg hover:text-green-700 hover:border-green-300 transition-colors tracking-wider uppercase text-center"
-                        >
-                          SPEC SHEETS
-                        </button>
-                        <button
-                          onClick={() => setCartCount(prev => prev + 1)}
-                          className="px-3 bg-green-100/40 border border-green-300/60 text-green-700 rounded-lg hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center"
-                        >
-                          <ShoppingCart size={13} />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
-
-              </div>
 
               <section className="section-wash-navy relative w-full overflow-hidden py-16 sm:py-20" aria-labelledby="product-gallery-title">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
