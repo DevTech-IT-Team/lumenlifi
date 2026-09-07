@@ -30,6 +30,7 @@ import {
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import RevFSystemKitExplorer from '../../components/sections/products/RevFSystemKitExplorer';
+import ProductsFaqSection from '../../components/sections/products/ProductsFaqSection';
 
 const productsData = [
   {
@@ -178,50 +179,12 @@ const productsData = [
   }
 ];
 
-const KIT_CLOSEUP_PRODUCTS = [
-  {
-    id: 'router',
-    name: 'Router Box',
-    sub: 'The core of your system',
-    src: '/images/products/B.jpg',
-  },
-  {
-    id: 'poe',
-    name: 'PoE+ Injector',
-    sub: 'Power + connectivity',
-    src: '/images/products/C.jpg',
-  },
-  {
-    id: 'ap',
-    name: 'Access Point',
-    sub: 'Extend your connection',
-    src: '/images/products/D.jpg',
-  },
-  {
-    id: 'antennas',
-    name: 'Two Antennas',
-    sub: 'Built for better coverage',
-    src: '/images/products/E.jpg',
-  },
-  {
-    id: 'dongles',
-    name: 'Two Dongles',
-    sub: 'Connect your devices',
-    src: '/images/products/F.jpg',
-  },
-];
-
 export default function ProductsPage() {
   const [selectedProductSlug, setSelectedProductSlug] = useState(null);
-  const [activeFaq, setActiveFaq] = useState(-1);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [cartCount, setCartCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);   // FAQ page: 1 = Q1–10, 2 = Q11–20
-  const [isExpanded, setIsExpanded] = useState(false);  // false = show 5, true = show 10
-  const [activeKitId, setActiveKitId] = useState(KIT_CLOSEUP_PRODUCTS[0].id);
 
   const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
-  const activeKitProduct = KIT_CLOSEUP_PRODUCTS.find((item) => item.id === activeKitId) || KIT_CLOSEUP_PRODUCTS[0];
   const categories = ['All', 'Network Foundation', 'Entertainment & Computing', 'Security & Perimeter', 'Conscious Appliances & Home Automation'];
 
   const filteredProducts = selectedCategory === 'All'
@@ -309,11 +272,11 @@ export default function ProductsPage() {
                       Purchase Now
                     </h2>
                     <p className="lumen-body-sm-light mt-3">
-                      Every product in the RevF System Kit — tap a card to view it full size.
+                      Get the complete RevF System Kit — ships worldwide.
                     </p>
                   </div>
 
-                  <div className="relative z-10 mb-12 rounded-lg border border-white/15 bg-white/[0.06] p-6 sm:p-8">
+                  <div className="relative z-10 mb-12 rounded-3xl border border-white/15 bg-white/[0.06] p-6 sm:p-8">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                       <div className="space-y-2">
                         <div className="flex items-center gap-1 text-amber-400">
@@ -331,7 +294,7 @@ export default function ProductsPage() {
                       <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
                         <motion.a
                           href="https://rzp.io/rzp/vv8HFbfc"
-                          className="inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg px-8 text-sm font-bold tracking-wide text-white sm:w-auto"
+                          className="inline-flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-8 text-sm font-bold tracking-wide text-white sm:w-auto"
                           style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.98 }}
@@ -340,261 +303,20 @@ export default function ProductsPage() {
                           Buy Now
                           <ArrowRight size={16} />
                         </motion.a>
-                        <a
+                        {/* <a
                           href="#"
                           className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[var(--lumen-cyan)]/40 bg-transparent px-8 text-sm font-bold text-[var(--lumen-cyan)] transition-colors hover:border-[var(--lumen-cyan)] hover:bg-white/5 sm:w-auto"
                         >
                           <Download size={16} />
                           View Datasheet
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                   </div>
-
-                  <div className="relative z-10 mb-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
-                    {KIT_CLOSEUP_PRODUCTS.map((item) => {
-                      const isActive = item.id === activeKitId;
-                      return (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => setActiveKitId(item.id)}
-                          className={`group overflow-hidden rounded-lg border text-left transition-all ${
-                            isActive
-                              ? 'border-[var(--lumen-cyan)] bg-white/[0.08] shadow-[0_10px_28px_rgba(0,194,199,0.2)]'
-                              : 'border-white/15 bg-white/[0.04] hover:border-[var(--lumen-cyan)]/40'
-                          }`}
-                          aria-pressed={isActive}
-                          aria-label={`View ${item.name}`}
-                        >
-                          <div className="relative aspect-square bg-[#07111F]">
-                            <Image
-                              src={item.src}
-                              alt={item.name}
-                              fill
-                              sizes="(max-width: 768px) 50vw, 20vw"
-                              className="object-cover"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className="p-4">
-                            <p className={`kit-closeup-title ${isActive ? 'text-[var(--lumen-cyan)]' : 'text-white'}`}>
-                              {item.name}
-                            </p>
-                            <p className="kit-closeup-sub mt-1 text-white/60">{item.sub}</p>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  <div className="relative z-10 overflow-hidden rounded-lg border border-white/15 bg-[#07111F]">
-                    <div className="relative aspect-square w-full sm:aspect-[16/10]">
-                      <AnimatePresence mode="wait" initial={false}>
-                        <motion.div
-                          key={activeKitProduct.id}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.25, ease: 'easeOut' }}
-                          className="absolute inset-0"
-                        >
-                          <Image
-                            src={activeKitProduct.src}
-                            alt={activeKitProduct.name}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
-                            className="object-contain"
-                            loading="lazy"
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-                  </div>
                 </div>
               </section>
 
-              <section id="products-faq" className="section-wash-white relative overflow-hidden py-16 sm:py-24">
-              <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-
-                {/* Header text segment */}
-                <div className="space-y-1 mb-8 text-center sm:text-left">
-                  <h2 className="lumen-h2">
-                    Frequently Asked Questions:{' '}
-                    <span className="text-[var(--lumen-cyan)]">Lumenfi</span> Li-Fi
-                  </h2>
-                  <p className="text-[11px] font-mono text-green-700 uppercase tracking-widest">
-                    Getting Started &amp; Technical Specifications Protocol
-                  </p>
-                </div>
-
-                {/* FAQ Grid List Container */}
-                <div className="space-y-2.5">
-                  {[
-                    // ── SET 1 (Questions 1 - 10) ──
-                    {
-                      q: "1. What is Li-Fi?",
-                      a: "Li-Fi (Light Fidelity) is a cutting-edge wireless communication technology that uses light waves instead of traditional radio frequencies to transmit data. By modulating LED light, it provides secure, high-speed internet connectivity."
-                    },
-                    {
-                      q: "2. How does the Lumenfi kit work?",
-                      a: "Our kits use photonic antennas that connect to your lighting infrastructure. These antennas receive data from your network and project it via light pulses, which are then captured by a receiver dongle attached to your device."
-                    },
-                    {
-                      q: "3. How much space does a standard kit cover?",
-                      a: "Each individual photonic antenna covers 500 square feet. Because each kit includes two antennas, you receive 1,000 square feet of total coverage right out of the box."
-                    },
-                    {
-                      q: "4. Can I expand my coverage if my space is larger than 1,000 sq ft?",
-                      a: "Absolutely. We offer the ability to purchase additional photonic antennas to increase your total coverage area according to your needs."
-                    },
-                    {
-                      q: "5. Do I need additional hardware to connect more devices?",
-                      a: "Yes, you can purchase additional receiver dongles upon request to accommodate more devices on your Li-Fi network."
-                    },
-                    {
-                      q: "6. What is the typical lead time for a kit?",
-                      a: "Please allow 4 to 6 weeks for your kit to be processed, prepared, and delivered to your doorstep."
-                    },
-                    {
-                      q: "7. Is Li-Fi faster than Wi-Fi?",
-                      a: "Li-Fi has the potential to be significantly faster than standard Wi-Fi because the light spectrum is far broader and less congested than the radio frequency spectrum."
-                    },
-                    {
-                      q: "8. Do the lights need to be fully bright for Li-Fi to work?",
-                      a: "No. Li-Fi systems can operate at dimmed levels that are comfortable for human eyes. High-end systems can even operate using invisible infrared light to maintain connectivity in total darkness."
-                    },
-                    {
-                      q: "9. Does Li-Fi work through walls?",
-                      a: "One of the primary benefits of Li-Fi is that light does not pass through walls. This provides an inherent layer of physical security, as your data is contained strictly within the illuminated space."
-                    },
-                    {
-                      q: "10. Can Li-Fi cause interference with other electronics?",
-                      a: "No. Because Li-Fi uses light waves rather than radio waves, it generates zero electromagnetic interference, making it perfect for environments where radio interference is a concern, such as hospitals or aviation."
-                    },
-                    // ── SET 2 (Questions 11 - 20) ──
-                    {
-                      q: "11. Is Li-Fi harmful to human eyes or health?",
-                      a: "Not at all. The light used is standard LED illumination. The modulation happens at speeds far beyond what the human eye can perceive, causing no flicker or health risks."
-                    },
-                    {
-                      q: "12. What devices are compatible with Lumenfi?",
-                      a: "Any device equipped with a USB port can utilize our receiver dongles to connect to the network."
-                    },
-                    {
-                      q: "13. Why is Li-Fi considered more secure than Wi-Fi?",
-                      a: "Since light is blocked by walls and opaque materials, your network cannot be accessed by someone outside of your office or home, effectively eliminating the risk of remote hacking."
-                    },
-                    {
-                      q: "14. Can I use Li-Fi outdoors?",
-                      a: "Li-Fi is designed primarily for indoor use. Direct, intense sunlight can create significant interference with the optical signal, which may degrade performance."
-                    },
-                    {
-                      q: "15. Does Li-Fi work if I move around the room?",
-                      a: "Yes, as long as your device maintains a line-of-sight or receives reflected light from the ceiling-mounted antennas, you can enjoy seamless connectivity while moving within the coverage area."
-                    },
-                    {
-                      q: "16. What happens if I accidentally block the light signal?",
-                      a: "If you completely obstruct the line-of-sight between the light source and your device, the connection may drop. However, Li-Fi systems are designed to utilize reflected light off walls and surfaces to maintain a connection even when a direct line-of-sight is occasionally interrupted."
-                    },
-                    {
-                      q: "17. Is Li-Fi a replacement for my current Wi-Fi?",
-                      a: "Most users implement Li-Fi as a high-security, ultra-fast \"fast lane\" for data-intensive tasks, while keeping Wi-Fi for general coverage throughout the rest of the home or office."
-                    },
-                    {
-                      q: "18. How do I request additional antennas or dongles?",
-                      a: "You can contact our sales or support team directly through our website to request and purchase additional hardware for your setup."
-                    },
-                    {
-                      q: "19. Is the Lumenfi kit difficult to install?",
-                      a: "Our kits are designed for straightforward integration with existing lighting environments. Detailed installation guides are provided with every shipment."
-                    },
-                    {
-                      q: "20. Who should use Li-Fi?",
-                      a: "Li-Fi is ideal for anyone prioritizing data security, anyone working in high-interference environments, or anyone who simply wants to experience the next generation of high-speed, congestion-free wireless connectivity"
-                    }
-                  ]
-                    .slice(((currentPage || 1) - 1) * 10, ((currentPage || 1) - 1) * 10 + 10)
-                    .slice(0, isExpanded ? 10 : 5)
-                    .map((faq, idx) => {
-                      const globalId = (((currentPage || 1) - 1) * 10) + idx;
-                      const isOpen = activeFaq === globalId;
-
-                      return (
-                        <div
-                          key={globalId}
-                          style={{
-                            maxHeight: isOpen ? '320px' : '4.25rem',
-                            transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-                            overflow: 'hidden'
-                          }}
-                          className={`cursor-pointer rounded-lg border border-[var(--lumen-border)] bg-white p-4 transition-colors ${
-                            isOpen ? 'border-[var(--lumen-cyan)]/50' : 'hover:border-[var(--lumen-cyan)]/35'
-                          }`}
-                          onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
-                        >
-                          <div className="flex min-h-[1.75rem] items-center justify-between gap-4">
-                            <h4 className="products-faq-q">
-                              {faq.q}
-                            </h4>
-                            <span style={{
-                              transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.3s ease',
-                              fontSize: '11px',
-                              color: isOpen ? 'var(--lumen-cyan)' : '#64748b'
-                            }}>
-                              ▼
-                            </span>
-                          </div>
-
-                          <div
-                            style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}
-                            className="products-faq-a mt-2.5 border-t border-slate-200/60 pt-2.5"
-                          >
-                            {faq.a}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-
-                {/* Control Navigation Actions Bar */}
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mr-2">Sets:</span>
-                    <button
-                      type="button"
-                      onClick={() => { setCurrentPage(1); setActiveFaq(-1); setIsExpanded(false); }}
-                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 1
-                        ? 'bg-green-700 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                    >
-                      1 (Q1-10)
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => { setCurrentPage(2); setActiveFaq(-1); setIsExpanded(false); }}
-                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 2
-                        ? 'bg-green-700 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                    >
-                      2 (Q11-20)
-                    </button>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-950 text-white font-mono text-xs font-bold rounded-xl hover:bg-slate-800 transition-all shadow-sm"
-                  >
-                    {isExpanded ? "Show Less" : "Show More Questions"}
-                  </button>
-                </div>
-
-              </div>
-              </section>
+              <ProductsFaqSection />
             </motion.div>
           ) : (
             <motion.section

@@ -1,69 +1,13 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { ArrowRight, Headphones, ShoppingBag, Handshake } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Mail } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import { ContactFormBlock } from '../../components/sections/contact';
 
-const TOPICS = [
-  {
-    icon: ShoppingBag,
-    title: 'Products & Orders',
-    desc: 'Home kits, hardware specs, shipping, and order status.',
-    email: 'operations@lumenlifi.com',
-  },
-  {
-    icon: Headphones,
-    title: 'Support & Billing',
-    desc: 'Subscriptions, payments, installation, and troubleshooting.',
-    email: 'operations@lumenlifi.com',
-  },
-  {
-    icon: Handshake,
-    title: 'Sales & Partnerships',
-    desc: 'Pricing, enterprise deployments, and partner programs.',
-    email: 'rupali@lifilumen.com',
-  },
-];
-
-function BackgroundPaths() {
-  const paths = Array.from({ length: 18 }, (_, i) => ({
-    id: i,
-    d: `M-${200 + i * 20} ${100 + i * 15} C ${200 + i * 30} ${300 - i * 10}, ${400 + i * 20} ${-50 + i * 20}, ${1200 + i * 30} ${200 + i * 15}`,
-    duration: 15 + (i % 5) * 3,
-    delay: (i % 4) * 0.5,
-  }));
-
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
-      <svg
-        className="h-full min-h-[300px] w-full min-w-[1000px]"
-        viewBox="0 0 1200 400"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {paths.map((path) => (
-          <path
-            key={path.id}
-            d={path.d}
-            stroke="var(--lumen-cyan, #00bdc7)"
-            strokeWidth="1.2"
-            strokeOpacity="0.4"
-            className="animate-pulse"
-            style={{
-              animationDuration: `${path.duration}s`,
-              animationDelay: `${path.delay}s`,
-            }}
-          />
-        ))}
-      </svg>
-    </div>
-  );
-}
-
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden lumen-page-bg-white text-slate-800 antialiased">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#030914] text-slate-800 antialiased">
       <Head>
         <title>Lumen LIFI — Contact Us</title>
         <meta
@@ -76,67 +20,81 @@ export default function ContactPage() {
       <Header />
 
       <main className="relative z-10">
-        <section className="contact-hero section-wash-white relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-20">
-          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mx-auto mb-8 flex max-w-2xl flex-col items-center text-center sm:mb-12">
-              <span className="contact-hero-kicker">Contact</span>
-              <h1 className="contact-hero-title">
-                Let&apos;s <span>connect.</span>
-              </h1>
-              <p className="contact-hero-lead">
-                Exploring LiFi for your home, need help with an order, or want to partner with us — we&apos;d love to hear from you.
-              </p>
-            </div>
+        {/* Hero — contact.png, text left / hardware right */}
+        <section className="relative isolate flex min-h-[min(100svh,920px)] w-full flex-col overflow-hidden bg-[#030914]">
+          <div className="absolute inset-0 -z-20">
+            <Image
+              src="/images/contact/contact1.png"
+              alt="LumenFi RevF hardware under LiFi light"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-right"
+            />
+          </div>
+          <div
+            className="pointer-events-none absolute inset-0 -z-10"
+            style={{
+              background:
+                'linear-gradient(105deg, rgba(3,9,20,0.92) 0%, rgba(3,9,20,0.72) 38%, rgba(3,9,20,0.28) 62%, rgba(3,9,20,0.08) 100%)',
+            }}
+            aria-hidden="true"
+          />
 
-            <div className="grid w-full grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 md:items-stretch">
-              {TOPICS.map(({ icon: Icon, title, desc, email }) => (
+          <div className="relative z-10 mx-auto flex w-full max-w-[1380px] flex-1 flex-col justify-end px-5 pb-14 pt-28 sm:px-8 sm:pb-16 sm:pt-32 lg:px-12 lg:pb-20">
+            <div className="flex max-w-xl flex-col items-start lg:max-w-lg">
+              <span
+                className="!text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)] sm:!text-xs"
+                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+              >
+                Contact
+              </span>
+
+              <h1
+                className="!mt-4 !m-0 !text-[clamp(2.75rem,6.5vw,4.5rem)] !font-normal leading-[1.05] tracking-[-0.035em] text-[#EBF5FF]"
+                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+              >
+                Let&apos;s{' '}
+                <span className="text-[var(--lumen-cyan)]">connect.</span>
+              </h1>
+
+              <p
+                className="!mt-5 max-w-md !text-[15px] !font-normal leading-relaxed text-white/65 sm:!text-base"
+                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+              >
+                Exploring LiFi for your home, need help with an order, or want to partner with us —
+                we&apos;d love to hear from you.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  key={title}
-                  href={`mailto:${email}?subject=${encodeURIComponent(title)}`}
-                  className="group flex h-full flex-col rounded-lg border border-[var(--lumen-border)] bg-white p-5 sm:p-6 text-left transition-all hover:border-[var(--lumen-cyan)]/40 hover:shadow-md"
+                  href="mailto:operations@lumenlifi.com?subject=Get%20Started%20with%20LumenFi"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#EBF5FF] px-7 text-sm !font-normal text-black transition-colors hover:bg-white"
+                  style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--lumen-cyan)]/30 text-[var(--lumen-cyan)] transition-colors group-hover:border-[var(--lumen-cyan)]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h2 className="contact-hero-card-title">{title}</h2>
-                  <p className="contact-hero-card-text">{desc}</p>
-                  <span className="mt-auto inline-flex items-center gap-1 pt-5 text-xs font-semibold uppercase tracking-wider text-[var(--lumen-blue)] transition-all group-hover:gap-2">
-                    Email us <ArrowRight className="h-3 w-3" />
-                  </span>
+                  Get Started
+                  <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
                 </a>
-              ))}
+                <a
+                  href="mailto:rupali@lifilumen.com?subject=LumenFi%20Inquiry"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 text-sm !font-normal text-[#EBF5FF] transition-colors hover:border-[var(--lumen-cyan)]/50 hover:bg-white/10"
+                  style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                >
+                  <Mail className="h-4 w-4" strokeWidth={1.75} />
+                  Email Us
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Form */}
-        <section id="contact-form" className="relative section-wash-navy py-12 sm:py-16 lg:py-24">
+        <section
+          id="contact-form"
+          className="relative py-14 sm:py-16 lg:py-24"
+          style={{ backgroundColor: '#EBF5FF', backgroundImage: 'none' }}
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <ContactFormBlock />
-          </div>
-        </section>
-
-        <section className="relative flex items-center justify-center overflow-hidden border-t border-[var(--lumen-border)]/20 py-16 sm:py-20 section-wash-navy">
-          <BackgroundPaths />
-          <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <p className="lumen-body-sm-light text-base leading-relaxed sm:text-lg">
-              Looking for policy details? Read our{' '}
-              <Link href="/privacy" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
-                Privacy Policy
-              </Link>{' '}
-              and{' '}
-              <Link href="/terms" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
-                Terms &amp; Conditions
-              </Link>
-              . For product info, visit the{' '}
-              <Link href="/products" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
-                Products
-              </Link>{' '}
-              page or{' '}
-              <Link href="/what-is-lifi" className="font-semibold text-[var(--lumen-cyan)] transition-colors hover:underline">
-                What is LiFi?
-              </Link>
-            </p>
           </div>
         </section>
       </main>

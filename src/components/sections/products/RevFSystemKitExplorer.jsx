@@ -1,258 +1,181 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const SCROLL_POINTS = [
+const KIT_ITEMS = [
   {
     id: 'router',
+    label: 'Step 01',
     title: 'Router Box.',
-    body: 'Plug your house internet feed into the LumenFi routing box.',
+    body: 'Plug your house internet feed into the LumenFi routing box — the bridge between your ISP and light-speed LiFi.',
+    image: '/images/products/router.png',
+    alt: 'LumenFi RevF router box with cyan accent lighting',
   },
   {
-    id: 'poe',
+    id: 'injector',
+    label: 'Step 02',
     title: 'PoE Injector.',
-    body: 'Combine data and power into one cable run.',
+    body: 'Combine data and power into one cable run. Clean installs, fewer wall adapters, one powered line to the Access Point.',
+    image: '/images/products/injector.png',
+    alt: 'LumenFi PoE injector with DATA IN and PoE OUT ports',
   },
   {
-    id: 'ap',
+    id: 'controller',
+    label: 'Step 03',
     title: 'RevF Controller.',
-    body: 'Connect the powered line to the RevF Access Point.',
+    body: 'Connect the powered line to the RevF Access Point. Wall-mount ready — the control hub for every light cone in the room.',
+    image: '/images/products/controller.png',
+    alt: 'LumenFi RevF controller connected to photonic access point',
   },
   {
-    id: 'antennas',
+    id: 'photonic',
+    label: 'Step 04',
     title: 'Photonic Antennas.',
-    body: 'Mount ceiling antennas to broadcast light cones.',
+    body: 'Mount ceiling antennas to broadcast secure light cones — high-bandwidth coverage without radio interference.',
+    image: '/images/products/photonic.png',
+    alt: 'LumenFi photonic antennas casting cyan LiFi light cones',
   },
   {
-    id: 'dongles',
+    id: 'dongle',
+    label: 'Step 05',
     title: 'USB LiFi Dongles.',
-    body: 'Plug dongles into laptops to catch optical signals.',
+    body: 'Plug dongles into laptops to catch optical signals. Instant uplink wherever the light reaches.',
+    image: '/images/products/dongel.png',
+    alt: 'LumenFi USB LiFi dongle projecting a cyan light beam',
   },
 ];
 
-const POINT_COUNT = SCROLL_POINTS.length;
-const VIDEO_SCRUB_SECONDS = 9.7;
-/** Higher = snappier follow; lower = silkier lag */
-const SMOOTHING = 10;
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
-function clamp(value, min, max) {
-  return Math.min(max, Math.max(min, value));
+const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
+const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
+
+function KitCopy({ item }) {
+  return (
+    <motion.div
+      className="flex max-w-md flex-col justify-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.35 }}
+      variants={fadeUp}
+    >
+      <p
+        className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)] sm:!text-xs"
+        style={inter}
+      >
+        {item.label}
+      </p>
+      <h3
+        className="!mt-4 !m-0 !text-[clamp(2rem,4.2vw,3.25rem)] !font-normal leading-[1.08] tracking-[-0.03em] text-[#0D2240]"
+        style={{ ...geist, fontSize: 'clamp(2rem, 4.2vw, 3.25rem)' }}
+      >
+        {item.title}
+      </h3>
+      <p
+        className="!mt-5 !text-sm !font-normal leading-relaxed text-[#0D2240]/70 sm:!text-[15px]"
+        style={inter}
+      >
+        {item.body}
+      </p>
+      <Link
+        href="#product-gallery-title"
+        className="mt-8 inline-flex h-11 max-w-[220px] items-center justify-center rounded-full border border-[#0D2240]/35 px-7 text-[11px] !font-normal uppercase tracking-[0.18em] text-[#0D2240] transition-colors hover:border-[var(--lumen-cyan)] hover:text-[var(--lumen-cyan)] sm:text-xs"
+        style={inter}
+      >
+        Purchase  kit
+      </Link>
+    </motion.div>
+  );
+}
+
+function KitMedia({ item }) {
+  return (
+    <motion.div
+      className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-[#0D2240] sm:aspect-[16/9]"
+      initial={{ opacity: 0, scale: 0.97 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Image
+        src={item.image}
+        alt={item.alt}
+        fill
+        sizes="(max-width: 1024px) 100vw, 48vw"
+        className="object-cover object-center"
+      />
+    </motion.div>
+  );
 }
 
 export default function RevFSystemKitExplorer() {
-  const trackRef = useRef(null);
-  const videoRef = useRef(null);
-  const rafRef = useRef(0);
-  const durationRef = useRef(0);
-  const targetProgressRef = useRef(0);
-  const smoothProgressRef = useRef(0);
-  const pendingTimeRef = useRef(null);
-  const seekingRef = useRef(false);
-  const lastAppliedRef = useRef(0);
-  const lastFrameRef = useRef(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const onLoadedMetadata = () => {
-      durationRef.current = video.duration || 0;
-      video.pause();
-      video.currentTime = 0;
-      lastAppliedRef.current = 0;
-    };
-
-    const flushPendingSeek = () => {
-      seekingRef.current = false;
-      const pending = pendingTimeRef.current;
-      if (pending == null) return;
-      if (Math.abs(lastAppliedRef.current - pending) < 0.035) {
-        pendingTimeRef.current = null;
-        return;
-      }
-      pendingTimeRef.current = null;
-      seekingRef.current = true;
-      lastAppliedRef.current = pending;
-      try {
-        if (typeof video.fastSeek === 'function') video.fastSeek(pending);
-        else video.currentTime = pending;
-      } catch {
-        seekingRef.current = false;
-      }
-    };
-
-    video.addEventListener('loadedmetadata', onLoadedMetadata);
-    video.addEventListener('seeked', flushPendingSeek);
-    if (video.readyState >= 1) onLoadedMetadata();
-
-    return () => {
-      video.removeEventListener('loadedmetadata', onLoadedMetadata);
-      video.removeEventListener('seeked', flushPendingSeek);
-    };
-  }, []);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    let running = true;
-    let seekUnlockTimer = 0;
-
-    const readScrollProgress = () => {
-      const rect = track.getBoundingClientRect();
-      const trackHeight = track.offsetHeight;
-      const viewport = window.innerHeight;
-      const scrollable = Math.max(1, trackHeight - viewport);
-      const scrolled = clamp(-rect.top, 0, scrollable);
-      return scrolled / scrollable;
-    };
-
-    const queueSeek = (time) => {
-      const video = videoRef.current;
-      if (!video || video.readyState < 1) return;
-
-      // Quantize to ~30fps — fewer conflicting seeks
-      const quantized = Math.round(time * 30) / 30;
-      pendingTimeRef.current = quantized;
-
-      if (seekingRef.current) return;
-      if (Math.abs(lastAppliedRef.current - quantized) < 0.035) {
-        pendingTimeRef.current = null;
-        return;
-      }
-
-      seekingRef.current = true;
-      lastAppliedRef.current = quantized;
-      pendingTimeRef.current = null;
-
-      try {
-        if (typeof video.fastSeek === 'function') video.fastSeek(quantized);
-        else video.currentTime = quantized;
-      } catch {
-        seekingRef.current = false;
-      }
-
-      window.clearTimeout(seekUnlockTimer);
-      seekUnlockTimer = window.setTimeout(() => {
-        if (!seekingRef.current) return;
-        seekingRef.current = false;
-        if (pendingTimeRef.current != null) queueSeek(pendingTimeRef.current);
-      }, 90);
-    };
-
-    const tick = (now) => {
-      if (!running) return;
-
-      const last = lastFrameRef.current || now;
-      const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000));
-      lastFrameRef.current = now;
-
-      targetProgressRef.current = readScrollProgress();
-
-      // Frame-rate independent exponential smoothing
-      const alpha = 1 - Math.exp(-SMOOTHING * dt);
-      const prev = smoothProgressRef.current;
-      const target = targetProgressRef.current;
-      smoothProgressRef.current =
-        Math.abs(target - prev) < 0.00008 ? target : prev + (target - prev) * alpha;
-
-      const progress = smoothProgressRef.current;
-      const duration = durationRef.current;
-      const scrubEnd = Math.min(VIDEO_SCRUB_SECONDS, duration || VIDEO_SCRUB_SECONDS);
-
-      if (duration > 0) {
-        queueSeek(progress * scrubEnd);
-      }
-
-      const nextIndex = Math.min(
-        POINT_COUNT - 1,
-        Math.floor(progress * POINT_COUNT + 0.001)
-      );
-      setActiveIndex((prevIndex) => (prevIndex === nextIndex ? prevIndex : nextIndex));
-
-      rafRef.current = window.requestAnimationFrame(tick);
-    };
-
-    targetProgressRef.current = readScrollProgress();
-    smoothProgressRef.current = targetProgressRef.current;
-    lastFrameRef.current = performance.now();
-    rafRef.current = window.requestAnimationFrame(tick);
-
-    return () => {
-      running = false;
-      window.clearTimeout(seekUnlockTimer);
-      if (rafRef.current) window.cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  const active = SCROLL_POINTS[activeIndex];
-
   return (
     <section
       id="concept-runbook"
-      ref={trackRef}
       className="relative w-full scroll-mt-28"
-      style={{ height: `${POINT_COUNT * 180}vh`, backgroundColor: '#C2D7E7' }}
-      aria-label="RevF System Kit scroll explorer"
+      style={{ backgroundColor: '#EBF5FF' }}
+      aria-label="RevF System Kit"
     >
-      <div
-        className="sticky top-0 flex h-svh w-full overflow-hidden"
-        style={{ backgroundColor: '#C2D7E7' }}
-      >
-        <div className="grid h-full w-full grid-cols-1 lg:grid-cols-5">
-          {/* Left — text only */}
-          <div
-            className="relative flex h-full items-center px-6 py-10 sm:px-10 lg:col-span-2 lg:px-12 xl:px-16"
-            style={{ backgroundColor: '#C2D7E7' }}
+      {/* Intro */}
+      <div className="mx-auto max-w-6xl px-5 pb-6 pt-16 sm:px-8 sm:pt-20 lg:px-10 lg:pt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p
+            className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)] sm:!text-xs"
+            style={inter}
           >
-            <div className="relative w-full max-w-md">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <h2
-                    className="!m-0 !text-[clamp(2.25rem,5vw,3.75rem)] !font-normal leading-[1.1] tracking-[-0.03em] text-slate-900"
-                    style={{
-                      fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif',
-                      color: '#0f172a',
-                    }}
-                  >
-                    {active.title}
-                  </h2>
-                  <p
-                    className="!mt-4 !text-base !font-normal leading-relaxed text-[#0D2240]/80 sm:!text-lg"
-                    style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-                  >
-                    {active.body}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+            System overview
+          </p>
+          <h2
+            className="!mt-3 !m-0 max-w-xl !text-[clamp(2.25rem,5vw,3.75rem)] !font-normal leading-[1.08] tracking-[-0.03em] text-[#0D2240]"
+            style={{ ...geist, fontSize: 'clamp(2.25rem, 5vw, 3.75rem)' }}
+          >
+            RevF System Kit
+          </h2>
+          <p
+            className="!mt-4 max-w-lg !text-sm !font-normal leading-relaxed text-[#0D2240]/65 sm:!text-base"
+            style={inter}
+          >
+            Five components. One light-powered network — from your ISP feed to every laptop in the room.
+          </p>
+        </motion.div>
+      </div>
 
-          {/* Right — scroll-scrubbed video */}
-          <div
-            className="relative min-h-[45vh] lg:col-span-3 lg:min-h-0"
-            style={{ backgroundColor: '#C2D7E7' }}
-          >
-            <video
-              ref={videoRef}
-              muted
-              playsInline
-              preload="auto"
-              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-              aria-hidden="true"
+      {/* Alternating rows */}
+      <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10 lg:pb-28">
+        {KIT_ITEMS.map((item, index) => {
+          const imageLeft = index % 2 === 1;
+
+          return (
+            <article
+              key={item.id}
+              className={`grid grid-cols-1 items-center gap-10 py-12 sm:gap-12 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-20 ${
+                index > 0 ? 'border-t border-[#0D2240]/08' : ''
+              }`}
             >
-              <source src="/videos/prdvid.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
+              <div className={imageLeft ? 'lg:order-1' : 'lg:order-2'}>
+                <KitMedia item={item} />
+              </div>
+              <div className={imageLeft ? 'lg:order-2 lg:pl-4' : 'lg:order-1 lg:pr-4'}>
+                <KitCopy item={item} />
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
