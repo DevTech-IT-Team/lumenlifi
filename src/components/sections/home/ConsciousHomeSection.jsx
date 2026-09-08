@@ -1,117 +1,51 @@
 import Link from 'next/link';
-import { ArrowRight, Package, Play, ShieldCheck, Heart, Lightbulb, Home, Zap } from 'lucide-react';
+import { Package, Play, ShieldCheck, Heart, Lightbulb, Home, Zap } from 'lucide-react';
 
 const stats = [
   { icon: ShieldCheck, value: '100%', label: 'Safe & Private Results' },
   { icon: Heart, value: '98%', label: 'Satisfaction rate' },
 ];
 
-const featureCards = [
+const features = [
   {
+    step: '01',
     icon: Lightbulb,
     title: 'Automatic Smart Lighting',
     desc: 'Invisible light connects devices as you walk in — no apps, no switches.',
-    label: '01 / LIGHTING',
-    featured: false,
-    tall: false,
   },
   {
+    step: '02',
     icon: Home,
     title: 'Virtual Living Room',
     desc: 'Ceiling light streams ultra-fast data for lag-free 3D and headset experiences.',
-    label: '02 / LIVING',
-    featured: false,
-    tall: true,
   },
   {
+    step: '03',
     icon: ShieldCheck,
     title: 'Private Light Signal',
     desc: 'Light cannot pass through walls, so your network stays inside the room.',
-    label: '03 / PRIVATE',
-    featured: true,
-    tall: true,
   },
   {
+    step: '04',
     icon: Zap,
     title: 'Instant Conversations',
     desc: 'Voice assistants respond the moment you finish speaking.',
-    label: '04 / INSTANT',
-    featured: false,
-    tall: false,
   },
 ];
 
 const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
-/** Leaf shape: large TL + BR */
-const cardRadius = 'rounded-tl-[2.75rem] rounded-tr-xl rounded-bl-xl rounded-br-[2.75rem]';
-
-function FeatureCard({ icon: Icon, title, desc, label, featured, tall }) {
-  return (
-    <article
-      className={`group relative flex min-h-0 flex-col overflow-hidden ${cardRadius} ${
-        featured ? 'bg-[var(--lumen-cyan)] text-[#0D2240]' : 'bg-[#EBF5FF] text-[#0D2240]'
-      } ${tall ? 'flex-[1.45] p-6 sm:p-7' : 'flex-[0.72] p-5 sm:p-6'}`}
-    >
-      <div
-        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-          featured ? 'bg-white text-[#0D2240]' : 'bg-[#0D2240] text-white'
-        }`}
-      >
-        <Icon size={17} strokeWidth={1.75} />
-      </div>
-
-      <div className={`mt-auto ${tall ? 'pt-8' : 'pt-6'}`}>
-        <h3
-          className={`!m-0 !font-normal leading-snug tracking-tight text-[#0D2240] ${
-            tall ? '!text-xl sm:!text-2xl' : '!text-base sm:!text-lg'
-          }`}
-          style={geist}
-        >
-          {title}
-        </h3>
-        <p
-          className={`!mt-2 !font-normal leading-relaxed text-[#0D2240]/65 ${
-            tall ? '!text-sm sm:!text-base' : '!text-xs sm:!text-sm'
-          }`}
-          style={inter}
-        >
-          {desc}
-        </p>
-
-        {/* <div className="mt-5 flex items-center justify-between gap-3">
-          <span
-            className={`!text-[10px] !font-normal uppercase tracking-[0.14em] sm:!text-[11px] ${
-              featured ? 'text-[#0D2240]/55' : 'text-[var(--lumen-cyan)]'
-            }`}
-            style={inter}
-          >
-            {label}
-          </span>
-          <Link
-            href="/products"
-            prefetch={false}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#0D2240] text-white transition-transform group-hover:scale-110 sm:h-9 sm:w-9"
-            aria-label={`Learn more about ${title}`}
-          >
-            <ArrowRight size={14} strokeWidth={1.75} />
-          </Link>
-        </div> */}
-      </div>
-    </article>
-  );
-}
 
 export default function ConsciousHomeSection() {
   return (
     <section
       id="conscious-home"
-      className="relative w-full overflow-visible"
+      className="relative w-full overflow-hidden"
       style={{ backgroundColor: '#ffffff', backgroundImage: 'none' }}
     >
-      <div className="mx-auto grid min-h-[min(100svh,920px)] max-w-[1520px] grid-cols-1 overflow-visible lg:grid-cols-12">
-        {/* Left — content */}
-        <div className="relative z-20 flex flex-col justify-center px-6 py-16 sm:px-10 lg:col-span-6 lg:py-20 xl:px-16">
+      <div className="mx-auto grid max-w-[1520px] grid-cols-1 lg:grid-cols-12 lg:min-h-[min(100svh,880px)]">
+        {/* Left — brand story */}
+        <div className="relative z-20 flex flex-col justify-center px-6 py-16 sm:px-10 lg:col-span-5 lg:py-20 xl:px-16">
           <p
             className="!mb-4 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!text-xs"
             style={inter}
@@ -180,28 +114,62 @@ export default function ConsciousHomeSection() {
           </div>
         </div>
 
-        {/* Right — staggered leaf cards */}
-        <div className="relative min-h-[560px] overflow-visible lg:col-span-6 lg:min-h-full">
+        {/* Right — open feature list on navy plane */}
+        <div className="relative lg:col-span-7">
           <div
-            className="pointer-events-none absolute inset-y-0 -left-4 right-0 z-0 bg-[#0D2240] sm:-left-6 lg:-left-8"
+            className="pointer-events-none absolute inset-0 bg-[#0D2240]"
             style={{
-              clipPath: 'polygon(22% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              clipPath: 'polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)',
               backgroundImage:
-                'radial-gradient(ellipse 70% 55% at 75% 35%, rgba(0,194,199,0.22) 0%, transparent 70%)',
-              backgroundColor: '#0D2240',
+                'radial-gradient(ellipse 70% 55% at 78% 30%, rgba(0,194,199,0.22) 0%, transparent 70%)',
             }}
             aria-hidden="true"
           />
 
-          <div className="relative z-10 flex h-full min-h-[480px] gap-3 py-12 pl-2 pr-5 sm:min-h-[520px] sm:gap-4 sm:pl-0 sm:pr-8 lg:-ml-8 lg:min-h-[560px] lg:py-14 lg:pr-8 xl:-ml-12">
-            <div className="flex w-1/2 flex-col gap-3 sm:gap-4">
-              <FeatureCard {...featureCards[0]} />
-              <FeatureCard {...featureCards[1]} />
-            </div>
-            <div className="flex w-1/2 flex-col gap-3 sm:gap-4">
-              <FeatureCard {...featureCards[2]} />
-              <FeatureCard {...featureCards[3]} />
-            </div>
+          <div className="relative z-10 flex h-full flex-col justify-center px-6 py-14 sm:px-10 lg:pl-16 lg:pr-12 xl:pl-20 xl:pr-16">
+            <p
+              className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)]"
+              style={inter}
+            >
+              How light powers the home
+            </p>
+
+            <ul className="mt-8 m-0 list-none space-y-0 p-0">
+              {features.map(({ step, icon: Icon, title, desc }, idx) => (
+                <li
+                  key={title}
+                  className={`group grid grid-cols-[auto_1fr] gap-4 border-white/10 py-6 sm:gap-6 sm:py-7 ${
+                    idx > 0 ? 'border-t' : ''
+                  }`}
+                >
+                  <div className="flex flex-col items-start gap-2 pt-0.5">
+                    <span className="text-[var(--lumen-cyan)]">
+                      <Icon size={20} strokeWidth={1.5} />
+                    </span>
+                    <span
+                      className="!text-xs !font-normal tracking-[0.16em] text-white/35"
+                      style={inter}
+                    >
+                      {step}
+                    </span>
+                  </div>
+                  <div>
+                    <h3
+                      className="!m-0 !text-lg !font-normal leading-snug tracking-tight text-[#EBF5FF] transition-colors group-hover:text-[var(--lumen-cyan)] sm:!text-xl"
+                      style={geist}
+                    >
+                      {title}
+                    </h3>
+                    <p
+                      className="!mt-2 max-w-md !text-sm !font-normal leading-relaxed text-white/55 sm:!text-[15px]"
+                      style={inter}
+                    >
+                      {desc}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Building2, Factory, GraduationCap, Server } from 'lucide-react';
-import corporateBoardroomImg from '../../../../public/images/hero/corporate.png';
-import manufacturingImg from '../../../../public/images/hero/manufacturing.png';
-import datacenterImg from '../../../../public/images/hero/data-centers.png';
-import schoolImg from '../../../../public/images/hero/education.png';
+import corporateBoardroomImg from '../../../../public/images/connect/hb.png';
+import manufacturingImg from '../../../../public/images/connect/if.png';
+import datacenterImg from '../../../../public/images/connect/dc.png';
+import schoolImg from '../../../../public/images/connect/sc.png';
 
 const sectors = [
   {
@@ -58,7 +58,7 @@ export default function EcosystemSection() {
           'radial-gradient(ellipse 120% 100% at 50% 115%, #0a1a32 0%, #0d2240 35%, #1a4468 60%, #ebf5ff 100%)',
       }}
     >
-      <div className="mx-auto w-full max-w-[1380px] px-4 sm:px-6">
+      <div className="mx-auto w-full max-w-[1480px] px-3 sm:px-5 lg:px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <h2
             className="!m-0 !text-[clamp(2.25rem,5vw,3.25rem)] !font-normal leading-[1.15] tracking-[-0.02em] text-[#0D2240]"
@@ -78,7 +78,7 @@ export default function EcosystemSection() {
 
         {/* Accordion cards — stack on mobile, row on desktop */}
         <div
-          className="flex flex-col gap-3 sm:gap-4 lg:h-[420px] lg:flex-row"
+          className="flex flex-col gap-3 sm:gap-4 lg:h-[300px] lg:flex-row xl:h-[320px]"
           onMouseLeave={() => setActiveId(sectors[0].id)}
         >
           {sectors.map((item) => {
@@ -91,10 +91,10 @@ export default function EcosystemSection() {
                 onMouseEnter={() => setActiveId(item.id)}
                 onFocus={() => setActiveId(item.id)}
                 tabIndex={0}
-                className={`group relative min-h-[220px] overflow-hidden rounded-[1.25rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:min-h-[260px] lg:min-h-0 ${
+                className={`group relative min-h-[180px] overflow-hidden rounded-[1.25rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:min-h-[200px] lg:min-h-0 ${
                   isActive
-                    ? 'flex-[2.6] bg-white shadow-[0_20px_50px_rgba(13,34,64,0.12)] lg:flex-[3.2]'
-                    : 'flex-[1] bg-[#0D2240] shadow-[0_12px_32px_rgba(13,34,64,0.1)]'
+                    ? 'flex-[2.8] bg-white shadow-[0_20px_50px_rgba(13,34,64,0.12)] lg:flex-[3.4]'
+                    : 'flex-[1.05] bg-[#0D2240] shadow-[0_12px_32px_rgba(13,34,64,0.1)]'
                 }`}
               >
                 {/* Expanded layout */}
@@ -103,7 +103,7 @@ export default function EcosystemSection() {
                     isActive ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
                   }`}
                 >
-                  <div className="flex w-full flex-col justify-between p-5 sm:p-6 lg:w-[46%] lg:p-8">
+                  <div className="flex w-full flex-col justify-between p-4 sm:p-5 lg:w-[44%] lg:p-6">
                     <div>
                       <p
                         className="!m-0 inline-flex items-center gap-1.5 !text-xs !font-normal uppercase tracking-[0.18em] text-[var(--lumen-cyan)] sm:!text-sm"
@@ -113,19 +113,19 @@ export default function EcosystemSection() {
                         {item.kicker}
                       </p>
                       <h3
-                        className="!mt-3 !text-2xl !font-normal leading-snug text-[#0D2240] sm:!text-3xl lg:!text-[2rem]"
+                        className="!mt-2 !text-xl !font-normal leading-snug text-[#0D2240] sm:!text-2xl lg:!text-[1.75rem]"
                         style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
                       >
                         {item.title}
                       </h3>
                       <p
-                        className="!mt-3 !text-base !font-normal leading-relaxed text-[#0D2240]/65 sm:!text-lg"
+                        className="!mt-2 line-clamp-3 !text-sm !font-normal leading-relaxed text-[#0D2240]/65 sm:!text-base"
                         style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
                       >
                         {item.desc}
                       </p>
                     </div>
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
                       <span className="rounded-full bg-[var(--lumen-cyan)]/15 px-3 py-1.5 text-sm !font-normal text-[#0D2240]">
                         {item.feature}
                       </span>
