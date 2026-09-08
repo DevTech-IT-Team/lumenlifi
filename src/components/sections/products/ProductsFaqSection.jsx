@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Plus, Search, X } from 'lucide-react';
+import { ChevronDown, Search } from 'lucide-react';
 
 const FAQ_ITEMS = [
   {
@@ -84,6 +84,9 @@ const FAQ_ITEMS = [
   },
 ];
 
+const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
+const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
+
 export default function ProductsFaqSection() {
   const [activeFaq, setActiveFaq] = useState(-1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -115,14 +118,13 @@ export default function ProductsFaqSection() {
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2
-          className="lumen-h2 !mb-8 text-center !font-normal tracking-tight text-[#0D2240]"
-          style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+          className="!mb-8 text-center !text-[clamp(1.75rem,4vw,2.75rem)] !font-bold tracking-tight text-[#0D2240]"
+          style={geist}
         >
           Frequently Asked Questions
         </h2>
 
-        {/* Search pill */}
-        <label className="relative mb-8 block">
+        <label className="relative mb-10 block">
           <span className="sr-only">Search for a question</span>
           <Search
             className="pointer-events-none absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
@@ -137,18 +139,14 @@ export default function ProductsFaqSection() {
               setActiveFaq(-1);
             }}
             placeholder="Search for a question"
-            className="w-full rounded-full border border-slate-200/80 bg-white py-3.5 pl-12 pr-5 text-sm text-[#0D2240] shadow-[0_4px_20px_rgba(13,34,64,0.04)] outline-none placeholder:text-slate-400 focus:border-[var(--lumen-cyan)]/40 focus:ring-2 focus:ring-[var(--lumen-cyan)]/15"
-            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+            className="w-full rounded-full border border-[#0D2240]/12 bg-transparent py-3.5 pl-12 pr-5 text-sm text-[#0D2240] outline-none placeholder:text-slate-400 focus:border-[var(--lumen-cyan)]/50 focus:ring-2 focus:ring-[var(--lumen-cyan)]/15"
+            style={inter}
           />
         </label>
 
-        {/* FAQ cards */}
-        <div className="space-y-4">
+        <div className="border-t border-[#0D2240]/12">
           {visibleFaqs.length === 0 ? (
-            <p
-              className="rounded-[1.75rem] bg-white px-6 py-8 text-center text-sm text-slate-500 shadow-[0_4px_20px_rgba(13,34,64,0.04)]"
-              style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-            >
+            <p className="py-10 text-center text-sm text-slate-500" style={inter}>
               No questions match your search.
             </p>
           ) : (
@@ -157,31 +155,36 @@ export default function ProductsFaqSection() {
               const isOpen = activeFaq === globalId;
 
               return (
-                <button
+                <div
                   key={`${faq.q}-${globalId}`}
-                  type="button"
-                  onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
-                  className="w-full rounded-[1.75rem] border border-slate-200/60 bg-white px-5 py-5 text-left shadow-[0_4px_20px_rgba(13,34,64,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(13,34,64,0.07)] sm:px-7 sm:py-6"
-                  aria-expanded={isOpen}
+                  className={`border-b border-[#0D2240]/12 transition-colors duration-300 ${
+                    isOpen
+                      ? 'border-l-2 border-l-[var(--lumen-cyan)] bg-[var(--lumen-cyan)]/[0.04] pl-3 sm:pl-4'
+                      : 'border-l-2 border-l-transparent pl-3 sm:pl-4'
+                  }`}
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
+                    className="flex w-full items-start justify-between gap-4 py-5 text-left sm:py-6"
+                    aria-expanded={isOpen}
+                  >
                     <h3
-                      className="!m-0 !text-base !font-normal leading-snug text-[#0D2240] sm:!text-lg"
-                      style={{
-                        fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif',
-                        color: '#0D2240',
-                      }}
+                      className={`!m-0 min-w-0 !text-base !font-normal leading-snug tracking-tight transition-colors duration-300 sm:!text-lg ${
+                        isOpen ? 'text-[#0D2240]' : 'text-[#0D2240]/85'
+                      }`}
+                      style={geist}
                     >
                       {faq.q.replace(/^\d+\.\s*/, '')}
                     </h3>
-                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center text-[#0D2240]">
-                      {isOpen ? (
-                        <X className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
-                      ) : (
-                        <Plus className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
-                      )}
-                    </span>
-                  </div>
+                    <ChevronDown
+                      className={`mt-1 h-5 w-5 shrink-0 text-[#0D2240]/45 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-[var(--lumen-cyan)]' : ''
+                      }`}
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                  </button>
 
                   <div
                     className={`grid transition-[grid-template-rows] duration-300 ease-out ${
@@ -190,24 +193,21 @@ export default function ProductsFaqSection() {
                   >
                     <div className="overflow-hidden">
                       <p
-                        className="products-faq-a !mt-3 !mb-0 !text-sm !font-normal leading-relaxed text-slate-600 sm:!text-[15px]"
-                        style={{
-                          fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif',
-                        }}
+                        className="products-faq-a !mb-5 !mt-0 max-w-2xl !text-sm !font-normal leading-relaxed text-[#0D2240]/65 sm:!mb-6 sm:!text-[15px]"
+                        style={inter}
                       >
                         {faq.a}
                       </p>
                     </div>
                   </div>
-                </button>
+                </div>
               );
             })
           )}
         </div>
 
-        {/* Pagination — hidden while searching */}
         {!isSearching && (
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-6 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
               <span className="mr-2 text-[11px] font-mono uppercase tracking-wider text-slate-400">
                 Sets:
@@ -222,7 +222,7 @@ export default function ProductsFaqSection() {
                 className={`rounded-full px-3.5 py-1.5 font-mono text-xs font-bold transition-all ${
                   currentPage === 1
                     ? 'bg-[#0D2240] text-white'
-                    : 'bg-white text-slate-600 hover:bg-slate-100'
+                    : 'bg-transparent text-slate-600 hover:bg-[#0D2240]/05'
                 }`}
               >
                 1 (Q1-10)
@@ -237,7 +237,7 @@ export default function ProductsFaqSection() {
                 className={`rounded-full px-3.5 py-1.5 font-mono text-xs font-bold transition-all ${
                   currentPage === 2
                     ? 'bg-[#0D2240] text-white'
-                    : 'bg-white text-slate-600 hover:bg-slate-100'
+                    : 'bg-transparent text-slate-600 hover:bg-[#0D2240]/05'
                 }`}
               >
                 2 (Q11-20)
@@ -247,7 +247,7 @@ export default function ProductsFaqSection() {
             <button
               type="button"
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 rounded-full bg-[#0D2240] px-5 py-2.5 font-mono text-xs font-bold text-white shadow-sm transition-all hover:bg-[#16325c]"
+              className="flex items-center gap-2 rounded-full bg-[#0D2240] px-5 py-2.5 font-mono text-xs font-bold text-white transition-all hover:bg-[#16325c]"
             >
               {isExpanded ? 'Show Less' : 'Show More Questions'}
             </button>

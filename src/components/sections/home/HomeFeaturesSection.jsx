@@ -71,10 +71,10 @@ export default function HomeFeaturesSection() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    className="!text-3xl !font-normal leading-none text-white sm:!text-4xl"
+                    className="!text-3xl !font-normal leading-none text-white sm:!text-3xl"
                     style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
                   >
-                    10 Gbps
+                    High-Speed Internet
                   </p>
                   <p
                     className="!mt-2 !text-sm !font-normal text-white/55"

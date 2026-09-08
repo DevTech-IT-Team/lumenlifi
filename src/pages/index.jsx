@@ -16,7 +16,7 @@ export default function HomePage() {
         <title key="title">Lumen LiFi &mdash; Internet at the Speed of Light</title>
         <meta
           name="description"
-          content="Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
+          content="Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
           key="description"
         />
         <meta property="og:title" content="LumenFi | The Speed of Light in Your Living Room" />

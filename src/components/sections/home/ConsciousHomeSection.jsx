@@ -1,35 +1,30 @@
 import Link from 'next/link';
-import { Package, Play, ShieldCheck, Heart, Lightbulb, Home, Zap } from 'lucide-react';
-
-const stats = [
-  { icon: ShieldCheck, value: '100%', label: 'Safe & Private Results' },
-  { icon: Heart, value: '98%', label: 'Satisfaction rate' },
-];
+import { ArrowUpRight, Lightbulb, Network, Laptop, Radio } from 'lucide-react';
 
 const features = [
   {
     step: '01',
-    icon: Lightbulb,
-    title: 'Automatic Smart Lighting',
-    desc: 'Invisible light connects devices as you walk in — no apps, no switches.',
+    icon: Network,
+    title: 'Centralized Connectivity',
+    desc: 'Connect your network infrastructure, access points, and Li-Fi devices through one intelligent gateway.',
   },
   {
     step: '02',
-    icon: Home,
-    title: 'Virtual Living Room',
-    desc: 'Ceiling light streams ultra-fast data for lag-free 3D and headset experiences.',
+    icon: Lightbulb,
+    title: 'Light-Based Communication',
+    desc: 'Deliver high-speed data through photonic antennas while maintaining reliable network connectivity.',
   },
   {
     step: '03',
-    icon: ShieldCheck,
-    title: 'Private Light Signal',
-    desc: 'Light cannot pass through walls, so your network stays inside the room.',
+    icon: Laptop,
+    title: 'Flexible Device Support',
+    desc: 'Connect laptops, tablets, and other compatible devices through dedicated Li-Fi receivers.',
   },
   {
     step: '04',
-    icon: Zap,
-    title: 'Instant Conversations',
-    desc: 'Voice assistants respond the moment you finish speaking.',
+    icon: Radio,
+    title: 'Scalable Coverage',
+    desc: 'Extend Li-Fi coverage across your environment with multiple access points and antennas.',
   },
 ];
 
@@ -50,15 +45,15 @@ export default function ConsciousHomeSection() {
             className="!mb-4 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!text-xs"
             style={inter}
           >
-            Welcome to the future
+            The Lumenfi Ecosystem
           </p>
 
           <h2
-            className="!m-0 !text-[clamp(2.5rem,6vw,4.25rem)] !font-normal leading-[1.05] tracking-[-0.03em]"
+            className="!m-0 !text-[clamp(1.75rem,4vw,2.75rem)] !font-normal leading-[1.1] tracking-[-0.03em]"
             style={geist}
           >
-            <span className="block text-[#161C3B]/70">The Conscious</span>
-            <span className="mt-1 block text-[#0D2240]">Home</span>
+            <span className="block text-[#161C3B]/70">One Gateway.</span>
+            <span className="mt-1 block text-[#0D2240]">Multiple Ways to Connect.</span>
           </h2>
 
           <div className="mt-8 flex max-w-md gap-4">
@@ -67,9 +62,8 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-sm !font-normal leading-[1.8] text-[#0D2240]/70 sm:!text-base"
               style={inter}
             >
-              Powered by Light. Faster. Safer. Smarter than Wi-Fi — order LiFi kits, install through
-              your ceiling lights, and get private high-speed internet anytime, anywhere,
-              hassle-free.
+              The central hub for next-generation Li-Fi. Bridge your existing network with photonic
+              antennas and devices to experience light-based communication.
             </p>
           </div>
 
@@ -79,38 +73,18 @@ export default function ConsciousHomeSection() {
               prefetch={false}
               className="inline-flex items-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-6 py-3.5 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90"
             >
-              <Package className="h-4 w-4" />
-              Order Now
-            </Link>
-            <Link
-              href="/what-is-lifi"
-              prefetch={false}
-              className="inline-flex items-center gap-2 text-sm !font-normal text-[#0D2240] transition-opacity hover:opacity-70"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#0D2240]/15 bg-[#EBF5FF]">
-                <Play className="h-3 w-3 fill-[#0D2240] text-[#0D2240]" />
-              </span>
-              See How It Works
+              Explore Ecosystem
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-8 sm:gap-12">
-            {stats.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className="flex items-start gap-3">
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lumen-cyan)]" />
-                  <div>
-                    <p className="!m-0 !text-sm !font-normal text-[#0D2240]" style={geist}>
-                      {item.value}
-                    </p>
-                    <p className="!mt-0.5 !text-xs !font-normal text-[#0D2240]/55" style={inter}>
-                      {item.label}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="mt-12 max-w-sm">
+            <p className="!m-0 !text-base !font-normal text-[#0D2240]" style={geist}>
+              Ready to upgrade your network?
+            </p>
+            <p className="!mt-2 !text-sm !font-normal leading-relaxed text-[#0D2240]/55" style={inter}>
+              Experience the stability and security of Li-Fi today.
+            </p>
           </div>
         </div>
 
@@ -131,7 +105,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)]"
               style={inter}
             >
-              How light powers the home
+              How the gateway connects
             </p>
 
             <ul className="mt-8 m-0 list-none space-y-0 p-0">
@@ -144,10 +118,10 @@ export default function ConsciousHomeSection() {
                 >
                   <div className="flex flex-col items-start gap-2 pt-0.5">
                     <span className="text-[var(--lumen-cyan)]">
-                      <Icon size={20} strokeWidth={1.5} />
+                      <Icon size={18} strokeWidth={1.5} />
                     </span>
                     <span
-                      className="!text-xs !font-normal tracking-[0.16em] text-white/35"
+                      className="!text-[10px] !font-normal tracking-[0.16em] text-white/35"
                       style={inter}
                     >
                       {step}
@@ -155,13 +129,13 @@ export default function ConsciousHomeSection() {
                   </div>
                   <div>
                     <h3
-                      className="!m-0 !text-lg !font-normal leading-snug tracking-tight text-[#EBF5FF] transition-colors group-hover:text-[var(--lumen-cyan)] sm:!text-xl"
+                      className="!m-0 !text-base !font-normal leading-snug tracking-tight text-[#EBF5FF] transition-colors group-hover:text-[var(--lumen-cyan)] sm:!text-lg"
                       style={geist}
                     >
                       {title}
                     </h3>
                     <p
-                      className="!mt-2 max-w-md !text-sm !font-normal leading-relaxed text-white/55 sm:!text-[15px]"
+                      className="!mt-1.5 max-w-md !text-xs !font-normal leading-relaxed text-white/55 sm:!text-sm"
                       style={inter}
                     >
                       {desc}

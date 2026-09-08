@@ -127,12 +127,13 @@ export default function RevFSystemKitExplorer() {
       aria-label="RevF System Kit"
     >
       {/* Intro */}
-      <div className="mx-auto max-w-6xl px-5 pb-6 pt-16 sm:px-8 sm:pt-20 lg:px-10 lg:pt-24">
+      <div className="mx-auto max-w-6xl px-5 pb-6 pt-16 text-center sm:px-8 sm:pt-20 lg:px-10 lg:pt-24">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-2xl"
         >
           <p
             className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)] sm:!text-xs"
@@ -141,13 +142,13 @@ export default function RevFSystemKitExplorer() {
             System overview
           </p>
           <h2
-            className="!mt-3 !m-0 max-w-xl !text-[clamp(2.25rem,5vw,3.75rem)] !font-normal leading-[1.08] tracking-[-0.03em] text-[#0D2240]"
+            className="!mt-3 !m-0 !text-[clamp(2.25rem,5vw,3.75rem)] !font-bold leading-[1.08] tracking-[-0.03em] text-[#0D2240]"
             style={{ ...geist, fontSize: 'clamp(2.25rem, 5vw, 3.75rem)' }}
           >
             RevF System Kit
           </h2>
           <p
-            className="!mt-4 max-w-lg !text-sm !font-normal leading-relaxed text-[#0D2240]/65 sm:!text-base"
+            className="!mt-4 mx-auto max-w-lg !text-sm !font-normal leading-relaxed text-[#0D2240]/65 sm:!text-base"
             style={inter}
           >
             Five components. One light-powered network — from your ISP feed to every laptop in the room.

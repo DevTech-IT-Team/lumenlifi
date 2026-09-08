@@ -1,170 +1,134 @@
-import Image from 'next/image';
+'use client';
+
+import { motion } from 'framer-motion';
 
 const steps = [
   {
     step: '01',
     title: 'LED Modulation',
     desc: 'LED bulbs flick on and off millions of times per second to transmit binary code, completely invisible to the human eye.',
-    tone: 'light',
-    height: 'min-h-[240px] sm:min-h-[260px] md:min-h-[280px] md:h-[280px]',
-    stepClass: '!text-[11px]',
-    titleClass: '!text-[1.35rem] sm:!text-[1.5rem]',
-    descClass: '!text-sm',
   },
   {
     step: '02',
     title: 'Optical Reception',
     desc: 'A specialized photoreceiver detects the imperceptible light signals and converts them into a high-speed data stream.',
-    tone: 'accent',
-    height: 'min-h-[290px] sm:min-h-[320px] md:min-h-[350px] md:h-[350px]',
-    stepClass: '!text-xs sm:!text-sm',
-    titleClass: '!text-[1.6rem] sm:!text-[1.85rem]',
-    descClass: '!text-base sm:!text-[1.05rem]',
   },
   {
     step: '03',
     title: 'Instant Connection',
     desc: 'Your device receives a secure, zero-latency network connection without causing or suffering from RF interference.',
-    tone: 'dark',
-    height: 'min-h-[340px] sm:min-h-[390px] md:min-h-[430px] md:h-[430px]',
-    stepClass: '!text-sm sm:!text-base',
-    titleClass: '!text-[1.9rem] sm:!text-[2.25rem]',
-    descClass: '!text-base sm:!text-lg',
-    bgImage: '/images/about/about_c1.png',
   },
 ];
 
-const toneStyles = {
-  light: {
-    card: 'bg-[#E8EEF5] text-[#0D2240]',
-    title: 'text-[#0D2240]',
-    desc: 'text-[#0D2240]/60',
-    step: 'text-[#0D2240]/35',
-  },
-  accent: {
-    card: 'bg-[var(--lumen-cyan)] text-white',
-    title: 'text-white',
-    desc: 'text-white/80',
-    step: 'text-white/50',
-  },
-  dark: {
-    card: 'bg-[#0c1228] text-white',
-    title: 'text-[#EBF5FF]',
-    desc: 'text-white/60',
-    step: 'text-white/35',
-  },
-};
+const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
+const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
 export default function HowLiFiWorksSection() {
   return (
     <section
       id="how-it-works"
       className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24"
-      style={{
-        background:
-          'linear-gradient(180deg, #EBF5FF 0%, #c5d9ef 28%, #3a5578 62%, #0D2240 82%, #080e1c 100%)',
-      }}
+      style={{ backgroundColor: '#0D2240' }}
     >
-      <div className="relative mx-auto max-w-[1380px] px-4 sm:px-6">
-        {/* Header band — reference-style split + oversized watermark */}
-        <div className="relative mb-10 overflow-hidden rounded-[1.5rem] sm:mb-14 lg:mb-16">
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[min(900px,100%)] -translate-x-1/2 rounded-full opacity-50 blur-[120px]"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(0,194,199,0.22) 0%, rgba(26,110,191,0.1) 45%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-14 max-w-2xl text-center sm:mb-16 lg:mb-20"
+        >
           <p
-            className="pointer-events-none absolute inset-x-0 bottom-[-8%] select-none text-center !text-[clamp(5.5rem,20vw,12rem)] !font-normal leading-none tracking-[0.02em]"
-            style={{
-              fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif',
-              fontWeight: 400,
-              color: 'rgba(13, 34, 64, 0.12)',
-            }}
+            className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)] sm:!text-xs"
+            style={inter}
+          >
+            Process
+          </p>
+          <h2
+            className="!mt-3 !m-0 !text-[clamp(2rem,4.5vw,3.25rem)] !font-normal leading-[1.1] tracking-[-0.03em] text-[#EBF5FF]"
+            style={{ ...geist, fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
+          >
+            How LiFi operates
+          </h2>
+          <p
+            className="!mt-4 !text-sm !font-normal leading-relaxed text-white/55 sm:!text-base"
+            style={inter}
+          >
+            Light carries your data in three invisible steps — from LED pulse to secure connection.
+          </p>
+        </motion.div>
+
+        {/* Process flow */}
+        <div className="relative">
+          {/* Connector line — desktop */}
+          <div
+            className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-white/15 md:block"
             aria-hidden="true"
           >
-            LiFi
-          </p>
-
-          <div className="relative z-10 grid grid-cols-1 gap-8 px-1 pb-10 pt-2 sm:grid-cols-2 sm:gap-12 sm:pb-14 lg:gap-16">
-            <div>
-              <h2
-                className="!m-0 !text-lg !font-normal tracking-tight text-[#0D2240] sm:!text-xl"
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                How LiFi operates
-              </h2>
-              <p
-                className="!mt-3 max-w-sm !text-sm !font-normal leading-relaxed text-[#0D2240]/60"
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                Light carries your data in three invisible steps — from LED pulse to secure
-                connection.
-              </p>
-            </div>
-            <div className="sm:text-right">
-              <h3
-                className="!m-0 !text-lg !font-normal tracking-tight text-[#0D2240] sm:!text-xl"
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                Three steps
-              </h3>
-              <p
-                className="!mt-3 !text-sm !font-normal leading-relaxed text-[#0D2240]/55"
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                LED Modulation, Optical Reception, Instant Connection
-              </p>
-            </div>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--lumen-cyan)]/50 to-transparent" />
           </div>
-        </div>
 
-        {/* Three feature cards — ascending heights */}
-        <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
-          {steps.map((item) => {
-            const tone = toneStyles[item.tone];
-
-            return (
-              <article
+          <ol className="m-0 grid list-none grid-cols-1 gap-12 p-0 md:grid-cols-3 md:gap-8 lg:gap-12">
+            {steps.map((item, idx) => (
+              <motion.li
                 key={item.step}
-                className={`relative flex w-full flex-col overflow-hidden rounded-[1.75rem] p-6 sm:p-8 ${item.height} ${tone.card}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.55, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="relative text-center md:text-left"
               >
-                {item.bgImage ? (
-                  <>
-                    <div className="absolute inset-0 -z-0 overflow-hidden" aria-hidden="true">
-                      <Image
-                        src={item.bgImage}
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover object-right scale-110 blur-[6px]"
-                      />
-                      <div className="absolute inset-0 bg-[#0c1228]/55" />
-                    </div>
-                  </>
-                ) : null}
-
-                <div className="relative z-10 flex flex-col">
+                <div className="flex flex-col items-center md:items-start">
                   <span
-                    className={`!font-normal uppercase tracking-[0.18em] ${item.stepClass} ${tone.step}`}
-                    style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                    className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-[var(--lumen-cyan)]/40 bg-[#0D2240] !text-sm !font-normal tracking-[0.12em] text-[var(--lumen-cyan)]"
+                    style={inter}
                   >
-                    Step {item.step}
+                    {item.step}
                   </span>
+
+                  {/* Mobile connector */}
+                  {idx < steps.length - 1 && (
+                    <span
+                      className="my-4 h-10 w-px bg-gradient-to-b from-[var(--lumen-cyan)]/50 to-transparent md:hidden"
+                      aria-hidden="true"
+                    />
+                  )}
+
                   <h3
-                    className={`!mt-4 !font-normal leading-tight tracking-[-0.02em] ${item.titleClass} ${tone.title}`}
-                    style={{
-                      fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif',
-                      color: item.tone === 'dark' ? '#EBF5FF' : item.tone === 'accent' ? '#ffffff' : undefined,
-                    }}
+                    className="!mt-6 !m-0 !text-[clamp(1.35rem,2.5vw,1.75rem)] !font-normal leading-snug tracking-[-0.02em] text-[#EBF5FF]"
+                    style={geist}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className={`!mt-3 max-w-[28ch] !font-normal leading-relaxed ${item.descClass} ${tone.desc}`}
-                    style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                    className="!mt-3 !m-0 max-w-sm !text-sm !font-normal leading-relaxed text-white/55 sm:!text-[15px]"
+                    style={inter}
                   >
                     {item.desc}
                   </p>
                 </div>
-              </article>
-            );
-          })}
+              </motion.li>
+            ))}
+          </ol>
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="!mt-14 text-center !text-[11px] !font-normal uppercase tracking-[0.2em] text-white/30 sm:!mt-16"
+          style={inter}
+        >
+          LED Modulation · Optical Reception · Instant Connection
+        </motion.p>
       </div>
     </section>
   );

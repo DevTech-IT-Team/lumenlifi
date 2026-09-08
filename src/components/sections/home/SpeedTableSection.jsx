@@ -29,7 +29,7 @@ const techs = [
     id: 'lifi',
     label: 'Li-Fi',
     speed: 10000,
-    speedLabel: '10 Gbps+',
+    speedLabel: 'High-Speed Internet',
     time: 1.3,
     timeLabel: '1 min 20 sec',
     color: '#00f5ff',

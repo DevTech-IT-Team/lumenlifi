@@ -9,7 +9,7 @@ import styles from './Header.module.css';
 const navConfig = [
   { label: 'About', href: '/what-is-lifi' },
   { label: 'Products', href: '/products' },
-  { label: 'Router', href: '/products/lumenfi-router' },
+  { label: 'LiFi & WiFi', href: '/products/lumenfi-router' },
   { label: 'Academy', href: '/Academy' },
   { label: 'Contact', href: '/contact' },
 ];

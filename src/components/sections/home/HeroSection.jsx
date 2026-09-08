@@ -11,9 +11,10 @@ const speedOfLightFont = Instrument_Serif({
 });
 
 const STATS = [
-  { value: '10 Gbps', label: 'Max connection speed' },
   { value: '100%', label: 'Radio-free connectivity' },
   { value: '8.5x', label: 'Faster than fiber' },
+  { value: 'High-Speed Internet', label: 'Max connection speed' },
+
 ];
 
 export default function HeroSection() {
@@ -87,7 +88,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="home-hero-landscape-copy">
-                Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet
+                Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet
                 connection. No Wi-Fi, no radio waves — just pure light-speed connectivity.
               </p>
 
