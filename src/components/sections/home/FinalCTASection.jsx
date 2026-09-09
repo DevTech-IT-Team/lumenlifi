@@ -1,72 +1,59 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
+const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
+const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
+
 export default function FinalCTASection() {
   return (
     <section
       id="cta-final"
-      className="relative w-full overflow-hidden py-14 sm:py-16 lg:py-20"
-      style={{ backgroundColor: '#ffffff', backgroundImage: 'none' }}
+      className="relative w-full overflow-hidden pb-0 pt-14 sm:pt-16 lg:pt-20"
+      style={{
+        background: 'linear-gradient(180deg, #E8F3FF 0%, #F0F7FF 40%, #EBF5FF 100%)',
+      }}
     >
-      <div className="mx-auto w-full max-w-[1380px] px-4 sm:px-6">
+      <div className="mx-auto w-full max-w-[1120px] px-4 sm:px-6">
         <div
-          className="relative overflow-hidden rounded-[1.75rem] px-8 py-12 sm:rounded-[2rem] sm:px-12 sm:py-14 lg:px-16 lg:py-16"
+          className="rounded-t-[2.75rem] rounded-b-none border border-b-0 border-[#0D2240]/10 px-10 pb-16 pt-16 sm:rounded-t-[3.25rem] sm:px-14 sm:pb-20 sm:pt-20 lg:px-16 lg:pb-24 lg:pt-24"
           style={{
             background:
-              'radial-gradient(ellipse 90% 120% at 100% 50%, rgba(0,194,199,0.55) 0%, transparent 55%), radial-gradient(ellipse 70% 100% at 85% 80%, rgba(26,110,191,0.5) 0%, transparent 50%), radial-gradient(ellipse 50% 80% at 70% 20%, rgba(13,34,64,0.9) 0%, transparent 45%), linear-gradient(115deg, #0a1220 0%, #0D2240 42%, #12304f 70%, #0a3d4a 100%)',
+              'linear-gradient(180deg, #0D2240 0%, #143356 40%, #1E4A72 70%, #2A5F8A 100%)',
           }}
         >
-          {/* Soft mesh glow accents */}
-          <div
-            className="pointer-events-none absolute -right-10 top-0 h-full w-[55%] opacity-70"
-            style={{
-              background:
-                'radial-gradient(circle at 60% 30%, rgba(0,194,199,0.35), transparent 50%), radial-gradient(circle at 80% 70%, rgba(26,110,191,0.4), transparent 45%)',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)',
-              backgroundSize: '48px 48px',
-              maskImage: 'linear-gradient(90deg, transparent 0%, black 40%, black 100%)',
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 max-w-2xl text-left">
+          <div className="mx-auto max-w-3xl text-center">
             <h2
-              className="!m-0 !text-[clamp(1.85rem,4.5vw,3rem)] !font-normal leading-[1.15] tracking-[-0.02em] text-white"
-              style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+              className="!m-0 !text-[clamp(1.85rem,4.5vw,2.85rem)] !font-bold leading-[1.15] tracking-[-0.03em] text-white"
+              style={geist}
             >
               Leave old radio waves behind.
               <br />
-              <span className="text-[var(--lumen-cyan)]">Live at the speed of light.</span>
+              Live at the speed of light.
             </h2>
 
             <p
-              className="!mt-5 max-w-xl !text-sm !font-normal leading-relaxed text-white/70 sm:!text-base"
-              style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+              className="!mx-auto !mt-5 max-w-2xl !text-base !font-normal leading-relaxed text-white/65 sm:!text-lg"
+              style={inter}
             >
               Upgrade your home to internet delivered through light — faster, private, and free of
               radio congestion.
             </p>
 
-            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/products"
                 prefetch={false}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-8 text-sm !font-normal !text-[#0D2240] transition-opacity hover:opacity-90"
+                className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-white px-9 text-base !font-normal !text-[#0D2240] transition-opacity hover:opacity-90"
+                style={inter}
               >
                 Order Now
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
               </Link>
               <Link
                 href="/contact"
                 prefetch={false}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/30 bg-transparent px-8 text-sm !font-normal text-white transition-colors hover:border-white hover:bg-white/5"
+                className="inline-flex min-h-[3.25rem] items-center justify-center rounded-full border border-white/25 px-9 text-base !font-normal !text-white transition-colors hover:border-white/50"
+                style={inter}
               >
                 Contact Us
               </Link>

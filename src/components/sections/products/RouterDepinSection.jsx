@@ -23,7 +23,9 @@ export default function RouterDepinSection() {
     <section
       id="depin"
       className="relative overflow-hidden py-16 sm:py-24"
-      style={{ backgroundColor: '#EBF5FF' }}
+      style={{
+        background: 'linear-gradient(180deg, #F5FAFF 0%, #E8F3FC 45%, #D6EAF8 100%)',
+      }}
     >
       <div
         className="pointer-events-none absolute inset-0"

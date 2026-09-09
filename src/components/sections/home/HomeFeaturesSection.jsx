@@ -1,16 +1,88 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Play, Zap } from 'lucide-react';
+import { ArrowUpRight, Zap } from 'lucide-react';
 import gamingImg from '../../../../public/images/hero/gaming.png';
-import streamingImg from '../../../../public/images/hero/streaming.png';
+import streamingImg from '../../../../public/images/hero/fast_str.png';
 import infiniteDevicesImg from '../../../../public/images/hero/infinite.png';
-import invisibleInfraImg from '../../../../public/images/hero/invisible.png';
+import invisibleInfraImg from '../../../../public/images/hero/free.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
 };
+
+const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
+const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
+
+function ImageHoverCard({
+  src,
+  alt,
+  sizes,
+  eyebrow,
+  title,
+  desc,
+  className = '',
+  minHeightClass = 'min-h-[280px]',
+  compact = false,
+}) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className={`group relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0D2240] ${minHeightClass} ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        loading="lazy"
+        sizes={sizes}
+        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+      />
+
+      {/* Hover: blur + related copy */}
+      <div
+        className={`absolute inset-0 flex flex-col justify-end bg-[#0c1228]/0 opacity-0 backdrop-blur-0 transition-all duration-300 ease-out group-hover:bg-[#0c1228]/55 group-hover:opacity-100 group-hover:backdrop-blur-md ${
+          compact ? 'p-4 sm:p-4' : 'p-5 sm:p-6'
+        }`}
+      >
+        <div className="translate-y-3 transition-transform duration-300 ease-out group-hover:translate-y-0">
+          {eyebrow && (
+            <span
+              className={`font-normal uppercase tracking-[0.18em] text-[var(--lumen-cyan)] ${
+                compact ? 'text-[10px]' : 'text-xs sm:text-sm'
+              }`}
+              style={inter}
+            >
+              {eyebrow}
+            </span>
+          )}
+          <p
+            className={`!m-0 !font-normal text-white ${
+              compact ? '!mt-1 !text-base sm:!text-lg' : '!mt-2 !text-xl sm:!text-2xl'
+            }`}
+            style={geist}
+          >
+            {title}
+          </p>
+          {desc && (
+            <p
+              className={`!mb-0 max-w-sm !font-normal leading-relaxed text-white/75 ${
+                compact ? '!mt-1.5 !text-xs sm:!text-sm' : '!mt-3 !text-base sm:!text-lg'
+              }`}
+              style={inter}
+            >
+              {desc}
+            </p>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function HomeFeaturesSection() {
   return (
@@ -44,7 +116,7 @@ export default function HomeFeaturesSection() {
           </h2>
           <p
             className="!mt-4 !text-sm !font-normal leading-relaxed text-white/75 [word-spacing:0.1em]"
-            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+            style={inter}
           >
             Leave old radio waves behind and move at the speed of light.
           </p>
@@ -72,14 +144,11 @@ export default function HomeFeaturesSection() {
                 <div>
                   <p
                     className="!text-3xl !font-normal leading-none text-white sm:!text-3xl"
-                    style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+                    style={geist}
                   >
                     High-Speed Internet
                   </p>
-                  <p
-                    className="!mt-2 !text-sm !font-normal text-white/55"
-                    style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-                  >
+                  <p className="!mt-2 !text-sm !font-normal text-white/55" style={inter}>
                     Max connection speed
                   </p>
                 </div>
@@ -89,61 +158,30 @@ export default function HomeFeaturesSection() {
               </div>
             </motion.div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="group relative min-h-[280px] flex-1 overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0D2240] lg:min-h-[340px]"
-            >
-              <Image
-                src={gamingImg}
-                alt="Zero-Lag Gaming with LiFi"
-                fill
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c1228]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[10px] font-normal uppercase tracking-[0.18em] text-[var(--lumen-cyan)]">
-                  Pure Light Connection
-                </span>
-                <p
-                  className="!mt-1 !text-base !font-normal text-white"
-                  style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-                >
-                  Zero-Lag Gaming
-                </p>
-              </div>
-            </motion.div>
+            <ImageHoverCard
+              src={gamingImg}
+              alt="Zero-Lag Gaming with LiFi"
+              sizes="(max-width: 768px) 100vw, 25vw"
+              eyebrow="Pure Light Connection"
+              title="Zero-Lag Gaming"
+              desc="Competitive play over light beams—no radio congestion, no mid-match dropouts."
+              className="flex-1 lg:min-h-[340px]"
+              minHeightClass="min-h-[280px]"
+              compact
+            />
           </div>
 
           {/* Center column */}
           <div className="flex flex-col gap-4 md:col-span-6 lg:col-span-6">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="group relative min-h-[220px] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0D2240] sm:min-h-[280px]"
-            >
-              <Image
-                src={streamingImg}
-                alt="Smooth 4K and 8K streaming with LiFi"
-                fill
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c1228]/50 via-transparent to-transparent" />
-              <div className="absolute bottom-4 right-4">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0c1228]/70 px-4 py-2 text-xs !font-normal text-white backdrop-blur-md">
-                  <Play className="h-3.5 w-3.5 fill-white text-white" />
-                  Ultra-Fast Signal
-                </span>
-              </div>
-            </motion.div>
+            <ImageHoverCard
+              src={streamingImg}
+              alt="Smooth 4K and 8K streaming with LiFi"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              eyebrow="Ultra-Fast Signal"
+              title="Cinema-Smooth Streaming"
+              desc="4K and 8K video stays locked to the light path—no buffering when the house is online."
+              minHeightClass="min-h-[220px] sm:min-h-[280px]"
+            />
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <motion.div
@@ -157,83 +195,39 @@ export default function HomeFeaturesSection() {
                   No network overload
                 </span>
                 <div className="mt-6">
-                  <h3
-                    className="!text-lg !font-normal leading-snug text-white sm:!text-xl"
-                    style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-                  >
+                  <h3 className="!text-lg !font-normal leading-snug text-white sm:!text-xl" style={geist}>
                     Connect Countless Devices
                   </h3>
-                  <p
-                    className="!mt-3 !text-sm !font-normal leading-relaxed text-white/55"
-                    style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-                  >
+                  <p className="!mt-3 !text-sm !font-normal leading-relaxed text-white/55" style={inter}>
                     Connect hundreds of smart gadgets in one room without slowing your network down.
                   </p>
                 </div>
               </motion.div>
 
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="group relative min-h-[200px] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0D2240]"
-              >
-                <Image
-                  src={infiniteDevicesImg}
-                  alt="Connect countless devices with LiFi"
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </motion.div>
+              <ImageHoverCard
+                src={infiniteDevicesImg}
+                alt="Connect countless devices with LiFi"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                eyebrow="Room-Scale Capacity"
+                title="Infinite Devices"
+                desc="Phones, tablets, TVs, and sensors share one light field without fighting for Wi-Fi channels."
+                minHeightClass="min-h-[200px]"
+                compact
+              />
             </div>
           </div>
 
           {/* Right column */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="group relative min-h-[320px] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0D2240] md:col-span-3 md:min-h-full lg:col-span-3"
-          >
-            <Image
-              src={invisibleInfraImg}
-              alt="Hidden network hardware with LiFi"
-              fill
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 25vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c1228]/90 via-[#0c1228]/20 to-transparent" />
-
-            {/* <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--lumen-cyan)] text-[#0c1228]">
-              <ArrowUpRight className="h-4 w-4" />
-            </div> */}
-
-            <div className="absolute bottom-5 left-5 right-5">
-              <p
-                className="!text-3xl !font-normal leading-none text-white sm:!text-4xl"
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                100%
-              </p>
-              <p
-                className="!mt-2 !text-sm !font-normal text-white/70"
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                Radio-free connectivity
-              </p>
-              <p
-                className="!mt-4 !text-xs !font-normal uppercase tracking-[0.14em] text-[var(--lumen-cyan)]"
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                Invisible Setup
-              </p>
-            </div>
-          </motion.div>
+          <ImageHoverCard
+            src={invisibleInfraImg}
+            alt="Hidden network hardware with LiFi"
+            sizes="(max-width: 768px) 100vw, 25vw"
+            eyebrow="Invisible Setup"
+            title="100% Radio-Free"
+            desc="Connectivity through ceiling light—no router clutter, no RF noise in the room."
+            className="md:col-span-3 md:min-h-full lg:col-span-3"
+            minHeightClass="min-h-[320px]"
+          />
         </div>
       </div>
     </section>

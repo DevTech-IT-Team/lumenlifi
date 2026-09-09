@@ -4,7 +4,7 @@ import Footer from '../../components/common/Footer';
 import RouterHeroSection from '../../components/sections/products/RouterHeroSection';
 import RouterWifiSection from '../../components/sections/products/RouterWifiSection';
 import RouterLifiSection from '../../components/sections/products/RouterLifiSection';
-import RouterDepinSection from '../../components/sections/products/RouterDepinSection';
+// import RouterDepinSection from '../../components/sections/products/RouterDepinSection';
 import FinalCTASection from '../../components/sections/home/FinalCTASection';
 
 export default function LumenFiRouterPage() {
@@ -25,7 +25,7 @@ export default function LumenFiRouterPage() {
         <RouterHeroSection />
         <RouterWifiSection />
         <RouterLifiSection />
-        <RouterDepinSection />
+        {/* <RouterDepinSection /> */}
         <FinalCTASection />
       </main>
 
