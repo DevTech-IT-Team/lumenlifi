@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Activity, Rocket, Building2, Anchor, ArrowUpRight } from 'lucide-react';
-import communityEvImg from '../../../../public/images/hero/partner-ev.png';
-import communitySmartCityImg from '../../../../public/images/hero/partner-smart-city.png';
-import communityFactoryImg from '../../../../public/images/academy/community.webp';
-import communityAiImg from '../../../../public/images/hero/partner-ai.png';
+import communityEvImg from '../../../../public/images/about/health1.webp';
+import communitySmartCityImg from '../../../../public/images/about/airplanes.png';
+import communityFactoryImg from '../../../../public/images/about/environments.png';
+import communityAiImg from '../../../../public/images/about/underwater.png';
 
 const sectors = [
   {
