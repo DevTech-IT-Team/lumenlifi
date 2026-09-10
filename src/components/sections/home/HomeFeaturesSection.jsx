@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap } from 'lucide-react';
-import gamingImg from '../../../../public/images/hero/gaming.png';
+import gamingImg from '../../../../public/images/hero/gaminggg.png';
 import streamingImg from '../../../../public/images/hero/fast_str.png';
 import infiniteDevicesImg from '../../../../public/images/hero/infinite.png';
 import invisibleInfraImg from '../../../../public/images/hero/free.png';
