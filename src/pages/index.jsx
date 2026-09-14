@@ -6,6 +6,8 @@ import AboutSection from '../components/sections/home/AboutSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
 import FinalCTASection from '../components/sections/home/FinalCTASection';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
+import LiFiEcosystem from '../components/sections/home/LiFiEcosystem';
+
 
 const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
 const ComingSoonPolePopup = dynamic(() => import('../components/common/ComingSoonPolePopup'), {
