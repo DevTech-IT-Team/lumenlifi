@@ -2,21 +2,26 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Header from '../components/common/Header';
 import HeroSection from '../components/sections/home/HeroSection';
+import AboutSection from '../components/sections/home/AboutSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
+import FinalCTASection from '../components/sections/home/FinalCTASection';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
 import LiFiEcosystem from '../components/sections/home/LiFiEcosystem';
 
 
 const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
+const ComingSoonPolePopup = dynamic(() => import('../components/common/ComingSoonPolePopup'), {
+  ssr: false,
+});
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[var(--lumen-navy)]">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-[#030914] antialiased font-sans text-white">
       <Head>
         <title key="title">Lumen LiFi &mdash; Internet at the Speed of Light</title>
         <meta
           name="description"
-          content="Lumen LiFi turns your everyday ceiling lights into a super-fast 10 Gbps internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
+          content="Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
           key="description"
         />
         <meta property="og:title" content="LumenFi | The Speed of Light in Your Living Room" />
@@ -54,18 +59,17 @@ export default function HomePage() {
 
       <main className="flex-grow">
         <HeroSection />
-        {/* <LazyOnVisible load={() => import('../components/sections/home/SpeedTableSection')} minHeight="100vh" /> */}
-        {/* <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="900px" /> */}
-        <LiFiEcosystem />
-        <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="80vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="60vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="80vh" />
-        <LazyOnVisible load={() => import('../components/sections/home/HeroVisual')} minHeight="700px" />
-        <LazyOnVisible load={() => import('../components/sections/home/FinalCTASection')} minHeight="60vh" />
+        <AboutSection />
+        <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="28rem" />
+        <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="28rem" />
+        {/* <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" /> */}
+        <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="28rem" />
+        <FinalCTASection />
       </main>
 
       <Footer />
 
+      <ComingSoonPolePopup />
       <DeferredAnalytics />
     </div>
   );

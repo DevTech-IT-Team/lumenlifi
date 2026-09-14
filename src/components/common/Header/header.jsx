@@ -2,306 +2,214 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import {
-  ChevronDown,
-  Menu,
-  X,
-  ArrowUpRight,
-  Zap,
-  Users,
-  Lightbulb,
-  HelpCircle,
-  Box,
-  Router,
-} from 'lucide-react';
-import logoPl from '/public/brand/logo.webp';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { LayoutGroup, motion } from 'framer-motion';
+import styles from './Header.module.css';
 
-/* ---------- Nav config ---------- */
 const navConfig = [
-  {
-    label: 'Solutions & Products',
-    href: '/products',
-    icon: Lightbulb,
-    hoverClass: 'hover:text-[#EAB308]',
-    iconColor: 'group-hover:text-yellow-500',
-    activeIconColor: 'text-yellow-500',
-    dropdown: [
-      { label: 'What is LiFi?', desc: 'Discover optical wireless physics & architecture', href: '/what-is-lifi', icon: HelpCircle },
-      { label: 'All Products Catalog', desc: 'Browse full optical networking line array', href: '/products', icon: Box },
-      { label: 'Hardware Matrix', desc: 'Core LiFi ecosystem components', href: '/products', icon: Zap },
-    ],
-  },
-  // {
-  //   label: 'LumenFi Router',
-  //   href: '/products/lumenfi-router',
-  //   icon: Router,
-  //   hoverClass: 'hover:text-[#1A6EBF]',
-  //   iconColor: 'group-hover:text-[#1A6EBF]',
-  //   activeIconColor: 'text-[#1A6EBF]',
-  // },
-  {
-    label: 'Lumen Lifi Academy',
-    href: '/Academy',
-    icon: Users,
-    hoverClass: 'hover:text-[#00C2C7]',
-    iconColor: 'group-hover:text-[#00C2C7]',
-    activeIconColor: 'text-[#00C2C7]',
-  },
+  { label: 'About', href: '/what-is-lifi' },
+  { label: 'Products', href: '/products' },
+  { label: 'LiFi Pole', href: '/products/lifi-pole' },
+  // { label: 'LiFi & WiFi', href: '/products/lumenfi-router' },
+  { label: 'Academy', href: '/Academy' },
+  { label: 'Blogs', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
 ];
+
+const pillClass =
+  'flex items-center rounded-full border border-white/15 bg-[#0a1520]/55 backdrop-blur-xl';
+
+const layoutTransition = {
+  type: 'spring',
+  stiffness: 120,
+  damping: 22,
+  mass: 0.9,
+};
+
+function isNavActive(pathname, item) {
+  if (item.href === '/products') {
+    return pathname === '/products';
+  }
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
+}
+
+const getStartedBtnClass =
+  'inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#161C3B]/10 bg-[#EBF5FF] px-4 py-2 text-[11px] !font-normal !text-black transition-colors duration-300 hover:bg-[#dcecff] xl:text-xs';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileExpanded, setMobileExpanded] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
+  const [compactNav, setCompactNav] = useState(false);
   const router = useRouter();
   const navRef = useRef(null);
-
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setActiveDropdown(null);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setIsOpen(false);
-    setActiveDropdown(null);
-    setMobileExpanded(null);
   }, [router.asPath]);
 
-  const toggleDropdown = (label) =>
-    setActiveDropdown(activeDropdown === label ? null : label);
-  const toggleMobileExpanded = (label) =>
-    setMobileExpanded(mobileExpanded === label ? null : label);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+
+      if (Math.abs(delta) < 4) return;
+
+      const scrollingDown = delta > 0;
+      const pastThreshold = currentY > 80;
+
+      setCompactNav(scrollingDown && pastThreshold);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = () => (
+    <nav
+      className={`hidden items-center lg:flex ${
+        compactNav ? 'gap-5 xl:gap-7' : 'gap-4 xl:gap-5'
+      }`}
+      aria-label="Primary"
+    >
+      {navConfig.map((item) => {
+        const active = isNavActive(router.pathname, item);
+        return (
+          <Link
+            key={item.label}
+            href={item.href}
+            prefetch={false}
+            className={`whitespace-nowrap  !font-normal transition-colors duration-300 xl:!text-sm ${
+              active ? 'text-white' : 'text-white/55 hover:text-white'
+            }`}
+          >
+            {item.label}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+
+  const brandLink = (
+    <Link
+      href="/"
+      className="flex shrink-0 items-center gap-2 transition-opacity hover:opacity-90"
+    >
+      <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-md bg-white p-0.5 sm:h-8 sm:w-8">
+        <Image
+          src="/brand/logo.webp"
+          alt="LumenFi"
+          fill
+          priority
+          sizes="32px"
+          className="object-contain"
+        />
+      </div>
+      <span className="text-[11px] !font-normal uppercase tracking-[0.14em] text-white sm:text-xs">
+        Lumen<span className="text-[var(--lumen-cyan)]">Fi</span>
+      </span>
+    </Link>
+  );
+
+  const getStartedMotion = (inline = false) => (
+    <motion.div layoutId="nav-get-started" transition={layoutTransition}>
+      <Link
+        href="https://lmsathena.com/login"
+        className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
+      >
+        <span>Get Started</span>
+        <ArrowRight className="h-3 w-3" />
+      </Link>
+    </motion.div>
+  );
 
   return (
-    <header
-      ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 border-b ${scrolled
-        ? 'border-[rgba(26,110,191,0.15)] py-2 shadow-lg shadow-[rgba(0,194,199,0.08)]'
-        : 'border-[rgba(26,110,191,0.08)] py-3'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full h-12">
-
-        {/* ── Logo ── */}
-        <Link href="/" className="flex items-center group shrink-0">
-          <div className="relative w-[130px] h-[40px] sm:w-[150px] sm:h-[46px] md:w-[170px] md:h-[52px]">
-            <Image
-              src={logoPl}
-              alt="LumenFi — Light Connectivity"
-              fill
-              priority
-              sizes="(max-width: 640px) 130px, (max-width: 768px) 150px, 170px"
-              className="object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+    <header ref={navRef} className={`${styles.navbar} fixed top-0 inset-x-0 z-50 pb-2 pt-4 sm:pb-2.5 sm:pt-5`}>
+      <LayoutGroup>
+        <motion.div
+          layout
+          transition={layoutTransition}
+          className={`mx-auto flex max-w-[1380px] items-center gap-2 px-4 sm:px-6 ${
+            compactNav ? 'justify-center' : 'justify-between'
+          }`}
+        >
+          <motion.div
+            layout
+            layoutId="nav-left-pill"
+            transition={layoutTransition}
+            className={`${pillClass} min-w-0 py-2.5 ${
+              compactNav
+                ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
+                : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
+            } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
+          >
+            {brandLink}
+            <div
+              className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${
+                compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
+              }`}
+              aria-hidden="true"
             />
-            {/* Logo is small and critical; keep priority. All other header images should be lazy. */}
-          </div>
-        </Link>
+            <div className={compactNav ? 'flex flex-1 justify-center' : 'contents'}>
+              {navLinks()}
+            </div>
 
-        {/* ── Desktop nav ── */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navConfig.map((item) => {
-            const isOpen_ = activeDropdown === item.label;
-            const NavIcon = item.icon;
+            {compactNav && (
+              <>
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: 'auto' }}
+                  exit={{ opacity: 0, width: 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="mx-6 hidden h-4 w-px shrink-0 bg-white/20 lg:mx-10 lg:block"
+                  aria-hidden="true"
+                />
+                <div className="hidden lg:block">{getStartedMotion(true)}</div>
+              </>
+            )}
 
-            const navItemClasses = `group flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider font-mono transition-all duration-200 ${isOpen_
-              ? 'bg-[rgba(0,194,199,0.08)] text-[#0D2240]'
-              : 'text-[#4A6080] hover:bg-[rgba(26,110,191,0.06)]'
-              } ${item.hoverClass}`;
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="ml-auto flex h-7 w-7 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
+          </motion.div>
 
-            return (
-              <div key={item.label} className="relative">
-                {item.dropdown ? (
-                  <button
-                    onClick={() => toggleDropdown(item.label)}
-                    className={navItemClasses}
-                  >
-                    <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 ${isOpen_ ? item.activeIconColor : 'text-[#2AABDB]/60'} ${item.iconColor}`} />
-                    <span>{item.label}</span>
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 text-[#2AABDB]/60 ${isOpen_ ? 'rotate-180' : ''}`} />
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href}
-                    prefetch={false}
-                    className={navItemClasses}
-                  >
-                    <NavIcon className={`w-3.5 h-3.5 transition-colors duration-200 text-[#2AABDB]/60 ${item.iconColor}`} />
-                    <span>{item.label}</span>
-                  </Link>
-                )}
+          {!compactNav && <div className="hidden lg:block">{getStartedMotion(false)}</div>}
+        </motion.div>
+      </LayoutGroup>
 
-                {item.dropdown && isOpen_ && (
-                  <div className="absolute top-full left-0 mt-2 w-80 bg-white border border-[rgba(26,110,191,0.12)] rounded-2xl shadow-xl shadow-[rgba(0,194,199,0.10)] p-2 grid grid-cols-1 gap-0.5 animate-in fade-in slide-in-from-top-2 duration-150">
-                    {item.dropdown.map((subItem) => {
-                      const SubIcon = subItem.icon;
-                      return (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          prefetch={false}
-                          className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-[rgba(0,194,199,0.06)] transition-colors"
-                        >
-                          <div className="mt-0.5 p-1.5 rounded-lg bg-[rgba(26,110,191,0.06)] border border-[rgba(26,110,191,0.10)] text-[#2AABDB] group-hover:bg-[rgba(0,194,199,0.10)] group-hover:border-[rgba(0,194,199,0.25)] group-hover:text-[#00C2C7] transition-colors shrink-0">
-                            <SubIcon className="w-4 h-4" />
-                          </div>
-                          <div className="space-y-0.5">
-                            <div className="text-xs font-bold text-[#0D2240] group-hover:text-[#1A6EBF] transition-colors">
-                              {subItem.label}
-                            </div>
-                            <div className="text-[11px] text-[#4A6080] leading-normal font-sans">
-                              {subItem.desc}
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </nav>
-
-        {/* ── CTA Action Buttons ── */}
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
-          <Link
-            href="/contact"
-            prefetch={false}
-            className="flex items-center justify-center h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-[#4A6080] hover:text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.06)] transition-all"
-          >
-            Contact
-          </Link>
-
-          <Link
-            href="/products"
-            className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-white transition-all hover:scale-[1.03] shadow-md"
-            style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)', boxShadow: '0 4px 20px rgba(0,194,199,0.25)' }}
-          >
-            <span>Get Started</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-
-          <Link
-            href="https://lmsathena.com/login"
-            className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-[#1A6EBF] border border-[rgba(26,110,191,0.25)] bg-[rgba(26,110,191,0.04)] hover:bg-[rgba(26,110,191,0.08)] hover:border-[#1A6EBF] transition-all hover:scale-[1.03]"
-          >
-            <span>Login</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-
-        {/* ── Mobile menu button ── */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-xl text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.08)] transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* ── Mobile drawer ── */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[rgba(26,110,191,0.10)] z-40 px-6 py-6 overflow-y-auto max-h-[calc(100vh-64px)] shadow-xl animate-in fade-in slide-in-from-top-1 duration-200">
-          <div className="space-y-2">
-            {navConfig.map((item) => {
-              const MobIcon = item.icon;
-              const mobileItemClasses = "flex items-center justify-between w-full py-2.5 text-xs font-bold font-mono uppercase tracking-wider text-[#0D2240] hover:text-[#1A6EBF] text-left";
-
-              return (
-                <div key={item.label} className="border-b border-[rgba(26,110,191,0.08)] pb-2 last:border-0 last:pb-0">
-                  {item.dropdown ? (
-                    <>
-                      <button
-                        onClick={() => toggleMobileExpanded(item.label)}
-                        className={mobileItemClasses}
-                      >
-                        <div className="flex items-center gap-2">
-                          <MobIcon className={`w-4 h-4 ${item.activeIconColor}`} />
-                          <span>{item.label}</span>
-                        </div>
-                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileExpanded === item.label ? `rotate-180 ${item.activeIconColor}` : 'text-[#4A6080]'}`} />
-                      </button>
-                      {mobileExpanded === item.label && (
-                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-[rgba(0,194,199,0.25)] pl-4 animate-in slide-in-from-top-1 duration-150">
-                          {item.dropdown.map((sub) => (
-                            <Link
-                              key={sub.href}
-                              href={sub.href}
-                              onClick={() => setIsOpen(false)}
-                              className="block px-3 py-2 rounded-lg text-[11px] text-[#4A6080] hover:text-[#1A6EBF] hover:bg-[rgba(26,110,191,0.06)] transition-colors"
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      prefetch={false}
-                      onClick={() => setIsOpen(false)}
-                      className={mobileItemClasses}
-                    >
-                      <div className="flex items-center gap-2">
-                        <MobIcon className="w-4 h-4 text-[#4A6080]" />
-                        <span>{item.label}</span>
-                      </div>
-                    </Link>
-                  )}
-                </div>
-              );
-            })}
-
-            {/* Mobile CTAs */}
-            <div className="pt-4 border-t border-[rgba(26,110,191,0.10)] mt-2 flex flex-col gap-2.5">
+        <div className={`${styles.navbar} mx-auto mt-2 max-w-[1380px] px-4 sm:px-6 lg:hidden`}>
+          <div className="animate-in fade-in slide-in-from-top-2 space-y-0.5 rounded-2xl border border-white/15 bg-[#0a1520]/90 p-2.5 shadow-2xl backdrop-blur-2xl">
+            {navConfig.map((item) => (
               <Link
-                href="/contact"
+                key={item.label}
+                href={item.href}
                 prefetch={false}
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center gap-2 w-full text-center text-[#4A6080] border border-[rgba(26,110,191,0.15)] py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98] hover:text-[#1A6EBF]"
+                className={`flex items-center rounded-xl px-3 py-2.5 text-xs !font-normal transition-all ${
+                  isNavActive(router.pathname, item)
+                    ? 'bg-white/10 text-white'
+                    : 'text-white/60 hover:bg-white/5 hover:text-white'
+                }`}
               >
-                Contact Us
+                {item.label}
               </Link>
-              <Link
-                href="/products"
-                onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center gap-2 w-full text-center text-white py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
-                style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
-              >
-                <span>Get Started</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+            ))}
+            <div className="border-t border-white/10 pt-2">
               <Link
                 href="https://lmsathena.com/login"
                 onClick={() => setIsOpen(false)}
-                className="flex justify-center items-center gap-2 w-full text-center text-[#1A6EBF] border border-[rgba(26,110,191,0.25)] bg-[rgba(26,110,191,0.04)] py-3 rounded-xl font-mono font-bold tracking-wider text-xs uppercase transition-transform active:scale-[0.98]"
+                className={`${getStartedBtnClass} w-full justify-center`}
               >
-                <span>Login</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Get Started</span>
+                <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
           </div>

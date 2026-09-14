@@ -1,0 +1,8 @@
+.navbar nav a {
+  font-weight: 400 !important;
+  font-family: var(--font-geist-sans), Geist Sans, sans-serif;
+}
+
+.navbar nav a:hover {
+  font-weight: 400 !important;
+}

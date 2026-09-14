@@ -12,7 +12,7 @@ const EMAIL = 'operations@lumenlifi.com';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="relative overflow-hidden min-h-screen lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+    <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
         <title>Lumen LIFI — Privacy Policy</title>
         <meta
@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
       <div className="relative z-10">
         <Header />
 
-        <main className="pt-32 pb-24 max-w-4xl mx-auto px-6 font-sans">
+        <main className="mx-auto min-h-0 max-w-4xl px-4 pb-16 pt-28 font-sans sm:min-h-[100svh] sm:px-6 sm:pb-24 sm:pt-32">
           <Link
             href="/"
             className="inline-flex items-center gap-2 font-mono text-xs text-slate-400 hover:text-emerald-600 transition-colors mb-12 font-bold group"
@@ -34,11 +34,11 @@ export default function PrivacyPolicy() {
           </Link>
 
           <div className="space-y-6 border-b border-slate-100 pb-8 mb-8">
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">Privacy Policy</h1>
+            <h1 className="lumen-h1">Privacy Policy</h1>
             <p className="text-sm text-slate-400 font-mono">Last Updated: June 17, 2026</p>
           </div>
 
-          <div className="prose prose-slate max-w-none text-xs sm:text-sm leading-relaxed space-y-6 text-slate-600">
+          <div className="lumen-prose">
             <p>
               This Privacy Policy describes how <strong>{COMPANY}</strong> (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;),
               operating the <strong>{BRAND}</strong> brand at{' '}
@@ -50,21 +50,21 @@ export default function PrivacyPolicy() {
             </p>
 
             <div className="p-4 bg-slate-50 border border-slate-200/60 rounded-xl space-y-2">
-              <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <h3 className="flex items-center gap-2">
                 <Lock className="w-3.5 h-3.5 text-emerald-600" /> Our Commitment
               </h3>
-              <p className="text-xs text-slate-500">
+              <p>
                 We are committed to protecting your privacy and handling your data responsibly. We collect only
                 the information necessary to provide our LiFi hardware and subscription services, process payments,
                 and fulfill orders.
               </p>
             </div>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               1. Information We Collect
             </h3>
             <p>We may collect the following categories of information:</p>
-            <ul className="list-disc pl-5 space-y-1">
+            <ul>
               <li>
                 <strong>Identity &amp; contact data:</strong> name, email address, phone number, billing address,
                 and shipping/installation address.
@@ -87,11 +87,11 @@ export default function PrivacyPolicy() {
               </li>
             </ul>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               2. How We Use Your Information
             </h3>
             <p>We use your information to:</p>
-            <ul className="list-disc pl-5 space-y-1">
+            <ul>
               <li>Process and fulfill orders for LiFi hardware and subscription services.</li>
               <li>Manage recurring billing and subscription renewals.</li>
               <li>Provide customer support and respond to inquiries.</li>
@@ -101,7 +101,7 @@ export default function PrivacyPolicy() {
               <li>Send marketing communications where you have opted in (you may unsubscribe at any time).</li>
             </ul>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               3. Payment Processing
             </h3>
             <p>
@@ -117,11 +117,11 @@ export default function PrivacyPolicy() {
               shipping fees.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               4. How We Share Your Information
             </h3>
             <p>We do not sell your personal information. We may share your information with:</p>
-            <ul className="list-disc pl-5 space-y-1">
+            <ul>
               <li>
                 <strong>Payment processors:</strong> to process transactions and prevent fraud.
               </li>
@@ -142,7 +142,7 @@ export default function PrivacyPolicy() {
               </li>
             </ul>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               5. Cookies &amp; Tracking Technologies
             </h3>
             <p>
@@ -151,7 +151,7 @@ export default function PrivacyPolicy() {
               Disabling cookies may limit certain features of our website.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               6. Data Retention
             </h3>
             <p>
@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
               records are typically retained for a minimum of seven (7) years as required by applicable law.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               7. Data Security
             </h3>
             <p>
@@ -169,7 +169,7 @@ export default function PrivacyPolicy() {
               of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               8. Your Rights
             </h3>
             <p>
@@ -185,7 +185,7 @@ export default function PrivacyPolicy() {
               . We will respond within a reasonable timeframe as required by applicable law.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               9. Children&apos;s Privacy
             </h3>
             <p>
@@ -194,7 +194,7 @@ export default function PrivacyPolicy() {
               please contact us and we will promptly delete it.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               10. International Data Transfers
             </h3>
             <p>
@@ -203,7 +203,7 @@ export default function PrivacyPolicy() {
               countries that may have different data protection laws than your country of residence.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               11. Third-Party Links
             </h3>
             <p>
@@ -212,7 +212,7 @@ export default function PrivacyPolicy() {
               personal information.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               12. Changes to This Policy
             </h3>
             <p>
@@ -221,7 +221,7 @@ export default function PrivacyPolicy() {
               Your continued use of our services after changes constitutes acceptance of the updated policy.
             </p>
 
-            <h3 className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider pt-4">
+            <h3>
               13. Contact Us
             </h3>
             <p>
