@@ -26,7 +26,7 @@ export default function FinalCTASection() {
               className="!m-0 !text-[clamp(1.85rem,4.5vw,2.85rem)] !font-bold leading-[1.15] tracking-[-0.03em] text-white"
               style={geist}
             >
-              Leave old radio waves behind.
+              Leave the old behind.
               <br />
               Live at the speed of light.
             </h2>
@@ -35,8 +35,7 @@ export default function FinalCTASection() {
               className="!mx-auto !mt-5 max-w-2xl !text-base !font-normal leading-relaxed text-white/65 sm:!text-lg"
               style={inter}
             >
-              Upgrade your home to internet delivered through light — faster, private, and free of
-              radio congestion.
+              Upgrade your home to internet delivered through light — faster, more private, and built for a cleaner, more reliable connection.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">

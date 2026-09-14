@@ -17,6 +17,7 @@ import RevFSystemKitExplorer from '../../components/sections/products/RevFSystem
 import ProductsPurchaseSection from '../../components/sections/products/ProductsPurchaseSection';
 import ProductsFaqSection from '../../components/sections/products/ProductsFaqSection';
 import ProductDetailSection from '../../components/sections/products/ProductDetailSection';
+import ComingSoonPolePopup from '../../components/common/ComingSoonPolePopup';
 
 const productsData = [
   {
@@ -211,6 +212,8 @@ export default function ProductsPage() {
       </main>
 
       <Footer />
+
+      <ComingSoonPolePopup />
     </div>
   );
 }

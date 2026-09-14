@@ -5,7 +5,7 @@ import { ArrowUpRight, Zap } from 'lucide-react';
 import gamingImg from '../../../../public/images/hero/gaminggg.png';
 import streamingImg from '../../../../public/images/hero/fast_str.png';
 import infiniteDevicesImg from '../../../../public/images/hero/infinite.png';
-import invisibleInfraImg from '../../../../public/images/hero/free.png';
+import invisibleInfraImg from '../../../../public/images/hero/radio_wave1.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -118,7 +118,7 @@ export default function HomeFeaturesSection() {
             className="!mt-4 !text-sm !font-normal leading-relaxed text-white/75 [word-spacing:0.1em]"
             style={inter}
           >
-            Leave old radio waves behind and move at the speed of light.
+            Leave the old behind and move at the speed of light.            .
           </p>
           <Link
             href="/products"
@@ -223,8 +223,8 @@ export default function HomeFeaturesSection() {
             alt="Hidden network hardware with LiFi"
             sizes="(max-width: 768px) 100vw, 25vw"
             eyebrow="Invisible Setup"
-            title="100% Radio-Free"
-            desc="Connectivity through ceiling light—no router clutter, no RF noise in the room."
+            title="Light-Powered Connectivity"
+            desc="Turn your ceiling lights into a fast, reliable connection with smooth performance and fewer interruptions."
             className="md:col-span-3 md:min-h-full lg:col-span-3"
             minHeightClass="min-h-[320px]"
           />

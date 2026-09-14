@@ -8,6 +8,9 @@ import FinalCTASection from '../components/sections/home/FinalCTASection';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
 
 const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
+const ComingSoonPolePopup = dynamic(() => import('../components/common/ComingSoonPolePopup'), {
+  ssr: false,
+});
 
 export default function HomePage() {
   return (
@@ -64,6 +67,7 @@ export default function HomePage() {
 
       <Footer />
 
+      <ComingSoonPolePopup />
       <DeferredAnalytics />
     </div>
   );

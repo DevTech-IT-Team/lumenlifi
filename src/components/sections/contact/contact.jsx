@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Calendar, Mail, MapPin, Phone } from 'lucide-react';
 
 const SALES_EMAIL = 'rupali@lifilumen.com';
 const OPS_EMAIL = 'operations@lumenlifi.com';
+const APPOINTMENT_URL = 'https://calendly.com/enquaries-lifilumen/30min?month=2026-09';
 const FORM_ID = '0LXv19xiVsNzt9xtK3Ih';
 const FORM_EMBED_SCRIPT = 'https://api.wonderengine.ai/js/form_embed.js';
 
@@ -105,6 +106,33 @@ export default function ContactFormBlock() {
               </span>
             </li>
           </ul>
+        </div>
+
+        <div className="mt-10">
+          <h3
+            className="!m-0 !text-sm !font-normal uppercase tracking-[0.14em] text-[#0D2240]/50"
+            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+          >
+            Book a call
+          </h3>
+          <p
+            className="!mt-3 max-w-sm !text-sm !font-normal leading-relaxed text-[#0D2240]/65"
+            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+          >
+            Prefer to talk? Pick a 30-minute slot and we&apos;ll walk you through LiFi, products, or
+            installation — no pressure.
+          </p>
+          <a
+            href={APPOINTMENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#0D2240]/20 bg-white px-6 text-sm !font-normal text-[#0D2240] transition-colors hover:border-[var(--lumen-cyan)]/50 hover:bg-[#EBF5FF]"
+            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+          >
+            <Calendar className="h-4 w-4 text-[var(--lumen-cyan)]" strokeWidth={1.75} />
+            Book an appointment
+            <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+          </a>
         </div>
       </div>
 

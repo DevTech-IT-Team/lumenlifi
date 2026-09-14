@@ -63,10 +63,7 @@ export default function AboutSection() {
             className="!text-sm !font-normal leading-[1.85] text-[#161C3B]/70 sm:!text-base lg:pt-10"
             style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
           >
-            LumenFi was born from a shared passion for next-generation connectivity and a desire to
-            create an internet experience that transcends the ordinary. Built at the intersection of
-            photonics and smart living, LumenFi brings together the reliability of light with the
-            innovative spirit of seamless, secure, high-speed connectivity.
+            LumenFi was created to bring faster, smarter connectivity into everyday life. By combining light and smart technology, we deliver a seamless, secure, and high-speed internet experience.
           </p>
         </div>
 
@@ -185,8 +182,8 @@ export default function AboutSection() {
                 className={`!mt-5 ml-auto max-w-[300px] ${bodyClass}`}
                 style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
               >
-                A direct beam of light to your rig means instant response — no Wi-Fi congestion, no
-                interference, no dropped frames.
+                A direct beam of light to your rig means instant response — no congestion, no interference, no dropped frames.
+
               </p>
             </div>
 

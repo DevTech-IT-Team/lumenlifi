@@ -5,18 +5,18 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     step: '01',
-    title: 'LED Modulation',
-    desc: 'LED bulbs flick on and off millions of times per second to transmit binary code, completely invisible to the human eye.',
+    title: 'Lights Send Data',
+    desc: 'Your LED lights blink on and off so fast you cannot see it. That blinking carries your internet through light.',
   },
   {
     step: '02',
-    title: 'Optical Reception',
-    desc: 'A specialized photoreceiver detects the imperceptible light signals and converts them into a high-speed data stream.',
+    title: 'Device Catches Light',
+    desc: 'A small receiver on your device picks up those light signals and turns them into internet you can use.',
   },
   {
     step: '03',
-    title: 'Instant Connection',
-    desc: 'Your device receives a secure, zero-latency network connection without causing or suffering from RF interference.',
+    title: 'You Are Connected',
+    desc: 'You get a fast, private connection right away — with no radio waves and no interference from other devices.',
   },
 ];
 
@@ -56,13 +56,13 @@ export default function HowLiFiWorksSection() {
             className="!mt-3 !m-0 !text-[clamp(2rem,4.5vw,3.25rem)] !font-normal leading-[1.1] tracking-[-0.03em] text-[#EBF5FF]"
             style={{ ...geist, fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
           >
-            How LiFi operates
+            How LiFi works
           </h2>
           <p
             className="!mt-4 !text-sm !font-normal leading-relaxed text-white/55 sm:!text-base"
             style={inter}
           >
-            Light carries your data in three invisible steps — from LED pulse to secure connection.
+            Your internet travels through light in three simple steps.
           </p>
         </motion.div>
 
@@ -127,7 +127,7 @@ export default function HowLiFiWorksSection() {
           className="!mt-14 text-center !text-[11px] !font-normal uppercase tracking-[0.2em] text-white/30 sm:!mt-16"
           style={inter}
         >
-          LED Modulation · Optical Reception · Instant Connection
+          Lights Send Data · Device Catches Light · You Are Connected
         </motion.p>
       </div>
     </section>

@@ -2,256 +2,121 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import {
-  ArrowUpRight,
-  Wifi,
-  Gamepad2,
-  Network,
-  Cpu,
-  Factory,
-  GraduationCap,
-  Car,
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { fadeUp, heroFadeUp } from './variants';
-import aiMesh from '../../../../public/images/academy/aiMesh.jpg';
-import Transport from '../../../../public/images/academy/autoTransport.jpg';
-import education from '../../../../public/images/academy/smartSchool.jpg';
 
 const CARDS = [
   {
-    id: 'mesh',
-    title: 'Global Mesh',
-    subtitle: 'SERVICES',
-    desc: 'All devices directly connected with 0 congestion.',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-    metric: 'Zero-RF Mesh',
-    icon: Wifi,
-    accent: '#00ff88',
+    id: 'course-1',
+    title: 'Welcome to Light-Speed Internet',
+    desc: 'Start here — how LiFi works and why light can carry your internet.',
+    img: '/images/academy/course-1.png',
   },
   {
-    id: 'gaming',
-    title: 'Ultra-Low Latency Gaming',
-    subtitle: 'ESPORTS & VR',
-    desc: 'Eliminate ping and packet loss with direct light-based transmission.',
-    img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80',
-    metric: '<1ms Latency',
-    icon: Gamepad2,
-    accent: '#00C2C7',
+    id: 'course-2',
+    title: 'Setup & First Connection',
+    desc: 'Plug in, connect your first device, and get online with LiFi.',
+    img: '/images/academy/course-2.png',
   },
   {
-    id: 'networks',
-    title: 'Light Connectivity',
-    subtitle: 'NETWORKS',
-    desc: 'Secure light-based transmission for enterprise and all.',
-    img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    metric: 'Optical Link',
-    icon: Network,
-    accent: '#c084fc',
+    id: 'course-3',
+    title: 'Living with LiFi Every Day',
+    desc: 'Work, stream, and stay connected at home with light-speed internet.',
+    img: '/images/academy/course-3.png',
   },
   {
-    id: 'ai',
-    title: 'AI Data Mesh Systems',
-    subtitle: 'NEURAL TRAINING',
-    desc: 'Stream gigabytes of real-time AI sensor data instantaneously.',
-    img: aiMesh,
-    metric: '100 Gbps Link',
-    icon: Cpu,
-    accent: '#38bdf8',
+    id: 'course-4',
+    title: 'Getting More From Your System',
+    desc: 'Optimize coverage, devices, and performance across your space.',
+    img: '/images/academy/course-4.png',
   },
   {
-    id: 'manufacturing',
-    title: 'Industrial Manufacturing',
-    subtitle: 'AUTOMATION',
-    desc: 'Keep factory robots running smoothly without network interference.',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-    metric: '0% RF Interference',
-    icon: Factory,
-    accent: '#f59e0b',
+    id: 'course-5',
+    title: 'Troubleshooting & Getting Help',
+    desc: 'Fix common issues fast and know when to reach support.',
+    img: '/images/academy/course-5.png',
   },
   {
-    id: 'schools',
-    title: 'Smart Schools & Campuses',
-    subtitle: 'CLASSROOMS',
-    desc: 'Prevent bandwidth slowdowns when hundreds of students log on together.',
-    img: education,
-    metric: 'Lag-Free Link',
-    icon: GraduationCap,
-    accent: '#00C2C7',
-  },
-  {
-    id: 'transport',
-    title: 'Autonomous Transportation',
-    subtitle: 'V2I',
-    desc: 'Enable instant V2I communication between vehicles and street fixtures.',
-    img: Transport,
-    metric: 'Real-Time V2X',
-    icon: Car,
-    accent: '#ec4899',
+    id: 'course-6',
+    title: 'Trust, Privacy & Making Sense of the Claims',
+    desc: 'Understand security, privacy, and what LiFi claims really mean.',
+    img: '/images/academy/course-6.png',
   },
 ];
 
-const LOOP = [...CARDS, ...CARDS];
+const LOOP = [...CARDS, ...CARDS, ...CARDS];
 
 const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
-function imgSrc(src) {
-  return typeof src === 'string' ? src : src?.src;
-}
-
-function SectorCard({ card }) {
-  const Icon = card.icon;
-  return (
-    <article
-      className="academy-hero-card relative h-[340px] w-[230px] shrink-0 overflow-hidden rounded-[1.5rem] border sm:h-[380px] sm:w-[260px]"
-      style={{
-        borderColor: `${card.accent}66`,
-        boxShadow: `0 16px 40px rgba(0,0,0,0.4), 0 0 22px ${card.accent}33`,
-      }}
-    >
-      <img
-        src={imgSrc(card.img)}
-        alt={card.title}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        draggable={false}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(3,7,18,0.12) 0%, rgba(3,7,18,0.55) 48%, rgba(3,7,18,0.96) 100%)',
-        }}
-      />
-      <div className="relative z-10 flex h-full flex-col justify-end p-4 text-left sm:p-5">
-        <div
-          className="mb-2 inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-0.5 backdrop-blur-md"
-          style={{
-            borderColor: `${card.accent}80`,
-            backgroundColor: 'rgba(3,7,18,0.7)',
-            color: card.accent,
-          }}
-        >
-          <Icon className="h-3 w-3" />
-          <span className="font-mono text-[10px] !font-normal tracking-wide" style={inter}>
-            {card.metric}
-          </span>
-        </div>
-        <p
-          className="!m-0 !text-[10px] !font-normal uppercase tracking-[0.16em]"
-          style={{ ...inter, color: card.accent }}
-        >
-          {card.subtitle}
-        </p>
-        <h3
-          className="!mt-1 !m-0 !text-base !font-normal leading-snug tracking-tight text-white sm:!text-lg"
-          style={geist}
-        >
-          {card.title}
-        </h3>
-        <p
-          className="!mt-1.5 line-clamp-2 !text-[11px] !font-normal leading-snug text-white/75 sm:!text-xs"
-          style={inter}
-        >
-          {card.desc}
-        </p>
-      </div>
-    </article>
-  );
-}
-
 export default function HeroSection() {
   const trackRef = useRef(null);
+  const offsetRef = useRef(0);
+  const pausedRef = useRef(false);
+  const loopWidthRef = useRef(0);
 
   useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+
+    const measure = () => {
+      loopWidthRef.current = track.scrollWidth / 3;
+    };
+
+    measure();
+    window.addEventListener('resize', measure);
+
     let raf = 0;
-    const updateFan = () => {
-      const track = trackRef.current;
-      if (!track) return;
+    const SPEED = 1;
+
+    const tick = () => {
+      if (!pausedRef.current) {
+        offsetRef.current -= SPEED;
+        const loopW = loopWidthRef.current;
+        if (loopW > 0 && Math.abs(offsetRef.current) >= loopW) {
+          offsetRef.current += loopW;
+        }
+        track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+      }
+
       const center = window.innerWidth / 2;
-      const half = Math.max(window.innerWidth * 0.55, 320);
+      const half = Math.max(window.innerWidth * 0.5, 280);
 
       track.querySelectorAll('.academy-hero-card').forEach((item) => {
-        if (item.matches(':hover')) return;
-
         const rect = item.getBoundingClientRect();
         const itemCenter = rect.left + rect.width / 2;
-        // -1 = far left, 0 = center, 1 = far right
         const n = Math.max(-1, Math.min(1, (itemCenter - center) / half));
         const abs = Math.abs(n);
 
-        // Concave fan: small in the middle, large at the edges
-        const scale = 0.78 + abs * 0.42; // ~0.78 center → ~1.2 edges
-        const rotateY = -n * 28; // face toward center
-        const translateY = abs * 28; // edges drop down (bottom arc)
-        const translateZ = -48 + abs * 95; // center recedes, edges come forward
+        const scale = 1 - abs * 0.2;
+        const rotateY = n * -40;
+        const translateZ = (1 - abs) * 70 - 30;
+        const opacity = 1 - abs * 0.25;
 
-        item.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${rotateY}deg) translateY(${translateY}px) scale(${scale})`;
-        item.style.zIndex = String(Math.round(abs * 20));
+        item.style.transform = `perspective(1400px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+        item.style.opacity = String(opacity);
+        item.style.zIndex = String(Math.round((1 - abs) * 30));
       });
-      raf = requestAnimationFrame(updateFan);
+
+      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(updateFan);
-    return () => cancelAnimationFrame(raf);
+
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', measure);
+    };
   }, []);
 
   return (
     <section className="relative isolate w-full overflow-hidden bg-[#05070a] text-white">
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            @keyframes academy-marquee-rtl {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .academy-hero-track {
-              display: flex;
-              align-items: flex-end;
-              width: max-content;
-              gap: 0.85rem;
-              padding: 2.5rem 0 2.75rem;
-              animation: academy-marquee-rtl 55s linear infinite;
-              will-change: transform;
-              transform-style: preserve-3d;
-            }
-            .academy-hero-track:hover {
-              animation-play-state: paused;
-            }
-            .academy-hero-card {
-              transition: filter 0.25s ease;
-              transform-origin: center bottom;
-              will-change: transform;
-              backface-visibility: hidden;
-            }
-            .academy-hero-card:hover {
-              transform: perspective(1600px) translateZ(70px) rotateY(0deg) translateY(-6px) scale(1.08) !important;
-              z-index: 40 !important;
-              filter: brightness(1.1);
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .academy-hero-track { animation: none; }
-            }
-          `,
-        }}
-      />
-
-      {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div
           className="absolute inset-0"
           style={{
             background:
               'radial-gradient(ellipse 80% 55% at 50% 0%, #1a2a4a 0%, #0a1220 42%, #05070a 72%)',
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage: 'radial-gradient(rgba(148, 180, 220, 0.45) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-            maskImage:
-              'radial-gradient(ellipse 70% 60% at 50% 20%, black 20%, transparent 75%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 70% 60% at 50% 20%, black 20%, transparent 75%)',
           }}
         />
         <div
@@ -317,18 +182,63 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Infinite RTL marquee with content cards */}
       <motion.div
         custom={4}
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mt-12 w-full overflow-hidden sm:mt-14 lg:mt-16"
-        style={{ perspective: '1600px' }}
+        className="relative z-10 mt-12 w-full overflow-hidden pb-10 sm:mt-14 sm:pb-12 lg:mt-16"
+        style={{ perspective: '1400px' }}
+        onMouseEnter={() => {
+          pausedRef.current = true;
+        }}
+        onMouseLeave={() => {
+          pausedRef.current = false;
+        }}
       >
-        <div className="academy-hero-track" ref={trackRef}>
+        <div
+          ref={trackRef}
+          className="flex w-max items-center gap-4 py-8 will-change-transform sm:gap-5 sm:py-10"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
           {LOOP.map((card, i) => (
-            <SectorCard key={`${card.id}-${i}`} card={card} />
+            <article
+              key={`${card.id}-${i}`}
+              className="academy-hero-card group relative h-[160px] w-[280px] shrink-0 overflow-hidden rounded-[1.25rem] border border-white/15 bg-[#0D2240] shadow-[0_20px_50px_rgba(0,0,0,0.4)] sm:h-[210px] sm:w-[380px] sm:rounded-[1.5rem] lg:h-[240px] lg:w-[440px]"
+              style={{
+                transformOrigin: 'center center',
+                backfaceVisibility: 'hidden',
+                willChange: 'transform, opacity',
+              }}
+            >
+              <img
+                src={card.img}
+                alt={card.title}
+                className="h-full w-full object-cover object-center"
+                draggable={false}
+              />
+
+              <div className="absolute inset-0 flex flex-col justify-end bg-[#0c1228]/0 p-4 opacity-0 backdrop-blur-0 transition-all duration-300 ease-out group-hover:bg-[#0c1228]/65 group-hover:opacity-100 group-hover:backdrop-blur-md sm:p-5">
+                <span
+                  className="!text-[10px] !font-normal uppercase tracking-[0.16em] text-[var(--lumen-cyan)]"
+                  style={inter}
+                >
+                  Course {card.id.replace('course-', '')}
+                </span>
+                <p
+                  className="!m-0 !mt-1.5 !text-base !font-normal text-white sm:!text-lg"
+                  style={geist}
+                >
+                  {card.title}
+                </p>
+                <p
+                  className="!mb-0 !mt-1.5 !text-xs !font-normal leading-relaxed text-white/75 sm:!text-sm"
+                  style={inter}
+                >
+                  {card.desc}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </motion.div>

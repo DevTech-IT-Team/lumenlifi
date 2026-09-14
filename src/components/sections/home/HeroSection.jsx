@@ -88,8 +88,8 @@ export default function HeroSection() {
               </h1>
 
               <p className="home-hero-landscape-copy">
-                Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet
-                connection. No Wi-Fi, no radio waves — just pure light-speed connectivity.
+              Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. With Wi-Fi and LiFi working together, enjoy seamless, light-speed connectivity.
+
               </p>
 
               <Link href="/products" prefetch={false} className="home-hero-landscape-cta">
