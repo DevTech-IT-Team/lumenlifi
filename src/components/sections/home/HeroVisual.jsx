@@ -329,11 +329,11 @@ function ActiveVideoInfo({ video }) {
       {/* Badge Component */}
       <div
         key={`badge-${animateKey}`}
-        className="animate-scale-in inline-flex items-center gap-2 rounded-full border px-3.5 py-0.5 mb-1.5 shadow-md backdrop-blur-md"
+        className="animate-scale-in inline-flex items-center gap-2 rounded-full border px-3.5 py-0.5 mb-1.5"
         style={{
           color: video.accent,
           borderColor: `${video.accent}60`,
-          backgroundColor: 'rgba(6, 16, 34, 0.75)',
+          backgroundColor: 'rgba(13, 34, 64, 0.05)',
         }}
       >
         <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ backgroundColor: video.accent }} />
@@ -345,7 +345,7 @@ function ActiveVideoInfo({ video }) {
       {/* Title */}
       <h3
         key={`title-${animateKey}`}
-        className="animate-fade-slide text-lg sm:text-2xl font-extrabold tracking-tight text-white mb-1"
+        className="animate-fade-slide lumen-h3 mb-1"
       >
         {video.title}
       </h3>
@@ -353,7 +353,7 @@ function ActiveVideoInfo({ video }) {
       {/* Description */}
       <p
         key={`desc-${animateKey}`}
-        className="animate-fade-slide text-xs sm:text-sm leading-relaxed text-slate-300 max-w-lg line-clamp-2"
+        className="animate-fade-slide text-xs sm:text-sm leading-relaxed text-[var(--lumen-muted)] max-w-lg line-clamp-2"
         style={{ animationDelay: '50ms' }}
       >
         {video.description}
@@ -373,8 +373,8 @@ function ProgressDots({ total, activeIndex, onSelect }) {
           key={idx}
           onClick={() => onSelect(idx)}
           className={`h-2 rounded-full transition-all duration-300 focus:outline-none ${idx === activeIndex
-            ? 'w-6 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
-            : 'w-2 bg-white/20 hover:bg-white/40'
+            ? 'w-6 bg-[#0D2240]'
+            : 'w-2 bg-[#0D2240]/20 hover:bg-[#0D2240]/40'
             }`}
           aria-label={`Go to slide ${idx + 1}`}
         />
@@ -422,19 +422,12 @@ export default function HeroVisual() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[100svh] overflow-hidden bg-[#030712] text-white font-sans flex flex-col justify-between py-3 sm:py-5">
-      {/* Background Ambience */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#02050f]">
-        <div
-          className="absolute left-1/2 top-0 h-[850px] w-full max-w-[1920px] -translate-x-1/2 bg-top bg-no-repeat opacity-50"
-          style={{ backgroundImage: "url('/images/academy/bg.webp')", backgroundSize: '100% auto' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#02050f]/30 via-[#02050f]/60 to-[#02050f]" />
-      </div>
+    <section ref={sectionRef} className="page-screen-hero relative w-full overflow-hidden section-wash-white text-[var(--lumen-navy)] font-sans flex flex-col justify-between py-12 sm:py-16">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" />
 
       {/* Section Header */}
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 text-center">
-        <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+        <h2 className="lumen-h2">
           Discover LiFi in Action
         </h2>
       </div>
@@ -451,7 +444,7 @@ export default function HeroVisual() {
         />
       </div>
 
-      <div className="relative z-10 w-full border-t border-white/10 max-w-3xl mx-auto my-0.5" />
+      <div className="relative z-10 w-full border-t border-[var(--lumen-border)] max-w-3xl mx-auto my-0.5" />
 
       {/* Dynamic Information Panel & Dots */}
       <div className="relative z-10 w-full flex flex-col justify-end">

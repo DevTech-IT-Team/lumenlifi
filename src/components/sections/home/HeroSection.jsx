@@ -1,57 +1,114 @@
+import { useLayoutEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import logoPl from '/public/brand/logo.webp';
+import { Instrument_Serif } from 'next/font/google';
 import MainLiFiVideoSection from './MainLiFiVideoSection';
 
+const speedOfLightFont = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: 'italic',
+  display: 'swap',
+});
+
+const STATS = [
+  { value: '100%', label: 'Radio-free connectivity' },
+  { value: '8.5x', label: 'Faster than fiber' },
+  { value: 'High-Speed Internet', label: 'Max connection speed' },
+
+];
+
 export default function HeroSection() {
+  const speedOfLightRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const line = speedOfLightRef.current;
+    if (!line) return;
+
+    line.style.setProperty('font-family', speedOfLightFont.style.fontFamily, 'important');
+    line.style.setProperty('font-style', 'italic', 'important');
+    line.style.setProperty('font-weight', '400', 'important');
+    line.style.setProperty('letter-spacing', '0.01em', 'important');
+  }, []);
+
   return (
-    <section className="relative w-full pt-32  overflow-hidden lumen-hero-wash">
-      <div className="absolute inset-0 pointer-events-none z-0 lumen-grid-pattern-hero opacity-45" />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center mb-16">
-        <div className="relative w-full max-w-[440px] sm:max-w-[560px] md:max-w-[640px] lg:max-w-[720px] aspect-[360/110] ">
-          <Image
-            src={logoPl}
-            alt="LumenFi"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 560px, (max-width: 1024px) 640px, 720px"
-            className="object-contain"
-          />
-        </div>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.25] sm:leading-[1.2] mb-6 max-w-4xl text-[#0D2240] overflow-visible pb-1">
-          The Speed of Light.{' '}
-          <span className="text-gradient-lumen">Now in Your Living Room.</span>
-        </h1>
-
-        <p className="text-lg md:text-xl max-w-2xl mb-8 leading-relaxed text-[#4A6080]">
-          The world&apos;s first home Internet provider run entirely on invisible infrared light (Li-Fi) and radio waves (Wi-Fi).
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Link
-            href="/what-is-lifi"
-            prefetch={false}
-            className="glow-blue inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl text-white font-bold text-sm tracking-wide shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl w-full sm:w-auto"
-            style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
+    <>
+      <section className="home-hero-landscape relative isolate h-[100svh] min-h-[100svh] w-full overflow-hidden text-white">
+        <div className="absolute inset-0 -z-20 h-full w-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 h-full w-full object-cover object-top"
+            aria-hidden="true"
           >
-            What is LiFi?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
-          <Link
-            href="/products"
-            prefetch={false}
-            className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl font-bold text-sm tracking-wide border-2 transition-all hover:scale-[1.02] w-full sm:w-auto border-[var(--lumen-blue)] text-[var(--lumen-blue)] bg-[rgba(26,110,191,0.03)]"
-          >
-            Order Now
-          </Link>
+            <source
+              src="https://res.cloudinary.com/jup2hjfk/video/upload/v1788596028/viiid_xwpoe0.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
-      </div>
 
-      <MainLiFiVideoSection />
-    </section>
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-transparent via-[#030914]/25 to-[#030914]/20" />
+
+        <div className="relative z-10 mx-auto flex h-full min-h-[100svh] w-full max-w-[1380px] flex-col px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-28">
+          <div className="flex flex-1 flex-col justify-center">
+            <div className="max-w-xl lg:max-w-2xl">
+              <h1 className="m-0 text-left font-semibold tracking-[-0.03em] text-white text-6xl">
+                <span
+                  className="block text-white"
+                  style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
+                >
+                  The{' '}
+                  <span
+                    ref={speedOfLightRef}
+                    className={`${speedOfLightFont.className} text-white `}
+                    style={{
+                      fontSize: 'inherit',
+                      lineHeight: 'inherit',
+                      color: '#ffffff',
+                      
+                    }}
+                  >
+                    Speed of Light
+                  </span>
+                  .
+                </span>
+                <span
+                  className="block font-sans text-white"
+                  style={{
+                    fontSize: 'inherit',
+                    lineHeight: 'inherit',
+                    fontFamily: 'var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif',
+                  }}
+                >
+                  Now in Your Living Room.
+                </span>
+              </h1>
+
+              <p className="home-hero-landscape-copy">
+              Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. With Wi-Fi and LiFi working together, enjoy seamless, light-speed connectivity.
+
+              </p>
+
+              <Link href="/products" prefetch={false} className="home-hero-landscape-cta">
+                Get started
+              </Link>
+
+              <div className="home-hero-landscape-stats">
+                {STATS.map((stat) => (
+                  <div key={stat.label} className="home-hero-landscape-stat">
+                    <p className="home-hero-landscape-stat-value">{stat.value}</p>
+                    <p className="home-hero-landscape-stat-label">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <MainLiFiVideoSection /> */}
+    </>
   );
 }

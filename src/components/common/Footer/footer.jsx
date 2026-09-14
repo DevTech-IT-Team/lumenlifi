@@ -1,253 +1,180 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Send, ShieldCheck, ArrowUpRight, Mail } from 'lucide-react';
-import logoPl from '/public/brand/logo.webp';
+
+const mainLinks = [
+  { label: 'What is LiFi', href: '/what-is-lifi', number: '01' },
+  { label: 'Products', href: '/products', number: '02' },
+  { label: 'LiFi Pole', href: '/products/lifi-pole', number: '03' },
+  { label: 'Academy', href: '/Academy', number: '04' },
+  { label: 'Blogs', href: '/blog', number: '05' },
+];
+
+const utilityLinks = [
+  { label: 'Security', href: '/privacy' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Use', href: '/terms' },
+  { label: 'Resources', href: '/Academy' },
+];
 
 export default function Footer() {
   return (
-    <footer
-      className="relative pt-20 pb-12 overflow-hidden"
-      style={{
-        background: 'linear-gradient(160deg, #F0F8FF 0%, #EAF9F9 100%)',
-        borderTop: '1px solid rgba(26,110,191,0.10)',
-      }}
-    >
-      {/* Ambient glow */}
-      <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[200px] rounded-full blur-[100px] pointer-events-none"
-        style={{ background: 'rgba(0,194,199,0.08)' }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 z-10">
-        {/* Brand Column */}
-        <div className="md:col-span-4 space-y-5">
-          {/* Extra-Large Logo Container matching Hero sizing */}
-          <div className="relative w-64 h-20 sm:w-80 sm:h-24 flex items-center justify-start">
-            <Image
-              src={logoPl}
-              alt="LumenFi Logo"
-              fill
-              loading="lazy"
-              className="object-contain object-left"
-            />
+    <footer className="w-full bg-[#161C3B]">
+      <div className="grid w-full grid-cols-1 lg:grid-cols-12">
+        {/* Left — logo + description */}
+        <div className="flex flex-col justify-between gap-10 border-b border-white/10 px-8 py-10 sm:px-12 sm:py-14 lg:col-span-3 lg:border-b-0 lg:border-r">
+          <div className="flex items-center gap-4">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/20 bg-white p-1.5">
+              <Image
+                src="/brand/logo.webp"
+                alt="LumenFi"
+                fill
+                loading="lazy"
+                sizes="48px"
+                className="object-contain"
+              />
+            </div>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20">
+              <span className="text-center text-[8px] font-normal uppercase leading-tight tracking-[0.12em] text-neutral-400">
+                LiFi
+                <br />
+                Ready
+              </span>
+            </div>
           </div>
 
-          {/* Simplified, easy-to-read text for a 6th-grade level */}
           <p
-            className="text-sm leading-relaxed max-w-sm"
-            style={{ color: '#4A6080' }}
+            className="max-w-[240px] text-sm font-normal leading-relaxed text-neutral-400"
+            style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
           >
-            <strong className="text-[#0D2240] text-base">
-              Light turns into Internet data.
-            </strong>
-            <br />
-            LiFi makes it easy to get online using bright light beams instead of regular Wi-Fi radio waves. It is super fast wireless internet powered by pure light!
+            Built for the next generation of connected homes. Where light defines speed and LiFi
+            accelerates execution.
           </p>
-
-          {/* Sales ID Contact */}
-          <div className="flex items-center gap-2 text-xs font-mono" style={{ color: '#4A6080' }}>
-            <Mail className="w-4 h-4 text-[#1A6EBF]" />
-            <span>Sales ID: <a href="mailto:rupali@lifilumen.com" className="font-bold text-[#0D2240] hover:text-[#1A6EBF] transition-colors">rupali@lifilumen.com</a></span>
-          </div>
-
-          <div
-            className="flex items-center gap-2 text-xs font-mono font-bold px-3 py-1.5 rounded-lg w-max"
-            style={{
-              background: 'rgba(0,194,199,0.10)',
-              border: '1px solid rgba(0,194,199,0.20)',
-              color: '#1A6EBF',
-            }}
-          >
-            <ShieldCheck
-              className="w-4 h-4"
-              style={{ color: '#00C2C7' }}
-            />
-            <span>Built to Official Global LiFi Technology Standards</span>
-          </div>
         </div>
 
-        {/* Links Column 1 */}
-        <div className="md:col-span-2 space-y-4">
-          <div
-            role="heading"
-            aria-level="2"
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
-            style={{
-              color: '#0D2240',
-              borderBottom: '1px solid rgba(26,110,191,0.12)',
-            }}
-          >
-            Ecosystem
-          </div>
+        {/* Center — numbered nav */}
+        <div className="border-b border-white/10 lg:col-span-4 lg:border-b-0 lg:border-r">
+          {mainLinks.map((item, index) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`group flex items-center justify-between px-8 py-5 transition-colors hover:bg-white/[0.03] sm:px-12 sm:py-6 ${
+                index !== mainLinks.length - 1 ? 'border-b border-white/10' : ''
+              }`}
+            >
+              <span
+                className="text-2xl font-normal tracking-[-0.02em] text-white sm:text-[1.75rem]"
+                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+              >
+                {item.label}
+              </span>
+              <span className="text-xs font-normal tracking-[0.2em] text-neutral-500">
+                {item.number}
+              </span>
+            </Link>
+          ))}
+        </div>
 
-          <ul
-            className="space-y-2.5 text-xs font-medium"
-            style={{ color: '#4A6080' }}
-          >
-            {[
-              // { label: 'LumenFi Router', href: '/products/lumenfi-router' },
-              { label: 'Home Kits', href: '/products' },
-              { label: 'Enterprise', href: '/#enterprise' },
-              { label: 'Hardware Core', href: '/products' },
-              { label: 'Desktop Receivers', href: '/products' },
-            ].map((item) => (
+        {/* Legal links */}
+        <div className="flex flex-col justify-center border-b border-white/10 px-8 py-10 sm:px-12 sm:py-14 lg:col-span-2 lg:border-b-0 lg:border-r">
+          <ul className="space-y-3">
+            {utilityLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 group transition-colors hover:text-[#1A6EBF]"
+                  className="!text-[10px] !font-normal uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-70 sm:!text-[11px]"
+                  style={{
+                    fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif',
+                    fontWeight: 400,
+                  }}
                 >
                   {item.label}
-                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Social Links Column */}
-        <div className="md:col-span-2 space-y-4">
-          <div
-            role="heading"
-            aria-level="2"
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
-            style={{
-              color: '#0D2240',
-              borderBottom: '1px solid rgba(26,110,191,0.12)',
-            }}
-          >
-            Social Stack
+        {/* Right — USA + partnership + social */}
+        <div className="flex flex-col justify-between gap-12 px-8 py-10 sm:px-12 sm:py-14 lg:col-span-3">
+          <div className="flex items-start gap-3">
+            <span
+              className="text-sm font-normal text-white"
+              style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+            >
+              US
+            </span>
+            <p
+              className="max-w-[140px] text-[10px] font-normal uppercase leading-relaxed tracking-[0.16em] text-neutral-400"
+              style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+            >
+              Proudly built by operators in the USA
+            </p>
           </div>
 
-          <ul className="space-y-2.5" aria-label="Lumen LiFi social media">
-            {[
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/lumenlifi/',
-                color: '#1877F2',
-                path: 'M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.098 4.388 23.093 10.125 24v-8.437H7.078v-3.49h3.047V9.414c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.49 0-1.956.931-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.093 24 18.098 24 12.073z',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/lumenlifi/',
-                color: '#E4405F',
-                path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947C23.73 2.699 21.31.273 16.948.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z',
-              },
-              {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/company/lumen-lifi',
-                color: '#0A66C2',
-                path: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
-              },
-            ].map(({ label, href, color, path }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2.5 text-xs font-medium text-[#4A6080] transition-colors hover:text-[#1A6EBF] focus:outline-none focus:text-[#1A6EBF]"
-                  aria-label={`Follow Lumen LiFi on ${label}`}
-                >
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border bg-white shadow-sm transition-all group-hover:-translate-y-0.5 group-hover:shadow-md"
-                    style={{ color, borderColor: `${color}35` }}
-                  >
-                    <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d={path} />
-                    </svg>
-                  </span>
-                  <span>{label}</span>
-                  <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p
+                className="mb-2 text-[11px] font-normal text-neutral-400"
+                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+              >
+                For a Partnership
+              </p>
+              <a
+                href="mailto:rupali@lifilumen.com"
+                className="text-base font-normal text-white transition-opacity hover:opacity-70 sm:text-lg"
+                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+              >
+                rupali@lifilumen.com
+              </a>
+            </div>
 
-        {/* Newsletter Column */}
-        <div className="md:col-span-4 space-y-4">
-          <h4
-            className="text-xs font-bold font-mono tracking-wider uppercase pb-2"
-            style={{
-              color: '#0D2240',
-              borderBottom: '1px solid rgba(26,110,191,0.12)',
-            }}
-          >
-            Engineering Digest
-          </h4>
-
-          <p
-            className="text-xs leading-relaxed"
-            style={{ color: '#4A6080' }}
-          >
-            Receive deployment logs, specification revisions, and operational
-            hardware notifications.
-          </p>
-
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="relative flex items-center mt-2 rounded-xl p-1 transition-all duration-200"
-            style={{
-              border: '1px solid rgba(26,110,191,0.15)',
-              background: 'white',
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Enter your email..."
-              required
-              className="bg-transparent placeholder:text-[#94A3B8] font-mono text-xs px-3 py-2 w-full focus:outline-none pr-12"
-              style={{ color: '#0D2240' }}
-            />
-
-            <button
-              type="submit"
-              className="absolute right-1 p-2 text-white rounded-lg transition-all duration-200 flex items-center justify-center"
-              style={{
-                background:
-                  'linear-gradient(135deg, #1A6EBF, #00C2C7)',
-              }}
-              aria-label="Subscribe"
-            >
-              <Send className="w-3.5 h-3.5" />
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div
-        className="max-w-7xl mx-auto px-6 mt-16 pt-6 text-[11px] font-mono flex flex-col md:flex-row justify-between items-center gap-4"
-        style={{
-          borderTop: '1px solid rgba(26,110,191,0.10)',
-          color: '#94A3B8',
-        }}
-      >
-        <p>
-          © {new Date().getFullYear()} LumenFi Global Systems. All rights
-          reserved.
-        </p>
-
-        <div className="flex flex-wrap items-center gap-3">
-          <Link
-            href="/contact"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
-          >
-            Contact Us
-          </Link>
-
-          <Link
-            href="/privacy"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
-          >
-            Privacy Policy
-          </Link>
-
-          <Link
-            href="/terms"
-            className="px-3 py-1.5 rounded-lg border border-[#1A6EBF]/20 hover:border-[#1A6EBF] hover:text-[#1A6EBF] transition-all duration-200"
-          >
-            Terms & Conditions
-          </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://www.facebook.com/lumenlifi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LumenFi on Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/5"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.4V9.41c0-2.37 1.41-3.68 3.57-3.68 1.03 0 2.12.18 2.12.18v2.33h-1.2c-1.18 0-1.55.73-1.55 1.48v1.78h2.64l-.42 2.91h-2.22V22c4.78-.75 8.44-4.91 8.44-9.93z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/lumenlifi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LumenFi on Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/5"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.52.01-4.76.07-2.25.1-3.3 1.17-3.4 3.4-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.1 2.22 1.16 3.3 3.4 3.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c2.23-.1 3.3-1.17 3.4-3.4.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.1-2.23-1.17-3.3-3.4-3.4-1.24-.06-1.61-.07-4.76-.07zm0 3.06a5.18 5.18 0 110 10.36A5.18 5.18 0 0112 7.02zm0 1.8a3.38 3.38 0 100 6.76 3.38 3.38 0 000-6.76zm5.4-2.1a1.21 1.21 0 110 2.42 1.21 1.21 0 010-2.42z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/lumen-lifi"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LumenFi on LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/5"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@lifilumen"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LumenFi on YouTube"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/5"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23.5 6.2a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.56A3.02 3.02 0 00.5 6.2 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.8 3.02 3.02 0 002.12 2.14c1.84.56 9.38.56 9.38.56s7.54 0 9.38-.56a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.8zM9.75 15.57V8.43L15.84 12l-6.09 3.57z" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

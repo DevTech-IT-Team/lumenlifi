@@ -1,38 +1,23 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft,
   Cpu,
-  Download,
-  Check,
   Zap,
   Shield,
   Activity,
   Laptop,
   Sun,
   ShieldCheck,
-  HelpCircle,
-  FileText,
-  Mail,
-  Layers3,
-  ExternalLink,
-  Info,
-  Wrench,
-  ArrowRight,
-  Package,
-  ShoppingCart,
-  Sliders,
-  Star,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  Images,
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import ProductsHeroSection from '../../components/sections/products/ProductsHeroSection';
 import RevFSystemKitExplorer from '../../components/sections/products/RevFSystemKitExplorer';
+import ProductsPurchaseSection from '../../components/sections/products/ProductsPurchaseSection';
+import ProductsFaqSection from '../../components/sections/products/ProductsFaqSection';
+import ProductDetailSection from '../../components/sections/products/ProductDetailSection';
+import ComingSoonPolePopup from '../../components/common/ComingSoonPolePopup';
 
 const productsData = [
   {
@@ -49,7 +34,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Core Downlighters.png',
     specs: ['Super Fast Internet Beams', 'Adjustable Room Lighting', 'No Radio Wave Mess'],
     rating: 4.9,
-    reviews: 142
+    reviews: 142,
   },
   {
     slug: 'lumen-photon-dongle',
@@ -65,7 +50,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Photon Dongle.png',
     specs: ['Tiny Light Receiver', 'Easy Plug-and-Play Setup', 'Private Fast Internet Beam'],
     rating: 4.8,
-    reviews: 96
+    reviews: 96,
   },
   {
     slug: 'lumen-matrix-8k-tv',
@@ -73,7 +58,7 @@ const productsData = [
     price: '$1,999',
     category: 'Entertainment & Computing',
     badge: 'ENTERTAINMENT & COMPUTING',
-    tagline: "The first TV that plays perfect, crystal-clear videos without slowing down.",
+    tagline: 'The first TV that plays perfect, crystal-clear videos without slowing down.',
     desc: 'Powered by a direct light connection from your ceiling. It streams perfect 8K videos and video games smoothly, without ever slowing down when other people use the internet.',
     icon: Sun,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
@@ -81,7 +66,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen 8k TV.png',
     specs: ['Perfect 8K Video Quality', 'Smooth Video Gaming', 'Never Slows Down'],
     rating: 5.0,
-    reviews: 34
+    reviews: 34,
   },
   {
     slug: 'lumen-studio-laptop',
@@ -97,7 +82,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Studio Laptop.png',
     specs: ['Built-in Light Receiver', 'Super Fast Cable-Free Speeds', 'Great for Heavy Apps'],
     rating: 4.9,
-    reviews: 51
+    reviews: 51,
   },
   {
     slug: 'lumen-echo-soundbar',
@@ -113,7 +98,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Echo Soundbar.png',
     specs: ['Super Fast Light Beams', 'Instant Voice Answers', 'Perfect Sound Sync'],
     rating: 4.7,
-    reviews: 88
+    reviews: 88,
   },
   {
     slug: 'lumen-sentinel-video-doorbell',
@@ -129,7 +114,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Sentinel Video Doorbell.png',
     specs: ['Porch Light Powered', 'Clear 4K Video Stream', 'Cannot Be Blocked'],
     rating: 4.8,
-    reviews: 112
+    reviews: 112,
   },
   {
     slug: 'lumen-aegis-floodlight-cams',
@@ -145,7 +130,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Aegis Floodlight Cams.png',
     specs: ['Super Fast Video Links', 'Very Bright LED Bulbs', 'Private and Safe Feed'],
     rating: 4.9,
-    reviews: 67
+    reviews: 67,
   },
   {
     slug: 'lumen-glacier-fridge',
@@ -161,7 +146,7 @@ const productsData = [
     imageUrl: '/images/products/Lumen Glacier Smart Fridge.png',
     specs: ['No-Wait Smart Screen', 'Smart Food Trackers', 'Smooth Video Streaming'],
     rating: 4.6,
-    reviews: 23
+    reviews: 23,
   },
   {
     slug: 'lumen-precision-robot-vacuum',
@@ -177,73 +162,28 @@ const productsData = [
     imageUrl: '/images/products/Lumen Precision Robot Vacuum.png',
     specs: ['Steady Light Connection', 'Smart 3D Room Maps', 'Instant Driving Logic'],
     rating: 4.8,
-    reviews: 49
-  }
-];
-
-const productGalleryImages = [
-  { id: 'gallery-a', src: '/images/products/A.jpg', alt: 'Lumen LiFi product gallery view A', label: 'System View 01' },
-  { id: 'gallery-b', src: '/images/products/B.jpg', alt: 'Lumen LiFi product gallery view B', label: 'System View 02' },
-  { id: 'gallery-c', src: '/images/products/C.jpg', alt: 'Lumen LiFi product gallery view C', label: 'System View 03' },
-  { id: 'gallery-d', src: '/images/products/D.jpg', alt: 'Lumen LiFi product gallery view D', label: 'System View 04' },
-  { id: 'gallery-e', src: '/images/products/E.jpg', alt: 'Lumen LiFi product gallery view E', label: 'System View 05' },
-  { id: 'gallery-f', src: '/images/products/F.jpg', alt: 'Lumen LiFi product gallery view F', label: 'System View 06' },
-  { id: 'gallery-g', src: '/images/products/G.jpg', alt: 'Lumen LiFi product gallery view G', label: 'System View 07' },
-  { id: 'gallery-h', src: '/images/products/H.jpg', alt: 'Lumen LiFi product gallery view H', label: 'System View 08' },
+    reviews: 49,
+  },
 ];
 
 export default function ProductsPage() {
   const [selectedProductSlug, setSelectedProductSlug] = useState(null);
-  const [activeFaq, setActiveFaq] = useState(-1);
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [cartCount, setCartCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);   // FAQ page: 1 = Q1–10, 2 = Q11–20
-  const [isExpanded, setIsExpanded] = useState(false);  // false = show 5, true = show 10
-  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
-  const galleryTouchStart = useRef(null);
+  const [, setCartCount] = useState(0);
 
-  const activeProduct = productsData.find(p => p.slug === selectedProductSlug) || null;
-  const activeGalleryImage = productGalleryImages[activeGalleryIndex];
-  const categories = ['All', 'Network Foundation', 'Entertainment & Computing', 'Security & Perimeter', 'Conscious Appliances & Home Automation'];
-
-  const showPreviousGalleryImage = () => {
-    setActiveGalleryIndex((current) => (
-      current === 0 ? productGalleryImages.length - 1 : current - 1
-    ));
-  };
-
-  const showNextGalleryImage = () => {
-    setActiveGalleryIndex((current) => (
-      current === productGalleryImages.length - 1 ? 0 : current + 1
-    ));
-  };
-
-  const handleGalleryTouchEnd = (event) => {
-    if (galleryTouchStart.current === null) return;
-    const distance = galleryTouchStart.current - event.changedTouches[0].clientX;
-    galleryTouchStart.current = null;
-    if (Math.abs(distance) < 50) return;
-    if (distance > 0) showNextGalleryImage();
-    else showPreviousGalleryImage();
-  };
-
-  const filteredProducts = selectedCategory === 'All'
-    ? productsData
-    : productsData.filter(p => p.category === selectedCategory);
+  const activeProduct = productsData.find((p) => p.slug === selectedProductSlug) || null;
 
   return (
-    <div className="min-h-screen font-sans lumen-page-bg text-slate-900 antialiased relative overflow-hidden selection:bg-green-500 selection:text-white">
-      {/* Immersive Structural Background Layout Layers */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#E7F2EC,transparent_65%)] pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#DAE3DF_1px,transparent_1px),linear-gradient(to_bottom,#DAE3DF_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-35 z-0" />
-
+    <div className="relative min-h-screen overflow-x-clip font-sans lumen-page-bg text-slate-900 antialiased selection:bg-green-500 selection:text-white">
       <Head>
         <title>LumenFi Hardware Hub | Next-Gen E-Commerce Wireless LiFi Store</title>
-        <meta name="description" content="Deploy military-grade optical internet architecture directly into your luxury living space." />
+        <meta
+          name="description"
+          content="Deploy military-grade optical internet architecture directly into your luxury living space."
+        />
       </Head>
       <Header />
 
-      <main className="pt-36 pb-24 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <main className="relative z-10 pb-16 sm:pb-24">
         <AnimatePresence mode="wait">
           {!activeProduct ? (
             <motion.div
@@ -251,523 +191,29 @@ export default function ProductsPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="space-y-16"
+              className="space-y-0"
             >
-              {/* --- HERO COMPONENT --- */}
-              <div
-                className="relative w-full min-h-[560px] lg:min-h-[640px] rounded-[2rem] border border-slate-800/80 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden shadow-2xl group"
-              >
-                <Image
-                  src="/images/products/fullbg.png"
-                  alt="Products hero background"
-                  fill
-                  priority
-                  className="absolute inset-0 object-cover"
-                  sizes="100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#060B16]/80 via-[#060B16]/20 to-transparent pointer-events-none z-0" />
-                <div className="absolute inset-0 lumen-grid-pattern-hero-dark opacity-40 pointer-events-none z-[1]" />
-                <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
-                <div className="absolute -bottom-20 -left-10 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-[100px] pointer-events-none z-0" />
-
-                <div className="relative z-10 max-w-xl space-y-4">
-                  <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.05]">
-                    Shop the <span className='text-gradient-lumen' style={{ color: 'var(--color-lumen-cyan)' }}>Conscious Home</span> <br />
-                    <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent opacity-90">
-                      Light Network
-                    </span>
-                  </h1>
-                  <p className="text-slate-200/90 text-sm sm:text-base font-normal leading-relaxed max-w-lg drop-shadow-md">
-                    Welcome to the world's first home run entirely on light. Every device in our family has built-in light receivers. This gives you zero lag, completely safe security, and unlimited internet speed.
-                  </p>
-                </div>
-
-                <div className="relative z-10 w-full flex justify-center pt-12 lg:pt-0">
-                  <div className="relative max-w-xl w-full bg-gradient-to-b from-[#D4AF37]/25 via-[#AA7C11]/15 to-[#5A4106]/35 backdrop-blur-md border border-[#D4AF37]/40 rounded-xl p-4 px-6 text-center shadow-2xl flex flex-col items-center justify-center gap-2 overflow-hidden group/gold">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/gold:translate-x-full transition-transform duration-1000 ease-out" />
-                    <div className="absolute top-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 left-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="absolute bottom-2 right-2 w-1 h-1 rounded-full bg-[#D4AF37]/40 shadow-inner" />
-                    <div className="flex items-center justify-center">
-                      <span className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 border border-white/20" />
-                      </span>
-                    </div>
-                    <p className="text-xs sm:text-sm font-sans font-medium text-amber-100 tracking-wide leading-relaxed">
-                      Stop trying to fix a broken Wi-Fi network. <br className="hidden sm:inline" />
-                      <span className="font-bold text-white">Build a smart home run on light.</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* --- REST OF THE CONTENT LAYOUT --- */}
+              <ProductsHeroSection />
               <RevFSystemKitExplorer />
-
-              {/* --- COMMERCE CATALOG MATRIX --- */}
-              {/* <div className="space-y-8">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-slate-300">
-                  <div className="space-y-1">
-                    <h2 className="text-xl font-bold text-slate-950 tracking-tight flex items-center gap-2">
-                      <Sliders size={16} className="text-green-600" /> Modular System Components Catalog
-                    </h2>
-                    <p className="text-xs text-slate-700">Expand your optical topology network piece by piece with standard industrial modules.</p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 w-full md:w-auto">
-                    {categories.map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedCategory(cat)}
-                        className={`px-3 py-1.5 rounded-lg text-[11px] font-mono font-bold tracking-tight transition-all border ${selectedCategory === cat
-                            ? 'bg-green-100 border-green-400 text-green-800'
-                            : 'bg-transparent border-slate-200 text-slate-600 hover:text-green-700 hover:border-green-300'
-                          }`}
-                      >
-                        {cat === 'All' ? 'ALL MODULES' : cat.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredProducts.map((product) => (
-                    <div
-                      key={product.slug}
-                      className="bg-[#F6FAF8] border border-slate-200 rounded-2xl p-5 flex flex-col justify-between hover:border-green-300 transition-all group hover:bg-[#F2FAF6] shadow-md relative"
-                    >
-                      <div className="absolute top-4 right-4 bg-white border border-slate-200 text-[9px] font-mono text-slate-500 px-2 py-0.5 rounded">
-                        IN STOCK
-                      </div>
-
-                      <div className="space-y-4">
-                        <div className="aspect-[16/10] rounded-xl overflow-hidden bg-white/60 border border-slate-100/60 relative">
-                          <Image
-                            src={product.imageUrl}
-                            alt={product.name}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 600px"
-                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#F6FAF8] via-transparent to-transparent pointer-events-none" />
-                        </div>
-
-                        <div className="space-y-1">
-                          <div className="flex justify-between items-start gap-2">
-                            <h3 className="text-sm font-bold text-slate-950 group-hover:text-green-700 transition-colors tracking-tight line-clamp-1">
-                              {product.name}
-                            </h3>
-                            <span className="text-sm font-mono font-bold text-green-700 shrink-0">{product.price}</span>
-                          </div>
-
-                          <div className="flex items-center gap-1.5 text-[10px] font-mono text-orange-600">
-                            <Star size={10} fill="currentColor" />
-                            <span>{product.rating}</span>
-                            <span className="text-slate-500 font-sans">({product.reviews} orders)</span>
-                          </div>
-                        </div>
-
-                        <p className="text-slate-700 text-xs leading-relaxed line-clamp-3 font-light">
-                          {product.desc}
-                        </p>
-
-                        <div className="pt-2 flex flex-wrap gap-1.5">
-                          {product.specs.slice(0, 2).map((spec, sIdx) => (
-                            <span key={sIdx} className="text-[9px] font-mono text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
-                              ▪ {spec}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="pt-5 mt-4 border-t border-slate-200 flex gap-2">
-                        <button
-                          onClick={() => setSelectedProductSlug(product.slug)}
-                          className="flex-grow py-2 bg-white border border-slate-200 text-[10px] font-mono font-bold text-slate-600 rounded-lg hover:text-green-700 hover:border-green-300 transition-colors tracking-wider uppercase text-center"
-                        >
-                          SPEC SHEETS
-                        </button>
-                        <button
-                          onClick={() => setCartCount(prev => prev + 1)}
-                          className="px-3 bg-green-100/40 border border-green-300/60 text-green-700 rounded-lg hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center"
-                        >
-                          <ShoppingCart size={13} />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
-
-              <section className="w-full max-w-6xl mx-auto mb-20" aria-labelledby="product-gallery-title">
-                <div className="text-center max-w-2xl mx-auto mb-9">
-
-                  <h2 id="product-gallery-title" className="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-slate-950">
-                    Explore Lumen LiFi Up Close
-                  </h2>
-                  <p className="mt-3 text-sm text-slate-600">
-                    Use the arrows, thumbnails, or swipe to browse all eight product views.
-                  </p>
-                </div>
-
-                <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-[#07111F] shadow-[0_24px_70px_rgba(15,23,42,0.16)]">
-                  <div
-                    className="relative aspect-[16/10] sm:aspect-[16/9] w-full touch-pan-y"
-                    onTouchStart={(event) => {
-                      galleryTouchStart.current = event.touches[0].clientX;
-                    }}
-                    onTouchEnd={handleGalleryTouchEnd}
-                  >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.div
-                        key={activeGalleryImage.id}
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -30 }}
-                        transition={{ duration: 0.28, ease: 'easeOut' }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={activeGalleryImage.src}
-                          alt={activeGalleryImage.alt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1152px"
-                          className="object-contain"
-                          loading="lazy"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020817]/65 via-transparent to-[#020817]/10" />
-                    <div className="absolute left-4 top-4 sm:left-6 sm:top-6 rounded-full border border-white/15 bg-[#07111F]/75 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-md">
-                      {activeGalleryImage.label}
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={showPreviousGalleryImage}
-                      className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-400"
-                      aria-label="Show previous product image"
-                    >
-                      <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={showNextGalleryImage}
-                      className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-[#07111F]/70 text-white shadow-lg backdrop-blur-md transition-all hover:scale-105 hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-400"
-                      aria-label="Show next product image"
-                    >
-                      <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                    </button>
-
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-[#07111F]/75 px-4 py-2 font-mono text-[10px] font-bold tracking-[0.16em] text-white backdrop-blur-md">
-                      {String(activeGalleryIndex + 1).padStart(2, '0')} / {String(productGalleryImages.length).padStart(2, '0')}
-                    </div>
-                  </div>
-
-                  <div className="border-t border-white/10 bg-[#07111F] p-3 sm:p-4">
-                    <div className="flex gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Choose gallery image">
-                      {productGalleryImages.map((image, index) => {
-                        const isActive = index === activeGalleryIndex;
-                        return (
-                          <button
-                            key={image.id}
-                            type="button"
-                            onClick={() => setActiveGalleryIndex(index)}
-                            className={`relative h-16 w-24 sm:h-20 sm:w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all ${isActive
-                              ? 'border-green-400 opacity-100 shadow-[0_0_18px_rgba(74,222,128,0.25)]'
-                              : 'border-white/10 opacity-55 hover:border-white/30 hover:opacity-100'
-                              }`}
-                            aria-label={`Show ${image.label}`}
-                            aria-current={isActive ? 'true' : undefined}
-                          >
-                            <Image src={image.src} alt="" fill sizes="112px" className="object-cover" loading="lazy" />
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* --- SYSTEM VALIDATION FAQ BLOCK --- */}
-              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
-              {/* ── LUMENFI LI-FI FAQ SYSTEM SECTION CONTAINER ── */}
-              <div className="w-full max-w-4xl mx-auto pt-10 border-t border-slate-300">
-
-                {/* Header text segment */}
-                <div className="space-y-1 mb-6 text-center sm:text-left">
-                  <h2 className="text-xl font-bold text-slate-950 font-mono tracking-tight">
-                    Frequently Asked Questions: Lumenfi Li-Fi
-                  </h2>
-                  <p className="text-[11px] font-mono text-green-700 uppercase tracking-widest">
-                    Getting Started &amp; Technical Specifications Protocol
-                  </p>
-                </div>
-
-                {/* FAQ Grid List Container */}
-                <div className="space-y-2.5">
-                  {[
-                    // ── SET 1 (Questions 1 - 10) ──
-                    {
-                      q: "1. What is Li-Fi?",
-                      a: "Li-Fi (Light Fidelity) is a cutting-edge wireless communication technology that uses light waves instead of traditional radio frequencies to transmit data. By modulating LED light, it provides secure, high-speed internet connectivity."
-                    },
-                    {
-                      q: "2. How does the Lumenfi kit work?",
-                      a: "Our kits use photonic antennas that connect to your lighting infrastructure. These antennas receive data from your network and project it via light pulses, which are then captured by a receiver dongle attached to your device."
-                    },
-                    {
-                      q: "3. How much space does a standard kit cover?",
-                      a: "Each individual photonic antenna covers 500 square feet. Because each kit includes two antennas, you receive 1,000 square feet of total coverage right out of the box."
-                    },
-                    {
-                      q: "4. Can I expand my coverage ?",
-                      a: "Absolutely. We offer the ability to purchase additional photonic antennas to increase your total coverage area according to your needs."
-                    },
-                    {
-                      q: "5. Do I need additional hardware to connect more devices?",
-                      a: "Yes, you can purchase additional receiver dongles upon request to accommodate more devices on your Li-Fi network."
-                    },
-                    {
-                      q: "6. What is the typical lead time for a kit?",
-                      a: "Please allow 4 to 6 weeks for your kit to be processed, prepared, and delivered to your doorstep."
-                    },
-                    {
-                      q: "7. Is Li-Fi faster than Wi-Fi?",
-                      a: "Li-Fi has the potential to be significantly faster than standard Wi-Fi because the light spectrum is far broader and less congested than the radio frequency spectrum."
-                    },
-                    {
-                      q: "8. Do the lights need to be fully bright for Li-Fi to work?",
-                      a: "No. Li-Fi systems can operate at dimmed levels that are comfortable for human eyes. High-end systems can even operate using invisible infrared light to maintain connectivity in total darkness."
-                    },
-                    {
-                      q: "9. Does Li-Fi work through walls?",
-                      a: "One of the primary benefits of Li-Fi is that light does not pass through walls. This provides an inherent layer of physical security, as your data is contained strictly within the illuminated space."
-                    },
-                    {
-                      q: "10. Can Li-Fi cause interference with other electronics?",
-                      a: "No. Because Li-Fi uses light waves rather than radio waves, it generates zero electromagnetic interference, making it perfect for environments where radio interference is a concern, such as hospitals or aviation."
-                    },
-                    // ── SET 2 (Questions 11 - 20) ──
-                    {
-                      q: "11. Is Li-Fi harmful to human eyes or health?",
-                      a: "Not at all. The light used is standard LED illumination. The modulation happens at speeds far beyond what the human eye can perceive, causing no flicker or health risks."
-                    },
-                    {
-                      q: "12. What devices are compatible with Lumenfi?",
-                      a: "Any device equipped with a USB port can utilize our receiver dongles to connect to the network."
-                    },
-                    {
-                      q: "13. Why is Li-Fi considered more secure than Wi-Fi?",
-                      a: "Since light is blocked by walls and opaque materials, your network cannot be accessed by someone outside of your office or home, effectively eliminating the risk of remote hacking."
-                    },
-                    {
-                      q: "14. Can I use Li-Fi outdoors?",
-                      a: "Li-Fi is designed primarily for indoor use. Direct, intense sunlight can create significant interference with the optical signal, which may degrade performance."
-                    },
-                    {
-                      q: "15. Does Li-Fi work if I move around the room?",
-                      a: "Yes, as long as your device maintains a line-of-sight or receives reflected light from the ceiling-mounted antennas, you can enjoy seamless connectivity while moving within the coverage area."
-                    },
-                    {
-                      q: "16. What happens if I accidentally block the light signal?",
-                      a: "If you completely obstruct the line-of-sight between the light source and your device, the connection may drop. However, Li-Fi systems are designed to utilize reflected light off walls and surfaces to maintain a connection even when a direct line-of-sight is occasionally interrupted."
-                    },
-                    {
-                      q: "17. Is Li-Fi a replacement for my current Wi-Fi?",
-                      a: "Most users implement Li-Fi as a high-security, ultra-fast \"fast lane\" for data-intensive tasks, while keeping Wi-Fi for general coverage throughout the rest of the home or office."
-                    },
-                    {
-                      q: "18. How do I request additional antennas or dongles?",
-                      a: "You can contact our sales or support team directly through our website to request and purchase additional hardware for your setup."
-                    },
-                    {
-                      q: "19. Is the Lumenfi kit difficult to install?",
-                      a: "Our kits are designed for straightforward integration with existing lighting environments. Detailed installation guides are provided with every shipment."
-                    },
-                    {
-                      q: "20. Who should use Li-Fi?",
-                      a: "Li-Fi is ideal for anyone prioritizing data security, anyone working in high-interference environments, or anyone who simply wants to experience the next generation of high-speed, congestion-free wireless connectivity"
-                    }
-                  ]
-                    .slice(((currentPage || 1) - 1) * 10, ((currentPage || 1) - 1) * 10 + 10)
-                    .slice(0, isExpanded ? 10 : 5)
-                    .map((faq, idx) => {
-                      const globalId = (((currentPage || 1) - 1) * 10) + idx;
-                      const isOpen = activeFaq === globalId;
-
-                      return (
-                        <div
-                          key={globalId}
-                          style={{
-                            maxHeight: isOpen ? '280px' : '54px',
-                            transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-                            overflow: 'hidden'
-                          }}
-                          className={`border border-slate-200/80 rounded-xl p-4 cursor-pointer transition-colors ${isOpen ? 'bg-white border-green-400 shadow-xs' : 'bg-[#F5FAF6] hover:border-green-300'
-                            }`}
-                          onClick={() => setActiveFaq(isOpen ? -1 : globalId)}
-                        >
-                          <div className="flex justify-between items-center gap-4 h-6">
-                            <h4 className="text-xs font-bold text-slate-950 font-mono tracking-wide">
-                              {faq.q}
-                            </h4>
-                            <span style={{
-                              transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.3s ease',
-                              fontSize: '11px',
-                              color: isOpen ? '#15803d' : '#64748b'
-                            }}>
-                              ▼
-                            </span>
-                          </div>
-
-                          <div
-                            style={{ opacity: isOpen ? 1 : 0, transition: 'opacity 0.25s ease' }}
-                            className="text-xs text-slate-700 mt-2.5 border-t border-slate-200/60 pt-2.5 leading-relaxed font-sans font-light"
-                          >
-                            {faq.a}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-
-                {/* Control Navigation Actions Bar */}
-                <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mr-2">Sets:</span>
-                    <button
-                      type="button"
-                      onClick={() => { setCurrentPage(1); setActiveFaq(-1); setIsExpanded(false); }}
-                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 1
-                        ? 'bg-green-700 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                    >
-                      1 (Q1-10)
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => { setCurrentPage(2); setActiveFaq(-1); setIsExpanded(false); }}
-                      className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all ${currentPage === 2
-                        ? 'bg-green-700 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                        }`}
-                    >
-                      2 (Q11-20)
-                    </button>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-950 text-white font-mono text-xs font-bold rounded-xl hover:bg-slate-800 transition-all shadow-sm"
-                  >
-                    {isExpanded ? "Show Less" : "Show More Questions"}
-                  </button>
-                </div>
-
-              </div>
-
+              <ProductsPurchaseSection />
+              <ProductsFaqSection />
             </motion.div>
           ) : (
-            /* --- DETAILED COMPONENT LAYOUT --- */
-            <motion.section
-              key="detail-view"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.3 }}
-              className="max-w-5xl mx-auto py-4"
-            >
-              <button
-                onClick={() => setSelectedProductSlug(null)}
-                className="inline-flex items-center gap-2 font-mono text-xs text-slate-600 hover:text-green-700 transition-colors mb-8 font-bold"
-              >
-                <ArrowLeft size={13} /> BACK TO COMPONENT MARKETPLACE
-              </button>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-[#FAFFFB] border border-slate-200 rounded-3xl p-6 sm:p-8 relative shadow-lg">
-                <div className="absolute inset-0 bg-radial from-green-500/[0.04] via-transparent to-transparent opacity-60 pointer-events-none" />
-
-                <div className="lg:col-span-5 relative">
-                  <div className="w-full aspect-square rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white flex items-center justify-center">
-                    <Image
-                      src={activeProduct.imageUrl}
-                      alt={activeProduct.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 600px"
-                      className="object-cover opacity-80"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-3 bg-white border border-slate-200 rounded-xl text-[11px] font-mono flex items-center justify-between text-slate-600 shadow-inner">
-                    <span>SHIPPING SPEED:</span>
-                    <span className="text-emerald-700 font-bold">24-48 HOUR DISPATCH</span>
-                  </div>
-                </div>
-
-                <div className="lg:col-span-7 space-y-5 relative z-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-200 text-slate-600 font-mono text-[10px] font-bold uppercase shadow-inner">
-                    <Cpu size={12} className="text-green-600" /> COMPONENT LOG: {activeProduct.badge}
-                  </div>
-
-                  <div className="flex justify-between items-start gap-4 border-b border-slate-200 pb-4">
-                    <div>
-                      <h1 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-tight">{activeProduct.name}</h1>
-                      <div className="flex items-center gap-1 mt-1 text-xs text-orange-600 font-mono">
-                        <Star size={12} fill="currentColor" />
-                        <span>{activeProduct.rating} ({activeProduct.reviews} customer ratings)</span>
-                      </div>
-                    </div>
-                    <span className="text-2xl font-mono font-bold text-green-700 tracking-tight">{activeProduct.price}</span>
-                  </div>
-
-                  <p className="text-xs text-orange-700 font-semibold font-mono">✓ {activeProduct.tagline}</p>
-
-                  <div className="p-5 bg-white border border-slate-200 rounded-xl text-xs text-slate-700 leading-relaxed font-light shadow-inner">
-                    {activeProduct.desc}
-                  </div>
-
-                  <div className="space-y-3">
-                    <h4 className="font-mono text-[10px] font-bold text-slate-500 uppercase tracking-widest">HARDWARE METRIC SPECIFICATIONS:</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {activeProduct.specs.concat(['Hardware-isolated channel security encryption', 'Reflective barrier isolation bounds containment']).map((item) => (
-                        <div key={item} className="flex items-center gap-2 text-xs text-slate-800 font-mono">
-                          <Check size={13} className="text-green-600 shrink-0" />
-                          <span className="truncate">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-200 flex flex-wrap gap-3">
-                    <button
-                      onClick={() => {
-                        setCartCount(prev => prev + 1);
+            <ProductDetailSection
+              product={activeProduct}
+              onBack={() => setSelectedProductSlug(null)}
+              onAddToCart={() => {
+                setCartCount((prev) => prev + 1);
                         setSelectedProductSlug(null);
                       }}
-                      className="h-11 px-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:opacity-90 text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-green-200 flex items-center gap-2"
-                    >
-                      <ShoppingCart size={14} /> ADD COMPONENT MODULE TO CONFIG
-                    </button>
-                    <button className="h-11 px-4 bg-white border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-green-800 font-mono font-bold text-xs uppercase tracking-wider transition-colors rounded-xl inline-flex items-center gap-2 shadow-inner">
-                      <Download size={13} /> DIAGRAMS (PDF)
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.section>
+            />
           )}
         </AnimatePresence>
       </main>
 
       <Footer />
+
+      <ComingSoonPolePopup />
     </div>
   );
 }

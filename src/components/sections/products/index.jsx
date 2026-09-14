@@ -174,13 +174,13 @@ export default function LumenPhiProductsSuite() {
                                         <span className="text-xs font-bold font-mono tracking-widest text-emerald-400 uppercase bg-emerald-950 border border-emerald-800/60 px-3 py-1 rounded-full w-max block">
                                             The Next Leap in Home Internet
                                         </span>
-                                        <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                                        <h1 className="page-hero-heading lumen-display-light">
                                             Internet Delivered at the <br />
                                             <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                                                 Speed of Light.
                                             </span>
                                         </h1>
-                                        <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
+                                        <p className="lumen-body-sm-light max-w-xl">
                                             Lumen LIFI replaces congested, traditional home broadband with lightning-fast optical wireless technology. Experience pristine, dedicated connectivity built for modern streaming, professional home workspaces, and advanced AI application tracking.
                                         </p>
                                         <div className="flex flex-wrap gap-4 pt-2">
@@ -213,7 +213,7 @@ export default function LumenPhiProductsSuite() {
                             {/* ASYMMETRIC DESIGN CONCEPT ART HARDWARE GRID */}
                             <div className="max-w-7xl mx-auto px-6 mb-24">
                                 <div className="max-w-3xl mb-12 space-y-2">
-                                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                    <h2 className="lumen-h2 dark:text-white">
                                         Futuristic Component Architecture
                                     </h2>
                                     <p className="text-slate-500 dark:text-slate-400 text-xs font-medium font-mono">
@@ -251,7 +251,7 @@ export default function LumenPhiProductsSuite() {
                                                                 {product.badge}
                                                             </span>
                                                         </div>
-                                                        <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">{product.name}</h3>
+                                                        <h3 className="lumen-h4 dark:text-white">{product.name}</h3>
                                                         <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-normal">{product.desc}</p>
                                                     </div>
 
@@ -343,21 +343,42 @@ export default function LumenPhiProductsSuite() {
                             </div>
 
                             {/* MANUALLY CONTROLLED PRODUCT IMAGE GALLERY */}
-                            <section className="relative max-w-7xl mx-auto px-6 mb-24" aria-labelledby="product-gallery-title">
-                                <div className="text-center max-w-2xl mx-auto mb-10">
-                                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-emerald-700">
+                            <section className="relative w-full max-w-7xl mx-auto px-6 py-20 mb-24 rounded-3xl bg-[#091122] border border-cyan-900/30 shadow-[0_0_60px_rgba(6,182,212,0.1)] bg-[linear-gradient(to_right,#06b6d41a_1px,transparent_1px),linear-gradient(to_bottom,#06b6d41a_1px,transparent_1px)] bg-[size:2rem_2rem]" aria-labelledby="product-gallery-title">
+                                <div className="text-center max-w-2xl mx-auto mb-12">
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-cyan-800/50 bg-cyan-950/30 px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-cyan-400">
                                         <Images className="w-3.5 h-3.5" aria-hidden="true" />
                                         Product Gallery
                                     </div>
-                                    <h2 id="product-gallery-title" className="mt-4 text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
-                                        Explore Lumen LiFi Up Close
+                                    <h2 id="product-gallery-title" className="lumen-h2 mt-4 text-white">
+                                        Purchase Now
                                     </h2>
-                                    <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                                    <p className="mt-3 text-sm leading-relaxed text-slate-400">
                                         Browse every angle of the system. Use the controls, thumbnails, or swipe to move through the gallery.
                                     </p>
                                 </div>
 
-                                <div className="relative overflow-hidden rounded-[28px] border border-slate-200 dark:border-slate-800 bg-[#07111F] shadow-[0_24px_70px_rgba(15,23,42,0.16)]">
+                                {/* 1. Buy Now Button */}
+                                <div className="flex justify-center mb-20 relative z-10">
+                                    <button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-mono font-bold text-sm uppercase tracking-wider py-4 px-12 rounded-full shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all transform hover:scale-105 hover:-translate-y-1 border border-cyan-400/30">
+                                        Buy Now
+                                    </button>
+                                </div>
+
+                                {/* 2. Five Cards Products */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-20 relative z-10">
+                                    {[1, 2, 3, 4, 5].map((item) => (
+                                        <div key={item} className="bg-slate-900/80 border border-cyan-900/50 p-6 rounded-2xl flex flex-col items-center text-center hover:border-cyan-400 transition-all backdrop-blur-md group hover:-translate-y-1 shadow-lg hover:shadow-cyan-900/50">
+                                            <div className="w-14 h-14 rounded-full bg-slate-950 border border-slate-800 mb-4 flex items-center justify-center group-hover:bg-cyan-950/50 group-hover:border-cyan-500/30 transition-colors">
+                                                <Zap className="w-6 h-6 text-cyan-500 group-hover:text-cyan-300 transition-colors" />
+                                            </div>
+                                            <h4 className="text-white font-bold text-sm mb-2">Package {item}</h4>
+                                            <p className="text-xs text-slate-400">Premium node access kit.</p>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* 3. The Big Image Slider */}
+                                <div className="relative overflow-hidden rounded-lg border border-slate-800 bg-[#07111F] shadow-[0_24px_70px_rgba(6,182,212,0.15)] relative z-10">
                                     <div
                                         className="relative aspect-[16/10] sm:aspect-[16/9] w-full touch-pan-y"
                                         onTouchStart={(event) => {
@@ -450,7 +471,7 @@ export default function LumenPhiProductsSuite() {
                             {/* CONSUMER COMPETITOR FAQ COMPARISON SECTION (Airtel, Jio Framework) */}
                             <div className="max-w-4xl mx-auto px-6 mb-12">
                                 <div className="text-center space-y-2 mb-12">
-                                    <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+                                    <h2 className="lumen-h2 dark:text-white">
                                         Frequently Answered Science
                                     </h2>
                                     <p className="text-slate-500 dark:text-slate-400 text-xs font-mono">
@@ -526,7 +547,7 @@ export default function LumenPhiProductsSuite() {
                                         PRODUCT IDENTITY CONFIG: {activeProduct.badge}
                                     </span>
 
-                                    <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">{activeProduct.name}</h2>
+                                    <h2 className="lumen-h3 dark:text-white">{activeProduct.name}</h2>
                                     <p className="text-sm text-slate-500 dark:text-slate-400 font-mono font-medium leading-relaxed">{activeProduct.tagline}</p>
 
                                     <div className="p-5 bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-xl text-xs text-slate-600 dark:text-slate-350 leading-relaxed">

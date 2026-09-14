@@ -126,7 +126,7 @@ export default function ProductsPage() {
 
       <Header />
 
-      <main className="pt-24 select-none">
+      <main className="pt-24 select-none min-h-[100svh]">
         <AnimatePresence mode="wait">
           {!activeProduct ? (
 
@@ -149,13 +149,13 @@ export default function ProductsPage() {
                   <span className="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full w-max block">
                     Ecosystem Registry
                   </span>
-                  <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-none">
+                  <h2 className="lumen-h2">
                     Optical Hardware <br />
                     <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                       Transmission Modules
                     </span>
                   </h2>
-                  <p className="text-slate-500 text-sm max-w-xl font-medium">
+                  <p className="lumen-body-sm max-w-xl font-medium">
                     Explore our next-gen operational catalog. Select any transmission unit profile to unpack physical deployment blueprints, spec data sheets, and wave propagation vectors.
                   </p>
                 </div>
@@ -193,7 +193,7 @@ export default function ProductsPage() {
                               </div>
 
                               <div>
-                                <h3 className="text-xl font-black text-slate-900 group-hover:text-emerald-700 transition-colors">
+                                <h3 className="lumen-h3 group-hover:text-emerald-700 transition-colors">
                                   {product.name}
                                 </h3>
                                 <p className="text-xs text-slate-400 font-mono font-semibold mt-0.5">
@@ -220,9 +220,9 @@ export default function ProductsPage() {
                             </div>
 
                             <div className="md:col-span-5 relative w-full aspect-[4/3] md:aspect-square order-1 md:order-2">
-                              <div className={`absolute inset-0 bg-gradient-to-tr ${product.accent} rounded-[40px_20px_60px_30px] transform rotate-3 scale-[1.03] opacity-10 blur-sm group-hover:rotate-1 transition-transform duration-500`} />
+                              <div className={`absolute inset-0 bg-gradient-to-tr ${product.accent} rounded-lg transform rotate-3 scale-[1.03] opacity-10 blur-sm group-hover:rotate-1 transition-transform duration-500`} />
 
-                              <div className="w-full h-full rounded-[40px_20px_60px_30px] overflow-hidden border-2 border-white shadow-md relative">
+                              <div className="w-full h-full rounded-lg overflow-hidden border-2 border-white shadow-md relative">
                                 <img
                                   src={product.imageUrl}
                                   alt={product.name}
@@ -270,8 +270,8 @@ export default function ProductsPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
                 <div className="lg:col-span-5 relative">
-                  <div className={`absolute inset-0 bg-gradient-to-tr ${activeProduct.accent} rounded-[50px_20px_80px_40px] transform rotate-2 scale-[1.02] opacity-15 blur-sm`} />
-                  <div className="w-full aspect-[4/5] rounded-[50px_20px_80px_40px] overflow-hidden border-4 border-slate-50 shadow-xl relative">
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${activeProduct.accent} rounded-lg transform rotate-2 scale-[1.02] opacity-15 blur-sm`} />
+                  <div className="w-full aspect-[4/5] rounded-lg overflow-hidden border-4 border-slate-50 shadow-xl relative">
                     <Image
                       src={activeProduct.imageUrl}
                       alt={activeProduct.name}
@@ -288,7 +288,7 @@ export default function ProductsPage() {
                     <Cpu className="w-3.5 h-3.5 text-slate-700" /> SYSTEM NODE // {activeProduct.badge}
                   </div>
 
-                  <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-none">
+                  <h1 className="lumen-h1">
                     {activeProduct.name}
                   </h1>
 
