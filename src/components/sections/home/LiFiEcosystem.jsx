@@ -2,33 +2,32 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Network, Zap, Smartphone, Expand, ArrowRight } from 'lucide-react';
-import gatewayImg from '../../../../public/images/hero/lifi3.png';
+import { Wifi, Zap, Sparkles, LayoutGrid, ArrowRight } from 'lucide-react';
 
 const highlights = [
   {
     id: '01',
-    title: 'Centralized Connectivity',
-    desc: 'Connect your network infrastructure, access points, and Li-Fi devices through one intelligent gateway.',
-    icon: Network,
+    title: 'WiFi 7 Boosted Signal',
+    desc: 'Strong, stable coverage across the room — next-gen WiFi 7 keeps every device connected without the usual dead zones.',
+    icon: Wifi,
   },
   {
     id: '02',
-    title: 'Light-Based Communication',
-    desc: 'Deliver high-speed data through photonic antennas while maintaining reliable network connectivity.',
+    title: 'Built-in LiFi',
+    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pole.',
     icon: Zap,
   },
   {
     id: '03',
-    title: 'Flexible Device Support',
-    desc: 'Connect laptops, tablets, and other compatible devices through dedicated Li-Fi receivers.',
-    icon: Smartphone,
+    title: 'Fashionable & Decorative',
+    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pole that looks like décor while it powers your network.',
+    icon: Sparkles,
   },
   {
     id: '04',
-    title: 'Scalable Coverage',
-    desc: 'Extend Li-Fi coverage across your environment with multiple access points and antennas.',
-    icon: Expand,
+    title: 'Practical & Versatile',
+    desc: 'Shelves, lighting, screens, and smart gear — one pole adapts to home offices, living rooms, and entertainment setups.',
+    icon: LayoutGrid,
   },
 ];
 
@@ -48,110 +47,100 @@ const itemVariants = {
 export default function LiFiEcosystem() {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-slate-50 to-[#E8F0F8] py-16 sm:py-20" id="ecosystem-gateway">
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-[#1A6EBF] bg-[#1A6EBF]/10 mb-4 uppercase">
-            The Lumenfi Ecosystem
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#1A6EBF]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#1A6EBF]">
+            Coming Soon — LiFi Pole
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0D2240] mb-4 leading-tight">
-            One Gateway. <br className="hidden sm:block" />
-            <span className="text-[#1A6EBF]">Multiple Ways to Connect.</span>
+          <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-[#0D2240] sm:text-4xl lg:text-5xl">
+            One Pole. <br className="hidden sm:block" />
+            <span className="text-[#1A6EBF]">Connectivity Meets Design.</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#4A6080] leading-relaxed max-w-2xl mx-auto font-normal">
-            The central hub for next-generation Li-Fi. Bridge your existing network with photonic antennas and devices to experience light-based communication.
+          <p className="mx-auto max-w-2xl text-base font-normal leading-relaxed text-[#4A6080] sm:text-lg">
+            The LiFi Pole brings WiFi 7 and LiFi into a single decorative column — stylish enough for your living room, practical enough for every room in the home.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 mb-10"
+          viewport={{ once: true, margin: '-50px' }}
+          className="mb-10 grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-4"
         >
-          
-          {/* Main Hero Image Box (Spans 2 columns, 2 rows) */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            className="lg:col-span-2 lg:row-span-2 relative bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden group flex flex-col"
+            className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm lg:col-span-2 lg:row-span-2"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1A6EBF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative flex-grow flex items-center justify-center p-4 sm:p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1A6EBF]/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+            <div className="relative flex flex-grow items-center justify-center p-4 sm:p-8">
               <Image
-                src={gatewayImg}
-                alt="Lumenfi Multi-Mode Gateway Ecosystem"
-                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                src="/images/pole/poles_ind.png"
+                alt="LumenFi LiFi Pole in a modern home interior"
+                width={900}
+                height={700}
+                className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
             </div>
-            
-            {/* Banner at bottom of image box */}
-            <div className="relative bg-[#F4F7FA] border-t border-slate-200 p-5">
-              <h4 className="text-[#0D2240] font-bold text-base mb-1">Lumenfi Gateway Visualized</h4>
-              <p className="text-[#4A6080] text-sm font-normal">See how data pulses seamlessly through light streams.</p>
+
+            <div className="relative border-t border-slate-200 bg-[#F4F7FA] p-5">
+              <h4 className="mb-1 text-base font-bold text-[#0D2240]">LiFi Pole Visualized</h4>
+              <p className="text-sm font-normal text-[#4A6080]">
+                See how one elegant pole delivers light-speed internet and everyday utility.
+              </p>
             </div>
           </motion.div>
 
-          {/* Feature Boxes */}
-          {highlights.map((item, idx) => {
+          {highlights.map((item) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className="lg:col-span-1 bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6 group hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+                className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md lg:col-span-1"
               >
-                <div className="absolute top-0 right-0 p-5 opacity-5 group-hover:opacity-10 group-hover:scale-150 transition-all duration-500 origin-top-right text-[#1A6EBF]">
-                  <Icon className="w-20 h-20" />
+                <div className="absolute right-0 top-0 origin-top-right p-5 text-[#1A6EBF] opacity-5 transition-all duration-500 group-hover:scale-150 group-hover:opacity-10">
+                  <Icon className="h-20 w-20" />
                 </div>
 
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="w-10 h-10 rounded-xl bg-[#1A6EBF]/10 text-[#1A6EBF] flex items-center justify-center mb-4 group-hover:bg-[#1A6EBF] group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-5 h-5" />
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#1A6EBF]/10 text-[#1A6EBF] transition-colors duration-300 group-hover:bg-[#1A6EBF] group-hover:text-white">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  
+
                   <div className="mt-auto">
-                    <span className="text-xs font-bold text-[#1A6EBF] mb-1 block">{item.id}</span>
-                    <h3 className="text-base font-bold text-[#0D2240] mb-2 leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-[#4A6080] leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
+                    <span className="mb-1 block text-xs font-bold text-[#1A6EBF]">{item.id}</span>
+                    <h3 className="mb-2 text-base font-bold leading-tight text-[#0D2240]">{item.title}</h3>
+                    <p className="text-xs font-normal leading-relaxed text-[#4A6080]">{item.desc}</p>
                   </div>
                 </div>
               </motion.div>
             );
           })}
-
         </motion.div>
 
-        {/* CTA Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-[2rem] bg-white border border-slate-200/80 shadow-sm"
+          className="flex flex-col items-center justify-between gap-4 rounded-[2rem] border border-slate-200/80 bg-white p-5 shadow-sm sm:flex-row sm:p-6"
         >
           <div>
-            <h4 className="text-[#0D2240] font-bold text-lg mb-1">Ready to upgrade your network?</h4>
-            <p className="text-[#4A6080] text-sm">Experience the stability and security of Li-Fi today.</p>
+            <h4 className="mb-1 text-lg font-bold text-[#0D2240]">Ready for the LiFi Pole?</h4>
+            <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor pole that mixes style with light-speed connectivity.</p>
           </div>
           <Link
-            href="/products"
-            className="group inline-flex items-center justify-center gap-2 h-12 px-6 rounded-xl text-white font-semibold text-sm tracking-wide transition-all hover:scale-[1.02] shadow-md w-full sm:w-auto"
+            href="/products/lifi-pole"
+            className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl px-6 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:scale-[1.02] sm:w-auto"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
           >
-            Explore Ecosystem
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Explore LiFi Pole
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
-
       </div>
     </section>
   );

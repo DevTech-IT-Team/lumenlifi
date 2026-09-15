@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef } from 'react';
-import Link from 'next/link';
 import { Instrument_Serif } from 'next/font/google';
 import MainLiFiVideoSection from './MainLiFiVideoSection';
 
@@ -9,13 +8,6 @@ const speedOfLightFont = Instrument_Serif({
   style: 'italic',
   display: 'swap',
 });
-
-const STATS = [
-  { value: '100%', label: 'Radio-free connectivity' },
-  { value: '8.5x', label: 'Faster than fiber' },
-  { value: 'High-Speed Internet', label: 'Max connection speed' },
-
-];
 
 export default function HeroSection() {
   const speedOfLightRef = useRef(null);
@@ -88,21 +80,37 @@ export default function HeroSection() {
               </h1>
 
               <p className="home-hero-landscape-copy">
-              Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. With Wi-Fi and LiFi working together, enjoy seamless, light-speed connectivity.
+              Lumen LiFi turns your everyday light poles into a high-speed Internet connection. With Wi-Fi and LiFi working together, enjoy seamless, light-speed connectivity.
 
               </p>
 
-              <Link href="/products" prefetch={false} className="home-hero-landscape-cta">
-                Get started
-              </Link>
-
-              <div className="home-hero-landscape-stats">
-                {STATS.map((stat) => (
-                  <div key={stat.label} className="home-hero-landscape-stat">
-                    <p className="home-hero-landscape-stat-value">{stat.value}</p>
-                    <p className="home-hero-landscape-stat-label">{stat.label}</p>
-                  </div>
-                ))}
+              <div className="!mt-8">
+                <p
+                  className="!m-0 !text-2xl !font-semibold tracking-[-0.03em] text-white sm:!text-3xl"
+                  style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+                >
+                  High-speed{' '}
+                  <span
+                    className={`${speedOfLightFont.className} !font-normal italic text-white`}
+                    style={{ fontFamily: speedOfLightFont.style.fontFamily }}
+                  >
+                    WiFi
+                  </span>
+                  {' & '}
+                  <span
+                    className={`${speedOfLightFont.className} !font-normal italic text-white`}
+                    style={{ fontFamily: speedOfLightFont.style.fontFamily }}
+                  >
+                    LiFi
+                  </span>
+                  {' — together'}
+                </p>
+                <p
+                  className="!mb-0 !mt-2 !text-sm !font-normal text-white/65 sm:!text-base"
+                  style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                >
+                  One seamless connection powered by both.
+                </p>
               </div>
             </div>
           </div>

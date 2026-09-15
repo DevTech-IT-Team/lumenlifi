@@ -16,13 +16,42 @@ const bodyClass =
 const bgImageClass =
   'object-cover transition-all duration-300 blur-[3px] scale-[1.03] group-hover:blur-[5px] group-hover:scale-[1.05]';
 
-function CardBrandLink({ align = 'left' }) {
+const CARDS = [
+  {
+    title: 'WiFi 7 boosted signal',
+    body: 'Stronger coverage across every room — next-gen WiFi 7 keeps your home fast, stable, and ready for more devices.',
+    image: '/images/hero/radio_wave1.png',
+    alt: 'WiFi 7 boosted signal',
+    object: 'object-center',
+  },
+  {
+    title: 'LiFi',
+    body: 'Internet through light — secure, low-interference connectivity that works alongside WiFi for light-speed performance.',
+    image: '/images/about/about_cm.png',
+    alt: 'LiFi light-based connectivity',
+    object: 'object-center',
+  },
+  {
+    title: 'Fashionable & decorative',
+    body: 'Designed to look at home in modern interiors — a sleek pole that elevates your space while it connects it.',
+    image: '/images/pole/11.png',
+    alt: 'Decorative LiFi pole in a living room',
+    object: 'object-center',
+  },
+  {
+    title: 'Practical & versatile',
+    body: 'One pole, many uses — shelves, lighting, screens, and smart gear. Built for real rooms and real routines.',
+    image: '/images/pole/12.png',
+    alt: 'Versatile LiFi pole with multiple use cases',
+    object: 'object-center',
+  },
+];
+
+function CardBrandLink() {
   return (
     <Link
       href="/"
-      className={`${contentClass} mt-8 flex items-center gap-2.5 transition-opacity hover:opacity-80 ${
-        align === 'right' ? 'justify-end' : align === 'center' ? 'justify-center' : ''
-      }`}
+      className={`${contentClass} mt-8 flex items-center gap-2.5 transition-opacity hover:opacity-80`}
     >
       <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md bg-white p-0.5">
         <Image src="/brand/logo.webp" alt="LumenFi" fill sizes="32px" className="object-contain" />
@@ -41,14 +70,8 @@ export default function AboutSection() {
   return (
     <section className="w-full bg-[#EBF5FF] px-4 py-14 sm:px-8 sm:py-20 lg:py-18">
       <div className="mx-auto max-w-[1520px]">
-        {/* Top header row */}
         <div className="mb-16 grid grid-cols-1 items-start gap-8 lg:mb-28 lg:grid-cols-2 lg:gap-16 xl:mb-32">
           <div>
-            {/* <span className="inline-flex items-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-3.5 py-1.5 text-[10px] uppercase tracking-[0.2em] text-[#0c1228] sm:text-[11px]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0c1228]" />
-              About Us
-            </span> */}
-
             <h2
               className="!mt-6 !text-[2.25rem] !font-normal uppercase leading-[1.05] tracking-[-0.02em] text-[#161C3B] sm:!text-[2.75rem] lg:!text-[3.25rem]"
               style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
@@ -67,128 +90,52 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Three cards */}
-        <div className="grid grid-cols-1 items-end gap-3 md:grid-cols-12 md:gap-4 lg:gap-5">
-          {/* Left — ecosystem visual */}
-          <div
-            className={`${cardBaseClass} min-h-[360px] flex-col justify-between p-6 sm:min-h-[380px] sm:p-8 md:col-span-4 lg:min-h-[400px]`}
-          >
-            <div className="absolute inset-0 overflow-hidden">
-              <Image
-                src="/images/about/about_cm.png"
-                alt="LumenFi LiFi ecosystem visualization"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className={`${bgImageClass} object-center`}
-              />
-            </div>
+        <div className="grid grid-cols-1 items-end gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-4 lg:gap-5">
+          {CARDS.map((card, index) => {
+            const isSide = index === 0 || index === CARDS.length - 1;
+            return (
             <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0c1228]/90 via-[#0c1228]/50 to-transparent transition-all duration-300 group-hover:from-[#0c1228]/95 group-hover:via-[#0c1228]/70"
-              aria-hidden="true"
-            />
-
-            <div className={contentClass}>
-              <h3
-                className={`!mt-6 !text-[1.65rem] sm:!text-[1.85rem] lg:!text-[2rem] ${headingClass}`}
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                One light.
-                <br />
-                Infinite connections.
-              </h3>
-
-              <p
-                className={`!mt-5 max-w-[300px] ${bodyClass}`}
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                Every bulb becomes a node in your home network — linking TVs, laptops, phones, and
-                smart devices through pure light.
-              </p>
-            </div>
-
-            <CardBrandLink />
-          </div>
-
-          {/* Center — vision copy (taller) */}
-          <div
-            className={`${cardBaseClass} min-h-[300px] flex-col justify-between p-6 sm:min-h-[380px] sm:p-8 md:col-span-4 md:-mt-8 md:min-h-[440px] lg:-mt-10 lg:min-h-[460px]`}
-          >
-            <div className="absolute inset-0 overflow-hidden">
-              <Image
-                src="/images/about/about_c1.png"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className={`${bgImageClass} object-right`}
+              key={card.title}
+              className={`${cardBaseClass} flex-col justify-between p-6 sm:p-7 ${
+                isSide
+                  ? 'min-h-[340px] sm:min-h-[380px] lg:h-[440px] lg:min-h-[440px]'
+                  : 'min-h-[300px] sm:min-h-[340px] lg:h-[380px] lg:min-h-[380px]'
+              }`}
+            >
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className={`${bgImageClass} ${card.object}`}
+                />
+              </div>
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0c1228]/95 via-[#0c1228]/55 to-[#0c1228]/35 transition-all duration-300 group-hover:from-[#0c1228]/98 group-hover:via-[#0c1228]/70"
                 aria-hidden="true"
               />
+
+              <div className={contentClass}>
+                <h3
+                  className={`!mt-4 !text-[1.35rem] sm:!text-[1.5rem] lg:!text-[1.65rem] ${headingClass}`}
+                  style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+                >
+                  {card.title}
+                </h3>
+
+                <p
+                  className={`!mt-4 max-w-[280px] ${bodyClass}`}
+                  style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+                >
+                  {card.body}
+                </p>
+              </div>
+
+              <CardBrandLink />
             </div>
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0c1228]/90 via-[#0c1228]/40 to-[#0c1228]/70 transition-all duration-300 group-hover:from-[#0c1228]/95 group-hover:via-[#0c1228]/50"
-              aria-hidden="true"
-            />
-
-            <div className={`${contentClass} text-center`}>
-              <h3
-                className={`!mt-6 !text-[1.65rem] sm:!text-[1.85rem] lg:!text-[2rem] ${headingClass}`}
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                Connecting every room.
-                <br />
-                Powering every possibility.
-              </h3>
-
-              <p
-                className={`!mt-5 mx-auto max-w-[300px] ${bodyClass}`}
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                LumenFi is the universal LiFi platform that makes high-speed, secure connectivity
-                seamless through the lights already in your home.
-              </p>
-            </div>
-
-            <CardBrandLink align="center" />
-          </div>
-
-          {/* Right — gaming / zero lag */}
-          <div
-            className={`${cardBaseClass} min-h-[300px] flex-col justify-between p-6 sm:min-h-[380px] sm:p-8 md:col-span-4 lg:min-h-[400px]`}
-          >
-            <div className="absolute inset-0 overflow-hidden">
-              <Image
-                src="/images/hero/partner-creator.png"
-                alt="LiFi enabled gaming setup"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className={`${bgImageClass} object-center`}
-              />
-            </div>
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#0c1228]/90 via-[#0c1228]/50 to-transparent transition-all duration-300 group-hover:from-[#0c1228]/95 group-hover:via-[#0c1228]/70"
-              aria-hidden="true"
-            />
-
-            <div className={`${contentClass} ml-auto text-right`}>
-              <h3
-                className={`!mt-6 !text-[1.65rem] sm:!text-[1.85rem] lg:!text-[2rem] ${headingClass}`}
-                style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
-              >
-                Play without
-                <br />
-                compromise.
-              </h3>
-
-              <p
-                className={`!mt-5 ml-auto max-w-[300px] ${bodyClass}`}
-                style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
-              >
-                A direct beam of light to your rig means instant response — no congestion, no interference, no dropped frames.
-
-              </p>
-            </div>
-
-            <CardBrandLink align="right" />
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -8,55 +8,54 @@ const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
 const SCROLLER_IMAGES = [
-   {
-    src: '/images/pole/10.png',
-    alt: 'LiFi pole with mounted monitors in a modern office',
+  {
+    src: '/images/pole/a.jpg',
+    alt: 'White LiFi Pole with standing desk shelf and task light in a minimal workspace',
     orientation: 'portrait',
     category: 'Workspace',
-    title: 'Triple-screen workspace',
-    desc: 'Integrated pole lighting, monitor mounts, and shelf space for your home office setup.',
+    title: 'Standing desk pole',
+    desc: 'Integrated LED task light, modular wooden desk shelf for your laptop, and a lower shelf for your router — all on one floor-to-ceiling pole.',
   },
   {
-    src: '/images/pole/11.png',
-    alt: 'Brass modular LiFi pole in a contemporary living room',
+    src: '/images/pole/b.jpg',
+    alt: 'Brass LiFi Pole with vanity mirror and makeup tray',
     orientation: 'portrait',
-    category: 'Living room',
-    title: 'Family living space',
-    desc: 'Modular brass shelving for photos, plants, and everyday tech — all in one connected pole.',
+    category: 'Vanity',
+    title: 'Vanity & storage',
+    desc: 'Brushed-metal pole with a full mirror, circular tray for everyday essentials, and a top lamp that lights your space while it connects.',
   },
   {
-    src: '/images/pole/12.png',
-    alt: 'White LiFi pole with TV in a minimalist room',
+    src: '/images/pole/c.jpg',
+    alt: 'Black LiFi Pole with monitor mount, headphones, and gaming console',
     orientation: 'portrait',
-    category: 'Entertainment',
-    title: 'Corner entertainment',
-    desc: 'TV mount, LED accent light, and open shelves — LiFi and streaming in a small footprint.',
+    category: 'Gaming',
+    title: 'Gaming & media hub',
+    desc: 'Monitor arm, headphone hook, console shelf, and under-shelf LiFi gear — light beams from the top keep your setup connected.',
   },
   {
-    src: '/images/pole/4.png',
-    alt: 'Black LiFi pole in a luxury home office',
+    src: '/images/pole/d.jpg',
+    alt: 'Bronze LiFi Pole with coat hooks and networking shelf in a bedroom',
+    orientation: 'portrait',
+    category: 'Bedroom',
+    title: 'Coat rack meets connectivity',
+    desc: 'Hooks for bags and jackets, a circular tech shelf for your router, and a focused light beam — style and signal in the bedroom.',
+  },
+  {
+    src: '/images/pole/f.jpg',
+    alt: 'Dark LiFi Pole with headphone hook and networking shelf in a home office',
     orientation: 'portrait',
     category: 'Home office',
-    title: 'Executive study',
-    desc: 'Floor-to-ceiling pole with adjustable shelves, warm lighting, and hidden networking gear.',
+    title: 'Focused work corner',
+    desc: 'Headphone hook, wooden tech shelf for hubs and gear, and a ceiling light emitter — tidy connectivity for your desk.',
   },
   {
-    src: '/images/pole/7.png',
-    alt: 'White LiFi pole in a classic living room',
+    src: '/images/pole/e.jpg',
+    alt: 'White LiFi Pole with circular shelves for décor, plants, and networking gear',
     orientation: 'portrait',
-    category: 'Classic home',
-    title: 'Elegant living room',
-    desc: 'Decor that fits traditional interiors — light, books, and LiFi tech on one beautiful pole.',
+    category: 'Living space',
+    title: 'Display & tech shelves',
+    desc: 'Four circular shelves for plants, collectibles, audio, and networking hardware — cable-managed and lit from above.',
   },
-  {
-    src: '/images/pole/9.png',
-    alt: 'Brass LiFi pole in an industrial-style room',
-    orientation: 'portrait',
-    category: 'Industrial',
-    title: 'Warm industrial loft',
-    desc: 'Brass-finished pole with vintage character, shelves for books, and connected devices.',
-  },
- 
 ];
 
 const CATEGORIES = ['All', ...SCROLLER_IMAGES.map((item) => item.category)];
@@ -108,7 +107,6 @@ export default function PoleImageScroller() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-      
         <h2
           className="!mt-3 !m-0 !text-[clamp(1.85rem,4vw,2.85rem)] !font-bold leading-[1.1] tracking-[-0.03em] text-[#0D2240]"
           style={geist}
@@ -144,7 +142,7 @@ export default function PoleImageScroller() {
         })}
       </div>
 
-      <div className="relative mx-auto mt-10 h-[380px] w-full max-w-[90rem] px-2 sm:mt-12 sm:h-[450px] lg:h-[500px]">
+      <div className="relative mx-auto mt-10 h-[420px] w-full max-w-[90rem] px-2 sm:mt-12 sm:h-[500px] lg:h-[560px]">
         <div className="absolute inset-0">
           {items.map((item, index) => {
             const offset = getOffset(index, safeActive, count);
@@ -164,10 +162,10 @@ export default function PoleImageScroller() {
                 key={`${item.src}-${index}`}
                 type="button"
                 onClick={() => setActive(index)}
-                className="group absolute left-1/2 top-1/2 overflow-hidden rounded-[1.5rem] border border-white/30 bg-white shadow-[0_20px_50px_rgba(13,34,64,0.28)] transition-[transform,opacity] duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--lumen-cyan)] sm:rounded-[1.75rem]"
+                className="group absolute left-1/2 top-1/2 overflow-hidden rounded-[1.5rem] border border-white/30 bg-[#F4F8FC] shadow-[0_20px_50px_rgba(13,34,64,0.28)] transition-[transform,opacity] duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--lumen-cyan)] sm:rounded-[1.75rem]"
                 style={{
-                  width: isPortrait ? 'clamp(196px, 23vw, 280px)' : 'clamp(280px, 46vw, 520px)',
-                  height: isPortrait ? 'clamp(294px, 36vw, 420px)' : 'clamp(186px, 28vw, 320px)',
+                  width: isPortrait ? 'clamp(200px, 24vw, 300px)' : 'clamp(280px, 46vw, 520px)',
+                  height: isPortrait ? 'clamp(320px, 42vw, 480px)' : 'clamp(186px, 28vw, 320px)',
                   transform: `translate(calc(-50% + ${spread}), -50%) scale(${scale})`,
                   zIndex,
                   opacity,
@@ -179,8 +177,8 @@ export default function PoleImageScroller() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes={isPortrait ? '280px' : '520px'}
-                  className="object-cover object-center"
+                  sizes={isPortrait ? '300px' : '520px'}
+                  className="object-contain object-center"
                 />
 
                 <div className="absolute inset-0 flex flex-col justify-end bg-[#0c1228]/0 p-4 opacity-0 backdrop-blur-0 transition-all duration-300 ease-out group-hover:bg-[#0c1228]/60 group-hover:opacity-100 group-hover:backdrop-blur-md sm:p-5">

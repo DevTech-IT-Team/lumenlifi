@@ -1,30 +1,30 @@
 import Link from 'next/link';
-import { ArrowUpRight, Lightbulb, Network, Laptop, Radio } from 'lucide-react';
+import { ArrowUpRight, Wifi, Zap, Sparkles, LayoutGrid } from 'lucide-react';
 
 const features = [
   {
     step: '01',
-    icon: Network,
-    title: 'Centralized Connectivity',
-    desc: 'Connect your network infrastructure, access points, and Li-Fi devices through one intelligent gateway.',
+    icon: Wifi,
+    title: 'WiFi 7 Boosted Signal',
+    desc: 'Strong, stable coverage across the room — next-gen WiFi 7 keeps every device connected without the usual dead zones.',
   },
   {
     step: '02',
-    icon: Lightbulb,
-    title: 'Light-Based Communication',
-    desc: 'Deliver high-speed data through photonic antennas while maintaining reliable network connectivity.',
+    icon: Zap,
+    title: 'Built-in LiFi',
+    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pole.',
   },
   {
     step: '03',
-    icon: Laptop,
-    title: 'Flexible Device Support',
-    desc: 'Connect laptops, tablets, and other compatible devices through dedicated Li-Fi receivers.',
+    icon: Sparkles,
+    title: 'Fashionable & Decorative',
+    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pole that looks like décor while it powers your network.',
   },
   {
     step: '04',
-    icon: Radio,
-    title: 'Scalable Coverage',
-    desc: 'Extend Li-Fi coverage across your environment with multiple access points and antennas.',
+    icon: LayoutGrid,
+    title: 'Practical & Versatile',
+    desc: 'Shelves, lighting, screens, and smart gear — one pole adapts to home offices, living rooms, and entertainment setups.',
   },
 ];
 
@@ -39,21 +39,20 @@ export default function ConsciousHomeSection() {
       style={{ backgroundColor: '#ffffff', backgroundImage: 'none' }}
     >
       <div className="mx-auto grid max-w-[1520px] grid-cols-1 lg:grid-cols-12 lg:min-h-[min(100svh,880px)]">
-        {/* Left — brand story */}
         <div className="relative z-20 flex flex-col justify-center px-6 py-16 sm:px-10 lg:col-span-5 lg:py-20 xl:px-16">
           <p
             className="!mb-4 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!text-xs"
             style={inter}
           >
-            The Lumenfi Ecosystem
+            Coming Soon — LiFi Pole
           </p>
 
           <h2
             className="!m-0 !text-[clamp(1.75rem,4vw,2.75rem)] !font-normal leading-[1.1] tracking-[-0.03em]"
             style={geist}
           >
-            <span className="block text-[#161C3B]/70">One Gateway.</span>
-            <span className="mt-1 block text-[#0D2240]">Multiple Ways to Connect.</span>
+            <span className="block text-[#161C3B]/70">One Pole.</span>
+            <span className="mt-1 block text-[#0D2240]">Connectivity Meets Design.</span>
           </h2>
 
           <div className="mt-8 flex max-w-md gap-4">
@@ -62,33 +61,32 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-sm !font-normal leading-[1.8] text-[#0D2240]/70 sm:!text-base"
               style={inter}
             >
-              The central hub for next-generation Li-Fi. Bridge your existing network with photonic
-              antennas and devices to experience light-based communication.
+              The LiFi Pole brings WiFi 7 and LiFi into a single decorative column — stylish enough
+              for your living room, practical enough for every room in the home.
             </p>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <Link
-              href="/products"
+              href="/products/lifi-pole"
               prefetch={false}
               className="inline-flex items-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-6 py-3.5 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90"
             >
-              Explore Ecosystem
+              Explore LiFi Pole
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="mt-12 max-w-sm">
             <p className="!m-0 !text-base !font-normal text-[#0D2240]" style={geist}>
-              Ready to upgrade your network?
+              Ready for the LiFi Pole?
             </p>
             <p className="!mt-2 !text-sm !font-normal leading-relaxed text-[#0D2240]/55" style={inter}>
-              Experience the stability and security of Li-Fi today.
+              Home décor that lights your room and connects your devices — launching soon.
             </p>
           </div>
         </div>
 
-        {/* Right — open feature list on navy plane */}
         <div className="relative lg:col-span-7">
           <div
             className="pointer-events-none absolute inset-0 bg-[#0D2240]"
@@ -105,7 +103,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)]"
               style={inter}
             >
-              How the gateway connects
+              Why the LiFi Pole
             </p>
 
             <ul className="mt-8 m-0 list-none space-y-0 p-0">

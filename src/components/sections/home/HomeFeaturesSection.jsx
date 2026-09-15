@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap } from 'lucide-react';
-import gamingImg from '../../../../public/images/hero/gaminggg.png';
-import streamingImg from '../../../../public/images/hero/fast_str.png';
+import gamingImg from '../../../../public/images/pole/pole_game.png';
+import streamingImg from '../../../../public/images/pole/pole_tv.png';
 import infiniteDevicesImg from '../../../../public/images/hero/infinite.png';
-import invisibleInfraImg from '../../../../public/images/hero/radio_wave1.png';
+import invisibleInfraImg from '../../../../public/images/pole/4.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
