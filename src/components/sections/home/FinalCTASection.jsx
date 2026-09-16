@@ -30,15 +30,16 @@ export default function FinalCTASection() {
             </h2>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-              <Link
-                href="/products"
-                prefetch={false}
+              <a
+                href="https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-white px-9 text-base !font-normal !text-[#0D2240] transition-opacity hover:opacity-90"
                 style={inter}
               >
-                Order Now
+                Pre Order Now
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
-              </Link>
+              </a>
               <Link
                 href="/Academy"
                 prefetch={false}

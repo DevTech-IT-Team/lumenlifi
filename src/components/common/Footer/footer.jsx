@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const mainLinks = [
   { label: 'What is LiFi', href: '/what-is-lifi', number: '01' },
-  { label: 'Products', href: '/products', number: '02' },
+  // { label: 'Products', href: '/products', number: '02' },
   { label: 'LiFi Pole', href: '/products/lifi-pole', number: '03' },
   { label: 'Academy', href: '/Academy', number: '04' },
   { label: 'Blogs', href: '/blog', number: '05' },
