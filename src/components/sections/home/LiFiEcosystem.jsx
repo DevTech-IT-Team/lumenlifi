@@ -50,14 +50,14 @@ export default function LiFiEcosystem() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#1A6EBF]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#1A6EBF]">
-            Coming Soon — LiFi Pole
+            Coming Soon — LiFi Pillar
           </div>
           <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-[#0D2240] sm:text-4xl lg:text-5xl">
             One Pole. <br className="hidden sm:block" />
             <span className="text-[#1A6EBF]">Connectivity Meets Design.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base font-normal leading-relaxed text-[#4A6080] sm:text-lg">
-            The LiFi Pole brings WiFi 7 and LiFi into a single decorative column — stylish enough for your living room, practical enough for every room in the home.
+            The LiFi Pillar brings WiFi 7 and LiFi into a single decorative column — stylish enough for your living room, practical enough for every room in the home.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function LiFiEcosystem() {
             <div className="relative flex flex-grow items-center justify-center p-4 sm:p-8">
               <Image
                 src="/images/pole/poles_ind.png"
-                alt="LumenFi LiFi Pole in a modern home interior"
+                alt="LumenFi LiFi Pillar in a modern home interior"
                 width={900}
                 height={700}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
@@ -87,7 +87,7 @@ export default function LiFiEcosystem() {
             </div>
 
             <div className="relative border-t border-slate-200 bg-[#F4F7FA] p-5">
-              <h4 className="mb-1 text-base font-bold text-[#0D2240]">LiFi Pole Visualized</h4>
+              <h4 className="mb-1 text-base font-bold text-[#0D2240]">LiFi Pillar Visualized</h4>
               <p className="text-sm font-normal text-[#4A6080]">
                 See how one elegant pole delivers light-speed internet and everyday utility.
               </p>
@@ -129,7 +129,7 @@ export default function LiFiEcosystem() {
           className="flex flex-col items-center justify-between gap-4 rounded-[2rem] border border-slate-200/80 bg-white p-5 shadow-sm sm:flex-row sm:p-6"
         >
           <div>
-            <h4 className="mb-1 text-lg font-bold text-[#0D2240]">Ready for the LiFi Pole?</h4>
+            <h4 className="mb-1 text-lg font-bold text-[#0D2240]">Ready for the LiFi Pillar?</h4>
             <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor pole that mixes style with light-speed connectivity.</p>
           </div>
           <Link
@@ -137,7 +137,7 @@ export default function LiFiEcosystem() {
             className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl px-6 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:scale-[1.02] sm:w-auto"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
           >
-            Explore LiFi Pole
+            Explore LiFi Pillar
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>

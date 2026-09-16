@@ -36,7 +36,7 @@ export default function HeroSection() {
             aria-hidden="true"
           >
             <source
-              src="https://res.cloudinary.com/jup2hjfk/video/upload/v1788596028/viiid_xwpoe0.mp4"
+              src="/videos/vidpole.mp4"
               type="video/mp4"
             />
           </video>

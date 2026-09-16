@@ -33,7 +33,7 @@ const POSTS = [
     slug: 'indoor-lifi-pole',
     category: 'Product',
     date: 'Sep 8, 2026',
-    title: 'Meet the indoor LiFi Pole (coming soon)',
+    title: 'Meet the indoor LiFi Pillar (coming soon)',
     excerpt:
       'A décor-style pole that lights your room and carries LiFi. Preview the look, use cases, and launch plans.',
     readTime: '3 min read',

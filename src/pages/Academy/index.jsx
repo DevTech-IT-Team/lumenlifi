@@ -381,8 +381,28 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
-        <motion.h1
+        <motion.div
           custom={1}
+          variants={heroFadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mb-4 flex justify-center sm:mb-5"
+        >
+          <div className="relative flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-[0_8px_28px_rgba(0,0,0,0.18)] sm:h-[6.25rem] sm:w-[6.25rem] sm:p-1.5">
+            <Image
+              src="/brand/logo.webp"
+              alt="LumenFi"
+              width={120}
+              height={120}
+              sizes="(max-width: 640px) 80px, 96px"
+              className="h-full w-full scale-[1.45] object-contain sm:scale-[1.5]"
+              priority
+            />
+          </div>
+        </motion.div>
+
+        <motion.h1
+          custom={2}
           variants={heroFadeUp}
           initial="hidden"
           animate="visible"
@@ -392,7 +412,7 @@ function HeroSection() {
         </motion.h1>
 
         <motion.p
-          custom={2}
+          custom={3}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -402,7 +422,7 @@ function HeroSection() {
         </motion.p>
 
         <motion.div
-          custom={3}
+          custom={4}
           variants={fadeUp}
           initial="hidden"
           animate="visible"

@@ -45,7 +45,7 @@ export default function ConsciousHomeSection() {
             className="!mb-3 !text-[10px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!mb-4 sm:!text-xs"
             style={inter}
           >
-            Coming Soon — LiFi Pole
+            Coming Soon — LiFi Pillar
           </p>
 
           <h2
@@ -62,7 +62,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-sm !font-normal leading-[1.75] text-[#0D2240]/70 sm:!text-base sm:leading-[1.8]"
               style={inter}
             >
-              The LiFi Pole brings WiFi 7 and LiFi into a single decorative column — stylish enough
+              The LiFi Pillar brings WiFi 7 and LiFi into a single decorative column — stylish enough
               for your living room, practical enough for every room in the home.
             </p>
           </div>
@@ -73,14 +73,14 @@ export default function ConsciousHomeSection() {
               prefetch={false}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-6 py-3.5 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90 sm:w-auto"
             >
-              Explore LiFi Pole
+              Explore LiFi Pillar
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="mt-10 max-w-sm border-t border-[#0D2240]/08 pt-8 sm:mt-12 sm:border-0 sm:pt-0">
             <p className="!m-0 !text-base !font-normal text-[#0D2240]" style={geist}>
-              Ready for the LiFi Pole?
+              Ready for the LiFi Pillar?
             </p>
             <p className="!mt-2 !text-sm !font-normal leading-relaxed text-[#0D2240]/55" style={inter}>
               Home décor that lights your room and connects your devices — launching soon.
@@ -116,7 +116,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-[10px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!text-[11px]"
               style={inter}
             >
-              Why the LiFi Pole
+              Why the LiFi Pillar
             </p>
 
             <ul className="mt-6 m-0 list-none space-y-0 p-0 sm:mt-8">

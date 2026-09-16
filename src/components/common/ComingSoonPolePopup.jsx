@@ -9,17 +9,17 @@ const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui,
 const POLES = [
   {
     src: '/images/pole/7.png',
-    alt: 'White LiFi Pole in a classic living room',
+    alt: 'White LiFi Pillar in a classic living room',
     title: 'Classic living',
   },
   {
     src: '/images/pole/11.png',
-    alt: 'Brass LiFi Pole in a modern living room',
+    alt: 'Brass LiFi Pillar in a modern living room',
     title: 'Warm brass',
   },
   {
     src: '/images/pole/10.png',
-    alt: 'LiFi Pole workspace with monitors',
+    alt: 'LiFi Pillar workspace with monitors',
     title: 'Home office',
   },
 ];
@@ -145,7 +145,7 @@ export default function ComingSoonPolePopup() {
             className="!mt-2.5 !m-0 !text-[1.35rem] !font-bold leading-tight tracking-[-0.02em] text-[#EBF5FF] sm:!text-[1.5rem]"
             style={geist}
           >
-            LiFi Pole
+            LiFi Pillar
           </h2>
           <p
             className="!mx-auto !mt-1.5 max-w-[16rem] !text-xs !font-normal leading-relaxed text-white/65"

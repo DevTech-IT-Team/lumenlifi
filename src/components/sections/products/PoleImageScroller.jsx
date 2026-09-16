@@ -1,229 +1,257 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
-const SCROLLER_IMAGES = [
+const PRE_ORDER_URL =
+  'https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D';
+
+const CATALOG = [
   {
+    id: 'white',
+    color: 'White',
+    swatch: '#EBF5FF',
     src: '/images/pole/a.jpg',
-    alt: 'White LiFi Pole with standing desk shelf and task light in a minimal workspace',
-    orientation: 'portrait',
+    alt: 'White LiFi Pillar with standing desk shelf and task light in a minimal workspace',
     category: 'Workspace',
     title: 'Standing desk pole',
     desc: 'Integrated LED task light, modular wooden desk shelf for your laptop, and a lower shelf for your router — all on one floor-to-ceiling pole.',
+    highlights: ['Warm white finish with light wood accents', 'Built-in task lighting', 'Desk + router shelves'],
   },
   {
-    src: '/images/pole/b.jpg',
-    alt: 'Brass LiFi Pole with vanity mirror and makeup tray',
-    orientation: 'portrait',
-    category: 'Vanity',
-    title: 'Vanity & storage',
-    desc: 'Brushed-metal pole with a full mirror, circular tray for everyday essentials, and a top lamp that lights your space while it connects.',
-  },
-  {
+    id: 'black',
+    color: 'Black',
+    swatch: '#1a2332',
     src: '/images/pole/c.jpg',
-    alt: 'Black LiFi Pole with monitor mount, headphones, and gaming console',
-    orientation: 'portrait',
+    alt: 'Black LiFi Pillar with monitor mount, headphones, and gaming console',
     category: 'Gaming',
     title: 'Gaming & media hub',
     desc: 'Monitor arm, headphone hook, console shelf, and under-shelf LiFi gear — light beams from the top keep your setup connected.',
+    highlights: ['Matte black pole', 'Monitor mount & media shelf', 'Headphone hook'],
   },
   {
-    src: '/images/pole/d.jpg',
-    alt: 'Bronze LiFi Pole with coat hooks and networking shelf in a bedroom',
-    orientation: 'portrait',
-    category: 'Bedroom',
-    title: 'Coat rack meets connectivity',
-    desc: 'Hooks for bags and jackets, a circular tech shelf for your router, and a focused light beam — style and signal in the bedroom.',
-  },
-  {
+    id: 'silver',
+    color: 'Silver',
+    swatch: '#C5CED8',
     src: '/images/pole/f.jpg',
-    alt: 'Dark LiFi Pole with headphone hook and networking shelf in a home office',
-    orientation: 'portrait',
+    alt: 'Silver-tone LiFi Pillar with headphone hook and networking shelf in a home office',
     category: 'Home office',
     title: 'Focused work corner',
     desc: 'Headphone hook, wooden tech shelf for hubs and gear, and a ceiling light emitter — tidy connectivity for your desk.',
+    highlights: ['Brushed silver metal finish', 'Cable-managed tech shelf', 'Overhead LiFi emitter'],
   },
   {
-    src: '/images/pole/e.jpg',
-    alt: 'White LiFi Pole with circular shelves for décor, plants, and networking gear',
-    orientation: 'portrait',
-    category: 'Living space',
-    title: 'Display & tech shelves',
-    desc: 'Four circular shelves for plants, collectibles, audio, and networking hardware — cable-managed and lit from above.',
+    id: 'gold',
+    color: 'Gold',
+    swatch: '#C9A227',
+    src: '/images/pole/b.jpg',
+    alt: 'Gold LiFi Pillar with vanity mirror and makeup tray',
+    category: 'Vanity',
+    title: 'Vanity & storage',
+    desc: 'Brushed-metal pole with a full mirror, circular tray for everyday essentials, and a top lamp that lights your space while it connects.',
+    highlights: ['Polished gold / brass finish', 'Mirror & vanity tray', 'Ambient top lighting'],
   },
 ];
 
-const CATEGORIES = ['All', ...SCROLLER_IMAGES.map((item) => item.category)];
+const GALLERY_EXTRAS = [
+  {
+    id: 'white-living',
+    color: 'White',
+    swatch: '#EBF5FF',
+    src: '/images/pole/e.jpg',
+    alt: 'White LiFi Pillar with circular shelves for décor, plants, and networking gear',
+    category: 'Living space',
+    title: 'Display & tech shelves',
+    desc: 'Four circular shelves for plants, collectibles, audio, and networking hardware — cable-managed and lit from above.',
+    highlights: ['White finish for living rooms', 'Four display shelves', 'Plants & décor friendly'],
+  },
+  {
+    id: 'gold-bedroom',
+    color: 'Gold',
+    swatch: '#C9A227',
+    src: '/images/pole/d.jpg',
+    alt: 'Gold-tone LiFi Pillar with coat hooks and networking shelf in a bedroom',
+    category: 'Bedroom',
+    title: 'Coat rack meets connectivity',
+    desc: 'Hooks for bags and jackets, a circular tech shelf for your router, and a focused light beam — style and signal in the bedroom.',
+    highlights: ['Warm metallic finish', 'Coat hooks + tech shelf', 'Bedroom-ready layout'],
+  },
+];
 
-function getOffset(index, active, length) {
-  let offset = index - active;
-  if (offset > length / 2) offset -= length;
-  if (offset < -length / 2) offset += length;
-  return offset;
-}
+const ALL_ITEMS = [...CATALOG, ...GALLERY_EXTRAS];
 
 export default function PoleImageScroller() {
-  const [active, setActive] = useState(0);
-  const [category, setCategory] = useState('All');
-  const [paused, setPaused] = useState(false);
+  const [activeId, setActiveId] = useState(CATALOG[0].id);
+  const active = ALL_ITEMS.find((item) => item.id === activeId) ?? CATALOG[0];
 
-  const filtered =
-    category === 'All'
-      ? SCROLLER_IMAGES
-      : SCROLLER_IMAGES.filter((item) => item.category === category);
-
-  const items = filtered.length ? filtered : SCROLLER_IMAGES;
-  const count = items.length;
-  const safeActive = ((active % count) + count) % count;
-
-  useEffect(() => {
-    setActive(0);
-  }, [category]);
-
-  useEffect(() => {
-    if (paused || count < 2) return undefined;
-    const id = window.setInterval(() => {
-      setActive((prev) => (prev + 1) % count);
-    }, 3500);
-    return () => window.clearInterval(id);
-  }, [paused, count]);
-
-  const goPrev = () => setActive((prev) => (prev - 1 + count) % count);
-  const goNext = () => setActive((prev) => (prev + 1) % count);
+  const isFinishSelected = (finishId) => {
+    const finish = CATALOG.find((c) => c.id === finishId);
+    if (!finish) return false;
+    return (
+      activeId === finishId ||
+      (active.color === finish.color && !CATALOG.some((c) => c.id === activeId))
+    );
+  };
 
   return (
-    <section
-      className="relative overflow-hidden py-16 sm:py-20 lg:py-24"
-      style={{
-        background: 'linear-gradient(180deg, #F4F8FC 0%, #D7E6F5 28%, #6B8FB0 58%, #0D2240 100%)',
-      }}
-      aria-label="LiFi Pole gallery"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-        <h2
-          className="!mt-3 !m-0 !text-[clamp(1.85rem,4vw,2.85rem)] !font-bold leading-[1.1] tracking-[-0.03em] text-[#0D2240]"
-          style={geist}
+    <section className="relative w-full overflow-hidden" aria-label="LiFi Pillar catalog">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] lg:h-[min(100svh,900px)]">
+        {/* Left — editorial dark panel */}
+        <div
+          className="relative flex flex-col px-6 py-12 sm:px-10 sm:py-14 lg:h-full lg:overflow-hidden lg:px-12 lg:py-12 xl:px-16"
+          style={{
+            background: 'linear-gradient(165deg, #0a1628 0%, #0D2240 45%, #143356 100%)',
+          }}
         >
-          Inside the LiFi Pole
-        </h2>
-        <p
-          className="!mx-auto !mt-4 max-w-lg !text-sm !font-normal leading-relaxed text-[#0D2240]/60 sm:!text-base"
-          style={inter}
-        >
-          See the LiFi Pole in real rooms — hover any card for details.
-        </p>
-      </div>
+          <div
+            className="pointer-events-none absolute right-0 top-0 h-64 w-64 rounded-full opacity-40 blur-[100px]"
+            style={{ background: 'radial-gradient(circle, rgba(0,194,199,0.35) 0%, transparent 70%)' }}
+            aria-hidden
+          />
 
-      <div className="mx-auto mt-8 flex max-w-4xl flex-wrap items-center justify-center gap-2 px-4 sm:mt-10 sm:gap-2.5">
-        {CATEGORIES.map((label) => {
-          const isActive = category === label;
-          return (
-            <button
-              key={label}
-              type="button"
-              onClick={() => setCategory(label)}
-              className={`rounded-full px-4 py-2 text-xs !font-normal transition-colors sm:text-sm ${
-                isActive
-                  ? 'bg-[#0D2240] text-white'
-                  : 'border border-[#0D2240]/25 bg-white/40 text-[#0D2240] hover:border-[#0D2240]/45'
-              }`}
+          <div className="relative z-10 mx-auto w-full max-w-2xl shrink-0 lg:mx-0 lg:ml-auto">
+            <h2
+              className="!m-0 max-w-md !text-[clamp(1.75rem,3.5vw,2.65rem)] !font-normal leading-[1.12] tracking-[-0.03em] text-white"
+              style={geist}
+            >
+              Inside the LiFi Pillar
+            </h2>
+            <p
+              className="!mt-3 max-w-sm !text-sm !font-normal leading-relaxed text-white/60 sm:!text-[15px]"
               style={inter}
             >
-              {label}
-            </button>
-          );
-        })}
-      </div>
+              Choose a finish and explore real-room setups — select any layout from the catalog to
+              preview it here.
+            </p>
+          </div>
 
-      <div className="relative mx-auto mt-10 h-[420px] w-full max-w-[90rem] px-2 sm:mt-12 sm:h-[500px] lg:h-[560px]">
-        <div className="absolute inset-0">
-          {items.map((item, index) => {
-            const offset = getOffset(index, safeActive, count);
-            const abs = Math.abs(offset);
-            if (abs > 2) return null;
+          <div className="relative z-10 mx-auto mt-4 w-full max-w-2xl min-h-[300px] flex-[1.35] sm:min-h-[340px] lg:mx-0 lg:ml-auto lg:mt-5 lg:min-h-0">
+            <Image
+              key={active.src}
+              src={active.src}
+              alt={active.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-contain object-center scale-[1.08] sm:scale-[1.12]"
+              priority
+            />
+          </div>
 
-            const isPortrait = item.orientation === 'portrait';
-            const isCenter = offset === 0;
-            const scale = isCenter ? 1 : abs === 1 ? 0.86 : 0.74;
-            const spreadRem = abs === 2 ? 22 : abs === 1 ? 12 : 0;
-            const spread = offset === 0 ? '0rem' : `${Math.sign(offset) * spreadRem}rem`;
-            const zIndex = 20 - abs;
-            const opacity = isCenter ? 1 : abs === 1 ? 0.92 : 0.62;
-
-            return (
-              <button
-                key={`${item.src}-${index}`}
-                type="button"
-                onClick={() => setActive(index)}
-                className="group absolute left-1/2 top-1/2 overflow-hidden rounded-[1.5rem] border border-white/30 bg-[#F4F8FC] shadow-[0_20px_50px_rgba(13,34,64,0.28)] transition-[transform,opacity] duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--lumen-cyan)] sm:rounded-[1.75rem]"
-                style={{
-                  width: isPortrait ? 'clamp(200px, 24vw, 300px)' : 'clamp(280px, 46vw, 520px)',
-                  height: isPortrait ? 'clamp(320px, 42vw, 480px)' : 'clamp(186px, 28vw, 320px)',
-                  transform: `translate(calc(-50% + ${spread}), -50%) scale(${scale})`,
-                  zIndex,
-                  opacity,
-                }}
-                aria-label={item.title}
-                aria-current={isCenter ? 'true' : undefined}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes={isPortrait ? '300px' : '520px'}
-                  className="object-contain object-center"
-                />
-
-                <div className="absolute inset-0 flex flex-col justify-end bg-[#0c1228]/0 p-4 opacity-0 backdrop-blur-0 transition-all duration-300 ease-out group-hover:bg-[#0c1228]/60 group-hover:opacity-100 group-hover:backdrop-blur-md sm:p-5">
-                  <span
-                    className="!text-[10px] !font-normal uppercase tracking-[0.16em] text-[var(--lumen-cyan)]"
-                    style={inter}
-                  >
-                    {item.category}
-                  </span>
-                  <p
-                    className="!m-0 !mt-1 !text-base !font-normal text-white sm:!text-lg"
-                    style={geist}
-                  >
-                    {item.title}
-                  </p>
-                  <p
-                    className="!mb-0 !mt-1 !text-xs !font-normal leading-relaxed text-white/75 sm:!text-sm"
-                    style={inter}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </button>
-            );
-          })}
+          <div className="relative z-10 mx-auto mt-4 w-full max-w-2xl shrink-0 lg:mx-0 lg:ml-auto">
+            <p
+              className="!mb-4 !text-[10px] uppercase tracking-[0.18em] text-[var(--lumen-cyan)]"
+              style={inter}
+            >
+              {active.category} · {active.color} finish
+            </p>
+            <a
+              href={PRE_ORDER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[3rem] w-full items-center justify-center rounded-full bg-white px-7 text-sm !font-normal !text-[#0D2240] transition-opacity hover:opacity-90 sm:w-auto sm:min-w-[11rem]"
+              style={inter}
+            >
+              Pre order now
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4 sm:mt-10">
-        <button
-          type="button"
-          onClick={goPrev}
-          aria-label="Previous image"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/70 text-white transition-colors hover:bg-white hover:text-[#0D2240]"
-        >
-          <ChevronLeft className="h-5 w-5" strokeWidth={1.75} />
-        </button>
-        <button
-          type="button"
-          onClick={goNext}
-          aria-label="Next image"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/70 text-white transition-colors hover:bg-white hover:text-[#0D2240]"
-        >
-          <ChevronRight className="h-5 w-5" strokeWidth={1.75} />
-        </button>
+        {/* Right — catalog list with scrollbar */}
+        <div className="flex min-h-0 flex-col bg-white px-5 py-8 sm:px-8 sm:py-10 lg:h-full lg:overflow-hidden lg:px-8 lg:py-12 xl:px-10">
+          <div className="mx-auto w-full max-w-md shrink-0 border-b border-[#0D2240]/08 pb-4 lg:mx-0 lg:max-w-none">
+            <p
+              className="!m-0 !text-xs !font-normal text-[#0D2240]/55 sm:!text-sm"
+              style={inter}
+            >
+              Also available in 4 colors
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {CATALOG.map((finish) => (
+                <button
+                  key={finish.id}
+                  type="button"
+                  onClick={() => setActiveId(finish.id)}
+                  className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs !font-normal transition-colors ${
+                    isFinishSelected(finish.id)
+                      ? 'border-[var(--lumen-cyan)] bg-[#EBF5FF] text-[#0D2240]'
+                      : 'border-[#0D2240]/12 text-[#0D2240]/70 hover:border-[#0D2240]/25'
+                  }`}
+                  style={inter}
+                >
+                  <span
+                    className="h-3.5 w-3.5 shrink-0 rounded-full border border-[#0D2240]/15"
+                    style={{ backgroundColor: finish.swatch }}
+                    aria-hidden
+                  />
+                  {finish.color}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto mt-1 w-full max-w-md min-h-0 flex-1 divide-y divide-[#0D2240]/08 overflow-y-auto overscroll-contain lg:mx-0 lg:max-w-none [scrollbar-width:thin] [scrollbar-color:rgba(13,34,64,0.35)_transparent]">
+            {ALL_ITEMS.map((item) => {
+              const isActive = item.id === activeId;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveId(item.id)}
+                  className={`flex w-full gap-3 py-4 text-left transition-colors sm:gap-4 sm:py-5 ${
+                    isActive ? 'bg-[#EBF5FF]/50' : 'hover:bg-[#F4F8FC]'
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-[#F4F8FC] sm:h-20 sm:w-20 sm:rounded-xl">
+                    <Image
+                      src={item.src}
+                      alt=""
+                      fill
+                      sizes="80px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1 pt-0.5">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <span
+                        className="text-[10px] uppercase tracking-[0.14em] text-[var(--lumen-cyan)]"
+                        style={inter}
+                      >
+                        {item.category}
+                      </span>
+                      <span
+                        className="inline-flex items-center gap-1.5 text-[10px] !font-normal text-[#0D2240]/45"
+                        style={inter}
+                      >
+                        <span
+                          className="h-2 w-2 rounded-full border border-[#0D2240]/15"
+                          style={{ backgroundColor: item.swatch }}
+                          aria-hidden
+                        />
+                        {item.color}
+                      </span>
+                    </div>
+                    <h3
+                      className="!mt-1.5 !m-0 !text-base !font-normal tracking-tight text-[#0D2240] sm:!text-lg"
+                      style={geist}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className="!mt-1.5 !mb-0 line-clamp-2 !text-xs !font-normal leading-relaxed text-[#0D2240]/60 sm:!text-sm"
+                      style={inter}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
