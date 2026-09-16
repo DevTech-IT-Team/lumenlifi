@@ -131,14 +131,15 @@ export default function PoleHeroSection() {
               Get notified
               <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
             </Link>
-            <Link
-              href="/products"
-              prefetch={false}
+            <a
+              href="https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-[3rem] items-center justify-center rounded-full border border-white/25 px-7 text-sm !font-normal !text-white transition-colors hover:border-white/50"
               style={inter}
             >
-              View products
-            </Link>
+              Pre order now
+            </a>
           </div>
         </div>
       </div>

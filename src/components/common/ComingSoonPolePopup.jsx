@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ArrowRight, X } from 'lucide-react';
 
@@ -180,16 +179,17 @@ export default function ComingSoonPolePopup() {
           </ul>
 
           <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-center">
-            <Link
-              href="/products/lifi-pole"
-              prefetch={false}
+            <a
+              href="https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={dismiss}
               className="inline-flex min-h-[2.5rem] items-center justify-center gap-1.5 rounded-full bg-[#0D2240] px-5 text-sm !font-normal !text-white transition-opacity hover:opacity-90"
               style={inter}
             >
-              View LiFi Pole
+              Pre order now
               <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
-            </Link>
+            </a>
             <button
               type="button"
               onClick={dismiss}
