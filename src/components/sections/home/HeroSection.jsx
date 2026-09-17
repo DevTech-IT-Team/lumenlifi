@@ -1,30 +1,17 @@
-import { useLayoutEffect, useRef } from 'react';
 import { Instrument_Serif } from 'next/font/google';
-import MainLiFiVideoSection from './MainLiFiVideoSection';
 
 const speedOfLightFont = Instrument_Serif({
   subsets: ['latin'],
   weight: '400',
   style: 'italic',
   display: 'swap',
+  adjustFontFallback: false,
 });
 
 export default function HeroSection() {
-  const speedOfLightRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const line = speedOfLightRef.current;
-    if (!line) return;
-
-    line.style.setProperty('font-family', speedOfLightFont.style.fontFamily, 'important');
-    line.style.setProperty('font-style', 'italic', 'important');
-    line.style.setProperty('font-weight', '400', 'important');
-    line.style.setProperty('letter-spacing', '0.01em', 'important');
-  }, []);
-
   return (
     <>
-      <section className="home-hero-landscape relative isolate h-[100svh] min-h-[100svh] w-full overflow-hidden text-white">
+      <section className="home-hero-landscape relative isolate min-h-[100svh] w-full overflow-hidden text-white">
         <div className="absolute inset-0 -z-20 h-full w-full">
           <video
             autoPlay
@@ -42,25 +29,30 @@ export default function HeroSection() {
           </video>
         </div>
 
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-transparent via-[#030914]/25 to-[#030914]/20" />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(3,9,20,0.78) 0%, rgba(3,9,20,0.52) 36%, rgba(3,9,20,0.18) 58%, transparent 78%)',
+          }}
+          aria-hidden="true"
+        />
 
-        <div className="relative z-10 mx-auto flex h-full min-h-[100svh] w-full max-w-[1380px] flex-col px-4 pb-6 pt-20 sm:px-6 sm:pb-8 sm:pt-28">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1380px] flex-col px-4 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28">
           <div className="flex flex-1 flex-col justify-center">
             <div className="max-w-xl lg:max-w-2xl">
-              <h1 className="m-0 text-left font-semibold tracking-[-0.03em] text-white text-6xl">
+              <h1 className="home-hero-landscape-title m-0 text-left font-semibold tracking-[-0.03em] text-white">
                 <span
                   className="block text-white"
                   style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
                 >
                   The{' '}
                   <span
-                    ref={speedOfLightRef}
-                    className={`${speedOfLightFont.className} text-white `}
+                    className={`${speedOfLightFont.className} hero-serif text-white`}
                     style={{
                       fontSize: 'inherit',
                       lineHeight: 'inherit',
                       color: '#ffffff',
-                      
                     }}
                   >
                     Speed of Light
@@ -91,14 +83,14 @@ export default function HeroSection() {
                 >
                   High-speed{' '}
                   <span
-                    className={`${speedOfLightFont.className} !font-normal italic text-white`}
+                    className={`${speedOfLightFont.className} hero-serif !font-normal italic text-white`}
                     style={{ fontFamily: speedOfLightFont.style.fontFamily }}
                   >
                     WiFi
                   </span>
                   {' & '}
                   <span
-                    className={`${speedOfLightFont.className} !font-normal italic text-white`}
+                    className={`${speedOfLightFont.className} hero-serif !font-normal italic text-white`}
                     style={{ fontFamily: speedOfLightFont.style.fontFamily }}
                   >
                     LiFi
@@ -116,7 +108,6 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
-      {/* <MainLiFiVideoSection /> */}
     </>
   );
 }

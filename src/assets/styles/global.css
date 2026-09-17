@@ -1059,14 +1059,22 @@ h1.page-hero-heading .products-hero-accent[class] {
   color: #fff ;
 }
 
-.home-hero-landscape-title {
+.home-hero-landscape-title,
+.home-hero-landscape h1.home-hero-landscape-title,
+.home-hero-landscape h1.home-hero-landscape-title[class] {
   margin: 0;
   font-family: var(--font-geist-sans), sans-serif ;
-  font-size: clamp(1.4rem, 1.5vw, 1.35rem) ;
+  font-size: clamp(2.5rem, 6vw, 3.75rem) ;
   font-weight: 600 ;
   line-height: 1.12 ;
   letter-spacing: -0.03em;
   color: #fff ;
+}
+
+.home-hero-landscape .hero-serif,
+.home-hero-landscape .hero-serif[class] {
+  font-style: italic ;
+  font-weight: 400 ;
 }
 
 .home-hero-landscape-copy {
@@ -2249,7 +2257,9 @@ h6 {
   .home-hero .hero-heading-main,
   .home-hero .hero-heading-main[class],
   h1.page-hero-heading,
-  h1.page-hero-heading[class] {
+  h1.page-hero-heading[class],
+  .home-hero-landscape-title,
+  .home-hero-landscape h1.home-hero-landscape-title[class] {
     font-size: var(--text-hero-mobile) ;
     line-height: 1.08 ;
   }

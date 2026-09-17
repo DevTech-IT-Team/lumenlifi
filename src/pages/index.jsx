@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Header from '../components/common/Header';
 import HeroSection from '../components/sections/home/HeroSection';
+import HeroPreorderSection from '../components/sections/home/HeroPreorderSection';
 import AboutSection from '../components/sections/home/AboutSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
 import FinalCTASection from '../components/sections/home/FinalCTASection';
@@ -59,7 +60,8 @@ export default function HomePage() {
 
       <main className="flex-grow">
         <HeroSection />
-        <AboutSection />
+        <HeroPreorderSection />
+        {/* <AboutSection /> */}
         <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="28rem" />
         <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="28rem" />
         {/* <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" /> */}
