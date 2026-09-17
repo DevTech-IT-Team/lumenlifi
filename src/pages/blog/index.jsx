@@ -35,7 +35,7 @@ const POSTS = [
     date: 'Sep 8, 2026',
     title: 'Meet the indoor LiFi Pillar (coming soon)',
     excerpt:
-      'A décor-style pole that lights your room and carries LiFi. Preview the look, use cases, and launch plans.',
+      'A decor-style pillar that lights your room and carries LiFi. Preview the look, use cases, and launch plans.',
     readTime: '3 min read',
     image: '/images/pole/7.png',
   },

@@ -14,19 +14,19 @@ const highlights = [
   {
     id: '02',
     title: 'Built-in LiFi',
-    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pole.',
+    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pillar.',
     icon: Zap,
   },
   {
     id: '03',
     title: 'Fashionable & Decorative',
-    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pole that looks like décor while it powers your network.',
+    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pillar that looks like décor while it powers your network.',
     icon: Sparkles,
   },
   {
     id: '04',
     title: 'Practical & Versatile',
-    desc: 'Shelves, lighting, screens, and smart gear — one pole adapts to home offices, living rooms, and entertainment setups.',
+    desc: 'Shelves, lighting, screens, and smart gear — one pillar adapts to home offices, living rooms, and entertainment setups.',
     icon: LayoutGrid,
   },
 ];
@@ -53,7 +53,7 @@ export default function LiFiEcosystem() {
             Coming Soon — LiFi Pillar
           </div>
           <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-[#0D2240] sm:text-4xl lg:text-5xl">
-            One Pole. <br className="hidden sm:block" />
+            One Pillar. <br className="hidden sm:block" />
             <span className="text-[#1A6EBF]">Connectivity Meets Design.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base font-normal leading-relaxed text-[#4A6080] sm:text-lg">
@@ -89,7 +89,7 @@ export default function LiFiEcosystem() {
             <div className="relative border-t border-slate-200 bg-[#F4F7FA] p-5">
               <h4 className="mb-1 text-base font-bold text-[#0D2240]">LiFi Pillar Visualized</h4>
               <p className="text-sm font-normal text-[#4A6080]">
-                See how one elegant pole delivers light-speed internet and everyday utility.
+                See how one elegant pillar delivers light-speed internet and everyday utility.
               </p>
             </div>
           </motion.div>
@@ -130,7 +130,7 @@ export default function LiFiEcosystem() {
         >
           <div>
             <h4 className="mb-1 text-lg font-bold text-[#0D2240]">Ready for the LiFi Pillar?</h4>
-            <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor pole that mixes style with light-speed connectivity.</p>
+            <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor pillar that mixes style with light-speed connectivity.</p>
           </div>
           <Link
             href="/products/lifi-pole"

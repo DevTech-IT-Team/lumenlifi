@@ -52,7 +52,7 @@ export default function PoleHeroSection() {
             className="!mt-6 max-w-md !text-sm !font-normal leading-[1.75] text-white/70 sm:!text-[15px]"
             style={inter}
           >
-            An indoor décor pole for your home — stylish lighting with built-in LiFi technology.
+            An indoor decor pillar for your home — stylish lighting with built-in LiFi technology.
             This product is coming soon.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

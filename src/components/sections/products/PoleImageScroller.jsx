@@ -21,7 +21,7 @@ const CATALOG = [
     category: 'Workspace',
     title: 'Turn a corner into a desk',
     desc: 'The LiFi Pillar lights the room and carries your connection. You can make an unused corner work harder — add a standing-desk shelf for your laptop, a lower tray for a router, and use the top beam as a task light.',
-    body: 'We do not ship hooks or shelves on the pillar. This look is inspiration: clip on what your home needs, keep cables off the floor, and let the pole stay décor and LiFi while the extras make it useful.',
+    body: 'We do not ship hooks or shelves on the pillar. This look is inspiration: clip on what your home needs, keep cables off the floor, and let the pillar stay décor and LiFi while the extras make it useful.',
     highlights: [
       'Add a standing-desk shelf for your laptop',
       'Keep a router on a lower tray, off the floor',
@@ -37,7 +37,7 @@ const CATALOG = [
     alt: 'Black LiFi Pillar styled as a gaming and media setup',
     category: 'Gaming',
     title: 'Hang what you actually use',
-    desc: 'Think of the pillar as a media spine. Hang headphones, rest a console nearby, keep cables off the floor — the pole stays the light and the LiFi; you make it work for play.',
+    desc: 'Think of the pillar as a media spine. Hang headphones, rest a console nearby, keep cables off the floor — the pillar stays the light and the LiFi; you make it work for play.',
     body: 'A hook, a small shelf, a place for a speaker — none of that comes on the pillar. These photos show how useful it can become once you add the pieces your setup already needs.',
     highlights: [
       'Hang headphones on a clip-on hook',
@@ -91,7 +91,7 @@ const GALLERY_EXTRAS = [
     alt: 'White LiFi Pillar styled with display shelves in a living room',
     category: 'Living space',
     title: 'A column that earns its place',
-    desc: 'In the living room it can hold more than light. You can add shelves for a plant, a speaker, a book — a pole that looks at home and still connects the room.',
+    desc: 'In the living room it can hold more than light. You can add shelves for a plant, a speaker, a book — a pillar that looks at home and still connects the room.',
     body: 'Display pieces and tech trays are styling ideas you can add later. The LiFi Pillar stays the light and the connection; you decide how useful the column becomes.',
     highlights: [
       'Display a plant or object you already love',

@@ -13,7 +13,7 @@ export default function LifiPolePage() {
         <title>Lumen LIFI — LiFi Pillar</title>
         <meta
           name="description"
-          content="LiFi Pillar: an indoor décor pole for your home with stylish lighting and built-in LiFi technology. Coming soon."
+          content="LiFi Pillar: an indoor décor pillar for your home with stylish lighting and built-in LiFi technology. Coming soon."
         />
         <link rel="canonical" href="https://lifilumen.com/products/lifi-pole" />
       </Head>

@@ -26,7 +26,7 @@ export default function FinalCTASection() {
               className="!m-0 !text-[clamp(1.85rem,4.5vw,2.85rem)] !font-bold leading-[1.15] tracking-[-0.03em] text-white"
               style={geist}
             >
-              Your connection, Your choice ! Everyday Wi-Fi and light-speed Li-Fi
+              Your connection, Your choice ! Everyday Wi‑Fi and light-speed Li‑Fi
             </h2>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">

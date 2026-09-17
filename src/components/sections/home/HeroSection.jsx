@@ -72,8 +72,15 @@ export default function HeroSection() {
               </h1>
 
               <p className="home-hero-landscape-copy">
-              Lumen LiFi turns your everyday light poles into a high-speed Internet connection. With Wi-Fi and LiFi working together, enjoy seamless, light-speed connectivity.
-
+                Your connection, Your choice! Enjoy everyday{' '}
+                <span className="whitespace-nowrap" style={{ fontSize: 'inherit', fontWeight: 'inherit', lineHeight: 'inherit' }}>
+                  Wi-Fi
+                </span>{' '}
+                and light-speed{' '}
+                <span className="whitespace-nowrap" style={{ fontSize: 'inherit', fontWeight: 'inherit', lineHeight: 'inherit' }}>
+                  Li-Fi
+                </span>{' '}
+                working seamlessly together. Lumen LiFi’s light pillars deliver ultra-fast internet exactly where you need it.
               </p>
 
               <div className="!mt-8">
@@ -83,15 +90,23 @@ export default function HeroSection() {
                 >
                   High-speed{' '}
                   <span
-                    className={`${speedOfLightFont.className} hero-serif !font-normal italic text-white`}
-                    style={{ fontFamily: speedOfLightFont.style.fontFamily }}
+                    className={`${speedOfLightFont.className} hero-serif !text-[1.08em] !font-normal italic text-white`}
+                    style={{
+                      fontFamily: speedOfLightFont.style.fontFamily,
+                      fontSize: '1.08em',
+                      lineHeight: 'inherit',
+                    }}
                   >
                     WiFi
                   </span>
                   {' & '}
                   <span
-                    className={`${speedOfLightFont.className} hero-serif !font-normal italic text-white`}
-                    style={{ fontFamily: speedOfLightFont.style.fontFamily }}
+                    className={`${speedOfLightFont.className} hero-serif !text-[1.08em] !font-normal italic text-white`}
+                    style={{
+                      fontFamily: speedOfLightFont.style.fontFamily,
+                      fontSize: '1.08em',
+                      lineHeight: 'inherit',
+                    }}
                   >
                     LiFi
                   </span>

@@ -1075,6 +1075,8 @@ h1.page-hero-heading .products-hero-accent[class] {
 .home-hero-landscape .hero-serif[class] {
   font-style: italic ;
   font-weight: 400 ;
+  font-size: inherit ;
+  line-height: inherit ;
 }
 
 .home-hero-landscape-copy {

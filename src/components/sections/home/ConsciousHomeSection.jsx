@@ -12,19 +12,19 @@ const features = [
     step: '02',
     icon: Zap,
     title: 'Built-in LiFi',
-    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pole.',
+    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pillar.',
   },
   {
     step: '03',
     icon: Sparkles,
     title: 'Fashionable & Decorative',
-    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pole that looks like décor while it powers your network.',
+    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pillar that looks like décor while it powers your network.',
   },
   {
     step: '04',
     icon: LayoutGrid,
     title: 'Practical & Versatile',
-    desc: 'Shelves, lighting, screens, and smart gear — one pole adapts to home offices, living rooms, and entertainment setups.',
+    desc: 'Shelves, lighting, screens, and smart gear — one pillar adapts to home offices, living rooms, and entertainment setups.',
   },
 ];
 
@@ -52,7 +52,7 @@ export default function ConsciousHomeSection() {
             className="!m-0 !text-[clamp(1.6rem,5.5vw,2.75rem)] !font-normal leading-[1.12] tracking-[-0.03em]"
             style={geist}
           >
-            <span className="block text-[#161C3B]/70">One Pole.</span>
+            <span className="block text-[#161C3B]/70">One Pillar.</span>
             <span className="mt-1 block text-[#0D2240]">Connectivity Meets Design.</span>
           </h2>
 
