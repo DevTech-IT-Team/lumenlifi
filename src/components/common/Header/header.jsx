@@ -117,7 +117,7 @@ export default function Header() {
         href="https://lmsathena.com/login"
         className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
       >
-        <span>Get Started</span>
+        <span>Login</span>
         <ArrowRight className="h-3 w-3" />
       </Link>
     </motion.div>
