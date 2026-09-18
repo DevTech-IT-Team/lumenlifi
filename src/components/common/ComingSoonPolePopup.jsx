@@ -151,7 +151,7 @@ export default function ComingSoonPolePopup() {
             className="!mx-auto !mt-1.5 max-w-[16rem] !text-xs !font-normal leading-relaxed text-white/65"
             style={inter}
           >
-            Indoor décor poles with built-in LiFi — launching soon.
+            Indoor décor lamps with built-in LiFi — launching soon.
           </p>
         </div>
 
