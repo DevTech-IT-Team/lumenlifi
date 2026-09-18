@@ -80,7 +80,7 @@ export default function HeroSection() {
                 <span className="whitespace-nowrap" style={{ fontSize: 'inherit', fontWeight: 'inherit', lineHeight: 'inherit' }}>
                   Li-Fi
                 </span>{' '}
-                working seamlessly together. Lumen LiFi’s light pillars deliver ultra-fast internet exactly where you need it.
+                working seamlessly together. Lumen LiFi’s light Lamps deliver ultra-fast internet exactly where you need it.
               </p>
 
               <div className="!mt-8">

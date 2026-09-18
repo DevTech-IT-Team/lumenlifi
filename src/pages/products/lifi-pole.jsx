@@ -10,10 +10,10 @@ export default function LifiPolePage() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
       <Head>
-        <title>Lumen LIFI — LiFi Pillar</title>
+        <title>Lumen LIFI — LiFi Lamp</title>
         <meta
           name="description"
-          content="LiFi Pillar: an indoor décor pillar for your home with stylish lighting and built-in LiFi technology. Coming soon."
+          content="LiFi Lamp: an indoor décor Lamp for your home with stylish lighting and built-in LiFi technology. Coming soon."
         />
         <link rel="canonical" href="https://lifilumen.com/products/lifi-pole" />
       </Head>

@@ -19,7 +19,7 @@ const POLES = [
   },
   {
     src: '/images/pole/10.png',
-    alt: 'LiFi Pillar workspace with monitors',
+    alt: 'LiFi Lamp workspace with monitors',
     title: 'Home office',
   },
 ];

@@ -12,7 +12,7 @@ const features = [
     step: '02',
     icon: Zap,
     title: 'Built-in LiFi',
-    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one pillar.',
+    desc: 'High-speed internet through light, paired with WiFi so your home gets seamless, light-speed connectivity in one Lamp.',
   },
   {
     step: '03',
@@ -24,7 +24,7 @@ const features = [
     step: '04',
     icon: LayoutGrid,
     title: 'Practical & Versatile',
-    desc: 'Shelves, lighting, screens, and smart gear — one pillar adapts to home offices, living rooms, and entertainment setups.',
+    desc: 'Shelves, lighting, screens, and smart gear — one Lamp adapts to home offices, living rooms, and entertainment setups.',
   },
 ];
 
@@ -52,7 +52,7 @@ export default function ConsciousHomeSection() {
             className="!m-0 !text-[clamp(1.6rem,5.5vw,2.75rem)] !font-normal leading-[1.12] tracking-[-0.03em]"
             style={geist}
           >
-            <span className="block text-[#161C3B]/70">One Pillar.</span>
+            <span className="block text-[#161C3B]/70">One Lamp.</span>
             <span className="mt-1 block text-[#0D2240]">Connectivity Meets Design.</span>
           </h2>
 
@@ -73,7 +73,7 @@ export default function ConsciousHomeSection() {
               prefetch={false}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-6 py-3.5 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90 sm:w-auto"
             >
-              Explore LiFi Pillar
+              Explore LiFi Lamp
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
@@ -116,7 +116,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-[10px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!text-[11px]"
               style={inter}
             >
-              Why the LiFi Pillar
+              Why the LiFi Lamp
             </p>
 
             <ul className="mt-6 m-0 list-none space-y-0 p-0 sm:mt-8">

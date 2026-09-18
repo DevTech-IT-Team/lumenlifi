@@ -12,7 +12,7 @@ export default function PoleFeaturesSection() {
             className="!m-0 !text-[clamp(1.75rem,4vw,2.5rem)] !font-bold tracking-tight text-[#0D2240]"
             style={geist}
           >
-            Why LiFi Pillar
+            Why LiFi Lamp
           </h2>
           <p
             className="!mt-4 !text-base !font-normal leading-relaxed text-[#0D2240]/60"

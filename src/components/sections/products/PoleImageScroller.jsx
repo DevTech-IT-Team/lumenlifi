@@ -17,11 +17,11 @@ const CATALOG = [
     color: 'White',
     swatch: '#F4F1EA',
     src: '/images/pole/a.jpg',
-    alt: 'White LiFi Pillar styled as a standing-desk corner in a workspace',
+    alt: 'White LiFi Lamp styled as a standing-desk corner in a workspace',
     category: 'Workspace',
     title: 'Turn a corner into a desk',
-    desc: 'The LiFi Pillar lights the room and carries your connection. You can make an unused corner work harder — add a standing-desk shelf for your laptop, a lower tray for a router, and use the top beam as a task light.',
-    body: 'We do not ship hooks or shelves on the pillar. This look is inspiration: clip on what your home needs, keep cables off the floor, and let the pillar stay décor and LiFi while the extras make it useful.',
+    desc: 'The LiFi Lamp lights the room and carries your connection. You can make an unused corner work harder — add a standing-desk shelf for your laptop, a lower tray for a router, and use the top beam as a task light.',
+    body: 'We do not ship hooks or shelves on the Lamp. This look is inspiration: clip on what your home needs, keep cables off the floor, and let the Lamp stay décor and LiFi while the extras make it useful.',
     highlights: [
       'Add a standing-desk shelf for your laptop',
       'Keep a router on a lower tray, off the floor',
@@ -34,11 +34,11 @@ const CATALOG = [
     color: 'Black',
     swatch: '#1a2332',
     src: '/images/pole/c.jpg',
-    alt: 'Black LiFi Pillar styled as a gaming and media setup',
+    alt: 'Black LiFi Lamp styled as a gaming and media setup',
     category: 'Gaming',
     title: 'Hang what you actually use',
-    desc: 'Think of the pillar as a media spine. Hang headphones, rest a console nearby, keep cables off the floor — the pillar stays the light and the LiFi; you make it work for play.',
-    body: 'A hook, a small shelf, a place for a speaker — none of that comes on the pillar. These photos show how useful it can become once you add the pieces your setup already needs.',
+    desc: 'Think of the Lamp as a media spine. Hang headphones, rest a console nearby, keep cables off the floor — the Lamp stays the light and the LiFi; you make it work for play.',
+    body: 'A hook, a small shelf, a place for a speaker — none of that comes on the Lamp. These photos show how useful it can become once you add the pieces your setup already needs.',
     highlights: [
       'Hang headphones on a clip-on hook',
       'Park a console or speaker beside it',
@@ -51,11 +51,11 @@ const CATALOG = [
     color: 'Silver',
     swatch: '#C5CED8',
     src: '/images/pole/f.jpg',
-    alt: 'Silver LiFi Pillar styled in a home office',
+    alt: 'Silver LiFi Lamp styled in a home office',
     category: 'Home office',
     title: 'Keep the desk clear',
     desc: 'A hanging hook for headphones, a small tray for hubs and chargers — the kind of add-ons that leave your desk for work, while LiFi lights the room from above.',
-    body: 'The pillar is lighting and connectivity. Everything else in this look is how you might live with it: hang what you reach for, park the tech, keep the desk empty for the work itself.',
+    body: 'The Lamp is lighting and connectivity. Everything else in this look is how you might live with it: hang what you reach for, park the tech, keep the desk empty for the work itself.',
     highlights: [
       'Hook for headphones next to the desk',
       'Tray for hubs, dongles, and chargers',
@@ -68,10 +68,10 @@ const CATALOG = [
     color: 'Gold',
     swatch: '#C9A227',
     src: '/images/pole/b.jpg',
-    alt: 'Gold LiFi Pillar styled beside a vanity',
+    alt: 'Gold LiFi Lamp styled beside a vanity',
     category: 'Vanity',
     title: 'Make a dressing corner useful',
-    desc: 'Style it beside a mirror. Add a tray for everyday things and let the top light warm the space — the pillar is décor and connection; the extras are how you live with it.',
+    desc: 'Style it beside a mirror. Add a tray for everyday things and let the top light warm the space — the Lamp is décor and connection; the extras are how you live with it.',
     body: 'A tray, a hook, a place for jewelry or a phone — inspiration, not included. Use the column as the light in the room, then add only what makes this corner yours.',
     highlights: [
       'Pair it with a mirror in the dressing corner',
@@ -88,11 +88,11 @@ const GALLERY_EXTRAS = [
     color: 'White',
     swatch: '#F4F1EA',
     src: '/images/pole/e.jpg',
-    alt: 'White LiFi Pillar styled with display shelves in a living room',
+    alt: 'White LiFi Lamp styled with display shelves in a living room',
     category: 'Living space',
     title: 'A column that earns its place',
-    desc: 'In the living room it can hold more than light. You can add shelves for a plant, a speaker, a book — a pillar that looks at home and still connects the room.',
-    body: 'Display pieces and tech trays are styling ideas you can add later. The LiFi Pillar stays the light and the connection; you decide how useful the column becomes.',
+    desc: 'In the living room it can hold more than light. You can add shelves for a plant, a speaker, a book — a Lamp that looks at home and still connects the room.',
+    body: 'Display pieces and tech trays are styling ideas you can add later. The LiFi Lamp stays the light and the connection; you decide how useful the column becomes.',
     highlights: [
       'Display a plant or object you already love',
       'Park a speaker or router on a small shelf',
@@ -105,11 +105,11 @@ const GALLERY_EXTRAS = [
     color: 'Gold',
     swatch: '#C9A227',
     src: '/images/pole/d.jpg',
-    alt: 'Gold LiFi Pillar styled with coat hooks in a bedroom',
+    alt: 'Gold LiFi Lamp styled with coat hooks in a bedroom',
     category: 'Bedroom',
     title: 'Hang it, then skip the clutter',
-    desc: 'Add hooks for a bag or jacket, a small shelf so the router leaves the nightstand — the LiFi Pillar lights and connects; you decide how useful it becomes.',
-    body: 'Coat hooks and shelves are not on the pillar. This is a bedroom idea: hang what you drop at the door, free the nightstand, and keep soft light by the bed.',
+    desc: 'Add hooks for a bag or jacket, a small shelf so the router leaves the nightstand — the LiFi Lamp lights and connects; you decide how useful it becomes.',
+    body: 'Coat hooks and shelves are not on the Lamp. This is a bedroom idea: hang what you drop at the door, free the nightstand, and keep soft light by the bed.',
     highlights: [
       'Hooks for bags, jackets, or a robe',
       'Router off the nightstand',
@@ -180,7 +180,7 @@ export default function PoleImageScroller() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F4F8FC]" aria-label="LiFi Pillar catalog">
+    <section className="relative w-full overflow-hidden bg-[#F4F8FC]" aria-label="LiFi Lamp catalog">
       <div className="mx-auto max-w-[1520px] px-4 py-14 sm:px-8 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
@@ -188,13 +188,13 @@ export default function PoleImageScroller() {
               className="!m-0 !text-[11px] !font-normal uppercase tracking-[0.22em] text-[var(--lumen-cyan)]"
               style={inter}
             >
-              LiFi Pillar catalogue
+              LiFi Lamp catalogue
             </p>
             <h2
               className="!mt-3 !m-0 !text-[clamp(2rem,4vw,3.1rem)] !font-normal leading-[1.08] tracking-[-0.03em] text-[#0D2240]"
               style={geist}
             >
-              Make the LiFi Pillar useful at home
+              Make the LiFi Lamp useful at home
             </h2>
           </div>
 

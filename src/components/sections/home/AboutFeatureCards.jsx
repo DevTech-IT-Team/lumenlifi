@@ -32,14 +32,14 @@ export const ABOUT_FEATURE_CARDS = [
   },
   {
     title: 'Fashionable & decorative',
-    body: 'Designed to look at home in modern interiors — a sleek pillar that elevates your space while it connects it.',
+    body: 'Designed to look at home in modern interiors — a sleek Lamp that elevates your space while it connects it.',
     image: '/images/pole/11.png',
-    alt: 'Decorative LiFi Pillar in a living room',
+    alt: 'Decorative LiFi Lamp in a living room',
     object: 'object-center',
   },
   {
     title: 'Practical & versatile',
-    body: 'One pillar, many uses — shelves, lighting, screens, and smart gear. Built for real rooms and real routines.',
+    body: 'One Lamp, many uses — shelves, lighting, screens, and smart gear. Built for real rooms and real routines.',
     image: '/images/pole/12.png',
     alt: 'Versatile LiFi Pillar with multiple use cases',
     object: 'object-center',

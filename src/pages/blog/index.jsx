@@ -33,9 +33,9 @@ const POSTS = [
     slug: 'indoor-lifi-pole',
     category: 'Product',
     date: 'Sep 8, 2026',
-    title: 'Meet the indoor LiFi Pillar (coming soon)',
+    title: 'Meet the indoor LiFi Lamp (coming soon)',
     excerpt:
-      'A decor-style pillar that lights your room and carries LiFi. Preview the look, use cases, and launch plans.',
+      'A decor-style Lamp that lights your room and carries LiFi. Preview the look, use cases, and launch plans.',
     readTime: '3 min read',
     image: '/images/pole/7.png',
   },

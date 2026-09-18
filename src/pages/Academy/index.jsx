@@ -506,7 +506,7 @@ function HeroSection() {
 
 /* ── SECTION 2: WHAT YOU WILL LEARN ── */
 function CurriculumSection() {
-  const pillars = [
+  const Lamps = [
     { icon: BookOpen, label: 'The Fundamentals of Li-Fi', desc: 'Understand the basic principles of Li-Fi, how it utilizes light antennas to transmit data through light waves, and why it is a powerful alternative to traditional Wi-Fi.' },
     { icon: Zap, label: 'Speed and Performance', desc: 'Discover how Li-Fi achieves gigabit-per-second speeds and how its high-speed data transfer capabilities outpace current Wi-Fi technology.' },
     { icon: Shield, label: 'Enhanced Security', desc: 'Learn why Li-Fi provides unparalleled, military-grade security. Since light cannot penetrate walls, data is contained within a specific physical space, eliminating outside interception.' },
@@ -536,7 +536,7 @@ function CurriculumSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map(({ icon: PillarIcon, label, desc }, idx) => (
+          {Lamps.map(({ icon: LampIcon, label, desc }, idx) => (
             <motion.div
               key={label}
               custom={idx}
@@ -547,7 +547,7 @@ function CurriculumSection() {
               className="group rounded-[1.75rem] border border-[#1A6EBF]/12 bg-white p-6 shadow-[0_12px_32px_rgba(13,34,64,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--lumen-cyan)]/40 hover:shadow-[0_20px_44px_rgba(0,194,199,0.12)] sm:p-7"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#1A6EBF]/12 bg-[#EAF3FA] transition-transform duration-200 group-hover:scale-110">
-                <PillarIcon size={18} className="text-[#1A6EBF]" />
+                <LampIcon size={18} className="text-[#1A6EBF]" />
               </div>
               <h4 className="mb-2 text-sm font-black leading-snug text-[#0D2240] sm:text-[0.95rem]">
                 {label}

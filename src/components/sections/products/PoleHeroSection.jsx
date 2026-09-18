@@ -46,13 +46,13 @@ export default function PoleHeroSection() {
             className="!mt-4 !m-0 !text-[clamp(2.25rem,5vw,3.75rem)] !font-normal leading-[1.08] tracking-[-0.03em] text-[#EBF5FF]"
             style={geist}
           >
-            LiFi Pillar
+            LiFi Lamp
           </h1>
           <p
             className="!mt-6 max-w-md !text-sm !font-normal leading-[1.75] text-white/70 sm:!text-[15px]"
             style={inter}
           >
-            An indoor decor pillar for your home — stylish lighting with built-in LiFi technology.
+            An indoor decor Lamp for your home — stylish lighting with built-in LiFi technology.
             This product is coming soon.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
