@@ -80,7 +80,7 @@ export default function ConsciousHomeSection() {
 
           <div className="mt-10 max-w-sm border-t border-[#0D2240]/08 pt-8 sm:mt-12 sm:border-0 sm:pt-0">
             <p className="!m-0 !text-base !font-normal text-[#0D2240]" style={geist}>
-              Ready for the LiFi Pillar?
+              Ready for the LiFi Lamp?
             </p>
             <p className="!mt-2 !text-sm !font-normal leading-relaxed text-[#0D2240]/55" style={inter}>
               Home décor that lights your room and connects your devices — launching soon.
