@@ -41,7 +41,7 @@ export const ABOUT_FEATURE_CARDS = [
     title: 'Practical & versatile',
     body: 'One Lamp, many uses — shelves, lighting, screens, and smart gear. Built for real rooms and real routines.',
     image: '/images/pole/12.png',
-    alt: 'Versatile LiFi Pillar with multiple use cases',
+    alt: 'Versatile LiFi Lamp with multiple use cases',
     object: 'object-center',
   },
 ];

@@ -50,10 +50,10 @@ export default function LiFiEcosystem() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#1A6EBF]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#1A6EBF]">
-            Coming Soon — LiFi Pillar
+            Coming Soon — LiFi Lamp
           </div>
           <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-[#0D2240] sm:text-4xl lg:text-5xl">
-            One Pillar. <br className="hidden sm:block" />
+            One Lamp. <br className="hidden sm:block" />
             <span className="text-[#1A6EBF]">Connectivity Meets Design.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base font-normal leading-relaxed text-[#4A6080] sm:text-lg">
@@ -77,7 +77,7 @@ export default function LiFiEcosystem() {
             <div className="relative flex flex-grow items-center justify-center p-4 sm:p-8">
               <Image
                 src="/images/pole/poles_ind.png"
-                alt="LumenFi LiFi Pillar in a modern home interior"
+                alt="LumenFi LiFi Lamp in a modern home interior"
                 width={900}
                 height={700}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
@@ -89,7 +89,7 @@ export default function LiFiEcosystem() {
             <div className="relative border-t border-slate-200 bg-[#F4F7FA] p-5">
               <h4 className="mb-1 text-base font-bold text-[#0D2240]">LiFi Lamp Visualized</h4>
               <p className="text-sm font-normal text-[#4A6080]">
-                See how one elegant pillar delivers light-speed internet and everyday utility.
+                See how one elegant Lamp delivers light-speed internet and everyday utility.
               </p>
             </div>
           </motion.div>
@@ -130,7 +130,7 @@ export default function LiFiEcosystem() {
         >
           <div>
             <h4 className="mb-1 text-lg font-bold text-[#0D2240]">Ready for the LiFi Lamp?</h4>
-            <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor pillar that mixes style with light-speed connectivity.</p>
+            <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor Lamp that mixes style with light-speed connectivity.</p>
           </div>
           <Link
             href="/products/lifi-pole"

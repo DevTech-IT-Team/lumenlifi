@@ -18,7 +18,7 @@ const features = [
     step: '03',
     icon: Sparkles,
     title: 'Fashionable & Decorative',
-    desc: 'Designed for modern interiors — a sleek floor-to-ceiling pillar that looks like décor while it powers your network.',
+    desc: 'Designed for modern interiors — a sleek floor-to-ceiling Lamp that looks like décor while it powers your network.',
   },
   {
     step: '04',
@@ -45,7 +45,7 @@ export default function ConsciousHomeSection() {
             className="!mb-3 !text-[10px] !font-normal uppercase tracking-[0.2em] text-[var(--lumen-cyan)] sm:!mb-4 sm:!text-xs"
             style={inter}
           >
-            Coming Soon — LiFi Pillar
+            Coming Soon — LiFi Lamp
           </p>
 
           <h2
@@ -62,7 +62,7 @@ export default function ConsciousHomeSection() {
               className="!m-0 !text-sm !font-normal leading-[1.75] text-[#0D2240]/70 sm:!text-base sm:leading-[1.8]"
               style={inter}
             >
-              The LiFi Pillar brings WiFi 7 and LiFi into a single decorative column — stylish enough
+              The LiFi Lamp brings WiFi 7 and LiFi into a single decorative column — stylish enough
               for your living room, practical enough for every room in the home.
             </p>
           </div>
