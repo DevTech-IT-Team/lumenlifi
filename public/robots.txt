@@ -1,5 +1,99 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Explicit allow for AI search crawlers (GEO — Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Block WordPress admin and internals
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /xmlrpc.php
+
+# Block upload directory crawling
+Disallow: /wp-content/uploads/
+
+# Block feed URLs
+Disallow: /feed/
+Disallow: /*/feed/
+Disallow: /*/feed
+Disallow: /comments/feed/
+
+# Block tracking query parameters
+Disallow: /?gclid=
+Disallow: /&gclid=
+Disallow: /?fbclid=
+Disallow: /&fbclid=
+Disallow: /?utm_source=
+Disallow: /?utm_medium=
+Disallow: /?utm_campaign=
+Disallow: /?utm_term=
+Disallow: /?utm_content=
+Disallow: /&utm_
+
+# Block language parameter URLs
+Disallow: /?language=
+Disallow: /&language=
+
+# Block order/cart/checkout (if e-commerce is added later)
+Disallow: /order/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Block junk query strings
+Disallow: /*?MA
+Disallow: /*?MD
+Disallow: /*?SA
+Disallow: /*?SD
+Disallow: /*?ND
+
+# Block search results
+Disallow: /?s=
+
+# Block paginated archives
+Disallow: /page/
+Disallow: /tag/*/page/
+Disallow: /category/*/page/
+
+# Block internal cache directory
+Disallow: /cache/
+
+# Allow CSS/JS/images for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+
 Sitemap: https://lifilumen.com/sitemap.xml
