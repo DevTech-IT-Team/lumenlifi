@@ -39,7 +39,7 @@ export default function PoleHeroSection() {
               className="inline-flex items-center rounded-full border border-[var(--lumen-cyan)]/40 bg-[var(--lumen-cyan)]/10 px-3 py-1 !text-[10px] !font-normal uppercase tracking-[0.16em] text-[var(--lumen-cyan)]"
               style={inter}
             >
-              Coming soon
+              Pre order now
             </span>
           </div>
           <h1
@@ -53,7 +53,7 @@ export default function PoleHeroSection() {
             style={inter}
           >
             An indoor decor Lamp for your home — stylish lighting with built-in LiFi technology.
-            This product is coming soon.
+            This product is available for preorder now.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
