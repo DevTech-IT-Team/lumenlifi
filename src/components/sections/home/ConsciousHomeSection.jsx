@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Wifi, Zap, Sparkles, LayoutGrid } from 'lucide-react';
 
 const features = [
@@ -89,27 +90,53 @@ export default function ConsciousHomeSection() {
         </div>
 
         {/* Right — features panel */}
-        <div className="relative lg:col-span-7">
-          {/* Mobile / tablet: solid panel (no diagonal cut) */}
+        <div className="relative min-h-[32rem] lg:col-span-7 lg:min-h-0">
+          {/* Mobile / tablet */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden bg-[#0D2240] lg:hidden" aria-hidden="true">
+            <div className="absolute inset-y-0 right-0 w-[72%]">
+              <Image
+                src="/images/pole/d.jpg"
+                alt=""
+                fill
+                sizes="80vw"
+                className="object-cover object-[58%_10%]"
+              />
+            </div>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(90deg, #0D2240 0%, rgba(13,34,64,0.92) 38%, rgba(13,34,64,0.45) 72%, rgba(13,34,64,0.22) 100%), radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,194,199,0.12) 0%, transparent 70%)',
+              }}
+            />
+          </div>
+
+          {/* Desktop: diagonal panel with lamp on the right */}
           <div
-            className="pointer-events-none absolute inset-0 bg-[#0D2240] lg:hidden"
-            style={{
-              backgroundImage:
-                'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,194,199,0.18) 0%, transparent 70%)',
-            }}
-            aria-hidden="true"
-          />
-          {/* Desktop: diagonal panel — bleed to viewport right on wide screens */}
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 hidden bg-[#0D2240] lg:block"
+            className="pointer-events-none absolute inset-y-0 left-0 hidden overflow-hidden bg-[#0D2240] lg:block"
             style={{
               right: 'calc((min(100vw, 1520px) - 100vw) / 2)',
               clipPath: 'polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%)',
-              backgroundImage:
-                'radial-gradient(ellipse 70% 55% at 78% 30%, rgba(0,194,199,0.22) 0%, transparent 70%)',
             }}
             aria-hidden="true"
-          />
+          >
+            <div className="absolute inset-y-0 right-0 w-[62%]">
+              <Image
+                src="/images/pole/d.jpg"
+                alt=""
+                fill
+                sizes="50vw"
+                className="object-cover object-[58%_8%]"
+              />
+            </div>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(90deg, #0D2240 0%, #0D2240 34%, rgba(13,34,64,0.82) 52%, rgba(13,34,64,0.38) 74%, rgba(13,34,64,0.18) 100%), radial-gradient(ellipse 55% 50% at 82% 28%, rgba(0,194,199,0.12) 0%, transparent 70%)',
+              }}
+            />
+          </div>
 
           <div className="relative z-10 flex h-full flex-col justify-center px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:pl-16 lg:pr-12 lg:py-20 xl:pl-20 xl:pr-16">
             <p

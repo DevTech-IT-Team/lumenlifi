@@ -5,6 +5,7 @@ import HeroSection from '../components/sections/home/HeroSection';
 import HeroPreorderSection from '../components/sections/home/HeroPreorderSection';
 import AboutSection from '../components/sections/home/AboutSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
+import ConsciousHomeSection from '../components/sections/home/ConsciousHomeSection';
 import FinalCTASection from '../components/sections/home/FinalCTASection';
 import DeferredAnalytics from '../components/common/DeferredAnalytics';
 import LiFiEcosystem from '../components/sections/home/LiFiEcosystem';
@@ -63,7 +64,7 @@ export default function HomePage() {
         <HeroPreorderSection />
         {/* <AboutSection /> */}
         <LazyOnVisible load={() => import('../components/sections/home/HomeFeaturesSection')} minHeight="28rem" />
-        <LazyOnVisible load={() => import('../components/sections/home/ConsciousHomeSection')} minHeight="28rem" />
+        <ConsciousHomeSection />
         {/* <LazyOnVisible load={() => import('../components/sections/home/EnterpriseSection')} minHeight="24rem" /> */}
         <LazyOnVisible load={() => import('../components/sections/home/EcosystemSection')} minHeight="28rem" />
         <FinalCTASection />
