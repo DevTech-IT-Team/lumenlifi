@@ -7,12 +7,12 @@ import { LayoutGroup, motion } from 'framer-motion';
 import styles from './Header.module.css';
 
 const navConfig = [
-  { label: 'About', href: '/what-is-lifi' },
+  { label: 'What is LiFi', href: '/what-is-lifi' },
   // { label: 'Products', href: '/products' },
-  { label: 'LiFi Lamp', href: '/products/lifi-pole' },
+  { label: 'LiFi Lamp', href: '/lifi-lamp' },
   // { label: 'LiFi & WiFi', href: '/products/lumenfi-router' },
   { label: 'Academy', href: '/Academy' },
-  { label: 'Blogs', href: '/blog' },
+  { label: 'Blogs', href: '/blogs' },
   { label: 'Contact', href: '/contact' },
 ];
 

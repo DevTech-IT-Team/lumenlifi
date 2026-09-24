@@ -130,7 +130,7 @@ export default function EcosystemSection() {
                         {item.feature}
                       </span>
                       <Link
-                        href="/products/lifi-pole"
+                        href="/lifi-lamp"
                         prefetch={false}
                         className="inline-flex items-center gap-1.5 text-base !font-normal text-[var(--lumen-cyan)] transition-opacity hover:opacity-70"
                       >
@@ -190,7 +190,7 @@ export default function EcosystemSection() {
 
         <div className="mt-10 text-center sm:mt-12">
           <Link
-            href="/products/lifi-pole"
+            href="/lifi-lamp"
             prefetch={false}
             className="inline-flex h-12 items-center gap-2 rounded-full bg-[#EBF5FF] px-8 text-sm !font-normal !text-[#0D2240] ring-1 ring-[#0D2240]/15 transition-colors hover:bg-white"
           >

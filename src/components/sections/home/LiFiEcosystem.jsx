@@ -133,7 +133,7 @@ export default function LiFiEcosystem() {
             <p className="text-sm text-[#4A6080]">Explore the coming-soon indoor Lamp that mixes style with light-speed connectivity.</p>
           </div>
           <Link
-            href="/products/lifi-pole"
+            href="/lifi-lamp"
             className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl px-6 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:scale-[1.02] sm:w-auto"
             style={{ background: 'linear-gradient(135deg, #1A6EBF 0%, #00C2C7 100%)' }}
           >

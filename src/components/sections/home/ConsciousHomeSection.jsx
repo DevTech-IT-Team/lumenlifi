@@ -70,7 +70,7 @@ export default function ConsciousHomeSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
             <Link
-              href="/products/lifi-pole"
+              href="/lifi-lamp"
               prefetch={false}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-6 py-3.5 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90 sm:w-auto"
             >

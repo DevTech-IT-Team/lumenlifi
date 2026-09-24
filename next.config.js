@@ -33,6 +33,25 @@ const nextConfig = withBundleAnalyzer({
     }
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/products/lifi-pole',
+        destination: '/lifi-lamp',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        destination: '/blogs',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/blogs/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     if (process.env.NODE_ENV !== 'development') return [];
     return [

@@ -60,7 +60,7 @@ export default function RouterCtaSection() {
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:flex-col lg:items-stretch xl:flex-row">
           <Link
-            href="/products/lifi-pole"
+            href="/lifi-lamp"
             className="inline-flex h-12 min-w-[180px] items-center justify-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-7 text-sm !font-normal !text-[#0c1228] transition-opacity hover:opacity-90"
             style={inter}
           >

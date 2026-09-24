@@ -121,7 +121,7 @@ export default function HomeFeaturesSection() {
             Leave the old behind and move at the speed of light.            .
           </p>
           <Link
-            href="/products/lifi-pole"
+            href="/lifi-lamp"
             prefetch={false}
             className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#161C3B]/10 bg-[#EBF5FF] px-6 py-3 text-sm !font-normal !text-black transition-colors hover:bg-[#dcecff]"
           >
