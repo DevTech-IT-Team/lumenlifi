@@ -294,13 +294,13 @@ export default function LumenPhiProductsSuite() {
                                         Review our operational rules, consumer consumer data protections, and terms of service guidelines for legal merchant transparency.
                                     </p>
                                     <div className="space-y-2 pt-2 font-mono text-xs font-bold">
-                                        <Link href="/privacy" className="block text-emerald-600 hover:underline">
+                                        <Link href="/privacy-policy" className="block text-emerald-600 hover:underline">
                                             → Privacy Policy Blueprint
                                         </Link>
-                                        <Link href="/terms" className="block text-emerald-600 hover:underline">
+                                        <Link href="/terms-and-conditions" className="block text-emerald-600 hover:underline">
                                             → Terms & Conditions Template
                                         </Link>
-                                        <Link href="/terms#refund-policy" className="block text-emerald-600 hover:underline">
+                                        <Link href="/terms-and-conditions#refund-policy" className="block text-emerald-600 hover:underline">
                                             → Cancellation & Refund Policy
                                         </Link>
                                     </div>

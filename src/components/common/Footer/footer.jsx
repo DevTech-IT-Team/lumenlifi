@@ -10,10 +10,10 @@ const mainLinks = [
 ];
 
 const utilityLinks = [
-  { label: 'Security', href: '/privacy' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Terms of Use', href: '/terms' },
-  { label: 'Resources', href: '/Academy' },
+  // { label: 'Security', href: '/privacy-policy' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+  // { label: 'Resources', href: '/Academy' },
 ];
 
 export default function Footer() {
@@ -23,23 +23,23 @@ export default function Footer() {
         {/* Left — logo + description */}
         <div className="flex flex-col justify-between gap-10 border-b border-white/10 px-8 py-10 sm:px-12 sm:py-14 lg:col-span-3 lg:border-b-0 lg:border-r">
           <div className="flex items-center gap-4">
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/20 bg-white p-1.5">
+            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border border-white/20 bg-white p-2.5 sm:h-36 sm:w-36 sm:p-3">
               <Image
                 src="/brand/logo.webp"
                 alt="LumenFi"
                 fill
                 loading="lazy"
-                sizes="48px"
+                sizes="144px"
                 className="object-contain"
               />
             </div>
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20">
+            {/* <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20">
               <span className="text-center text-[8px] font-normal uppercase leading-tight tracking-[0.12em] text-neutral-400">
                 LiFi
                 <br />
                 Ready
               </span>
-            </div>
+            </div> */}
           </div>
 
           <p

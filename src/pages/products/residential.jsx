@@ -213,8 +213,8 @@ export default function LumenPhiProductsSuite() {
                                     </div>
                                     <p className="text-xs text-slate-500 leading-relaxed">Read our simple rules, data protection guidelines, and terms of service so you know exactly how we help you.</p>
                                     <div className="space-y-2 pt-2 font-mono text-xs font-bold">
-                                        <Link href="/privacy" className="block text-emerald-600 hover:underline">→ Privacy Policy Rules</Link>
-                                        <Link href="/terms" className="block text-emerald-600 hover:underline">→ Terms and Conditions</Link>
+                                        <Link href="/privacy-policy" className="block text-emerald-600 hover:underline">→ Privacy Policy Rules</Link>
+                                        <Link href="/terms-and-conditions" className="block text-emerald-600 hover:underline">→ Terms and Conditions</Link>
                                     </div>
                                 </div>
 
