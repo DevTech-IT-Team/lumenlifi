@@ -32,14 +32,6 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Allow CSS/JS/images for proper rendering
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.webp$
-Allow: /*.svg$
-Allow: /*.gif$
+
 
 Sitemap: https://lifilumen.com/sitemap.xml
