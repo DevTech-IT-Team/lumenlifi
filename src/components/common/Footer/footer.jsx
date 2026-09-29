@@ -1,18 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArrowUp } from 'lucide-react';
 
 const mainLinks = [
   { label: 'What is LiFi', href: '/what-is-lifi', number: '01' },
   // { label: 'Products', href: '/products', number: '02' },
-  { label: 'LiFi Lamp', href: '/lifi-lamp', number: '03' },
-  { label: 'Academy', href: '/Academy', number: '04' },
-  { label: 'Blogs', href: '/blogs', number: '05' },
+  { label: 'LiFi Lamp', href: '/lifi-lamp', number: '02' },
+  { label: 'Academy', href: '/Academy', number: '03' },
+  { label: 'Blogs', href: '/blogs', number: '04' },
 ];
 
 const utilityLinks = [
   // { label: 'Security', href: '/privacy-policy' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+  { label: 'Cookie Policy', href: '/cookie-policy' },
   // { label: 'Resources', href: '/Academy' },
 ];
 
@@ -98,10 +100,19 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-12 px-8 py-10 sm:px-12 sm:py-14 lg:col-span-3">
           <div className="flex items-start gap-3">
             <span
-              className="text-sm font-normal text-white"
-              style={{ fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' }}
+              className="mt-0.5 inline-flex h-6 w-9 shrink-0 overflow-hidden rounded-[2px] border border-white/20 shadow-sm"
+              role="img"
+              aria-label="United States flag"
             >
-              US
+              <svg viewBox="0 0 19 10" className="h-full w-full" aria-hidden="true">
+                <rect width="19" height="10" fill="#B22234" />
+                <path
+                  d="M0 1.1h19M0 3.1h19M0 5.1h19M0 7.1h19M0 9.1h19"
+                  stroke="#fff"
+                  strokeWidth="0.75"
+                />
+                <rect width="7.6" height="5.35" fill="#3C3B6E" />
+              </svg>
             </span>
             <p
               className="max-w-[140px] text-[10px] font-normal uppercase leading-relaxed tracking-[0.16em] text-neutral-400"
@@ -176,6 +187,23 @@ export default function Footer() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="relative border-t border-white/10 px-8 py-5 sm:px-12">
+        <p
+          className="text-center text-xs font-normal text-neutral-500"
+          style={{ fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' }}
+        >
+          © 2026 LumenFi. All rights reserved.
+        </p>
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          className="absolute right-8 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/5 sm:right-12"
+        >
+          <ArrowUp className="h-4 w-4" strokeWidth={1.75} />
+        </button>
       </div>
     </footer>
   );
