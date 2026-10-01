@@ -11,10 +11,10 @@ export default function TermsRedirect() {
   }, [router]);
 
   return (
-    <Head>
+      <Head>
       <title>Redirecting…</title>
       <meta httpEquiv="refresh" content="0;url=/terms-and-conditions" />
       <link rel="canonical" href="https://lifilumen.com/terms-and-conditions" />
-    </Head>
+      </Head>
   );
 }

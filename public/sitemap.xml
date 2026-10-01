@@ -26,8 +26,14 @@
   </url>
   <url>
     <loc>https://lifilumen.com/blogs</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lifilumen.com/blogs/what-is-lifi</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
