@@ -26,8 +26,14 @@
   </url>
   <url>
     <loc>https://lifilumen.com/blogs</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lifilumen.com/blogs/how-does-a-light-bulb-send-internet-data</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>

@@ -78,7 +78,7 @@ export default function BlogPostPage({ post }) {
                   return (
                     <h2
                       key={index}
-                      className="!mt-10 !mb-0 !text-2xl !font-normal tracking-tight text-[#0D2240]"
+                      className="!mt-12 !mb-5 !text-2xl !font-normal tracking-tight text-[#0D2240]"
                       style={geist}
                     >
                       {section.text}
@@ -98,6 +98,51 @@ export default function BlogPostPage({ post }) {
                         </li>
                       ))}
                     </ul>
+                  );
+                }
+                if (section.type === 'ol') {
+                  return (
+                    <ol key={index} className="m-0 list-decimal space-y-3 pl-5">
+                      {section.items.map((item) => (
+                        <li
+                          key={item}
+                          className="!text-base !font-normal leading-relaxed text-[#0D2240]/75"
+                          style={inter}
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ol>
+                  );
+                }
+                if (section.type === 'cta') {
+                  return (
+                    <div
+                      key={index}
+                      className="rounded-2xl border border-[#0D2240]/10 bg-white px-5 py-6 sm:px-7"
+                    >
+                      <p
+                        className="!m-0 !text-lg !font-normal text-[#0D2240]"
+                        style={geist}
+                      >
+                        {section.title}
+                      </p>
+                      <p
+                        className="!mt-2 !mb-0 !text-base !font-normal leading-relaxed text-[#0D2240]/75"
+                        style={inter}
+                      >
+                        {section.text}
+                      </p>
+                      <a
+                        href={section.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center rounded-full bg-[#0D2240] px-5 py-2.5 !text-sm !font-normal text-white transition-colors hover:bg-[#16325c]"
+                        style={inter}
+                      >
+                        {section.label}
+                      </a>
+                    </div>
                   );
                 }
                 if (section.type === 'faq') {

@@ -1,4 +1,113 @@
+const PRE_ORDER_URL =
+  'https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D';
+
 export const BLOG_POSTS = [
+  {
+    slug: 'how-does-a-light-bulb-send-internet-data',
+    category: 'Basics',
+    date: 'Oct 5, 2026',
+    dateIso: '2026-10-05',
+    title: 'How Does a Light Bulb Send Internet Data?',
+    metaTitle: 'How Does a Light Bulb Send Internet Data?',
+    metaDescription:
+      "Curious how a light bulb sends internet data? Here's the plain-English science behind LiFi: modulation, photodiodes, and light-speed connectivity.",
+    metaKeywords:
+      'how does LiFi work, light bulb internet data, LiFi modulation, LiFi photodiode, LiFi science explained, how LiFi sends data',
+    excerpt:
+      "A light bulb's job has always been simple: turn electricity into light so you can see. LiFi gives it a second job — turning electricity into patterns of light so your devices can connect to the internet.",
+    readTime: '6 min read',
+    image: '/images/blog/how-light-sends-data.png',
+    imageAlt: 'How Does a Light Bulb Send Internet Data? The science in plain English',
+    sections: [
+      {
+        type: 'p',
+        text: "A light bulb's job has always been simple: turn electricity into light so you can see. LiFi gives it a second job: turning electricity into patterns of light so your devices can connect to the internet. No new wiring, no new bulb shape, just a very fast, very precise flicker doing double duty.",
+      },
+      {
+        type: 'p',
+        text: "Here's what's actually happening inside that flicker, explained without the engineering jargon. From the team at Lumen LiFi.",
+      },
+      { type: 'h2', text: 'Start with something you already know: Morse code' },
+      {
+        type: 'p',
+        text: 'Morse code sends information by turning a signal on and off in patterns: short and long bursts that spell out letters. LiFi works on the exact same principle, just almost unimaginably faster and far more precise.',
+      },
+      {
+        type: 'p',
+        text: 'Instead of dots and dashes a human taps out, a LiFi-enabled light source switches on and off millions of times per second, in patterns that represent digital data, the same 1s and 0s your computer already understands. The "message" isn\'t a word; it\'s a stream of binary data: a webpage loading, a video buffering, a file downloading.',
+      },
+      { type: 'h2', text: "Why you don't see it flickering" },
+      {
+        type: 'p',
+        text: 'Millions of flickers per second is far beyond what the human eye can perceive. The generally accepted threshold for the eye to notice flicker is a few hundred times per second at most. LiFi operates thousands of times faster than that threshold, so the light simply looks steady and constant to you, exactly like a normal lamp, while it\'s quietly transmitting data the whole time.',
+      },
+      { type: 'h2', text: 'The three steps, in order' },
+      {
+        type: 'ol',
+        items: [
+          'Electricity becomes light, and light becomes a code. A LiFi fixture (like the LiFi Lamp) takes incoming data and converts it into a rapid on/off switching pattern in its LED. This process is called modulation: think of it as translating digital data into a language made entirely of light intensity.',
+          'Light travels through the room. The modulated light leaves the bulb and simply fills the space it\'s lighting. No cables, no dish, no line that needs to be run through a wall. It behaves like ordinary light because, physically, it is ordinary light; it\'s just carrying extra information inside its flicker pattern.',
+          'A receiver turns light back into data. A small sensor called a photodiode (built into a receiver device such as a dongle or desktop puck) detects those rapid changes in light intensity and converts them back into the original digital signal. Your laptop or phone then reads that signal exactly like it would read data arriving over WiFi or a cable.',
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'See the Science in a Lamp',
+        text: "The LiFi Lamp from Lumen LiFi turns this exact technology into a piece you'd actually want in your home, available in 4 finishes.",
+        label: 'Pre Order the LiFi Lamp →',
+        href: PRE_ORDER_URL,
+      },
+      { type: 'h2', text: 'Why this method can move so much data' },
+      {
+        type: 'p',
+        text: 'Visible light sits on a part of the electromagnetic spectrum that\'s roughly 10,000 times larger than the radio-frequency spectrum WiFi, Bluetooth, and cellular networks all compete for. More available "room" in the spectrum means more data can be encoded into the light\'s flicker pattern without interference from other signals, which is a core reason LiFi can reach very high speeds in ideal, line-of-sight conditions.',
+      },
+      { type: 'h2', text: "What's actually needed to make this work in a home" },
+      {
+        type: 'ul',
+        items: [
+          'A LiFi-enabled light source: a fixture engineered to modulate its LED output, like the LiFi Lamp, rather than a standard bulb.',
+          'A receiver: a small photodiode-based device connected to your laptop, phone, or other equipment, positioned where it has a reasonably clear view of the light.',
+          'A line of sight (mostly): since this is light-based, a solid object directly blocking the path between fixture and receiver can interrupt the connection, the same way closing a door blocks a flashlight beam.',
+        ],
+      },
+      {
+        type: 'p',
+        text: "That's the entire chain: electricity → modulated light → photodiode → data. No part of it requires rewiring your home.",
+      },
+      { type: 'h2', text: 'Conclusion' },
+      {
+        type: 'p',
+        text: "The science behind LiFi isn't exotic. It's Morse code scaled up to a speed and precision that's invisible to human eyes. A light source switches on and off millions of times per second to encode data, that flickering light travels through the room exactly like ordinary light, and a small receiver decodes it back into the webpage, video, or file you're waiting on. The light bulb was always capable of carrying more than illumination; LiFi just gives it the job.",
+      },
+      { type: 'h2', text: 'Frequently Asked Questions' },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'Does the light actually flicker, or is that just a metaphor?',
+            a: "It's literal, not a metaphor. The LED genuinely switches on and off millions of times per second. The switching is simply so fast that it falls far outside what the human eye can detect, so the light looks perfectly steady to you.",
+          },
+          {
+            q: 'Will LiFi flickering hurt my eyes or trigger headaches?',
+            a: "Because the modulation rate is millions of times per second, thousands of times beyond what's needed for the human eye to perceive flicker at all, there's no visible strobing effect to react to; the light simply reads as constant, steady illumination.",
+          },
+          {
+            q: 'Does the room need to be dark for LiFi to work?',
+            a: 'No. The data is encoded in rapid intensity changes layered onto the light, not in the room being dark or bright. A LiFi fixture can operate at normal lighting levels while still transmitting data.',
+          },
+          {
+            q: 'What happens if I walk between the lamp and my receiver?',
+            a: "Since the connection relies on light reaching the receiver, briefly blocking that path can interrupt the signal, similar to stepping in front of a flashlight beam. This is why LiFi works best as an in-room connection alongside WiFi, which doesn't have this line-of-sight requirement.",
+          },
+          {
+            q: 'Is this the same technology as infrared remote controls?',
+            a: "They're related in concept (both use light to send signals), but LiFi uses much higher modulation speeds and operates with visible light fixtures designed to carry significantly more data than a simple infrared remote.",
+          },
+        ],
+      },
+    ],
+  },
   {
     slug: 'what-is-lifi',
     category: 'Basics',

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
+import { Calendar, Search } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import { BLOG_POSTS } from '../../data/blogs';
@@ -75,7 +75,7 @@ export default function BlogsPage() {
 
         <section
           className="py-8 sm:py-10"
-          style={{ backgroundColor: '#ffffff', backgroundImage: 'none' }}
+          style={{ backgroundColor: '#F4F7FB', backgroundImage: 'none' }}
         >
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="flex flex-col gap-4 border-b border-[#0D2240]/08 pb-6 lg:flex-row lg:items-center lg:justify-between">
@@ -157,14 +157,18 @@ export default function BlogsPage() {
                       {featured.excerpt}
                     </p>
                     <div className="mt-6 flex items-center justify-between gap-4">
-                      <span className="!text-xs !font-normal text-[#0D2240]/45" style={inter}>
+                      <span
+                        className="inline-flex items-center gap-1.5 !text-xs !font-normal text-[#0D2240]/45"
+                        style={inter}
+                      >
+                        <Calendar className="h-3.5 w-3.5" strokeWidth={1.75} />
                         {featured.date}
                       </span>
                       <span
                         className="!text-sm !font-normal text-[#0D2240] transition-colors group-hover:text-[var(--lumen-cyan)]"
                         style={inter}
                       >
-                        Read Blog →
+                        Read Journal →
                       </span>
                     </div>
                   </div>
@@ -177,29 +181,51 @@ export default function BlogsPage() {
                         <Link
                           href={`/blogs/${post.slug}`}
                           prefetch={false}
-                          className="group relative block aspect-[16/9] overflow-hidden rounded-2xl"
+                          className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#0D2240]/08 bg-white shadow-[0_10px_30px_rgba(13,34,64,0.05)]"
                         >
-                          <Image
-                            src={post.image}
-                            alt={post.imageAlt || post.title}
-                            fill
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            className="object-cover object-center "
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#06131d]/85 via-[#06131d]/25 to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                          <div className="relative aspect-[16/9]">
+                            <Image
+                              src={post.image}
+                              alt={post.imageAlt || post.title}
+                              fill
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col p-5 sm:p-6">
                             <span
-                              className="!text-[10px] !font-normal uppercase tracking-[0.16em] text-[var(--lumen-cyan)]"
+                              className="!text-[11px] !font-normal uppercase tracking-[0.16em] text-[var(--lumen-cyan)]"
                               style={inter}
                             >
                               {post.category}
                             </span>
                             <h2
-                              className="!mt-2 !m-0 !text-xl !font-normal leading-snug text-white sm:!text-2xl"
+                              className="!mt-2 !m-0 !text-xl !font-normal leading-snug text-[#0D2240]"
                               style={geist}
                             >
                               {post.title}
                             </h2>
+                            <p
+                              className="!mt-2 !mb-0 line-clamp-3 !text-sm !font-normal leading-relaxed text-[#0D2240]/60"
+                              style={inter}
+                            >
+                              {post.excerpt}
+                            </p>
+                            <div className="mt-auto flex items-center justify-between gap-4 pt-5">
+                              <span
+                                className="inline-flex items-center gap-1.5 !text-xs !font-normal text-[#0D2240]/45"
+                                style={inter}
+                              >
+                                <Calendar className="h-3.5 w-3.5" strokeWidth={1.75} />
+                                {post.date}
+                              </span>
+                              <span
+                                className="!text-sm !font-normal text-[#0D2240] transition-colors group-hover:text-[var(--lumen-cyan)]"
+                                style={inter}
+                              >
+                                View →
+                              </span>
+                            </div>
                           </div>
                         </Link>
                       </li>
