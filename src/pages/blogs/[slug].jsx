@@ -9,6 +9,48 @@ import { BLOG_POSTS, getPostBySlug } from '../../data/blogs';
 const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
+const inlineLinkClass =
+  '!font-medium text-[var(--lumen-cyan)] underline decoration-[var(--lumen-cyan)]/40 underline-offset-[3px] transition-colors hover:text-[#0D2240]';
+
+function renderInline(text) {
+  if (!text || !text.includes('](')) return text;
+
+  const nodes = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+  let index = 0;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
+    const label = match[1];
+    const href = match[2];
+    const external = /^https?:\/\//.test(href);
+    nodes.push(
+      external ? (
+        <a
+          key={`${href}-${index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={inlineLinkClass}
+        >
+          {label}
+        </a>
+      ) : (
+        <Link key={`${href}-${index}`} href={href} prefetch={false} className={inlineLinkClass}>
+          {label}
+        </Link>
+      )
+    );
+    lastIndex = pattern.lastIndex;
+    index += 1;
+  }
+
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+}
+
 export default function BlogPostPage({ post }) {
   if (!post) return null;
 
@@ -87,14 +129,14 @@ export default function BlogPostPage({ post }) {
                 }
                 if (section.type === 'ul') {
                   return (
-                    <ul key={index} className="m-0 list-disc space-y-3 pl-5">
+                    <ul key={index} className="!mb-4 m-0 list-disc pl-5">
                       {section.items.map((item) => (
                         <li
                           key={item}
-                          className="!text-base !font-normal leading-relaxed text-[#0D2240]/75"
+                          className="!mb-4 !text-base !font-normal leading-relaxed text-[#0D2240]/75"
                           style={inter}
                         >
-                          {item}
+                          {renderInline(item)}
                         </li>
                       ))}
                     </ul>
@@ -102,14 +144,14 @@ export default function BlogPostPage({ post }) {
                 }
                 if (section.type === 'ol') {
                   return (
-                    <ol key={index} className="m-0 list-decimal space-y-3 pl-5">
+                    <ol key={index} className="!mb-4 m-0 list-decimal pl-5">
                       {section.items.map((item) => (
                         <li
                           key={item}
-                          className="!text-base !font-normal leading-relaxed text-[#0D2240]/75"
+                          className="!mb-4 !text-base !font-normal leading-relaxed text-[#0D2240]/75"
                           style={inter}
                         >
-                          {item}
+                          {renderInline(item)}
                         </li>
                       ))}
                     </ol>
@@ -119,25 +161,25 @@ export default function BlogPostPage({ post }) {
                   return (
                     <div
                       key={index}
-                      className="rounded-2xl border border-[#0D2240]/10 bg-white px-5 py-6 sm:px-7"
+                      className="my-8 rounded-2xl border-2 border-[#00C2C7] bg-[#E7FBFB] px-5 py-6 shadow-[0_10px_30px_rgba(0,194,199,0.12)] sm:px-7"
                     >
                       <p
-                        className="!m-0 !text-lg !font-normal text-[#0D2240]"
+                        className="!m-0 !text-lg !font-semibold text-[#0D2240]"
                         style={geist}
                       >
                         {section.title}
                       </p>
                       <p
-                        className="!mt-2 !mb-0 !text-base !font-normal leading-relaxed text-[#0D2240]/75"
+                        className="!mt-2 !mb-0 !text-base !font-normal leading-relaxed text-[#0D2240]/80"
                         style={inter}
                       >
-                        {section.text}
+                        {renderInline(section.text)}
                       </p>
                       <a
                         href={section.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-5 inline-flex items-center rounded-full bg-[#0D2240] px-5 py-2.5 !text-sm !font-normal text-white transition-colors hover:bg-[#16325c]"
+                        className="mt-5 inline-flex items-center rounded-full bg-[#00C2C7] px-5 py-2.5 !text-sm !font-semibold text-[#0D2240] transition-colors hover:bg-[#00aeb3]"
                         style={inter}
                       >
                         {section.label}
@@ -160,7 +202,7 @@ export default function BlogPostPage({ post }) {
                             className="!mt-2 !mb-0 !text-base !font-normal leading-relaxed text-[#0D2240]/75"
                             style={inter}
                           >
-                            {item.a}
+                            {renderInline(item.a)}
                           </p>
                         </div>
                       ))}
@@ -170,10 +212,10 @@ export default function BlogPostPage({ post }) {
                 return (
                   <p
                     key={index}
-                    className="!m-0 !text-base !font-normal leading-[1.8] text-[#0D2240]/75"
+                    className="!mt-0 !mb-4 !text-base !font-normal leading-[1.8] text-[#0D2240]/75"
                     style={inter}
                   >
-                    {section.text}
+                    {renderInline(section.text)}
                   </p>
                 );
               })}

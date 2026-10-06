@@ -18,6 +18,8 @@ const nextConfig = withBundleAnalyzer({
     root: __dirname,
   },
   images: {
+    unoptimized: true,
+    contentDispositionType: 'inline',
     remotePatterns: [
       {
         protocol: 'https',
@@ -63,6 +65,11 @@ const nextConfig = withBundleAnalyzer({
       {
         source: '/terms-and-condition',
         destination: '/terms-and-conditions',
+        permanent: true,
+      },
+      {
+        source: '/help',
+        destination: '/frequently-asked-questions',
         permanent: true,
       },
     ];

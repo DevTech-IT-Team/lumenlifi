@@ -131,7 +131,7 @@ export default function ProductsFaqSection({
         {showViewMore && !isSearching && items.length > limit && (
           <div className="mt-10 flex justify-center">
             <Link
-              href="/help"
+              href="/frequently-asked-questions"
               prefetch={false}
               className="inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full bg-[#0D2240] px-8 text-sm !font-normal !text-white transition-opacity hover:opacity-90"
               style={inter}

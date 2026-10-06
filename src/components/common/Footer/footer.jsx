@@ -15,6 +15,7 @@ const utilityLinks = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   { label: 'Cookie Policy', href: '/cookie-policy' },
+  { label: 'FAQ', href: '/frequently-asked-questions' },
   // { label: 'Resources', href: '/Academy' },
 ];
 

@@ -8,7 +8,7 @@ export const BLOG_POSTS = [
     date: 'Oct 5, 2026',
     dateIso: '2026-10-05',
     title: 'How Does a Light Bulb Send Internet Data?',
-    metaTitle: 'How Does a Light Bulb Send Internet Data?',
+    metaTitle: 'How Does a Light Bulb Send Internet Data? | Lumen LiFi',
     metaDescription:
       "Curious how a light bulb sends internet data? Here's the plain-English science behind LiFi: modulation, photodiodes, and light-speed connectivity.",
     metaKeywords:
@@ -21,11 +21,11 @@ export const BLOG_POSTS = [
     sections: [
       {
         type: 'p',
-        text: "A light bulb's job has always been simple: turn electricity into light so you can see. LiFi gives it a second job: turning electricity into patterns of light so your devices can connect to the internet. No new wiring, no new bulb shape, just a very fast, very precise flicker doing double duty.",
+        text: "A light bulb's job has always been simple: turn electricity into light so you can see. [LiFi](/blogs/what-is-lifi) gives it a second job: turning electricity into patterns of light so your devices can connect to the internet. No new wiring, no new bulb shape, just a very fast, very precise flicker doing double duty.",
       },
       {
         type: 'p',
-        text: "Here's what's actually happening inside that flicker, explained without the engineering jargon. From the team at Lumen LiFi.",
+        text: "Here's what's actually happening inside that flicker, explained without the engineering jargon. From the team at [Lumen LiFi](/).",
       },
       { type: 'h2', text: 'Start with something you already know: Morse code' },
       {
@@ -45,7 +45,7 @@ export const BLOG_POSTS = [
       {
         type: 'ol',
         items: [
-          'Electricity becomes light, and light becomes a code. A LiFi fixture (like the LiFi Lamp) takes incoming data and converts it into a rapid on/off switching pattern in its LED. This process is called modulation: think of it as translating digital data into a language made entirely of light intensity.',
+          'Electricity becomes light, and light becomes a code. A LiFi fixture (like the [LiFi Lamp](/lifi-lamp)) takes incoming data and converts it into a rapid on/off switching pattern in its LED. This process is called modulation: think of it as translating digital data into a language made entirely of light intensity.',
           'Light travels through the room. The modulated light leaves the bulb and simply fills the space it\'s lighting. No cables, no dish, no line that needs to be run through a wall. It behaves like ordinary light because, physically, it is ordinary light; it\'s just carrying extra information inside its flicker pattern.',
           'A receiver turns light back into data. A small sensor called a photodiode (built into a receiver device such as a dongle or desktop puck) detects those rapid changes in light intensity and converts them back into the original digital signal. Your laptop or phone then reads that signal exactly like it would read data arriving over WiFi or a cable.',
         ],
@@ -53,7 +53,7 @@ export const BLOG_POSTS = [
       {
         type: 'cta',
         title: 'See the Science in a Lamp',
-        text: "The LiFi Lamp from Lumen LiFi turns this exact technology into a piece you'd actually want in your home, available in 4 finishes.",
+        text: "The [LiFi Lamp](/lifi-lamp) from [Lumen LiFi](/) turns this exact technology into a piece you'd actually want in your home, available in 4 finishes.",
         label: 'Pre Order the LiFi Lamp →',
         href: PRE_ORDER_URL,
       },
@@ -66,7 +66,7 @@ export const BLOG_POSTS = [
       {
         type: 'ul',
         items: [
-          'A LiFi-enabled light source: a fixture engineered to modulate its LED output, like the LiFi Lamp, rather than a standard bulb.',
+          'A LiFi-enabled light source: a fixture engineered to modulate its LED output, like the [LiFi Lamp](/lifi-lamp), rather than a standard bulb.',
           'A receiver: a small photodiode-based device connected to your laptop, phone, or other equipment, positioned where it has a reasonably clear view of the light.',
           'A line of sight (mostly): since this is light-based, a solid object directly blocking the path between fixture and receiver can interrupt the connection, the same way closing a door blocks a flashlight beam.',
         ],
@@ -114,7 +114,7 @@ export const BLOG_POSTS = [
     date: 'Oct 1, 2026',
     dateIso: '2026-10-01',
     title: 'What Is LiFi? Internet Through Light Explained',
-    metaTitle: 'What Is LiFi? Internet Through Light Explained',
+    metaTitle: 'What Is LiFi? | Lumen LiFi',
     metaDescription:
       "LiFi turns light into internet. Discover how light-based connectivity works, why it's fast and private, and how it fits with your home WiFi.",
     metaKeywords:
@@ -127,19 +127,23 @@ export const BLOG_POSTS = [
     sections: [
       {
         type: 'p',
-        text: "Here's the simple version of how it works, why it's fast, and where it fits next to the WiFi you already have.",
+        text: 'If someone told you your ceiling light could give you faster internet than your router, you\'d probably assume it was a gimmick. It isn\'t. It\'s called LiFi — Light Fidelity — and it\'s one of the more practical pieces of "future tech" that\'s actually shipping to homes right now.',
+      },
+      {
+        type: 'p',
+        text: "Here's the simple version of [how it works](/blogs/how-does-a-light-bulb-send-internet-data), why it's fast, and where it fits next to the WiFi you already have.",
       },
       { type: 'h2', text: 'The one-sentence explanation' },
       {
         type: 'p',
-        text: 'LiFi sends internet data by flickering light — invisibly fast, invisibly to you — instead of broadcasting it over radio waves the way WiFi and cellular networks do.',
+        text: 'LiFi sends internet data by [flickering light](/blogs/how-does-a-light-bulb-send-internet-data) — invisibly fast, invisibly to you — instead of broadcasting it over radio waves the way WiFi and cellular networks do.',
       },
       { type: 'h2', text: 'How it actually works (no engineering degree required)' },
       { type: 'p', text: 'Every LiFi setup has three basic parts:' },
       {
         type: 'ul',
         items: [
-          'A light source that transmits. An LED bulb (or a fixture built for it, like a LiFi Lamp) switches on and off millions of times per second. This happens far faster than the human eye can detect — to you, the light just looks steady.',
+          'A light source that transmits. An LED bulb (or a fixture built for it, like a [LiFi Lamp](/lifi-lamp)) switches on and off millions of times per second. This happens far faster than the human eye can detect — to you, the light just looks steady.',
           'A receiver that decodes. A small photodiode-based receiver — built into a laptop dongle, a desktop puck, or a future built-in chip — reads those light changes and translates them back into data.',
           'A device that connects. Your laptop, phone, or smart TV sees this as a normal internet connection. You browse, stream, and download exactly like you would on WiFi.',
         ],
@@ -190,7 +194,7 @@ export const BLOG_POSTS = [
       { type: 'h2', text: "Where you'll actually encounter LiFi first" },
       {
         type: 'p',
-        text: "LiFi is arriving in homes primarily through fixtures that already belong in a room — table lamps, ceiling lights, and dedicated pieces like the LiFi Lamp, an indoor décor lamp with built-in LiFi — so adopting it doesn't mean rewiring your house. The LiFi Lamp comes in four finishes (White, Black, Silver, Gold) and is designed around real rooms: workspace, gaming, home office, vanity, living space, and bedroom. You place the fixture, plug in a receiver on your device, and the room gets a light-speed lane alongside your existing WiFi — including next-gen WiFi 7 for coverage across the rest of your home.",
+        text: "LiFi is arriving in homes primarily through fixtures that already belong in a room — table lamps, ceiling lights, and dedicated pieces like the [LiFi Lamp](/lifi-lamp), an indoor décor lamp with built-in LiFi — so adopting it doesn't mean rewiring your house. The [LiFi Lamp](/lifi-lamp) comes in four finishes (White, Black, Silver, Gold) and is designed around real rooms: workspace, gaming, home office, vanity, living space, and bedroom. You place the fixture, plug in a receiver on your device, and the room gets a light-speed lane alongside your existing WiFi — including next-gen WiFi 7 for coverage across the rest of your home.",
       },
       { type: 'h2', text: 'Conclusion' },
       {
@@ -199,7 +203,7 @@ export const BLOG_POSTS = [
       },
       {
         type: 'p',
-        text: "You don't need to understand photodiodes or modulation rates to benefit from it. You just need a light in the room — and that's a problem most homes already have solved. Paired with your existing WiFi, a LiFi Lamp gives you a dedicated, light-speed lane exactly where you need it most. It's currently available for preorder, with the option to get notified first if you're not ready to order yet.",
+        text: `You don't need to understand photodiodes or modulation rates to benefit from it. You just need a light in the room — and that's a problem most homes already have solved. Paired with your existing WiFi, a [LiFi Lamp](/lifi-lamp) gives you a dedicated, light-speed lane exactly where you need it most. It's currently available for [preorder](${PRE_ORDER_URL}), with the option to get notified first if you're not ready to order yet.`,
       },
       { type: 'h2', text: 'Frequently Asked Questions' },
       {
@@ -219,7 +223,7 @@ export const BLOG_POSTS = [
           },
           {
             q: 'Do I need to rewire my house to use LiFi?',
-            a: 'No. LiFi fixtures like the LiFi Lamp are designed to plug in like any lamp — no new wiring or construction required. You just need a compatible receiver (such as a dongle or puck) connected to your device.',
+            a: 'No. LiFi fixtures like the [LiFi Lamp](/lifi-lamp) are designed to plug in like any lamp — no new wiring or construction required. You just need a compatible receiver (such as a dongle or puck) connected to your device.',
           },
           {
             q: 'Is LiFi more secure than WiFi?',
