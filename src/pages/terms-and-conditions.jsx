@@ -14,10 +14,14 @@ export default function TermsAndConditions() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
-        <title>Lumen LIFI — Terms &amp; Conditions</title>
+        <title>Terms & Conditions | Lumen LiFi</title>
         <meta
           name="description"
-          content={`${BRAND} terms of service — subscription, payment, shipping, refund, and usage policies.`}
+          content="Review the terms and conditions that apply to your use of the Lumen LiFi website, products and services."
+        />
+        <meta
+          name="keywords"
+          content="terms and conditions, terms of use, LiFi Lumen terms, LumenFi, Lumen LiFi"
         />
       </Head>
 

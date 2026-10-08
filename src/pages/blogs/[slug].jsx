@@ -10,7 +10,7 @@ const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
 const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui, sans-serif' };
 
 const inlineLinkClass =
-  '!font-medium text-[var(--lumen-cyan)] underline decoration-[var(--lumen-cyan)]/40 underline-offset-[3px] transition-colors hover:text-[#0D2240]';
+  'italic !font-medium text-[var(--lumen-cyan)] underline decoration-[var(--lumen-cyan)]/40 underline-offset-[3px] transition-colors hover:text-[#0D2240]';
 
 function renderInline(text) {
   if (!text || !text.includes('](')) return text;

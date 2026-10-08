@@ -14,10 +14,14 @@ export default function PrivacyPolicy() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
-        <title>Lumen LIFI — Privacy Policy</title>
+        <title>Privacy Policy | Lumen LiFi</title>
         <meta
           name="description"
-          content={`${BRAND} privacy policy — how we collect, use, and protect your personal and payment information.`}
+          content="Read how Lumen LiFi collects, uses and protects your personal data when you visit our website or use our products and services."
+        />
+        <meta
+          name="keywords"
+          content="privacy policy, data protection, LiFi Lumen privacy, LumenFi, Lumen LiFi"
         />
       </Head>
 

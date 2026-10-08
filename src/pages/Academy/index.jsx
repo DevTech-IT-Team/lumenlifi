@@ -1051,10 +1051,20 @@ export default function AcademyPage() {
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[#0D2240]">
       <Head>
-        <title>LumenFi Academy — Shaping the Future of Light Connectivity</title>
-        <meta name="description" content="At LumenFi Academy, we provide you with the tools, knowledge, and community to master Li-Fi technology." />
-        <meta property="og:title" content="LumenFi Academy — Master Li-Fi Technology" />
-        <meta property="og:description" content="Discover the future of the internet. Join for free, master Li-Fi, and become a certified reseller." />
+        <title>LiFi Academy | Courses & Learning Resources | Lumen LiFi</title>
+        <meta
+          name="description"
+          content="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
+        />
+        <meta
+          name="keywords"
+          content="LiFi academy, learn LiFi, LiFi course, LiFi tutorial, LiFi training, LiFi guide, LumenFi, Lumen LiFi"
+        />
+        <meta property="og:title" content="LiFi Academy | Courses & Learning Resources | Lumen LiFi" />
+        <meta
+          property="og:description"
+          content="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>

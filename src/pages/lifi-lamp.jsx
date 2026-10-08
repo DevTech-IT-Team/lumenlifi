@@ -10,10 +10,14 @@ export default function LifiLampPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
       <Head>
-        <title>Lumen LIFI — LiFi Lamp</title>
+        <title>LiFi Lamp | Wireless Internet Through Light | Lumen LiFi</title>
         <meta
           name="description"
-          content="LiFi Lamp: an indoor décor Lamp for your home with stylish lighting and built-in LiFi technology. Coming soon."
+          content="Meet the LiFi lamp: a smart light that doubles as a secure, high-speed wireless connection. See features and how it works, and get in touch."
+        />
+        <meta
+          name="keywords"
+          content="LiFi lamp, LiFi desk lamp, LiFi device, LiFi light, buy LiFi lamp, LiFi product, LumenFi, Lumen LiFi"
         />
         <link rel="canonical" href="https://lifilumen.com/lifi-lamp" />
       </Head>

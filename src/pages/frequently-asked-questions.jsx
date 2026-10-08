@@ -26,10 +26,14 @@ export default function FrequentlyAskedQuestionsPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
       <Head>
-        <title>Lumen LIFI — Frequently Asked Questions</title>
+        <title>FAQs | Frequently Asked Questions | Lumen LiFi</title>
         <meta
           name="description"
-          content="Browse all frequently asked questions about LumenFi Li-Fi kits, coverage, installation, and security — or email our team with any query."
+          content="Find answers to common questions about LiFi lamps, setup, compatibility and support. Visit the Lumen LiFi Frequently Asked Questions."
+        />
+        <meta
+          name="keywords"
+          content="LiFi help, LiFi FAQ, LiFi setup, LiFi troubleshooting, LiFi support, Lumen LiFi Frequently Asked Questions, LumenFi, Lumen LiFi"
         />
         <link rel="canonical" href="https://lifilumen.com/frequently-asked-questions" />
       </Head>

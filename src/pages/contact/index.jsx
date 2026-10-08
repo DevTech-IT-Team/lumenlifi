@@ -9,10 +9,14 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#030914] text-slate-800 antialiased">
       <Head>
-        <title>Lumen LIFI — Contact Us</title>
+        <title>Contact Us | Lumen LiFi</title>
         <meta
           name="description"
-          content="Get in touch with Lumen LIFI for product questions, orders, billing, technical support, and partnership inquiries."
+          content="Get in touch with Lumen LiFi for product enquiries, quotes, partnerships and support. Send us a message and our team will respond shortly."
+        />
+        <meta
+          name="keywords"
+          content="contact LiFi Lumen, LiFi enquiry, LiFi support, LiFi quote, LiFi partnership, LumenFi, Lumen LiFi"
         />
         <link rel="canonical" href="https://lifilumen.com/contact" />
       </Head>

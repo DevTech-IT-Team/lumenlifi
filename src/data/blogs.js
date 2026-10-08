@@ -53,7 +53,7 @@ export const BLOG_POSTS = [
       {
         type: 'cta',
         title: 'See the Science in a Lamp',
-        text: "The [LiFi Lamp](/lifi-lamp) from [Lumen LiFi](/) turns this exact technology into a piece you'd actually want in your home, available in 4 finishes.",
+        text: "The LiFi Lamp from Lumen LiFi turns this exact technology into a piece you'd actually want in your home, available in 4 finishes.",
         label: 'Pre Order the LiFi Lamp →',
         href: PRE_ORDER_URL,
       },

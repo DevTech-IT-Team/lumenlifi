@@ -34,10 +34,14 @@ export default function BlogsPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-white text-[var(--lumen-navy)] antialiased">
       <Head>
-        <title>Lumen LIFI — Blogs</title>
+        <title>Lumen LiFi Blogs | News, Insights & Updates | Lumen LiFi</title>
         <meta
           name="description"
-          content="News, guides, and ideas about LiFi, LumenFi products, and light-speed home connectivity."
+          content="Read the latest LiFi news, tech insights and industry updates from Lumen LiFi. Stay informed on the future of light-based wireless"
+        />
+        <meta
+          name="keywords"
+          content="LiFi blog, LiFi news, LiFi updates, LiFi trends, wireless technology news, LumenFi, Lumen LiFi"
         />
         <link rel="canonical" href="https://lifilumen.com/blogs" />
       </Head>

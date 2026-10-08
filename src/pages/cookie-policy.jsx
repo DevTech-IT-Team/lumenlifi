@@ -14,10 +14,14 @@ export default function CookiePolicy() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
       <Head>
-        <title>Lumen LIFI — Cookie Policy</title>
+        <title>Cookie Policy | Lumen LiFi</title>
         <meta
           name="description"
-          content={`${BRAND} cookie policy — how we use cookies and similar technologies on our website.`}
+          content="Learn how Lumen LiFi uses cookies and similar technologies, and how you can manage your cookie preferences."
+        />
+        <meta
+          name="keywords"
+          content="cookie policy, cookies, cookie preferences, LiFi Lumen cookies, LumenFi, Lumen LiFi"
         />
         <link rel="canonical" href={`https://${WEBSITE}/cookie-policy`} />
       </Head>

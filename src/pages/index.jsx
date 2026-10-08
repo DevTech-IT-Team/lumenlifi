@@ -20,14 +20,21 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-clip bg-[#030914] antialiased font-sans text-white">
       <Head>
-        <title key="title">Lumen LiFi &mdash; Internet at the Speed of Light</title>
+        <title key="title">LiFi Lamps & Light-Based Wireless Internet | Lumen LiFi</title>
         <meta
           name="description"
-          content="Lumen LiFi turns your everyday ceiling lights into a High-Speed Internet connection. No Wi-Fi, no radio waves &mdash; just pure light-speed connectivity."
+          content="Discover Lumen LiFi: LiFi lamps that deliver fast, secure wireless internet through light. Explore LiFi technology, products, learning resources and more."
           key="description"
         />
-        <meta property="og:title" content="LumenFi | The Speed of Light in Your Living Room" />
-        <meta property="og:description" content="Experience 8.5x faster speeds than fiber with LiFi technology." />
+        <meta
+          name="keywords"
+          content="LiFi, LiFi lamp, light fidelity, LiFi technology, wireless internet through light, secure wireless, LumenFi, Lumen LiFi"
+        />
+        <meta property="og:title" content="LiFi Lamps & Light-Based Wireless Internet | Lumen LiFi" />
+        <meta
+          property="og:description"
+          content="Discover Lumen LiFi: LiFi lamps that deliver fast, secure wireless internet through light. Explore LiFi technology, products, learning resources and more."
+        />
         <meta property="og:image" content="https://lifilumen.com/_next/static/media/hero.1021c54e.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://lifilumen.com/" />
