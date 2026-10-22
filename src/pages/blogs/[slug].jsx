@@ -127,6 +127,17 @@ export default function BlogPostPage({ post }) {
                     </h2>
                   );
                 }
+                if (section.type === 'h3') {
+                  return (
+                    <h3
+                      key={index}
+                      className="!mt-8 !mb-3 !text-lg !font-normal tracking-tight text-[#0D2240]"
+                      style={geist}
+                    >
+                      {section.text}
+                    </h3>
+                  );
+                }
                 if (section.type === 'ul') {
                   return (
                     <ul key={index} className="!mb-4 m-0 list-disc pl-5">
@@ -175,15 +186,26 @@ export default function BlogPostPage({ post }) {
                       >
                         {renderInline(section.text)}
                       </p>
-                      <a
-                        href={section.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-5 inline-flex items-center rounded-full bg-[#00C2C7] px-5 py-2.5 !text-sm !font-semibold text-[#0D2240] transition-colors hover:bg-[#00aeb3]"
-                        style={inter}
-                      >
-                        {section.label}
-                      </a>
+                      {/^https?:\/\//.test(section.href) ? (
+                        <a
+                          href={section.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-5 inline-flex items-center rounded-full bg-[#00C2C7] px-5 py-2.5 !text-sm !font-semibold text-[#0D2240] transition-colors hover:bg-[#00aeb3]"
+                          style={inter}
+                        >
+                          {section.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={section.href}
+                          prefetch={false}
+                          className="mt-5 inline-flex items-center rounded-full bg-[#00C2C7] px-5 py-2.5 !text-sm !font-semibold text-[#0D2240] transition-colors hover:bg-[#00aeb3]"
+                          style={inter}
+                        >
+                          {section.label}
+                        </Link>
+                      )}
                     </div>
                   );
                 }

@@ -3,6 +3,198 @@ const PRE_ORDER_URL =
 
 export const BLOG_POSTS = [
   {
+    slug: 'lifi-use-cases-gaming-streaming-controlled-connectivity',
+    category: 'Use Cases',
+    date: 'Oct 22, 2026',
+    dateIso: '2026-10-22',
+    title: 'LiFi Use Cases That Matter: Gaming, Streaming and More Controlled Connectivity',
+    metaTitle: 'LiFi Use Cases: Gaming, Streaming and Controlled Connectivity',
+    metaDescription:
+      'Discover where LiFi works best: gaming, streaming, home offices, bedrooms and private spaces. See real use cases and how it pairs with WiFi.',
+    metaKeywords:
+      'LiFi use cases, LiFi for gaming, LiFi for streaming, LiFi home office, LiFi private network, controlled connectivity, LiFi applications, LiFi Lamp, light-based internet',
+    excerpt:
+      'Most people first hear about LiFi as “internet through light” and wonder what it is actually good for. The answer is simple. LiFi is at its best in a single room where you want a steady, uncongested, more private connection.',
+    readTime: '8 min read',
+    image: '/images/blog/lifi-use-cases.png',
+    imageAlt:
+      'LiFi Use Cases That Matter: Gaming, Streaming and More Controlled Connectivity',
+    sections: [
+      {
+        type: 'p',
+        text: 'Most people first hear about LiFi as “internet through light” and wonder what it is actually good for. The answer is simple. LiFi is at its best in a single room where you want a steady, uncongested, more private connection, and where your devices stay put for a while.',
+      },
+      {
+        type: 'p',
+        text: 'This guide from [Lumen LiFi](/) walks through the use cases where that matters most, from gaming and streaming to home offices, bedrooms, and shared spaces. If you are new to the technology, start with [What Is LiFi?](/blogs/what-is-lifi) and then come back.',
+      },
+      { type: 'h2', text: 'Where LiFi fits best' },
+      {
+        type: 'p',
+        text: 'LiFi carries data on visible light, so it works room by room. Light stays inside the room it fills, and it does not compete for the crowded radio channels your WiFi uses. That gives LiFi three strengths:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Steadiness: it runs on a separate slice of spectrum, so neighbors’ routers and smart-home gadgets are not in its way.',
+          'Privacy: light does not pass through solid walls, so the signal stays in the room.',
+          'Control: you decide exactly which space gets the extra lane.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'It works best alongside WiFi, not instead of it. WiFi covers the whole home, and LiFi adds performance where you need it.',
+      },
+      { type: 'h2', text: 'Gaming' },
+      {
+        type: 'p',
+        text: 'Gaming is one of the clearest fits. A console or gaming PC sits in one spot for hours, which is exactly how LiFi works best.',
+      },
+      { type: 'h3', text: 'Why it helps' },
+      {
+        type: 'ul',
+        items: [
+          'Less congestion: your match is not sharing airtime with every other device in the house.',
+          'A steadier connection: online games reward consistency, and fewer slowdowns means fewer sudden lag spikes.',
+          'Clean setup: a décor lamp that carries your connection means less visible network hardware around your desk or TV.',
+        ],
+      },
+      { type: 'h3', text: 'How to set it up' },
+      {
+        type: 'ul',
+        items: [
+          'Place the [LiFi Lamp](/lifi-lamp) in the gaming corner with a clear view toward your receiver.',
+          'Keep the receiver positioned so nothing sits between it and the light.',
+          'Leave WiFi on for phones, controllers, and everything else in the house.',
+        ],
+      },
+      { type: 'h2', text: 'Streaming' },
+      {
+        type: 'p',
+        text: 'Streaming in 4K, or several people streaming at once, can strain a busy WiFi network, especially in the evening when the whole household is online.',
+      },
+      { type: 'h3', text: 'Why it helps' },
+      {
+        type: 'ul',
+        items: [
+          'Smoother playback: a dedicated lane for the main TV or media setup reduces buffering caused by congestion.',
+          'Room for everyone else: moving one heavy stream onto LiFi leaves more WiFi capacity for phones and tablets.',
+          'Good for stationary screens: a TV or streaming box does not move, so line of sight is easy to keep.',
+        ],
+      },
+      { type: 'h2', text: 'Home office and remote work' },
+      {
+        type: 'p',
+        text: 'Video calls, large file uploads, and cloud tools all depend on a connection that does not wobble.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Calls that hold up: a steadier connection helps your video and audio stay clear during important meetings.',
+          'Sensitive work stays in the room: because the signal is contained by walls, a LiFi connection is harder to pick up from outside the room. You should still use strong passwords and encryption on every network.',
+          'A defined work zone: a desk with its own light-based connection keeps work traffic separate from the rest of the household.',
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'Give your key room its own light-speed lane',
+        text: 'The LiFi Lamp from Lumen LiFi is an indoor décor lamp with built-in LiFi, designed to work alongside your WiFi. Available in four finishes: White, Black, Silver, and Gold.',
+        label: 'Pre Order the LiFi Lamp →',
+        href: PRE_ORDER_URL,
+      },
+      { type: 'h2', text: 'Bedroom and living space' },
+      {
+        type: 'p',
+        text: 'Not every use case is about performance. Sometimes it is about making a room do more without adding clutter.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Bedroom: a lamp that lights the room and carries your connection keeps cables and extra boxes off your nightstand.',
+          'Living space: one stylish piece handles ambient lighting and a dedicated connection for the main screen.',
+          'Vanity and dressing areas: a decorative lamp that also provides connectivity suits spaces where appearance matters.',
+        ],
+      },
+      { type: 'h2', text: 'More controlled connectivity' },
+      {
+        type: 'p',
+        text: 'This is where LiFi goes beyond convenience. Because light stays where you put it, you get a level of control that radio signals cannot offer.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Private conversations and consultations: room-level containment reduces the chance of a signal being captured from the hallway or street.',
+          'Shared buildings and apartments: your connection does not spill into the unit next door, and their signals do not crowd yours.',
+          'Radio-sensitive environments: spaces that limit radio emissions can use light-based connectivity where WiFi is restricted.',
+          'Planned zones: you can decide which rooms get a light-based lane and keep it out of the ones that do not need it.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'A fair note: light can escape through uncovered windows, so physical containment is a helpful layer, not a replacement for good security habits.',
+      },
+      { type: 'h2', text: 'What to keep in mind' },
+      {
+        type: 'p',
+        text: 'LiFi is a strong fit when:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'the device in the room is mostly stationary,',
+          'there is a reasonably clear path between the light and the receiver, and',
+          'you already have WiFi covering the rest of the space.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'It is not the right tool for moving around the whole house with a phone. That is WiFi’s job, and the two are designed to hand off naturally. Many people describe this as “Your connection, your choice”: everyday WiFi for coverage, light-speed LiFi for the room where it counts.',
+      },
+      {
+        type: 'cta',
+        title: 'Want to learn how it all works?',
+        text: 'The Lumen LiFi Academy explains light-based connectivity from the fundamentals through practical setups.',
+        label: 'Explore the Academy →',
+        href: '/Academy',
+      },
+      { type: 'h2', text: 'Conclusion' },
+      {
+        type: 'p',
+        text: 'LiFi’s best use cases share a pattern: one room, one important activity, and a real benefit from a steadier, more private connection. Gaming rigs, streaming setups, home offices, bedrooms, and controlled spaces all fit that description.',
+      },
+      {
+        type: 'p',
+        text: `You do not have to rebuild your network to try it. Keep WiFi for coverage and add a [LiFi Lamp](/lifi-lamp) where it matters most. The [LiFi Lamp](/lifi-lamp) is available for [preorder](${PRE_ORDER_URL}), and you can also ask to be notified if you would like updates first.`,
+      },
+      { type: 'h2', text: 'Frequently Asked Questions' },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'Is LiFi good for gaming?',
+            a: 'It suits stationary setups like a console or gaming PC well. Because LiFi avoids the crowded radio spectrum, the connection in that room can be steadier, which online games benefit from. Results depend on your setup, so keep a clear path between the light and the receiver.',
+          },
+          {
+            q: 'Can I stream 4K video over LiFi?',
+            a: 'Yes, a TV or streaming box that stays in one place is a good match. Moving a heavy stream onto LiFi can also free up WiFi capacity for the other devices in your home.',
+          },
+          {
+            q: 'Will LiFi work for my whole house?',
+            a: 'LiFi works room by room, so it is best added to the specific spaces where you want extra steadiness or privacy. WiFi remains the right choice for whole-home coverage and for moving devices like phones.',
+          },
+          {
+            q: 'Is LiFi more private than WiFi?',
+            a: 'Light does not pass through solid walls, so the signal stays in the room, which makes it harder to intercept from outside. It is a useful extra layer, but you should still use strong passwords and encryption on all your networks.',
+          },
+          {
+            q: 'Do I need to rewire my home to use LiFi?',
+            a: 'No. The [LiFi Lamp](/lifi-lamp) is placed in a room like any other lamp. You also need a compatible receiver for your device, and your WiFi continues to run alongside it.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: 'how-does-a-light-bulb-send-internet-data',
     category: 'Basics',
     date: 'Oct 5, 2026',
