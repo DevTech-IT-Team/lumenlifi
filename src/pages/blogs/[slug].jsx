@@ -168,6 +168,42 @@ export default function BlogPostPage({ post }) {
                     </ol>
                   );
                 }
+                if (section.type === 'table') {
+                  return (
+                    <div key={index} className="!mb-6 overflow-x-auto rounded-2xl border border-[#0D2240]/10">
+                      <table className="w-full min-w-[28rem] border-collapse text-left">
+                        <thead>
+                          <tr className="bg-[#0D2240]">
+                            {section.headers.map((header) => (
+                              <th
+                                key={header}
+                                className="px-4 py-3 !text-sm !font-normal text-white sm:px-5"
+                                style={geist}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.rows.map((row) => (
+                            <tr key={row[0]} className="even:bg-[#F7FBFF] odd:bg-white">
+                              {row.map((cell, cellIndex) => (
+                                <td
+                                  key={`${row[0]}-${cellIndex}`}
+                                  className="border-t border-[#0D2240]/08 px-4 py-3 !text-sm !font-normal leading-relaxed text-[#0D2240]/75 sm:px-5"
+                                  style={inter}
+                                >
+                                  {renderInline(cell)}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                }
                 if (section.type === 'cta') {
                   return (
                     <div

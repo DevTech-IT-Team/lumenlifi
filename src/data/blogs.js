@@ -3,6 +3,163 @@ const PRE_ORDER_URL =
 
 export const BLOG_POSTS = [
   {
+    slug: 'lifi-myths-debunked',
+    category: 'Basics',
+    date: 'Oct 23, 2026',
+    dateIso: '2026-10-24',
+    title: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
+    metaTitle: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
+    metaDescription:
+      'Separating LiFi fact from fiction: it does not replace WiFi, the room does not have to be dark, and flicker is not visible. See what is actually true.',
+    metaKeywords:
+      'LiFi myths, LiFi vs WiFi, does LiFi replace WiFi, LiFi flicker, LiFi sunlight, LiFi security, LiFi rewiring, LiFi Lamp, Lumen LiFi',
+    excerpt:
+      'Any new technology attracts bold claims and quick dismissals, and LiFi gets both. Some people hear “internet through light” and assume it is science fiction. Others assume it will replace WiFi overnight. Neither is right.',
+    readTime: '8 min read',
+    image: '/images/blog/lifi-myths-debunked.png',
+    imageAlt: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
+    sections: [
+      {
+        type: 'p',
+        text: 'Any new technology attracts bold claims and quick dismissals, and LiFi gets both. Some people hear “internet through light” and assume it is science fiction. Others assume it will replace WiFi overnight. Neither is right.',
+      },
+      {
+        type: 'p',
+        text: 'This guide from [Lumen LiFi](/) sorts the common myths from the facts, so you can decide whether LiFi makes sense for your space. If you are new to the idea, [What Is LiFi?](/blogs/what-is-lifi) is a good place to start.',
+      },
+      { type: 'h2', text: 'Myth 1: “LiFi will replace WiFi”' },
+      {
+        type: 'p',
+        text: 'The reality: LiFi is designed to work alongside WiFi, not replace it.',
+      },
+      {
+        type: 'p',
+        text: 'WiFi passes through walls and follows you around the house, which makes it the right tool for whole-home coverage. LiFi works room by room, because light stays inside the room it fills. The two complement each other: WiFi covers the building, and LiFi adds a steadier, more private lane where you need it.',
+      },
+      { type: 'h2', text: 'Myth 2: “The light has to be bright, or the room has to be dark”' },
+      {
+        type: 'p',
+        text: 'The reality: Neither. LiFi data is carried in extremely fast changes in light intensity, far too quick for the eye to see. The room can be lit at a normal, comfortable level, and the light simply looks steady to you.',
+      },
+      { type: 'h2', text: 'Myth 3: “The flickering will hurt my eyes or give me headaches”' },
+      {
+        type: 'p',
+        text: 'The reality: The switching happens millions of times per second, which is far beyond what the human eye can perceive as flicker. What you see is ordinary, steady light. If you are sensitive to lighting in general, choose fixtures and brightness levels that feel comfortable, as you would with any lamp.',
+      },
+      { type: 'h2', text: 'Myth 4: “LiFi stops working if anything gets in the way”' },
+      {
+        type: 'p',
+        text: 'The reality: This one is partly true, which is why it deserves a fair answer.',
+      },
+      {
+        type: 'p',
+        text: 'LiFi works best with a reasonably clear path between the light and the receiver. A solid object directly in that path can interrupt the connection, much like blocking a flashlight beam. That is why LiFi suits stationary setups such as a desk, a gaming rig, or a TV area, and why your devices stay on WiFi as a backup.',
+      },
+      { type: 'h2', text: 'Myth 5: “LiFi only works in the dark, and sunlight breaks it”' },
+      {
+        type: 'p',
+        text: 'The reality: Daylight is not a problem for the technology in the way people expect. LiFi receivers are designed to pick up the specific pattern of the LiFi light source, not simply “any light.” Bright rooms and sunny windows are not a reason to rule it out.',
+      },
+      { type: 'h2', text: 'Myth 6: “LiFi is just a lab experiment”' },
+      {
+        type: 'p',
+        text: `The reality: LiFi has been demonstrated in research settings for years, and products are now reaching homes. The [LiFi Lamp](/lifi-lamp) from Lumen LiFi is an example: an indoor décor lamp with built-in LiFi, available for [preorder](${PRE_ORDER_URL}) today.`,
+      },
+      {
+        type: 'cta',
+        title: 'See real LiFi in a lamp',
+        text: 'The LiFi Lamp from Lumen LiFi is an indoor décor lamp with built-in LiFi, designed to work alongside your WiFi. Available in four finishes: White, Black, Silver, and Gold.',
+        label: 'Pre Order the LiFi Lamp →',
+        href: PRE_ORDER_URL,
+      },
+      { type: 'h2', text: 'Myth 7: “LiFi is unhackable”' },
+      {
+        type: 'p',
+        text: 'The reality: No network is unhackable, and any source that says so is overselling.',
+      },
+      {
+        type: 'p',
+        text: 'What is true is that light does not pass through solid walls, so a LiFi signal is physically contained in the room. That makes it harder for someone outside to intercept than a radio signal that leaks through drywall and windows. It is a helpful layer of privacy, but it is not a replacement for strong passwords, encryption, and good security habits. Light can also escape through uncovered windows.',
+      },
+      { type: 'h2', text: 'Myth 8: “I would need to rewire my home”' },
+      {
+        type: 'p',
+        text: 'The reality: You do not. The [LiFi Lamp](/lifi-lamp) is placed in a room like any other lamp. You also need a compatible receiver for your device, and your WiFi keeps running as normal.',
+      },
+      { type: 'h2', text: 'Myth 9: “LiFi is only for tech experts”' },
+      {
+        type: 'p',
+        text: 'The reality: Using LiFi is meant to feel like using WiFi. Your laptop or phone sees an internet connection, and you browse, stream, and download as usual. The technology is complex under the hood, but the day-to-day experience is not. If you do want to understand it in depth, the [Lumen LiFi Academy](/Academy) exists for exactly that.',
+      },
+      { type: 'h2', text: 'Myth 10: “If it is not whole-home, it is not worth it”' },
+      {
+        type: 'p',
+        text: 'The reality: Many of the places where performance matters most are single rooms: a home office, a gaming corner, a media room, a bedroom. Adding a dedicated lane in the room that matters, while WiFi covers everything else, is a practical upgrade. As Lumen LiFi puts it, “Your connection, your choice.”',
+      },
+      { type: 'h2', text: 'Quick reference: myth vs. fact' },
+      {
+        type: 'table',
+        headers: ['Myth', 'The fact'],
+        rows: [
+          ['LiFi replaces WiFi', 'LiFi works alongside WiFi'],
+          ['The room must be dark', 'Normal lighting levels work'],
+          ['Flicker causes eye strain', 'The switching is far too fast to see'],
+          ['Anything in the way breaks it', 'A clear path is best, and WiFi is the backup'],
+          ['Sunlight breaks it', 'Receivers look for the LiFi signal pattern'],
+          ['It is just a lab experiment', 'Products are available for preorder'],
+          ['It is unhackable', 'It is more contained, but good security still applies'],
+          ['You need to rewire your home', 'You place a lamp and use a receiver'],
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'Want the full picture?',
+        text: 'The Lumen LiFi Academy covers how light-based connectivity works and how to apply it, from the fundamentals to practical setups.',
+        label: 'Explore the Academy →',
+        href: '/Academy',
+      },
+      { type: 'h2', text: 'Conclusion' },
+      {
+        type: 'p',
+        text: 'Most LiFi myths come from two extremes: treating it as magic or treating it as a gimmick. The truth sits in the middle. LiFi is a practical technology that carries data on light, stays inside the room, avoids the crowded radio spectrum, and works best next to WiFi rather than instead of it. It has real limits, such as needing a reasonably clear path, and real strengths, such as steadiness and privacy in the room where you use it.',
+      },
+      {
+        type: 'p',
+        text: `If that sounds useful for your space, the [LiFi Lamp](/lifi-lamp) is available for [preorder](${PRE_ORDER_URL}), and you can also ask to be notified if you would like updates first.`,
+      },
+      { type: 'h2', text: 'Frequently Asked Questions' },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'Is LiFi real, or is it still just theory?',
+            a: `It is real. LiFi has been developed and tested for years, and consumer products such as the [LiFi Lamp](/lifi-lamp) are now available for [preorder](${PRE_ORDER_URL}).`,
+          },
+          {
+            q: 'Does LiFi work in a bright room or near a sunny window?',
+            a: 'Yes. The receiver is designed to detect the LiFi signal pattern from the LiFi light source rather than any light at all, so normal daylight does not rule it out.',
+          },
+          {
+            q: 'Is LiFi safe for my eyes?',
+            a: 'LiFi uses ordinary LED light that switches far faster than the eye can perceive, so it looks like steady light. As with any lamp, choose a brightness that feels comfortable for you.',
+          },
+          {
+            q: 'Can I use LiFi without WiFi?',
+            a: 'LiFi is designed to work alongside WiFi. WiFi covers the rest of your home and acts as a fallback if the path between the light and the receiver is blocked.',
+          },
+          {
+            q: 'Is LiFi more secure than WiFi?',
+            a: 'Because light does not pass through solid walls, a LiFi signal stays within the room, which makes it harder to intercept from outside. It is a useful extra layer, but you should still use strong passwords and encryption on every network.',
+          },
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ready to separate fact from fiction with real hardware? Explore real LiFi solutions from [Lumen LiFi](/), see the [LiFi Lamp](/lifi-lamp), or [contact our team](/contact) with questions.',
+      },
+    ],
+  },
+  {
     slug: 'lifi-use-cases-gaming-streaming-controlled-connectivity',
     category: 'Use Cases',
     date: 'Oct 22, 2026',
