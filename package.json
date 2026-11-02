@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "analyze": "cross-env ANALYZE=true next build --webpack",
+    "dev": "next dev",
+    "build": "next build",
+    "analyze": "cross-env ANALYZE=true next build",
     "start": "next start",
     "start:prod": "npm run build && next start",
     "preview": "next start",

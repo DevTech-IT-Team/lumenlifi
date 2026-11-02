@@ -14,9 +14,6 @@ const nextConfig = withBundleAnalyzer({
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  turbopack: {
-    root: __dirname,
-  },
   images: {
     unoptimized: true,
     contentDispositionType: 'inline',
