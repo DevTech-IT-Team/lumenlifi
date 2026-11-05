@@ -51,7 +51,8 @@ export default function HomePage() {
             }),
           }}
         />
-        <meta name="google-site-verification" content="T6efBcvjmi30fle2K8zsdweDzPT2YH_t9b9mM6CzjKU" />
+        {/* <meta name="google-site-verification" content="T6efBcvjmi30fle2K8zsdweDzPT2YH_t9b9mM6CzjKU" /> */}
+        <meta name="google-site-verification" content="p7igAeUvEgb6CSKU_7ZtQzpNA2wZIvToRGFQCZ3eIUs" />
       </Head>
 
       <noscript>
