@@ -3,6 +3,185 @@ const PRE_ORDER_URL =
 
 export const BLOG_POSTS = [
   {
+    slug: 'wifi-7-and-lifi-in-one-lamp-how-it-works',
+    category: 'Product Guide',
+    date: 'Nov 6, 2026',
+    dateIso: '2026-11-07',
+    title: 'WiFi 7 and LiFi in One Lamp: How It Works',
+    metaTitle: 'WiFi 7 and LiFi in One Lamp: How It Works',
+    metaDescription:
+      'What does a dual-connectivity lamp do? See how WiFi 7 coverage and LiFi light-based internet work together in one LiFi Lamp, and who it suits.',
+    metaKeywords:
+      'WiFi 7 lamp, dual connectivity lamp, WiFi 7 and LiFi, LiFi Lamp, WiFi 7 coverage, fewer dead zones, light-based internet, smart decorative lamp, hybrid WiFi LiFi',
+    focusKeyword: 'dual-connectivity lamp',
+    excerpt:
+      'One piece of decor gives your room two kinds of connection: WiFi 7 for coverage and LiFi for a light-based connection in the room itself. Here is how they work together.',
+    readTime: '7 min read',
+    image: '/images/blog/lifi blog banner 6 nov.png',
+    imageAlt: 'WiFi 7 and LiFi working together in one Lumen LiFi Lamp',
+    sections: [
+      {
+        type: 'p',
+        text: '“Dual-connectivity lamp” sounds like a lot of jargon packed into a lamp. Strip it back and the idea is simple. One piece of decor gives your room two kinds of connection: next-generation WiFi 7 for coverage, and LiFi for a light-based connection in the room itself.',
+      },
+      {
+        type: 'p',
+        text: 'This guide from [Lumen LiFi](/) explains what each half does, how they work together, and who a lamp like this is for. If you are new to the technology, start with [What Is LiFi?](/what-is-lifi).',
+      },
+      { type: 'h2', text: 'What “dual connectivity” means' },
+      {
+        type: 'p',
+        text: 'The LiFi Lamp is an indoor decor lamp that combines two technologies:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'WiFi 7: the latest WiFi generation, designed for stronger coverage and better handling of many devices at once.',
+          'LiFi: internet carried on light, which stays inside the room and avoids the crowded radio spectrum.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'The idea behind it is “Your connection, your choice”: everyday WiFi for coverage, light-speed LiFi where it counts. You are not picking one technology over the other. The lamp brings both into a single, good-looking piece.',
+      },
+      { type: 'h2', text: 'The WiFi 7 half: coverage across your home' },
+      {
+        type: 'p',
+        text: 'WiFi 7 is built for homes that are busier than they used to be, with more phones, screens, speakers, cameras, and smart devices all online together. In the LiFi Lamp, the WiFi 7 side is there to give you a stronger signal across your rooms, with fewer dead zones.',
+      },
+      { type: 'p', text: 'What that means in everyday terms:' },
+      {
+        type: 'ul',
+        items: [
+          'Wider coverage: a stronger signal reaching more of your home.',
+          'Ready for more devices: WiFi 7 is designed with growing device counts in mind.',
+          'A stable foundation: this is the layer that follows you from room to room, including to phones and other devices that move around.',
+        ],
+      },
+      { type: 'h2', text: 'The LiFi half: a light-based lane in the room' },
+      {
+        type: 'p',
+        text: 'LiFi works differently. A LiFi-enabled light switches its LED on and off millions of times per second, far too fast for the eye to notice, and a small receiver turns those changes back into data. Because light stays inside the room it fills, LiFi gives the space around the lamp its own connection that does not compete for radio channels.',
+      },
+      { type: 'p', text: 'What that means in everyday terms:' },
+      {
+        type: 'ul',
+        items: [
+          'A dedicated lane: a light-based connection in the room, separate from the crowded radio airwaves.',
+          'Room-level privacy: light does not pass through solid walls, so the signal stays in the room.',
+          'Best for stationary use: a desk, a gaming setup, a TV area, or a bedside spot.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'LiFi works best with a reasonably clear path between the lamp and your receiver, so keep that line open.',
+      },
+      { type: 'h2', text: 'How the two work together' },
+      { type: 'p', text: 'Think of it as two layers.' },
+      {
+        type: 'ol',
+        items: [
+          'WiFi 7 is the wide layer. It covers the home and follows your devices as you move.',
+          'LiFi is the focused layer. It gives one room a steadier, more private light-based lane.',
+          'Your devices use whichever suits the moment. Walk through the house on WiFi, then settle at your desk or gaming setup in the lamp’s light.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'If something blocks the light, your device can continue on WiFi. That is the practical benefit of having both in one place.',
+      },
+      { type: 'h2', text: 'A quick comparison' },
+      {
+        type: 'table',
+        headers: ['Feature', 'WiFi 7 side', 'LiFi side'],
+        rows: [
+          ['Carrier', 'Radio waves', 'Visible light'],
+          ['Coverage', 'Across your home', 'In the room around the lamp'],
+          ['Best for', 'Phones, tablets, moving devices, smart gadgets', 'Stationary setups: desk, console, TV'],
+          ['Privacy', 'Signal can extend beyond walls', 'Signal stays within the room'],
+          ['Needs a clear path?', 'No', 'Generally yes, between lamp and receiver'],
+        ],
+      },
+      { type: 'h2', text: 'Who a dual-connectivity lamp suits' },
+      {
+        type: 'ul',
+        items: [
+          'Home workers: WiFi 7 for the whole home, LiFi for a steadier desk connection.',
+          'Gamers and streamers: a dedicated lane for the setup that stays in one place.',
+          'Renters and apartment dwellers: a stylish piece that does more without extra boxes, and keeps a room’s connection contained.',
+          'Style-conscious households: connectivity that looks like decor, available in four finishes.',
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'See what a dual-connectivity lamp can do for your home',
+        text: 'The LiFi Lamp from Lumen LiFi is an indoor decor lamp that combines WiFi 7 and LiFi, available in four finishes: White, Black, Silver, and Gold. It is available for preorder now.',
+        label: 'Pre Order the LiFi Lamp →',
+        href: 'https://lifilumen.com/lifi-lamp',
+      },
+      { type: 'h2', text: 'What it does not do' },
+      { type: 'p', text: 'An honest look includes the limits.' },
+      {
+        type: 'ul',
+        items: [
+          'LiFi does not pass through walls. It covers the room around the lamp, which is why WiFi handles the rest of your home.',
+          'LiFi needs a reasonably clear path. A solid object between the lamp and your receiver can interrupt the light-based connection.',
+          'You need a compatible receiver for LiFi. Most devices do not have built-in LiFi receivers yet.',
+          'Accessories are not included. The lamp does not ship with hooks or shelves, and any styling extras are your own additions.',
+        ],
+      },
+      { type: 'h2', text: 'Why one lamp instead of several devices' },
+      {
+        type: 'p',
+        text: 'A common home network grows by accumulation: a router, an extender, a mesh node, maybe a separate lamp. A dual-connectivity lamp consolidates some of that into a single piece you would want in the room anyway. Fewer visible boxes, fewer cables, and a room that looks like a room.',
+      },
+      { type: 'h2', text: 'Want to understand both technologies?' },
+      {
+        type: 'p',
+        text: 'The Lumen LiFi Academy covers how light-based connectivity works and how to apply it, from the fundamentals to practical setups. [Explore the Academy](/Academy).',
+      },
+      { type: 'h2', text: 'Conclusion' },
+      {
+        type: 'p',
+        text: 'A dual-connectivity lamp is a simple idea with a practical payoff. WiFi 7 gives your home stronger coverage and room for more devices. LiFi gives the room around the lamp its own light-based lane. Together, in one piece of decor, they let you keep the flexibility of WiFi and add the steadiness and privacy of light.',
+      },
+      {
+        type: 'p',
+        text: 'If that sounds right for your space, the [LiFi Lamp is available for preorder](/lifi-lamp), and you can also ask to be notified if you would like updates first.',
+      },
+      { type: 'h2', text: 'Frequently Asked Questions' },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'What does a dual-connectivity lamp do?',
+            a: 'It combines two technologies in one piece of decor: WiFi 7 for coverage across your home, and LiFi for a light-based connection in the room around the lamp.',
+          },
+          {
+            q: 'What is WiFi 7?',
+            a: 'It is the latest WiFi generation, designed for stronger coverage and better performance with many devices connected at once.',
+          },
+          {
+            q: 'Does LiFi replace WiFi in the lamp?',
+            a: 'No. The two are designed to work together. WiFi covers your home and moving devices, while LiFi gives a nearby, stationary device its own light-based lane.',
+          },
+          {
+            q: 'What happens if something blocks the light?',
+            a: 'A solid object between the lamp and your receiver can interrupt the LiFi connection, much like blocking a flashlight beam. Your device can continue on WiFi in the meantime.',
+          },
+          {
+            q: 'Do I need a special receiver for the LiFi side?',
+            a: 'Yes. Most devices do not have built-in LiFi receivers yet, so you use a compatible receiver with your laptop or other equipment.',
+          },
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ready to see it in your home? [Pre order the LiFi Lamp](/lifi-lamp), [explore Lumen LiFi](/), or [contact our team](/contact) with questions.',
+      },
+    ],
+  },
+  {
     "slug": "home-workspace-lighting-for-darker-evenings",
     "category": "Lifestyle",
     "date": "Nov 2, 2026",
