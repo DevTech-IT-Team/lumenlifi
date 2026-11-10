@@ -3,6 +3,245 @@ const PRE_ORDER_URL =
 
 export const BLOG_POSTS = [
   {
+    "slug": "is-wifi-7-worth-the-upgrade",
+    "category": "Product Guide",
+    "date": "Nov 10, 2026",
+    "dateIso": "2026-11-10",
+    "title": "Is WiFi 7 Worth the Upgrade? What It Fixes, What It Doesn’t, and Where LiFi Helps",
+    "metaTitle": "Is WiFi 7 Worth the Upgrade? What It Fixes and Doesn’t | Lumen LiFi",
+    "metaDescription": "Is WiFi 7 worth it? See what it improves, what it can’t fix, and where LiFi adds a light-based lane that complements your home network.",
+    "metaKeywords": "is WiFi 7 worth it, WiFi 7 upgrade, WiFi 7 vs WiFi 6, WiFi 7 explained, should I upgrade to WiFi 7, WiFi 7 and LiFi, WiFi 7 dead zones, LiFi Lamp, hybrid home network",
+    "focusKeyword": "is WiFi 7 worth it",
+    "excerpt": "Every few years a new WiFi generation arrives with big promises. WiFi 7 is the latest. Here is what it improves, what it cannot fix, and where LiFi adds a dedicated light-based lane.",
+    "readTime": "7 min read",
+    "image": "/images/blog/Lifi blog banner_10_nov.webp",
+    "imageAlt": "Is WiFi 7 Worth the Upgrade? What It Fixes, What It Doesn’t, and Where LiFi Helps",
+    "sections": [
+      {
+        "type": "p",
+        "text": "Every few years a new WiFi generation arrives with big numbers and bigger promises. WiFi 7 is the latest, and it is showing up in new routers, phones, and laptops. If you are wondering whether it is worth upgrading, the honest answer is: it depends on your home, your devices, and what is actually slowing you down."
+      },
+      {
+        "type": "p",
+        "text": "This guide from [Lumen LiFi](/) explains what WiFi 7 improves, what it cannot fix, and where a light-based connection can fill the gaps. If you are new to LiFi, start with [What Is LiFi?](/what-is-lifi)."
+      },
+      {
+        "type": "h2",
+        "text": "What WiFi 7 is"
+      },
+      {
+        "type": "p",
+        "text": "WiFi 7 (technically 802.11be) is the newest generation of WiFi. It builds on WiFi 6 and 6E with a few headline changes:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wider channels: WiFi 7 supports channels up to 320 MHz wide, which means more room for data when conditions allow.",
+          "Multi-Link Operation (MLO): a compatible device can use more than one band at once, which can improve stability and reduce delays.",
+          "Better use of the 6 GHz band: more, less crowded channels for devices that support it.",
+          "Higher theoretical peak speeds: the headline figures are far higher than most homes will ever see in practice."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The key phrase is “theoretical.” Real-world results depend on your devices, your home’s layout, and your internet plan."
+      },
+      {
+        "type": "h2",
+        "text": "What WiFi 7 fixes"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Crowded networks with many devices: With wider channels and Multi-Link Operation, WiFi 7 is designed to handle busy households better. If several people stream, game, and video call at the same time, a WiFi 7 setup can help keep things smoother.",
+          "Congestion on older bands: The 6 GHz band has more room and fewer legacy devices competing for it. If your current network is clogged on 2.4 GHz and 5 GHz, moving capable devices to 6 GHz can help.",
+          "Delays and stability for demanding tasks: Multi-Link Operation is aimed at more consistent performance, which matters for gaming, video calls, and other time-sensitive tasks.",
+          "Future-proofing: As more devices adopt WiFi 7, a WiFi 7 router will keep pace with them rather than become the bottleneck."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "What WiFi 7 doesn’t fix"
+      },
+      {
+        "type": "p",
+        "text": "This is the part marketing tends to skip."
+      },
+      {
+        "type": "ol",
+        "items": [
+          "A slow internet plan: If your internet service delivers a modest speed, a faster router cannot make the plan faster. WiFi 7 improves the link between your devices and your router, not the connection from your provider into your home.",
+          "Devices that are not WiFi 7: WiFi 7 is backward compatible, but older phones and laptops will connect using older standards and will not see the new benefits. The upgrade pays off most when your devices also support WiFi 7.",
+          "Walls, floors, and distance: Higher-frequency signals, including 6 GHz, generally travel less far and are weakened more by walls and floors. A WiFi 7 router in the wrong spot can still leave dead zones.",
+          "Interference you do not control: Neighbors’ networks, microwaves, Bluetooth gadgets, and other radio sources still share the airwaves. WiFi 7 gives you more room to maneuver, but it does not remove the shared nature of radio spectrum.",
+          "Poor placement and setup: A router tucked behind a cabinet, or a weak connection to your modem, limits any WiFi generation."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "So, is WiFi 7 worth it?"
+      },
+      {
+        "type": "p",
+        "text": "A simple way to decide:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Your situation",
+          "WiFi 7 upgrade"
+        ],
+        "rows": [
+          [
+            "Many devices, busy household, and some newer devices",
+            "Likely worth considering"
+          ],
+          [
+            "Mostly older devices",
+            "Less urgent, the benefits will be limited"
+          ],
+          [
+            "Slow internet plan is the real bottleneck",
+            "Fix the plan first"
+          ],
+          [
+            "Dead zones in specific rooms",
+            "Placement or a mesh setup may help more than a new router alone"
+          ],
+          [
+            "You are buying a router anyway",
+            "WiFi 7 is a sensible choice for the future"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Where LiFi helps"
+      },
+      {
+        "type": "p",
+        "text": "WiFi 7 improves radio. LiFi adds something radio cannot offer: a connection carried on light."
+      },
+      {
+        "type": "p",
+        "text": "A LiFi-enabled light switches its LED on and off millions of times per second, too fast for the eye to see, and a small receiver turns those changes into data. Because light uses a different part of the spectrum, it does not compete with your radio airwaves, and because light does not pass through solid walls, the signal stays in the room."
+      },
+      {
+        "type": "p",
+        "text": "That helps in exactly the places WiFi 7 leaves open:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Room-level steadiness: a dedicated lane for a desk, gaming setup, or TV area that does not share airtime with the rest of the house.",
+          "Less dependence on radio spectrum: moving one heavy use onto light leaves more WiFi capacity for everything else.",
+          "Privacy in a single room: the signal is physically contained by walls, which suits work from home."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "LiFi has its own limits. It works room by room, needs a reasonably clear path between the light and the receiver, and requires a compatible receiver, so it does not replace WiFi. It complements it."
+      },
+      {
+        "type": "cta",
+        "title": "WiFi 7 and LiFi in one lamp",
+        "text": "The LiFi Lamp from Lumen LiFi is an indoor décor lamp that combines WiFi 7 and LiFi, available in four finishes: White, Black, Silver, and Gold. It is available for preorder now.",
+        "label": "Pre Order the LiFi Lamp →",
+        "href": PRE_ORDER_URL
+      },
+      {
+        "type": "h2",
+        "text": "The hybrid approach"
+      },
+      {
+        "type": "p",
+        "text": "The practical answer to “WiFi 7 or LiFi?” is both, each doing what it does best."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "WiFi 7 covers the home and serves moving and WiFi-only devices.",
+          "LiFi gives the room where you work, play, or stream a steadier, more private lane.",
+          "Your devices use whichever suits the moment."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This is the idea behind “Your connection, your choice.” For more on how the two fit together in a single piece of décor, see our guide to [WiFi 7 and LiFi in one lamp](/blogs/wifi-7-and-lifi-in-one-lamp-how-it-works)."
+      },
+      {
+        "type": "h2",
+        "text": "A quick upgrade checklist"
+      },
+      {
+        "type": "p",
+        "text": "Before you spend money, check:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Your internet plan speed. Is it the limit?",
+          "Your devices. How many support WiFi 7?",
+          "Your router placement. Is it central and unobstructed?",
+          "Your problem rooms. Are they dead zones, or just busy rooms?",
+          "Your needs. Do you want a better whole-home network, a better single room, or both?"
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Want to understand the technology behind your network?",
+        "text": "The Lumen LiFi Academy covers how light-based connectivity works and how to apply it, from the fundamentals to practical setups.",
+        "label": "Explore the Academy →",
+        "href": "/Academy"
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion"
+      },
+      {
+        "type": "p",
+        "text": "WiFi 7 is a real step forward for busy homes with newer devices, and it is a sensible choice if you are buying a router anyway. But it cannot speed up a slow internet plan, upgrade older devices, or defeat walls and shared airwaves."
+      },
+      {
+        "type": "p",
+        "text": `LiFi helps fill those gaps by adding a light-based lane in the room where you need it most. Used together, they give you wide coverage and a steadier, more private connection where it counts. The [LiFi Lamp](/lifi-lamp) is available for [preorder](${PRE_ORDER_URL}), and you can also ask to be notified if you would like updates first.`
+      },
+      {
+        "type": "h2",
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "q": "Is WiFi 7 faster than WiFi 6?",
+            "a": "In ideal conditions, yes. WiFi 7 supports wider channels and features like Multi-Link Operation. In real homes, results depend on your devices, your layout, and your internet plan, so expect smaller gains than the headline numbers."
+          },
+          {
+            "q": "Do I need WiFi 7 devices to benefit?",
+            "a": "Mostly, yes. WiFi 7 routers work with older devices, but those devices connect using older standards and will not see the new benefits."
+          },
+          {
+            "q": "Will WiFi 7 fix my dead zones?",
+            "a": "Not by itself. Higher-frequency signals are often weakened by walls and distance, so router placement or a mesh system may matter more than the WiFi generation."
+          },
+          {
+            "q": "Can LiFi replace WiFi 7?",
+            "a": "No. LiFi works room by room and needs a reasonably clear path to a receiver, so WiFi remains the backbone for whole-home coverage. LiFi is designed to work alongside it."
+          },
+          {
+            "q": "Should I wait for WiFi 7 to get cheaper?",
+            "a": "That depends on your needs. If your current network works well, there is little pressure to upgrade. If you are replacing a router anyway, WiFi 7 is a reasonable way to prepare for the devices you will buy next."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": `Ready to add a light-based lane to your WiFi? [Pre order the LiFi Lamp](${PRE_ORDER_URL}), [explore Lumen LiFi](/), or [contact our team](/contact) with questions.`
+      }
+    ]
+  },
+  {
     slug: 'wifi-7-and-lifi-in-one-lamp-how-it-works',
     category: 'Product Guide',
     date: 'Nov 6, 2026',
