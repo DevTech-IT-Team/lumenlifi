@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import GoogleSheetContactForm from '../../components/common/GoogleSheetContactForm';
 import FinalCTASection from '../../components/sections/home/FinalCTASection';
 import aiMesh from '../../../public/images/academy/aiMesh.jpg';
 import Transport from '../../../public/images/academy/autoTransport.jpg';
@@ -962,8 +963,6 @@ function MonetizeSection() {
 }
 
 /* ── SECTION 6: REGISTRATION FORM ── */
-const ACADEMY_FORM_ID = 'bghQvMWZ1Czv5SyKPgnk';
-
 function ApplicationForm() {
   const trustItems = [
     { icon: Shield, label: 'Your Data is Safe', desc: 'We keep your information secure and never share it without your consent.' },
@@ -1030,15 +1029,9 @@ function ApplicationForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="w-full min-w-0"
+            className="w-full min-w-0 rounded-[1.5rem] border border-[var(--lumen-border)] bg-white p-5 shadow-[0_12px_40px_rgba(13,34,64,0.08)] sm:p-8"
           >
-            <iframe
-              src={`https://api.wonderengine.ai/widget/form/${ACADEMY_FORM_ID}`}
-              title="LumenFi Academy Registration"
-              className="block w-full border-0 bg-transparent"
-              style={{ width: '100%', height: '820px', minHeight: '820px' }}
-              allow="clipboard-write"
-            />
+            <GoogleSheetContactForm source="Academy Page" />
           </motion.div>
         </div>
       </div>

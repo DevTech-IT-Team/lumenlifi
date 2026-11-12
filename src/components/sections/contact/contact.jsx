@@ -1,21 +1,11 @@
-import { useEffect } from 'react';
 import { ArrowRight, Calendar, Mail, MapPin, Phone } from 'lucide-react';
+import GoogleSheetContactForm from '../../common/GoogleSheetContactForm';
 
 const SALES_EMAIL = 'rupali@lifilumen.com';
 const OPS_EMAIL = 'operations@lumenlifi.com';
 const APPOINTMENT_URL = 'https://calendly.com/enquaries-lifilumen/30min?month=2026-09';
-const FORM_ID = '0LXv19xiVsNzt9xtK3Ih';
-const FORM_EMBED_SCRIPT = 'https://api.wonderengine.ai/js/form_embed.js';
 
 export default function ContactFormBlock() {
-  useEffect(() => {
-    if (!document.querySelector(`script[src="${FORM_EMBED_SCRIPT}"]`)) {
-      const script = document.createElement('script');
-      script.src = FORM_EMBED_SCRIPT;
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
 
   return (
     <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
@@ -137,25 +127,8 @@ export default function ContactFormBlock() {
       </div>
 
       {/* Right — form card */}
-      <div className="w-full min-w-0 rounded-[1.5rem] bg-white p-4 shadow-[0_12px_40px_rgba(13,34,64,0.08)] sm:p-6 lg:col-span-7 lg:p-8">
-        <iframe
-          src={`https://api.wonderengine.ai/widget/form/${FORM_ID}`}
-          className="min-h-[28rem] w-full sm:min-h-[616px]"
-          style={{ width: '100%', height: '100%', border: 'none', borderRadius: '12px' }}
-          id={`inline-${FORM_ID}`}
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Lumen Li-Fi Contact Form"
-          data-height="616"
-          data-layout-iframe-id={`inline-${FORM_ID}`}
-          data-form-id={FORM_ID}
-          title="Lumen Li-Fi Contact Form"
-        />
+      <div className="w-full min-w-0 rounded-[1.5rem] bg-white p-5 shadow-[0_12px_40px_rgba(13,34,64,0.08)] sm:p-7 lg:col-span-7 lg:p-8">
+        <GoogleSheetContactForm source="Contact Page" />
       </div>
     </div>
   );
