@@ -67,9 +67,8 @@ export default function Header() {
 
   const navLinks = () => (
     <nav
-      className={`hidden items-center lg:flex ${
-        compactNav ? 'gap-5 xl:gap-7' : 'gap-4 xl:gap-5'
-      }`}
+      className={`hidden items-center lg:flex ${compactNav ? 'gap-5 xl:gap-7' : 'gap-4 xl:gap-5'
+        }`}
       aria-label="Primary"
     >
       {navConfig.map((item) => {
@@ -79,9 +78,8 @@ export default function Header() {
             key={item.label}
             href={item.href}
             prefetch={false}
-            className={`whitespace-nowrap  !font-normal transition-colors duration-300 xl:!text-sm ${
-              active ? 'text-white' : 'text-white/55 hover:text-white'
-            }`}
+            className={`whitespace-nowrap  !font-normal transition-colors duration-300 xl:!text-sm ${active ? 'text-white' : 'text-white/55 hover:text-white'
+              }`}
           >
             {item.label}
           </Link>
@@ -114,7 +112,7 @@ export default function Header() {
   const getStartedMotion = (inline = false) => (
     <motion.div layoutId="nav-get-started" transition={layoutTransition}>
       <Link
-        href="https://lmsathena.com/login"
+        href="https://lumen-lifi.lmsathena.com/"
         className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
       >
         <span>Login</span>
@@ -129,25 +127,22 @@ export default function Header() {
         <motion.div
           layout
           transition={layoutTransition}
-          className={`mx-auto flex max-w-[1380px] items-center gap-2 px-4 sm:px-6 ${
-            compactNav ? 'justify-center' : 'justify-between'
-          }`}
+          className={`mx-auto flex max-w-[1380px] items-center gap-2 px-4 sm:px-6 ${compactNav ? 'justify-center' : 'justify-between'
+            }`}
         >
           <motion.div
             layout
             layoutId="nav-left-pill"
             transition={layoutTransition}
-            className={`${pillClass} min-w-0 py-2.5 ${
-              compactNav
-                ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
-                : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
-            } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
+            className={`${pillClass} min-w-0 py-2.5 ${compactNav
+              ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
+              : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
+              } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
           >
             {brandLink}
             <div
-              className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${
-                compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
-              }`}
+              className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
+                }`}
               aria-hidden="true"
             />
             <div className={compactNav ? 'flex flex-1 justify-center' : 'contents'}>
@@ -193,22 +188,21 @@ export default function Header() {
                 href={item.href}
                 prefetch={false}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center rounded-xl px-3 py-2.5 text-xs !font-normal transition-all ${
-                  isNavActive(router.pathname, item)
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/60 hover:bg-white/5 hover:text-white'
-                }`}
+                className={`flex items-center rounded-xl px-3 py-2.5 text-xs !font-normal transition-all ${isNavActive(router.pathname, item)
+                  ? 'bg-white/10 text-white'
+                  : 'text-white/60 hover:bg-white/5 hover:text-white'
+                  }`}
               >
                 {item.label}
               </Link>
             ))}
             <div className="border-t border-white/10 pt-2">
               <Link
-                href="https://lmsathena.com/login"
+                href="https://lumen-lifi.lmsathena.com/"
                 onClick={() => setIsOpen(false)}
                 className={`${getStartedBtnClass} w-full justify-center`}
               >
-                <span>Get Started</span>
+                <span>Login</span>
                 <ArrowRight className="h-3 w-3" />
               </Link>
             </div>

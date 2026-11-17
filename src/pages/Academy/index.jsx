@@ -1041,6 +1041,16 @@ function ApplicationForm() {
 
 /* ── ROOT PAGE EXPORT ── */
 export default function AcademyPage() {
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.pathname.toLowerCase() === '/academy' &&
+      window.location.pathname !== '/Academy'
+    ) {
+      window.location.replace('/Academy' + window.location.search + window.location.hash);
+    }
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[#0D2240]">
       <Head>
@@ -1058,6 +1068,7 @@ export default function AcademyPage() {
           property="og:description"
           content="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
         />
+        <link rel="canonical" href="https://lifilumen.com/Academy" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
