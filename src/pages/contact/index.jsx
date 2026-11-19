@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import PageMeta from '../../components/seo/PageMeta';
 import { ArrowRight, Mail } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
@@ -8,17 +9,21 @@ import { ContactFormBlock } from '../../components/sections/contact';
 export default function ContactPage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#030914] text-slate-800 antialiased">
+      <PageMeta
+        title="Contact Us | Lumen LiFi"
+        description="Get in touch with Lumen LiFi for product enquiries, quotes, partnerships and support. Send us a message and our team will respond shortly."
+        path="/contact"
+        image="/images/contact/contact1.webp"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ]}
+      />
       <Head>
-        <title>Contact Us | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Get in touch with Lumen LiFi for product enquiries, quotes, partnerships and support. Send us a message and our team will respond shortly."
-        />
         <meta
           name="keywords"
           content="contact LiFi Lumen, LiFi enquiry, LiFi support, LiFi quote, LiFi partnership, LumenFi, Lumen LiFi"
         />
-        <link rel="canonical" href="https://lifilumen.com/contact" />
       </Head>
 
       <Header />
@@ -28,7 +33,7 @@ export default function ContactPage() {
         <section className="relative isolate flex min-h-[min(100svh,920px)] w-full flex-col overflow-hidden bg-[#030914]">
           <div className="absolute inset-0 -z-20">
             <Image
-              src="/images/contact/contact1.png"
+              src="/images/contact/contact1.webp"
               alt="LumenFi RevF hardware under LiFi light"
               fill
               priority

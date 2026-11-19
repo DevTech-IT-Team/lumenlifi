@@ -98,7 +98,6 @@ export default function Header() {
           src="/brand/logo.webp"
           alt="LumenFi"
           fill
-          priority
           sizes="32px"
           className="object-contain"
         />

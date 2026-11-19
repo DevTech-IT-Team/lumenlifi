@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Header from '../components/common/Header';
+import PageMeta from '../components/seo/PageMeta';
 import HeroSection from '../components/sections/home/HeroSection';
 import HeroPreorderSection from '../components/sections/home/HeroPreorderSection';
 import AboutSection from '../components/sections/home/AboutSection';
@@ -19,39 +20,17 @@ const ComingSoonPolePopup = dynamic(() => import('../components/common/ComingSoo
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-clip bg-[#030914] antialiased font-sans text-white">
+      <PageMeta
+        title="LiFi Lamps & Light-Based Wireless Internet | Lumen LiFi"
+        description="Discover Lumen LiFi: LiFi lamps that deliver fast, secure wireless internet through light. Explore LiFi technology, products, learning resources and more."
+        path="/"
+        image="/images/hero/wifiandlifi.webp"
+      />
       <Head>
-        <title key="title">LiFi Lamps & Light-Based Wireless Internet | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Discover Lumen LiFi: LiFi lamps that deliver fast, secure wireless internet through light. Explore LiFi technology, products, learning resources and more."
-          key="description"
-        />
         <meta
           name="keywords"
           content="LiFi, LiFi lamp, light fidelity, LiFi technology, wireless internet through light, secure wireless, LumenFi, Lumen LiFi"
         />
-        <meta property="og:title" content="LiFi Lamps & Light-Based Wireless Internet | Lumen LiFi" />
-        <meta
-          property="og:description"
-          content="Discover Lumen LiFi: LiFi lamps that deliver fast, secure wireless internet through light. Explore LiFi technology, products, learning resources and more."
-        />
-        <meta property="og:image" content="https://lifilumen.com/_next/static/media/hero.1021c54e.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://lifilumen.com/" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'LumenFi',
-              url: 'https://lifilumen.com',
-              logo: 'https://lifilumen.com/logo.png',
-              description: 'Provider of cutting-edge LiFi technology for high-speed, secure wireless communication via light.',
-            }),
-          }}
-        />
-        {/* <meta name="google-site-verification" content="T6efBcvjmi30fle2K8zsdweDzPT2YH_t9b9mM6CzjKU" /> */}
         <meta name="google-site-verification" content="p7igAeUvEgb6CSKU_7ZtQzpNA2wZIvToRGFQCZ3eIUs" />
       </Head>
 

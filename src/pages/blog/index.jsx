@@ -13,8 +13,9 @@ export default function BlogRedirect() {
   return (
     <Head>
       <title>Redirecting…</title>
+      <meta name="robots" content="noindex, follow" />
       <meta httpEquiv="refresh" content="0;url=/blogs" />
-      <link rel="canonical" href="https://lifilumen.com/blogs" />
+      <link key="canonical" rel="canonical" href="https://lifilumen.com/blogs" />
     </Head>
   );
 }

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, Lock } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import PageMeta from '../components/seo/PageMeta';
 
 const COMPANY = 'Lumen LIFI';
 const BRAND = 'Lumen LIFI';
@@ -13,12 +14,16 @@ const EMAIL = 'operations@lumenlifi.com';
 export default function PrivacyPolicy() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+      <PageMeta
+        title="Privacy Policy | Lumen LiFi"
+        description="Read how Lumen LiFi collects, uses and protects your personal data when you visit our website or use our products and services."
+        path="/privacy-policy"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Privacy Policy', path: '/privacy-policy' },
+        ]}
+      />
       <Head>
-        <title>Privacy Policy | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Read how Lumen LiFi collects, uses and protects your personal data when you visit our website or use our products and services."
-        />
         <meta
           name="keywords"
           content="privacy policy, data protection, LiFi Lumen privacy, LumenFi, Lumen LiFi"

@@ -76,13 +76,12 @@ export default function LiFiEcosystem() {
 
             <div className="relative flex flex-grow items-center justify-center p-4 sm:p-8">
               <Image
-                src="/images/pole/poles_ind.png"
+                src="/images/pole/poles_ind.webp"
                 alt="LumenFi LiFi Lamp in a modern home interior"
                 width={900}
                 height={700}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
               />
             </div>
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
+import PageMeta from '../../components/seo/PageMeta';
+import { faqSchema } from '../../lib/schema';
+import { FAQ_ITEMS } from '../../components/sections/products/faqData';
 import {
   Cpu,
   Zap,
@@ -31,7 +33,7 @@ const productsData = [
     icon: Cpu,
     accent: 'from-gold-500/10 to-amber-600/10 border-amber-300',
     textAccent: 'text-gold-700',
-    imageUrl: '/images/products/Lumen Core Downlighters.png',
+    imageUrl: '/images/products/Lumen Core Downlighters.webp',
     specs: ['Super Fast Internet Beams', 'Adjustable Room Lighting', 'No Radio Wave Mess'],
     rating: 4.9,
     reviews: 142,
@@ -47,7 +49,7 @@ const productsData = [
     icon: Laptop,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Photon Dongle.png',
+    imageUrl: '/images/products/Lumen Photon Dongle.webp',
     specs: ['Tiny Light Receiver', 'Easy Plug-and-Play Setup', 'Private Fast Internet Beam'],
     rating: 4.8,
     reviews: 96,
@@ -63,7 +65,7 @@ const productsData = [
     icon: Sun,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen 8k TV.png',
+    imageUrl: '/images/products/Lumen Matrix 8K TV.webp',
     specs: ['Perfect 8K Video Quality', 'Smooth Video Gaming', 'Never Slows Down'],
     rating: 5.0,
     reviews: 34,
@@ -79,7 +81,7 @@ const productsData = [
     icon: Laptop,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Studio Laptop.png',
+    imageUrl: '/images/products/Lumen Studio Laptop.webp',
     specs: ['Built-in Light Receiver', 'Super Fast Cable-Free Speeds', 'Great for Heavy Apps'],
     rating: 4.9,
     reviews: 51,
@@ -95,7 +97,7 @@ const productsData = [
     icon: Activity,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Echo Soundbar.png',
+    imageUrl: '/images/products/Lumen Echo Soundbar.webp',
     specs: ['Super Fast Light Beams', 'Instant Voice Answers', 'Perfect Sound Sync'],
     rating: 4.7,
     reviews: 88,
@@ -111,7 +113,7 @@ const productsData = [
     icon: Shield,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Sentinel Video Doorbell.png',
+    imageUrl: '/images/products/Lumen Sentinel Video Doorbell.webp',
     specs: ['Porch Light Powered', 'Clear 4K Video Stream', 'Cannot Be Blocked'],
     rating: 4.8,
     reviews: 112,
@@ -127,7 +129,7 @@ const productsData = [
     icon: ShieldCheck,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Aegis Floodlight Cams.png',
+    imageUrl: '/images/products/Lumen Aegis Floodlight Cams.webp',
     specs: ['Super Fast Video Links', 'Very Bright LED Bulbs', 'Private and Safe Feed'],
     rating: 4.9,
     reviews: 67,
@@ -143,7 +145,7 @@ const productsData = [
     icon: Activity,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Glacier Smart Fridge.png',
+    imageUrl: '/images/products/Lumen Glacier Smart Fridge.webp',
     specs: ['No-Wait Smart Screen', 'Smart Food Trackers', 'Smooth Video Streaming'],
     rating: 4.6,
     reviews: 23,
@@ -159,7 +161,7 @@ const productsData = [
     icon: Zap,
     accent: 'from-green-400/10 to-green-500/10 border-green-300',
     textAccent: 'text-green-700',
-    imageUrl: '/images/products/Lumen Precision Robot Vacuum.png',
+    imageUrl: '/images/products/Lumen Precision Robot Vacuum.webp',
     specs: ['Steady Light Connection', 'Smart 3D Room Maps', 'Instant Driving Logic'],
     rating: 4.8,
     reviews: 49,
@@ -174,13 +176,17 @@ export default function ProductsPage() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip font-sans lumen-page-bg text-slate-900 antialiased selection:bg-green-500 selection:text-white">
-      <Head>
-        <title>LumenFi Hardware Hub | Next-Gen E-Commerce Wireless LiFi Store</title>
-        <meta
-          name="description"
-          content="Deploy military-grade optical internet architecture directly into your luxury living space."
-        />
-      </Head>
+      <PageMeta
+        title="LumenFi Hardware Hub | LiFi Store | Lumen LiFi"
+        description="Browse Lumen LiFi hardware for the home, including ceiling transmitters, receivers, and the conscious home collection."
+        path="/products"
+        image="/images/products/products_bgs.webp"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Products', path: '/products' },
+        ]}
+        jsonLd={faqSchema(FAQ_ITEMS.slice(0, 5))}
+      />
       <Header />
 
       <main className="relative z-10 pb-16 sm:pb-24">

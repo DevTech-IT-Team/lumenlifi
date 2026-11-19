@@ -95,7 +95,7 @@ export default function ConsciousHomeSection() {
           <div className="pointer-events-none absolute inset-0 overflow-hidden bg-[#0D2240] lg:hidden" aria-hidden="true">
             <div className="absolute inset-y-0 right-0 w-[72%]">
               <Image
-                src="/images/pole/d.jpg"
+                src="/images/pole/d.webp"
                 alt=""
                 fill
                 sizes="80vw"
@@ -122,7 +122,7 @@ export default function ConsciousHomeSection() {
           >
             <div className="absolute inset-y-0 right-0 w-[62%]">
               <Image
-                src="/images/pole/d.jpg"
+                src="/images/pole/d.webp"
                 alt=""
                 fill
                 sizes="50vw"

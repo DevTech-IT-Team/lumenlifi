@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import PageMeta from '../../components/seo/PageMeta';
+import { blogPostingSchema, faqSchema } from '../../lib/schema';
 import { BLOG_POSTS, getPostBySlug } from '../../data/blogs';
 
 const geist = { fontFamily: 'var(--font-geist-sans), Geist Sans, sans-serif' };
@@ -56,20 +58,35 @@ export default function BlogPostPage({ post }) {
 
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
+      <PageMeta
+        title={post.metaTitle}
+        description={post.metaDescription}
+        path={`/blogs/${post.slug}`}
+        image={post.image}
+        type="article"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blogs' },
+          { name: post.title, path: `/blogs/${post.slug}` },
+        ]}
+        jsonLd={[
+          blogPostingSchema(post),
+          ...(post.sections.some((section) => section.type === 'faq')
+            ? [
+                faqSchema(
+                  post.sections
+                    .filter((section) => section.type === 'faq')
+                    .flatMap((section) => section.items || [])
+                ),
+              ]
+            : []),
+        ]}
+      />
       <Head>
-        <title>{post.metaTitle}</title>
-        <meta name="description" content={post.metaDescription} />
         <meta name="keywords" content={post.metaKeywords} />
-        <link rel="canonical" href={`https://lifilumen.com/blogs/${post.slug}`} />
-        <meta property="og:title" content={post.metaTitle} />
-        <meta property="og:description" content={post.metaDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://lifilumen.com/blogs/${post.slug}`} />
-        <meta property="og:image" content={`https://lifilumen.com${post.image}`} />
-        <meta property="article:published_time" content={post.dateIso} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.metaTitle} />
-        <meta name="twitter:description" content={post.metaDescription} />
+        {post.dateIso ? (
+          <meta property="article:published_time" content={post.dateIso} />
+        ) : null}
       </Head>
 
       <Header />
@@ -102,6 +119,18 @@ export default function BlogPostPage({ post }) {
             <p className="!mt-4 !text-sm !font-normal text-[#0D2240]/50" style={inter}>
               {post.date} · {post.readTime}
             </p>
+
+            {post.slug === 'what-is-lifi' && (
+              <aside className="mt-6 rounded-2xl border border-[#00C2C7]/35 bg-white px-5 py-4 sm:px-6">
+                <p className="!m-0 !text-base !font-normal leading-relaxed text-[#0D2240]" style={inter}>
+                  The primary guide is{' '}
+                  <Link href="/what-is-lifi" prefetch={false} className={inlineLinkClass}>
+                    What is LiFi?
+                  </Link>
+                  . This article stays on the home-setup angle: how a light fixture carries internet in one room, next to the WiFi you already use.
+                </p>
+              </aside>
+            )}
 
             <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-[1.25rem] bg-[#0D2240]">
               <Image

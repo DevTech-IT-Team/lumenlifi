@@ -13,8 +13,9 @@ export default function TermsRedirect() {
   return (
       <Head>
       <title>Redirecting…</title>
+      <meta name="robots" content="noindex, follow" />
       <meta httpEquiv="refresh" content="0;url=/terms-and-conditions" />
-      <link rel="canonical" href="https://lifilumen.com/terms-and-conditions" />
+      <link key="canonical" rel="canonical" href="https://lifilumen.com/terms-and-conditions" />
       </Head>
   );
 }

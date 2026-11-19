@@ -85,14 +85,14 @@ const productsData = [
 ];
 
 const productGalleryImages = [
-    { id: 'gallery-a', src: '/images/products/A.jpg', alt: 'Lumen LiFi product gallery view A', label: 'System View 01' },
-    { id: 'gallery-b', src: '/images/products/B.jpg', alt: 'Lumen LiFi product gallery view B', label: 'System View 02' },
-    { id: 'gallery-c', src: '/images/products/C.jpg', alt: 'Lumen LiFi product gallery view C', label: 'System View 03' },
-    { id: 'gallery-d', src: '/images/products/D.jpg', alt: 'Lumen LiFi product gallery view D', label: 'System View 04' },
-    { id: 'gallery-e', src: '/images/products/E.jpg', alt: 'Lumen LiFi product gallery view E', label: 'System View 05' },
-    { id: 'gallery-f', src: '/images/products/F.jpg', alt: 'Lumen LiFi product gallery view F', label: 'System View 06' },
-    { id: 'gallery-g', src: '/images/products/G.jpg', alt: 'Lumen LiFi product gallery view G', label: 'System View 07' },
-    { id: 'gallery-h', src: '/images/products/H.jpg', alt: 'Lumen LiFi product gallery view H', label: 'System View 08' },
+    { id: 'gallery-a', src: '/images/products/A.webp', alt: 'Lumen LiFi product gallery view A', label: 'System View 01' },
+    { id: 'gallery-b', src: '/images/products/B.webp', alt: 'Lumen LiFi product gallery view B', label: 'System View 02' },
+    { id: 'gallery-c', src: '/images/products/C.webp', alt: 'Lumen LiFi product gallery view C', label: 'System View 03' },
+    { id: 'gallery-d', src: '/images/products/D.webp', alt: 'Lumen LiFi product gallery view D', label: 'System View 04' },
+    { id: 'gallery-e', src: '/images/products/E.webp', alt: 'Lumen LiFi product gallery view E', label: 'System View 05' },
+    { id: 'gallery-f', src: '/images/products/F.webp', alt: 'Lumen LiFi product gallery view F', label: 'System View 06' },
+    { id: 'gallery-g', src: '/images/products/G.webp', alt: 'Lumen LiFi product gallery view G', label: 'System View 07' },
+    { id: 'gallery-h', src: '/images/products/H.webp', alt: 'Lumen LiFi product gallery view H', label: 'System View 08' },
 ];
 
 /* ==========================================================================
