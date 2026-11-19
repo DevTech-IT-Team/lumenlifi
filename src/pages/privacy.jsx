@@ -13,8 +13,9 @@ export default function PrivacyRedirect() {
   return (
     <Head>
       <title>Redirecting…</title>
+      <meta name="robots" content="noindex, follow" />
       <meta httpEquiv="refresh" content="0;url=/privacy-policy" />
-      <link rel="canonical" href="https://lifilumen.com/privacy-policy" />
+      <link key="canonical" rel="canonical" href="https://lifilumen.com/privacy-policy" />
     </Head>
   );
 }

@@ -256,7 +256,7 @@ export const BLOG_POSTS = [
     excerpt:
       'One piece of decor gives your room two kinds of connection: WiFi 7 for coverage and LiFi for a light-based connection in the room itself. Here is how they work together.',
     readTime: '7 min read',
-    image: '/images/blog/lifi blog banner 6 nov.png',
+    image: '/images/blog/lifi blog banner 6 nov.webp',
     imageAlt: 'WiFi 7 and LiFi working together in one Lumen LiFi Lamp',
     sections: [
       {
@@ -655,7 +655,7 @@ export const BLOG_POSTS = [
     excerpt:
       'Almost every home has one: the corner that collects a chair, a box, or nothing at all. A LiFi Lamp can change that. It lights the room and carries your connection, which means one piece in the corner can anchor a small, tidy workspace.',
     readTime: '6 min read',
-    image: '/images/blog/lifi blog banner 26 oct.png',
+    image: '/images/blog/lifi blog banner 26 oct.webp',
     imageAlt: 'How to Style an Unused Corner into a Workspace Using the LiFi Lamp',
     sections: [
       {
@@ -821,7 +821,7 @@ export const BLOG_POSTS = [
     excerpt:
       'Any new technology attracts bold claims and quick dismissals, and LiFi gets both. Some people hear “internet through light” and assume it is science fiction. Others assume it will replace WiFi overnight. Neither is right.',
     readTime: '8 min read',
-    image: '/images/blog/lifi-myths-debunked.png',
+    image: '/images/blog/lifi-myths-debunked.webp',
     imageAlt: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
     sections: [
       {
@@ -978,7 +978,7 @@ export const BLOG_POSTS = [
     excerpt:
       'Most people first hear about LiFi as “internet through light” and wonder what it is actually good for. The answer is simple. LiFi is at its best in a single room where you want a steady, uncongested, more private connection.',
     readTime: '8 min read',
-    image: '/images/blog/lifi-use-cases.png',
+    image: '/images/blog/lifi-use-cases.webp',
     imageAlt:
       'LiFi Use Cases That Matter: Gaming, Streaming and More Controlled Connectivity',
     sections: [
@@ -1170,7 +1170,7 @@ export const BLOG_POSTS = [
     excerpt:
       "A light bulb's job has always been simple: turn electricity into light so you can see. LiFi gives it a second job — turning electricity into patterns of light so your devices can connect to the internet.",
     readTime: '6 min read',
-    image: '/images/blog/how-light-sends-data.png',
+    image: '/images/blog/how-light-sends-data.webp',
     imageAlt: 'How Does a Light Bulb Send Internet Data? The science in plain English',
     sections: [
       {
@@ -1267,16 +1267,16 @@ export const BLOG_POSTS = [
     category: 'Basics',
     date: 'Oct 1, 2026',
     dateIso: '2026-10-01',
-    title: 'What Is LiFi? Internet Through Light Explained',
-    metaTitle: 'What Is LiFi? | Lumen LiFi',
+    title: 'LiFi at Home: How Light Internet Works Next to WiFi',
+    metaTitle: 'LiFi at Home: How Light Internet Works Next to WiFi | Lumen LiFi',
     metaDescription:
-      "LiFi turns light into internet. Discover how light-based connectivity works, why it's fast and private, and how it fits with your home WiFi.",
+      'A room-by-room look at using LiFi in a home: how a light fixture carries data, where it helps beside WiFi, and what a hybrid setup involves.',
     metaKeywords:
-      'what is LiFi, LiFi explained, light fidelity internet, LiFi vs WiFi, light-based internet, LiFi technology, LiFi meaning, how does LiFi work',
+      'LiFi at home, LiFi with WiFi, home LiFi setup, light internet in one room, LiFi lamp at home, hybrid WiFi and LiFi',
     excerpt:
-      "If someone told you your ceiling light could give you faster internet than your router, you'd probably assume it was a gimmick. It isn't. It's called LiFi — Light Fidelity — and it's one of the more practical pieces of future tech that's actually shipping to homes right now.",
+      'A practical home guide: how a light fixture carries internet inside one room, and how that sits next to the WiFi you already use.',
     readTime: '8 min read',
-    image: '/images/blog/what-is-lifi.png',
+    image: '/images/blog/what-is-lifi.webp',
     imageAlt: 'What Is LiFi? Internet through light, explained simply',
     sections: [
       {

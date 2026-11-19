@@ -11,7 +11,7 @@ const KIT_ITEMS = [
     label: 'Step 01',
     title: 'Router Box.',
     body: 'Plug your house internet feed into the LumenFi routing box — the bridge between your ISP and light-speed LiFi.',
-    image: '/images/products/router.png',
+    image: '/images/products/router.webp',
     alt: 'LumenFi RevF router box with cyan accent lighting',
   },
   {
@@ -19,7 +19,7 @@ const KIT_ITEMS = [
     label: 'Step 02',
     title: 'PoE Injector.',
     body: 'Combine data and power into one cable run. Clean installs, fewer wall adapters, one powered line to the Access Point.',
-    image: '/images/products/injector.png',
+    image: '/images/products/injector.webp',
     alt: 'LumenFi PoE injector with DATA IN and PoE OUT ports',
   },
   {
@@ -27,7 +27,7 @@ const KIT_ITEMS = [
     label: 'Step 03',
     title: 'RevF Controller.',
     body: 'Connect the powered line to the RevF Access Point. Wall-mount ready — the control hub for every light cone in the room.',
-    image: '/images/products/controller.png',
+    image: '/images/products/controller.webp',
     alt: 'LumenFi RevF controller connected to photonic access point',
   },
   {
@@ -35,7 +35,7 @@ const KIT_ITEMS = [
     label: 'Step 04',
     title: 'Photonic Antennas.',
     body: 'Mount ceiling antennas to broadcast secure light cones — high-bandwidth coverage without radio interference.',
-    image: '/images/products/photonic.png',
+    image: '/images/products/photonic.webp',
     alt: 'LumenFi photonic antennas casting cyan LiFi light cones',
   },
   {
@@ -43,7 +43,7 @@ const KIT_ITEMS = [
     label: 'Step 05',
     title: 'USB LiFi Dongles.',
     body: 'Plug dongles into laptops to catch optical signals. Instant uplink wherever the light reaches.',
-    image: '/images/products/dongel.png',
+    image: '/images/products/dongel.webp',
     alt: 'LumenFi USB LiFi dongle projecting a cyan light beam',
   },
 ];

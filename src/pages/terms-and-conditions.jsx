@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, Scale, FileText } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import PageMeta from '../components/seo/PageMeta';
 
 const COMPANY = 'Lumen LIFI';
 const BRAND = 'Lumen LIFI';
@@ -13,12 +14,16 @@ const EMAIL = 'operations@lumenlifi.com';
 export default function TermsAndConditions() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+      <PageMeta
+        title="Terms & Conditions | Lumen LiFi"
+        description="Review the terms and conditions that apply to your use of the Lumen LiFi website, products and services."
+        path="/terms-and-conditions"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Terms & Conditions', path: '/terms-and-conditions' },
+        ]}
+      />
       <Head>
-        <title>Terms & Conditions | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Review the terms and conditions that apply to your use of the Lumen LiFi website, products and services."
-        />
         <meta
           name="keywords"
           content="terms and conditions, terms of use, LiFi Lumen terms, LumenFi, Lumen LiFi"

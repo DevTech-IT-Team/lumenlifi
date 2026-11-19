@@ -6,7 +6,7 @@ export default function WhatIsLiFiHero() {
     <section className="relative isolate flex min-h-[min(100svh,920px)] w-full flex-col overflow-hidden">
       <div className="absolute inset-0 -z-20">
         <Image
-          src="/images/about/about_L.png"
+          src="/images/about/about_L.webp"
           alt=""
           fill
           priority

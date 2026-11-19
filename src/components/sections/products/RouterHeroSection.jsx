@@ -4,7 +4,7 @@ export default function RouterHeroSection() {
   return (
     <section className="relative min-h-[min(100svh,880px)] overflow-hidden bg-[#0D2240]">
       <Image
-        src="/images/lifi_wifi/lifi_wifi.png"
+        src="/images/lifi_wifi/lifi_wifi.webp"
         alt=""
         fill
         priority

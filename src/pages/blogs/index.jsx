@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import PageMeta from '../../components/seo/PageMeta';
 import Link from 'next/link';
 import { Calendar, Search } from 'lucide-react';
 import Header from '../../components/common/Header';
@@ -33,17 +34,21 @@ export default function BlogsPage() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-white text-[var(--lumen-navy)] antialiased">
+      <PageMeta
+        title="Lumen LiFi Blogs | News, Insights & Updates | Lumen LiFi"
+        description="Read LiFi guides and explainers from Lumen LiFi, including how light carries internet at home and how it fits next to WiFi."
+        path="/blogs"
+        image={BLOG_POSTS[0]?.image}
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blogs' },
+        ]}
+      />
       <Head>
-        <title>Lumen LiFi Blogs | News, Insights & Updates | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Read the latest LiFi news, tech insights and industry updates from Lumen LiFi. Stay informed on the future of light-based wireless"
-        />
         <meta
           name="keywords"
           content="LiFi blog, LiFi news, LiFi updates, LiFi trends, wireless technology news, LumenFi, Lumen LiFi"
         />
-        <link rel="canonical" href="https://lifilumen.com/blogs" />
       </Head>
 
       <Header />

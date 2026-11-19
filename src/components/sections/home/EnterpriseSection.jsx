@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Building2, Check, Lock, ShieldCheck } from 'lucide-react';
-import enterpriseImg from '../../../../public/images/hero/enterprise.png';
+import enterpriseImg from '../../../../public/images/hero/enterprise.webp';
 
 const SuperSafeForWork = () => {
   return (

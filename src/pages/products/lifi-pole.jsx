@@ -13,8 +13,9 @@ export default function LifiPoleRedirect() {
   return (
     <Head>
       <title>Redirecting…</title>
+      <meta name="robots" content="noindex, follow" />
       <meta httpEquiv="refresh" content="0;url=/lifi-lamp" />
-      <link rel="canonical" href="https://lifilumen.com/lifi-lamp" />
+      <link key="canonical" rel="canonical" href="https://lifilumen.com/lifi-lamp" />
     </Head>
   );
 }

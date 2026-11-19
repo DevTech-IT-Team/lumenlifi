@@ -6,7 +6,7 @@ export default function ProductsHeroSection() {
     <section className="relative isolate flex min-h-[min(100svh,920px)] w-full flex-col overflow-hidden bg-[#06131d]">
       <div className="absolute inset-0 -z-20">
         <Image
-          src="/images/products/products_bgs.png"
+          src="/images/products/products_bgs.webp"
           alt=""
           fill
           priority

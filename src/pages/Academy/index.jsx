@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
+import PageMeta from '../../components/seo/PageMeta';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -15,16 +16,16 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import GoogleSheetContactForm from '../../components/common/GoogleSheetContactForm';
 import FinalCTASection from '../../components/sections/home/FinalCTASection';
-import aiMesh from '../../../public/images/academy/aiMesh.jpg';
-import Transport from '../../../public/images/academy/autoTransport.jpg';
-import education from '../../../public/images/academy/smartSchool.jpg';
+import aiMesh from '../../../public/images/academy/aiMesh.webp';
+import Transport from '../../../public/images/academy/autoTransport.webp';
+import education from '../../../public/images/academy/smartSchool.webp';
 
-import communityCreatorImg from '../../../public/images/hero/partner-creator.png';
+import communityCreatorImg from '../../../public/images/hero/partner-creator.webp';
 import communityFactoryImg from '../../../public/images/academy/community.webp';
 import healthcareImg from '../../../public/images/about/health1.webp';
-import aviationImg from '../../../public/images/about/airplanes.png';
-import smartEnvImg from '../../../public/images/about/environments.png';
-import underwaterImg from '../../../public/images/about/underwater.png';
+import aviationImg from '../../../public/images/about/airplanes.webp';
+import smartEnvImg from '../../../public/images/about/environments.webp';
+import underwaterImg from '../../../public/images/about/underwater.webp';
 
 /* ── Animation Variants ── */
 const fadeUp = {
@@ -1053,22 +1054,21 @@ export default function AcademyPage() {
 
   return (
     <div className="flex flex-col min-h-screen antialiased font-sans lumen-page-bg text-[#0D2240]">
+      <PageMeta
+        title="LiFi Academy | Courses & Learning Resources | Lumen LiFi"
+        description="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
+        path="/Academy"
+        image="/brand/logo.webp"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Academy', path: '/Academy' },
+        ]}
+      />
       <Head>
-        <title>LiFi Academy | Courses & Learning Resources | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
-        />
         <meta
           name="keywords"
           content="LiFi academy, learn LiFi, LiFi course, LiFi tutorial, LiFi training, LiFi guide, LumenFi, Lumen LiFi"
         />
-        <meta property="og:title" content="LiFi Academy | Courses & Learning Resources | Lumen LiFi" />
-        <meta
-          property="og:description"
-          content="Learn LiFi with Lumen LiFi Academy. Guides, tutorials and learning resources on light-based wireless communication for beginners and professionals."
-        />
-        <link rel="canonical" href="https://lifilumen.com/Academy" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>

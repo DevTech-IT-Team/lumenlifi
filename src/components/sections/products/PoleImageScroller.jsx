@@ -67,7 +67,7 @@ const CATALOG = [
     id: 'gold',
     color: 'Gold',
     swatch: '#C9A227',
-    src: '/images/pole/b.jpg',
+    src: '/images/pole/b.webp',
     alt: 'Gold LiFi Lamp styled beside a vanity',
     category: 'Vanity',
     title: 'Make a dressing corner useful',
@@ -104,7 +104,7 @@ const GALLERY_EXTRAS = [
     id: 'gold-bedroom',
     color: 'Gold',
     swatch: '#C9A227',
-    src: '/images/pole/d.jpg',
+    src: '/images/pole/d.webp',
     alt: 'Gold LiFi Lamp styled with coat hooks in a bedroom',
     category: 'Bedroom',
     title: 'Hang it, then skip the clutter',
@@ -275,7 +275,6 @@ export default function PoleImageScroller() {
                     fill
                     sizes="(max-width: 1024px) 90vw, 40rem"
                     className="object-cover object-top"
-                    priority
                   />
                 </motion.div>
               </AnimatePresence>

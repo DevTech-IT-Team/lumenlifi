@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Building2, Factory, GraduationCap, Server } from 'lucide-react';
-import corporateBoardroomImg from '../../../../public/images/connect/hb.png';
-import manufacturingImg from '../../../../public/images/connect/if.png';
-import datacenterImg from '../../../../public/images/connect/dc.png';
-import schoolImg from '../../../../public/images/connect/sc.png';
+import corporateBoardroomImg from '../../../../public/images/connect/hb.webp';
+import manufacturingImg from '../../../../public/images/connect/if.webp';
+import datacenterImg from '../../../../public/images/connect/dc.webp';
+import schoolImg from '../../../../public/images/connect/sc.webp';
 
 const sectors = [
   {

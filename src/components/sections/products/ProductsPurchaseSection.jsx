@@ -58,7 +58,7 @@ export default function ProductsPurchaseSection() {
           >
             <div className="relative aspect-[16/10] w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 bg-[#071b34] shadow-[0_24px_60px_rgba(0,0,0,0.4)] sm:max-w-md sm:rounded-3xl">
               <Image
-                src="/images/lifi/kit.png"
+                src="/images/lifi/kit.webp"
                 alt="LumenFi RevF System Kit unboxed"
                 fill
                 sizes="(max-width: 640px) 90vw, 28rem"

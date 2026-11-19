@@ -16,7 +16,6 @@ const nextConfig = withBundleAnalyzer({
   },
   turbopack: {},
   images: {
-    unoptimized: true,
     contentDispositionType: 'inline',
     remotePatterns: [
       {
