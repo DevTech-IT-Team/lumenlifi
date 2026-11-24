@@ -9,7 +9,7 @@ export default function PoleHeroSection() {
   return (
     <section className="relative min-h-[min(100svh,880px)] overflow-hidden bg-[#0D2240]">
       <Image
-        src="/images/pole/poles_ind.png"
+        src="/images/pole/poles_ind.webp"
         alt=""
         fill
         priority

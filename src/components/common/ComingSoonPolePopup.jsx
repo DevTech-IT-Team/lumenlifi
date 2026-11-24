@@ -8,17 +8,17 @@ const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui,
 
 const POLES = [
   {
-    src: '/images/pole/7.png',
+    src: '/images/pole/7.webp',
     alt: 'White LiFi Lamp in a classic living room',
     title: 'Classic living',
   },
   {
-    src: '/images/pole/11.png',
+    src: '/images/pole/11.webp',
     alt: 'Brass LiFi Lamp in a modern living room',
     title: 'Warm brass',
   },
   {
-    src: '/images/pole/10.png',
+    src: '/images/pole/10.webp',
     alt: 'LiFi Lamp workspace with monitors',
     title: 'Home office',
   },

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, Cookie } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import PageMeta from '../components/seo/PageMeta';
 
 const COMPANY = 'Lumen LIFI';
 const BRAND = 'Lumen LIFI';
@@ -13,17 +14,20 @@ const EMAIL = 'operations@lumenlifi.com';
 export default function CookiePolicy() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
+      <PageMeta
+        title="Cookie Policy | Lumen LiFi"
+        description="Learn how Lumen LiFi uses cookies and similar technologies, and how you can manage your cookie preferences."
+        path="/cookie-policy"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Cookie Policy', path: '/cookie-policy' },
+        ]}
+      />
       <Head>
-        <title>Cookie Policy | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Learn how Lumen LiFi uses cookies and similar technologies, and how you can manage your cookie preferences."
-        />
         <meta
           name="keywords"
           content="cookie policy, cookies, cookie preferences, LiFi Lumen cookies, LumenFi, Lumen LiFi"
         />
-        <link rel="canonical" href={`https://${WEBSITE}/cookie-policy`} />
       </Head>
 
       <div className="relative z-10">

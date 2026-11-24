@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import PageMeta from '../components/seo/PageMeta';
+import { faqSchema } from '../lib/schema';
 import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
@@ -25,17 +27,21 @@ const CONTACT_OPTIONS = [
 export default function FrequentlyAskedQuestionsPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip lumen-page-bg text-[var(--lumen-navy)] antialiased">
+      <PageMeta
+        title="FAQs | Frequently Asked Questions | Lumen LiFi"
+        description="Find answers to common questions about LiFi lamps, setup, compatibility and support. Visit the Lumen LiFi Frequently Asked Questions."
+        path="/frequently-asked-questions"
+        crumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Frequently Asked Questions', path: '/frequently-asked-questions' },
+        ]}
+        jsonLd={faqSchema(FAQ_ITEMS)}
+      />
       <Head>
-        <title>FAQs | Frequently Asked Questions | Lumen LiFi</title>
-        <meta
-          name="description"
-          content="Find answers to common questions about LiFi lamps, setup, compatibility and support. Visit the Lumen LiFi Frequently Asked Questions."
-        />
         <meta
           name="keywords"
           content="LiFi help, LiFi FAQ, LiFi setup, LiFi troubleshooting, LiFi support, Lumen LiFi Frequently Asked Questions, LumenFi, Lumen LiFi"
         />
-        <link rel="canonical" href="https://lifilumen.com/frequently-asked-questions" />
       </Head>
 
       <Header />

@@ -16,7 +16,7 @@ export default function HeroPreorderSection() {
       <div className="mx-auto max-w-[1520px]">
         <div className="overflow-hidden rounded-2xl border border-[#0D2240]/8 bg-white shadow-[0_20px_60px_rgba(13,34,64,0.08)] sm:rounded-3xl">
           <Image
-            src="/images/hero/wifiandlifi.png"
+            src="/images/hero/wifiandlifi.webp"
             alt="LumenFi Wireless: WiFi 7 and LiFi connected together for one seamless experience"
             width={1920}
             height={1080}

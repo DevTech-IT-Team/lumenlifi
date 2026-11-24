@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import PageMeta from '../../components/seo/PageMeta';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Zap,
@@ -70,10 +70,16 @@ export default function LumenPhiProductsSuite() {
 
     return (
         <div className="min-h-screen overflow-x-clip font-sans lumen-page-bg-white text-slate-800 antialiased selection:bg-emerald-100">
-            <Head>
-                <title>Lumen LIFI</title>
-                <meta name="description" content="Lumen LIFI — residential optical wireless internet plans and hardware." />
-            </Head>
+            <PageMeta
+                title="Residential LiFi Hardware | Lumen LiFi"
+                description="Residential LiFi hardware from Lumen LiFi: a gateway, ceiling transmitters, and USB receivers for in-home light-based connectivity."
+                path="/products/residential"
+                crumbs={[
+                    { name: 'Home', path: '/' },
+                    { name: 'Products', path: '/products' },
+                    { name: 'Residential', path: '/products/residential' },
+                ]}
+            />
 
             <Header />
 

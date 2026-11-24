@@ -21,21 +21,6 @@ export default function DeferredAnalytics() {
         })(window, document, 'clarity', 'script', 'xmpy53son7');
       }
 
-      if (!window.gtag) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-LG4Z46NWW6');
-
-        const gtagScript = document.createElement('script');
-        gtagScript.async = true;
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LG4Z46NWW6';
-        document.head.appendChild(gtagScript);
-      }
-
       if (!window.fbq) {
         !(function (f, b, e, v, n, t, s) {
           if (f.fbq) return;
