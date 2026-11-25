@@ -46,15 +46,6 @@ const fadeIn = {
 
 /* ── SECTION 1: HERO ── */
 
-const heroFadeUp = {
-  hidden: { opacity: 0, y: 0 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: 'easeOut' },
-  }),
-};
-
 const heroSectors = [
   {
     id: 'gaming',
@@ -383,53 +374,27 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
-        <motion.div
-          custom={1}
-          variants={heroFadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mb-4 flex justify-center sm:mb-5"
-        >
+        <div className="mb-4 flex justify-center sm:mb-5">
           <div className="relative flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-[0_8px_28px_rgba(0,0,0,0.18)] sm:h-[6.25rem] sm:w-[6.25rem] sm:p-1.5">
             <Image
               src="/brand/logo.webp"
               alt="LumenFi"
-              width={120}
-              height={120}
-              sizes="(max-width: 640px) 80px, 96px"
+              width={96}
+              height={96}
               className="h-full w-full scale-[1.45] object-contain sm:scale-[1.5]"
-              priority
             />
           </div>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          custom={2}
-          variants={heroFadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mb-5 text-5xl font-black tracking-tight text-white sm:text-6xl md:text-7xl"
-        >
+        <h1 className="mb-5 text-5xl font-black tracking-tight text-white sm:text-6xl md:text-7xl">
           LumenFi Academy
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mb-9 max-w-2xl text-base font-normal leading-relaxed text-white/65 sm:text-lg"
-        >
+        <p className="mb-9 max-w-2xl text-base font-normal leading-relaxed text-white/65 sm:text-lg">
           Shaping the Future of Light Connectivity. Free membership with live classes, a thriving community of innovators, and the chance to monetize cutting-edge LiFi technology.
-        </motion.p>
+        </p>
 
-        <motion.div
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="z-20 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
-        >
+        <div className="z-20 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <a
             href="#join"
             className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--lumen-cyan)] px-7 text-sm font-bold tracking-wide text-[#0c1228] shadow-[0_0_28px_rgba(0,194,199,0.45)] transition-all hover:scale-[1.03] hover:shadow-[0_0_36px_rgba(0,194,199,0.55)] sm:w-auto"
@@ -442,16 +407,10 @@ function HeroSection() {
           >
             Explore  <ArrowUpRight size={16} strokeWidth={2.25} />
           </a>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        custom={4}
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 mt-10 w-full sm:mt-12"
-      >
+      <div className="relative z-10 mt-10 w-full sm:mt-12">
         <div className="carousel-container">
           <div className="carousel-track" ref={trackRef}>
             {[...heroSectors, ...heroSectors].map((sector, index) => {
@@ -468,9 +427,13 @@ function HeroSection() {
                     }}
                   />
 
-                  <img
-                    src={typeof sector.img === 'string' ? sector.img : sector.img?.src}
+                  <Image
+                    src={sector.img}
                     alt={sector.title}
+                    width={260}
+                    height={350}
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : index < 3 ? 'eager' : 'lazy'}
                     className="absolute inset-0 z-0 h-full w-full object-cover"
                   />
 
@@ -501,7 +464,7 @@ function HeroSection() {
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

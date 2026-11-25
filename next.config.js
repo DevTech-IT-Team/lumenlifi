@@ -17,6 +17,7 @@ const nextConfig = withBundleAnalyzer({
   turbopack: {},
   images: {
     contentDispositionType: 'inline',
+    minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,6 +35,31 @@ const nextConfig = withBundleAnalyzer({
   },
   async redirects() {
     return [
+      {
+        source: '/blogs/what-is-lifi',
+        destination: '/what-is-lifi',
+        permanent: true,
+      },
+      {
+        source: '/logo.png',
+        destination: '/brand/logo.png',
+        permanent: true,
+      },
+      {
+        source: '/hero.1021c54e.png',
+        destination: '/images/hero/wifiandlifi.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/hero.1021c54e.png',
+        destination: '/images/hero/wifiandlifi.webp',
+        permanent: true,
+      },
+      {
+        source: '/_next/static/media/hero.1021c54e.png',
+        destination: '/images/hero/wifiandlifi.webp',
+        permanent: true,
+      },
       {
         source: '/products/lifi-pole',
         destination: '/lifi-lamp',
@@ -72,15 +98,25 @@ const nextConfig = withBundleAnalyzer({
     ];
   },
   async headers() {
-    if (process.env.NODE_ENV !== 'development') return [];
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/:path*',
+          headers: [
+            { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, max-age=0' },
+            { key: 'Pragma', value: 'no-cache' },
+          ],
+        },
+      ];
+    }
+
+    const month = 'public, max-age=2592000, stale-while-revalidate=86400';
+    const year = 'public, max-age=31536000, immutable';
     return [
-      {
-        source: '/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, max-age=0' },
-          { key: 'Pragma', value: 'no-cache' },
-        ],
-      },
+      { source: '/images/:path*', headers: [{ key: 'Cache-Control', value: month }] },
+      { source: '/fonts/:path*', headers: [{ key: 'Cache-Control', value: year }] },
+      { source: '/brand/:path*', headers: [{ key: 'Cache-Control', value: month }] },
+      { source: '/videos/:path*', headers: [{ key: 'Cache-Control', value: month }] },
     ];
   },
 });

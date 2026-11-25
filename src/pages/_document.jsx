@@ -5,8 +5,6 @@ export default function Document() {
     <Html lang="en" className="overflow-x-clip">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
         <link rel="icon" href="/brand/logo.png" type="image/png" />
         <link rel="shortcut icon" href="/brand/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/brand/logo.png" />

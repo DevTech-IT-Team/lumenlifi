@@ -30,10 +30,10 @@ export default function Footer() {
               <Image
                 src="/brand/logo.webp"
                 alt="LumenFi"
-                fill
+                width={144}
+                height={144}
                 loading="lazy"
-                sizes="144px"
-                className="object-contain"
+                className="h-full w-full object-contain"
               />
             </div>
             {/* <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20">

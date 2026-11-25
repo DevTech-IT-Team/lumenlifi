@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Instrument_Serif } from 'next/font/google';
 
 const speedOfLightFont = Instrument_Serif({
@@ -8,25 +10,47 @@ const speedOfLightFont = Instrument_Serif({
   adjustFontFallback: false,
 });
 
+const HERO_POSTER = '/images/hero/vidpole-poster.webp';
+const DESKTOP_VIDEO = '/videos/vidpole.mp4';
+const MOBILE_VIDEO = '/videos/vidpole-mobile.mp4';
+
 export default function HeroSection() {
+  const [videoSrc, setVideoSrc] = useState(null);
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px)');
+    const choose = () => setVideoSrc(media.matches ? DESKTOP_VIDEO : MOBILE_VIDEO);
+    choose();
+    media.addEventListener('change', choose);
+    return () => media.removeEventListener('change', choose);
+  }, []);
+
   return (
     <>
       <section className="home-hero-landscape relative isolate min-h-[100svh] w-full overflow-hidden text-white">
         <div className="absolute inset-0 -z-20 h-full w-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 h-full w-full object-cover object-top"
-            aria-hidden="true"
-          >
-            <source
-              src="/videos/vidpole.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <Image
+            src={HERO_POSTER}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-top"
+          />
+          {videoSrc ? (
+            <video
+              key={videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute inset-0 h-full w-full bg-transparent object-cover object-top"
+              aria-hidden="true"
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          ) : null}
         </div>
 
         <div
