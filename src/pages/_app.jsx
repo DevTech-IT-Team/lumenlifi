@@ -1,13 +1,17 @@
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import '../assets/styles/global.css';
 import JsonLd from '../components/seo/JsonLd';
 import { organizationSchema, websiteSchema } from '../lib/schema';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const geist = localFont({
+  src: '../../public/fonts/Geist-Variable.woff2',
+  variable: '--font-geist-sans',
   display: 'swap',
+  weight: '100 900',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+  adjustFontFallback: 'Arial',
+  preload: true,
 });
 
 const GTM_ID = 'GTM-PMFVNZLW';
@@ -20,8 +24,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={`${inter.variable} ${inter.className} min-h-screen`}>
-      <Script id="gtm" strategy="afterInteractive">
+    <div className={`${geist.variable} ${geist.className} min-h-screen`}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `:root{--font-geist-sans:${geist.style.fontFamily};--font-inter:${geist.style.fontFamily}}`,
+        }}
+      />
+      <Script id="gtm" strategy="lazyOnload">
         {GTM_SNIPPET}
       </Script>
       <JsonLd

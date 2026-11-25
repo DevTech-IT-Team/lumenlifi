@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { LayoutGroup, motion } from 'framer-motion';
 import styles from './Header.module.css';
 
 const navConfig = [
@@ -17,14 +16,7 @@ const navConfig = [
 ];
 
 const pillClass =
-  'flex items-center rounded-full border border-white/15 bg-[#0a1520]/55 backdrop-blur-xl';
-
-const layoutTransition = {
-  type: 'spring',
-  stiffness: 120,
-  damping: 22,
-  mass: 0.9,
-};
+  'flex items-center rounded-full border border-white/15 bg-[#0a1520]/55 backdrop-blur-xl transition-[padding,max-width,gap] duration-500 ease-out';
 
 function isNavActive(pathname, item) {
   if (item.href === '/products') {
@@ -97,9 +89,9 @@ export default function Header() {
         <Image
           src="/brand/logo.webp"
           alt="LumenFi"
-          fill
-          sizes="32px"
-          className="object-contain"
+          width={32}
+          height={32}
+          className="h-full w-full object-contain"
         />
       </div>
       <span className="text-[11px] !font-normal uppercase tracking-[0.14em] text-white sm:text-xs">
@@ -108,75 +100,61 @@ export default function Header() {
     </Link>
   );
 
-  const getStartedMotion = (inline = false) => (
-    <motion.div layoutId="nav-get-started" transition={layoutTransition}>
-      <Link
-        href="https://lumen-lifi.lmsathena.com/"
-        className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
-      >
-        <span>Login</span>
-        <ArrowRight className="h-3 w-3" />
-      </Link>
-    </motion.div>
+  const loginLink = (inline = false) => (
+    <Link
+      href="https://lumen-lifi.lmsathena.com/"
+      className={inline ? getStartedBtnClass : `${getStartedBtnClass} py-2.5`}
+    >
+      <span>Login</span>
+      <ArrowRight className="h-3 w-3" />
+    </Link>
   );
 
   return (
     <header ref={navRef} className={`${styles.navbar} fixed top-0 inset-x-0 z-50 pb-2 pt-4 sm:pb-2.5 sm:pt-5`}>
-      <LayoutGroup>
-        <motion.div
-          layout
-          transition={layoutTransition}
-          className={`mx-auto flex max-w-[1380px] items-center gap-2 px-4 sm:px-6 ${compactNav ? 'justify-center' : 'justify-between'
-            }`}
+      <div
+        className={`mx-auto flex max-w-[1380px] items-center gap-2 px-4 transition-[justify-content] duration-500 sm:px-6 ${compactNav ? 'justify-center' : 'justify-between'
+          }`}
+      >
+        <div
+          className={`${pillClass} min-w-0 py-2.5 ${compactNav
+            ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
+            : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
+            } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
         >
-          <motion.div
-            layout
-            layoutId="nav-left-pill"
-            transition={layoutTransition}
-            className={`${pillClass} min-w-0 py-2.5 ${compactNav
-              ? 'w-full max-w-[min(100%,940px)] flex-initial items-center justify-between px-5 lg:max-w-[980px] lg:px-10'
-              : 'flex-1 px-4 lg:flex-none lg:px-5 lg:py-2.5'
-              } ${isOpen ? 'border-white/25 bg-[#0a1520]/75' : ''}`}
+          {brandLink}
+          <div
+            className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
+              }`}
+            aria-hidden="true"
+          />
+          <div className={compactNav ? 'flex flex-1 justify-center' : 'contents'}>
+            {navLinks()}
+          </div>
+
+          {compactNav && (
+            <>
+              <div
+                className="mx-6 hidden h-4 w-px shrink-0 bg-white/20 lg:mx-10 lg:block"
+                aria-hidden="true"
+              />
+              <div className="hidden lg:block">{loginLink(true)}</div>
+            </>
+          )}
+
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="ml-auto flex h-7 w-7 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
-            {brandLink}
-            <div
-              className={`hidden h-4 w-px shrink-0 bg-white/20 lg:block ${compactNav ? 'mx-6 lg:mx-10' : 'mx-3'
-                }`}
-              aria-hidden="true"
-            />
-            <div className={compactNav ? 'flex flex-1 justify-center' : 'contents'}>
-              {navLinks()}
-            </div>
+            {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
 
-            {compactNav && (
-              <>
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: 'auto' }}
-                  exit={{ opacity: 0, width: 0 }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="mx-6 hidden h-4 w-px shrink-0 bg-white/20 lg:mx-10 lg:block"
-                  aria-hidden="true"
-                />
-                <div className="hidden lg:block">{getStartedMotion(true)}</div>
-              </>
-            )}
-
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="ml-auto flex h-7 w-7 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
-              aria-label="Toggle menu"
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-            </button>
-          </motion.div>
-
-          {!compactNav && <div className="hidden lg:block">{getStartedMotion(false)}</div>}
-        </motion.div>
-      </LayoutGroup>
+        {!compactNav && <div className="hidden lg:block">{loginLink(false)}</div>}
+      </div>
 
       {isOpen && (
         <div className={`${styles.navbar} mx-auto mt-2 max-w-[1380px] px-4 sm:px-6 lg:hidden`}>

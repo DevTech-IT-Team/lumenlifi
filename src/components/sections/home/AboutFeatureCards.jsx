@@ -53,7 +53,13 @@ function CardBrandLink() {
       className={`${contentClass} mt-8 flex items-center gap-2.5 transition-opacity hover:opacity-80`}
     >
       <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md bg-white p-0.5">
-        <Image src="/brand/logo.webp" alt="LumenFi" fill sizes="32px" className="object-contain" />
+        <Image
+          src="/brand/logo.webp"
+          alt="LumenFi"
+          width={32}
+          height={32}
+          className="h-full w-full object-contain"
+        />
       </div>
       <span
         className="!text-sm !font-normal uppercase tracking-[0.14em] text-white"

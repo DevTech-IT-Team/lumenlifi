@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Geist Sans';
-  src: url('/fonts/Geist-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ============================================================
    LumenFi — Global Design System
    SAFE VERSION: no nested @media inside @layer, no @supports
@@ -46,7 +38,6 @@
     --lumen-border: rgba(26, 110, 191, 0.12);
     --lumen-muted: #4A6080;
 
-    --font-geist-sans: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
     --font-heading: var(--font-geist-sans);
     --font-body: var(--font-geist-sans);
     --text-heading: clamp(2rem, 1.15rem + 4vw, 4rem);
