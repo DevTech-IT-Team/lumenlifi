@@ -53,7 +53,7 @@ const productsData = [
         accent: 'from-emerald-500 to-teal-500',
         bg: 'bg-emerald-50/30',
         border: 'border-emerald-100',
-        imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
+        imageUrl: '/images/products/router.webp',
         specs: ['Fiber-to-Light Processing Unit', 'Zero Radio Frequency Clutter', 'Multi-room Driver Array']
     },
     {
@@ -66,7 +66,7 @@ const productsData = [
         accent: 'from-amber-500 to-orange-500',
         bg: 'bg-amber-50/30',
         border: 'border-amber-100',
-        imageUrl: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=600',
+        imageUrl: '/images/products/photonic.webp',
         specs: ['Dual-Function LED Engineering', 'Symmetric Gigabit Downlink', 'Complete Wall-Contained Signal']
     },
     {
@@ -79,7 +79,7 @@ const productsData = [
         accent: 'from-cyan-500 to-blue-500',
         bg: 'bg-cyan-50/30',
         border: 'border-cyan-100',
-        imageUrl: 'https://images.unsplash.com/photo-1601524909162-be87252be298?auto=format&fit=crop&q=80&w=600',
+        imageUrl: '/images/products/dongel.webp',
         specs: ['Plug-and-Play Configuration', 'Microscopic Optical Array', 'Low Power Consumption Rate']
     }
 ];

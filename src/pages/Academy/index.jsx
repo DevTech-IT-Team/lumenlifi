@@ -399,6 +399,7 @@ function HeroSection() {
               sizes="(max-width: 640px) 80px, 96px"
               className="h-full w-full scale-[1.45] object-contain sm:scale-[1.5]"
               priority
+              fetchPriority="high"
             />
           </div>
         </motion.div>
@@ -1069,8 +1070,6 @@ export default function AcademyPage() {
           name="keywords"
           content="LiFi academy, learn LiFi, LiFi course, LiFi tutorial, LiFi training, LiFi guide, LumenFi, Lumen LiFi"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
       <Header />
       <main className="flex-grow">

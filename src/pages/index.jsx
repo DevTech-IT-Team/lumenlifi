@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Header from '../components/common/Header';
 import PageMeta from '../components/seo/PageMeta';
-import HeroSection from '../components/sections/home/HeroSection';
+import HeroSection, { HERO_POSTER } from '../components/sections/home/HeroSection';
 import HeroPreorderSection from '../components/sections/home/HeroPreorderSection';
 import AboutSection from '../components/sections/home/AboutSection';
 import LazyOnVisible from '../components/sections/home/LazyOnVisible';
@@ -12,7 +12,8 @@ import DeferredAnalytics from '../components/common/DeferredAnalytics';
 import LiFiEcosystem from '../components/sections/home/LiFiEcosystem';
 
 
-const Footer = dynamic(() => import('../components/common/Footer'), { ssr: false });
+// Footer is server-rendered (as on every other page) so its internal links are in the HTML crawlers read.
+const Footer = dynamic(() => import('../components/common/Footer'));
 const ComingSoonPolePopup = dynamic(() => import('../components/common/ComingSoonPolePopup'), {
   ssr: false,
 });
@@ -32,6 +33,7 @@ export default function HomePage() {
           content="LiFi, LiFi lamp, light fidelity, LiFi technology, wireless internet through light, secure wireless, LumenFi, Lumen LiFi"
         />
         <meta name="google-site-verification" content="p7igAeUvEgb6CSKU_7ZtQzpNA2wZIvToRGFQCZ3eIUs" />
+        <link rel="preload" as="image" href={HERO_POSTER} fetchPriority="high" />
       </Head>
 
       <noscript>

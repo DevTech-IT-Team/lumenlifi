@@ -37,6 +37,7 @@ export default function ContactPage() {
               alt="LumenFi RevF hardware under LiFi light"
               fill
               priority
+              fetchPriority="high"
               sizes="100vw"
               className="object-cover object-right"
             />

@@ -46,7 +46,7 @@ const productsData = [
     accent: 'from-cyan-500 to-blue-500',
     bg: 'bg-cyan-50/40',
     border: 'border-cyan-100',
-    imageUrl: 'https://images.unsplash.com/photo-1601524909162-be87252be298?auto=format&fit=crop&q=80&w=600',
+    imageUrl: '/images/products/dongel.webp',
     size: 'lg:col-span-5',
     specs: ['PoE Input', 'Plug-and-Play Bridge', 'Full Duplex Up/Down']
   },
@@ -60,7 +60,7 @@ const productsData = [
     accent: 'from-emerald-600 to-teal-600',
     bg: 'bg-emerald-50/40',
     border: 'border-emerald-100',
-    imageUrl: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=600',
+    imageUrl: '/images/products/controller.webp',
     size: 'lg:col-span-4',
     specs: ['IP67 Certified', 'Zero Radio Trace', 'TEMPEST Secure']
   },

@@ -138,6 +138,7 @@ export default function BlogPostPage({ post }) {
                 alt={post.imageAlt || post.title}
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="object-cover object-center"
               />
