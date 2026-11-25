@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Instrument_Serif } from 'next/font/google';
 
 const speedOfLightFont = Instrument_Serif({
@@ -8,25 +9,54 @@ const speedOfLightFont = Instrument_Serif({
   adjustFontFallback: false,
 });
 
+export const HERO_POSTER = '/images/hero/vidpole-poster.webp';
+const HERO_VIDEO_DESKTOP = '/videos/vidpole-1080.mp4'; // 0.9 MB, no audio track (was 3.9 MB)
+const HERO_VIDEO_MOBILE = '/videos/vidpole-720.mp4'; // 0.3 MB
+
 export default function HeroSection() {
+  const videoRef = useRef(null);
+
+  // Show the light poster first and start the background video only after the
+  // page has loaded, so the video never competes with HTML, CSS, JS and fonts.
+  // Skipped for Save-Data / 2G connections and reduced-motion users (poster stays).
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return undefined;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    const start = () => {
+      const wide = window.matchMedia && window.matchMedia('(min-width: 1024px)').matches;
+      video.src = wide ? HERO_VIDEO_DESKTOP : HERO_VIDEO_MOBILE;
+      video.load();
+      const playing = video.play();
+      if (playing && typeof playing.catch === 'function') playing.catch(() => {});
+    };
+
+    if (document.readyState === 'complete') {
+      const id = window.setTimeout(start, 0);
+      return () => window.clearTimeout(id);
+    }
+    window.addEventListener('load', start, { once: true });
+    return () => window.removeEventListener('load', start);
+  }, []);
+
   return (
     <>
       <section className="home-hero-landscape relative isolate min-h-[100svh] w-full overflow-hidden text-white">
         <div className="absolute inset-0 -z-20 h-full w-full">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
+            preload="none"
+            poster={HERO_POSTER}
             className="absolute inset-0 h-full w-full object-cover object-top"
             aria-hidden="true"
-          >
-            <source
-              src="/videos/vidpole.mp4"
-              type="video/mp4"
-            />
-          </video>
+          />
         </div>
 
         <div

@@ -8,6 +8,7 @@ export default function RouterHeroSection() {
         alt=""
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="pointer-events-none object-cover object-right"
         aria-hidden="true"

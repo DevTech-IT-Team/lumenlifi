@@ -5,11 +5,18 @@ export default function Document() {
     <Html lang="en" className="overflow-x-clip">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <link rel="icon" href="/brand/logo.png" type="image/png" />
-        <link rel="shortcut icon" href="/brand/logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/brand/logo.png" />
+        {/* Small dedicated icons: the old 83 KB logo.png was fetched as the favicon on every page. */}
+        <link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/brand/favicon-48.png" type="image/png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" sizes="180x180" />
+        {/* Geist is the site-wide UI font (global.css @font-face); preload it so text doesn't swap late. */}
+        <link
+          rel="preload"
+          href="/fonts/Geist-Variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html:

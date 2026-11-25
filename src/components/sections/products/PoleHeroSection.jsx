@@ -13,6 +13,7 @@ export default function PoleHeroSection() {
         alt=""
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="pointer-events-none object-cover object-center"
         aria-hidden="true"

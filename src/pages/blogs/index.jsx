@@ -142,6 +142,7 @@ export default function BlogsPage() {
                       alt={featured.imageAlt || featured.title}
                       fill
                       priority
+                      fetchPriority="high"
                       sizes="(max-width: 1024px) 100vw, 55vw"
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                     />

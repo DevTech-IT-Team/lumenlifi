@@ -10,6 +10,7 @@ export default function ProductsHeroSection() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           className="object-contain object-center"
           sizes="100vw"
         />

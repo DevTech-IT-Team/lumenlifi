@@ -190,7 +190,8 @@ export default function ProductsPage() {
       <Header />
 
       <main className="relative z-10 pb-16 sm:pb-24">
-        <AnimatePresence mode="wait">
+        {/* initial={false}: show the server-rendered view at once instead of fading it in after JS loads (this delayed LCP). */}
+        <AnimatePresence mode="wait" initial={false}>
           {!activeProduct ? (
             <motion.div
               key="marketplace-view"
