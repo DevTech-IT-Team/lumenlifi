@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../components/common/Header';
 import PageMeta from '../components/seo/PageMeta';
+import { productSchema } from '../lib/schema';
 import Footer from '../components/common/Footer';
 import PoleHeroSection from '../components/sections/products/PoleHeroSection';
 import PoleFeaturesSection from '../components/sections/products/PoleFeaturesSection';
@@ -19,6 +20,13 @@ export default function LifiLampPage() {
           { name: 'Home', path: '/' },
           { name: 'LiFi Lamp', path: '/lifi-lamp' },
         ]}
+        jsonLd={productSchema({
+          name: 'LiFi Lamp',
+          description:
+            'An indoor decor Lamp for your home — stylish lighting with built-in LiFi technology. This product is available for preorder now.',
+          image: '/images/pole/poles_ind.webp',
+          category: 'Indoor LiFi',
+        })}
       />
       <Head>
         <meta

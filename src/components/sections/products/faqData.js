@@ -37,11 +37,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: '10. Can Li-Fi cause interference with other electronics?',
-    a: 'No. Because Li-Fi uses light waves rather than radio waves, it generates zero electromagnetic interference, making it perfect for environments where radio interference is a concern, such as hospitals or aviation.',
+    a: 'Li-Fi uses light rather than radio waves, so it produces no radio-frequency emissions. That makes it a strong fit for environments where radio interference is a concern, such as hospitals or aviation.',
   },
   {
     q: '11. Is Li-Fi harmful to human eyes or health?',
-    a: 'Not at all. The light used is standard LED illumination. The modulation happens at speeds far beyond what the human eye can perceive, causing no flicker or health risks.',
+    a: 'The light used is standard LED illumination. The modulation happens at speeds far beyond what the human eye can perceive, and the lamp is designed to be flicker-free.',
   },
   {
     q: '12. What devices are compatible with Lumenfi?',
@@ -49,7 +49,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: '13. Why is Li-Fi considered more secure than Wi-Fi?',
-    a: 'Since light is blocked by walls and opaque materials, your network cannot be accessed by someone outside of your office or home, effectively eliminating the risk of remote hacking.',
+    a: 'Since light does not pass through walls, a Li-Fi signal is harder to intercept from outside the room than a radio signal that can travel beyond the walls.',
   },
   {
     q: '14. Can I use Li-Fi outdoors?',

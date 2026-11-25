@@ -14,15 +14,6 @@ export const organizationSchema = {
     url: 'https://lifilumen.com/brand/logo.webp',
   },
   email: 'rupali@lifilumen.com',
-  telephone: '+1 (425) 400-9246',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '12315 NE 97th Street',
-    addressLocality: 'Kirkland',
-    addressRegion: 'WA',
-    postalCode: '98033',
-    addressCountry: 'US',
-  },
   sameAs: [
     'https://www.facebook.com/lumenlifi/',
     'https://www.instagram.com/lumenlifi/',
@@ -39,6 +30,18 @@ export const websiteSchema = {
   publisher: { '@id': ORG_ID },
   inLanguage: 'en',
 };
+
+export function productSchema({ name, description, image, category }) {
+  return {
+    '@type': 'Product',
+    name,
+    description,
+    image: [absoluteUrl(image)],
+    brand: { '@type': 'Brand', name: 'Lumen LiFi' },
+    category,
+    url: canonicalUrl('/lifi-lamp'),
+  };
+}
 
 export function breadcrumbSchema(items) {
   return {

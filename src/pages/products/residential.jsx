@@ -74,6 +74,7 @@ export default function LumenPhiProductsSuite() {
                 title="Residential LiFi Hardware | Lumen LiFi"
                 description="Residential LiFi hardware from Lumen LiFi: a gateway, ceiling transmitters, and USB receivers for in-home light-based connectivity."
                 path="/products/residential"
+                noindex
                 crumbs={[
                     { name: 'Home', path: '/' },
                     { name: 'Products', path: '/products' },

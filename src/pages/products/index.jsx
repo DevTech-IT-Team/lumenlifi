@@ -181,6 +181,7 @@ export default function ProductsPage() {
         description="Browse Lumen LiFi hardware for the home, including ceiling transmitters, receivers, and the conscious home collection."
         path="/products"
         image="/images/products/products_bgs.webp"
+        noindex
         crumbs={[
           { name: 'Home', path: '/' },
           { name: 'Products', path: '/products' },

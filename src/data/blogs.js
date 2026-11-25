@@ -1,7 +1,7 @@
 const PRE_ORDER_URL =
   'https://app.tilled.com/pay/cs_8WrwuiIiMrBieL21ZoLNZ#fidkdWxabmB8Jz8ndW5aR1d1bkgwdTxVYlNhd2tzbjFDMU8xNmZ2TE9WYDNTQEZjRjBkcF9UfH83fEpwSUl1Z2dMbDI8TWlHR2FPUTRsfEx9SFVSYElIdV82b0BWTzRLQDFkTXQzZkJ2UlIzNEg2MX9xTCcpJ2RmZmpwa3FabGEnPydkZmZxWkJpQmlWS1Z3bEtoPHJQMnFwfXJqYScpJ2RmZmpwa3Faa2RoYCc%2FJ0xodWB3bHBoJUJ3anB1J3g%3D';
 
-export const BLOG_POSTS = [
+const ALL_BLOG_POSTS = [
   {
     "slug": "is-wifi-7-worth-the-upgrade",
     "category": "Product Guide",
@@ -247,7 +247,7 @@ export const BLOG_POSTS = [
     date: 'Nov 6, 2026',
     dateIso: '2026-11-07',
     title: 'WiFi 7 and LiFi in One Lamp: How It Works',
-    metaTitle: 'WiFi 7 and LiFi in One Lamp: How It Works',
+    metaTitle: 'WiFi 7 and LiFi in One Lamp: How It Works | Lumen LiFi',
     metaDescription:
       'What does a dual-connectivity lamp do? See how WiFi 7 coverage and LiFi light-based internet work together in one LiFi Lamp, and who it suits.',
     metaKeywords:
@@ -664,7 +664,7 @@ export const BLOG_POSTS = [
       },
       {
         type: 'p',
-        text: 'A LiFi Lamp can change that. It lights the room and carries your connection, which means one piece in the corner can anchor a small, tidy workspace. This guide from [Lumen LiFi](/) walks through the corner-to-desk idea in four styling steps, plus tips on cables, lighting, and what to add yourself. If you are new to the technology, start with [What Is LiFi?](/blogs/what-is-lifi).',
+        text: 'A LiFi Lamp can change that. It lights the room and carries your connection, which means one piece in the corner can anchor a small, tidy workspace. This guide from [Lumen LiFi](/) walks through the corner-to-desk idea in four styling steps, plus tips on cables, lighting, and what to add yourself. If you are new to the technology, start with [What Is LiFi?](/what-is-lifi).',
       },
       { type: 'h2', text: 'The corner-to-desk idea' },
       {
@@ -813,7 +813,7 @@ export const BLOG_POSTS = [
     date: 'Oct 23, 2026',
     dateIso: '2026-10-24',
     title: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
-    metaTitle: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True',
+    metaTitle: 'LiFi Myths Debunked: What Actually Is (and Isn’t) True | Lumen LiFi',
     metaDescription:
       'Separating LiFi fact from fiction: it does not replace WiFi, the room does not have to be dark, and flicker is not visible. See what is actually true.',
     metaKeywords:
@@ -830,7 +830,7 @@ export const BLOG_POSTS = [
       },
       {
         type: 'p',
-        text: 'This guide from [Lumen LiFi](/) sorts the common myths from the facts, so you can decide whether LiFi makes sense for your space. If you are new to the idea, [What Is LiFi?](/blogs/what-is-lifi) is a good place to start.',
+        text: 'This guide from [Lumen LiFi](/) sorts the common myths from the facts, so you can decide whether LiFi makes sense for your space. If you are new to the idea, [What Is LiFi?](/what-is-lifi) is a good place to start.',
       },
       { type: 'h2', text: 'Myth 1: “LiFi will replace WiFi”' },
       {
@@ -970,7 +970,7 @@ export const BLOG_POSTS = [
     date: 'Oct 22, 2026',
     dateIso: '2026-10-22',
     title: 'LiFi Use Cases That Matter: Gaming, Streaming and More Controlled Connectivity',
-    metaTitle: 'LiFi Use Cases: Gaming, Streaming and Controlled Connectivity',
+    metaTitle: 'LiFi Use Cases: Gaming, Streaming and Controlled Connectivity | Lumen LiFi',
     metaDescription:
       'Discover where LiFi works best: gaming, streaming, home offices, bedrooms and private spaces. See real use cases and how it pairs with WiFi.',
     metaKeywords:
@@ -988,7 +988,7 @@ export const BLOG_POSTS = [
       },
       {
         type: 'p',
-        text: 'This guide from [Lumen LiFi](/) walks through the use cases where that matters most, from gaming and streaming to home offices, bedrooms, and shared spaces. If you are new to the technology, start with [What Is LiFi?](/blogs/what-is-lifi) and then come back.',
+        text: 'This guide from [Lumen LiFi](/) walks through the use cases where that matters most, from gaming and streaming to home offices, bedrooms, and shared spaces. If you are new to the technology, start with [What Is LiFi?](/what-is-lifi) and then come back.',
       },
       { type: 'h2', text: 'Where LiFi fits best' },
       {
@@ -1175,7 +1175,7 @@ export const BLOG_POSTS = [
     sections: [
       {
         type: 'p',
-        text: "A light bulb's job has always been simple: turn electricity into light so you can see. [LiFi](/blogs/what-is-lifi) gives it a second job: turning electricity into patterns of light so your devices can connect to the internet. No new wiring, no new bulb shape, just a very fast, very precise flicker doing double duty.",
+        text: "A light bulb's job has always been simple: turn electricity into light so you can see. [LiFi](/what-is-lifi) gives it a second job: turning electricity into patterns of light so your devices can connect to the internet. No new wiring, no new bulb shape, just a very fast, very precise flicker doing double duty.",
       },
       {
         type: 'p',
@@ -1388,6 +1388,8 @@ export const BLOG_POSTS = [
     ],
   },
 ];
+
+export const BLOG_POSTS = ALL_BLOG_POSTS.filter((post) => post.slug !== 'what-is-lifi');
 
 export function getPostBySlug(slug) {
   return BLOG_POSTS.find((post) => post.slug === slug) || null;

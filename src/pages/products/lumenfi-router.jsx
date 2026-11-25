@@ -15,6 +15,7 @@ export default function LumenFiRouterPage() {
         description="Meet the LumenFi 3-in-1 Router: Wi-Fi 7 convenience, High-Speed Internet Li-Fi security, and DePIN tokenization that pays you for your bandwidth—all in one connectivity hub."
         path="/products/lumenfi-router"
         image="/images/lifi_wifi/lifi_wifi.webp"
+        noindex
         crumbs={[
           { name: 'Home', path: '/' },
           { name: 'Products', path: '/products' },
