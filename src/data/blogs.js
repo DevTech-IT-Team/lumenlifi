@@ -1711,6 +1711,344 @@ export const BLOG_POSTS = [
       }
     ]
   },
+  {
+    "slug": "lifi-vs-wifi",
+    "category": "Product Guide",
+    "date": "Dec 17, 2026",
+    "dateIso": "2026-12-17",
+    "title": "LiFi vs Wi-Fi: How Light-Based Internet Compares",
+    "metaTitle": "LiFi vs Wi-Fi: Key Differences Explained | Lumen LiFi",
+    "metaDescription": "LiFi vs Wi-Fi side by side: how each carries data, coverage, walls, interference, privacy and line of sight, plus when to use each one at home.",
+    "metaKeywords": "lifi vs wifi, difference between lifi and wifi, li-fi vs wi-fi, lifi or wifi, is lifi better than wifi, lifi and wifi together",
+    "focusKeyword": "lifi vs wifi",
+    "excerpt": "LiFi and Wi-Fi both connect your devices without a cable, so it is natural to ask which one is better. The honest answer is that they are built for different jobs. Wi-Fi uses radio waves and covers a whole home. LiFi uses light and works inside the room the light fills.",
+    "readTime": "7 min read",
+    "image": "/images/blog/lifi-vs-wifi.webp",
+    "imageAlt": "LiFi vs Wi-Fi: How Light-Based Internet Compares",
+    "sections": [
+      {
+        "type": "p",
+        "text": "LiFi and Wi-Fi both connect your devices without a cable, so it is natural to ask which one is better. The honest answer is that they are built for different jobs. Wi-Fi uses radio waves and covers a whole home. LiFi uses light and works inside the room the light fills. This guide puts the two side by side so you can see where each one fits."
+      },
+      {
+        "type": "p",
+        "text": "New to LiFi? [What is LiFi?](/what-is-lifi) gives the short version in three steps."
+      },
+      {
+        "type": "h2",
+        "text": "The core difference: radio waves vs light"
+      },
+      {
+        "type": "p",
+        "text": "Wi-Fi sends data over radio waves from a router. Those waves spread out in every direction and pass through walls, floors and furniture."
+      },
+      {
+        "type": "p",
+        "text": "LiFi sends data through light. An LED switches on and off far too fast for your eyes to notice, and that pattern carries the data. A small receiver with a light sensor, called a photodiode, reads the changes in light and turns them back into a connection your device can use. For the step-by-step version, see [how a light bulb sends internet data](/blogs/how-does-a-light-bulb-send-internet-data)."
+      },
+      {
+        "type": "h2",
+        "text": "LiFi vs Wi-Fi at a glance"
+      },
+      {
+        "type": "table",
+        "headers": ["", "Wi-Fi", "LiFi"],
+        "rows": [
+          ["Carries data using", "Radio waves", "Light from an LED"],
+          ["Coverage", "Whole home, room to room", "The room the light fills"],
+          ["Through walls", "Yes", "No, light stays in the room"],
+          ["Line of sight needed", "No", "Works best with a clear path to the receiver"],
+          ["Shares radio space with other devices", "Yes", "No, it does not use radio waves"],
+          ["Privacy", "Signal can reach beyond your walls", "Signal stays where the light reaches"],
+          ["What your device needs", "Built-in Wi-Fi", "A LiFi receiver, such as a dongle or desktop unit"],
+          ["Best for", "Moving around, phones in pockets, every room", "A desk, gaming spot or media corner where you stay put"]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Coverage and walls"
+      },
+      {
+        "type": "p",
+        "text": "Wi-Fi's biggest strength is reach. It follows you from the kitchen to the bedroom and reaches devices in bags, pockets and other rooms. That same reach means the signal also travels through walls to places you may not want it."
+      },
+      {
+        "type": "p",
+        "text": "LiFi stays inside the room. Light does not pass through walls, so a LiFi connection covers the space your light fixture lights up and stops there. That makes it a room-by-room connection rather than a whole-home one."
+      },
+      {
+        "type": "h2",
+        "text": "Line of sight"
+      },
+      {
+        "type": "p",
+        "text": "This is the main trade-off. Wi-Fi does not need a clear view of the router. LiFi works best when the receiver has a reasonably clear path to the light. A solid object directly in the way can interrupt the connection, the same way you can block a flashlight beam with your hand."
+      },
+      {
+        "type": "p",
+        "text": "In practice, that is why LiFi suits stationary spots, such as a laptop on a desk under a lamp, and why your devices keep Wi-Fi as a backup. [LiFi myths debunked](/blogs/lifi-myths-debunked) covers this point in more detail."
+      },
+      {
+        "type": "h2",
+        "text": "Interference and crowded networks"
+      },
+      {
+        "type": "p",
+        "text": "Wi-Fi shares radio space with neighbouring routers, Bluetooth devices and other household electronics. In a busy apartment building or a home full of connected devices, that shared space can get crowded."
+      },
+      {
+        "type": "p",
+        "text": "LiFi does not use radio waves at all, so it is not competing for that space. Its signal is carried by light, which keeps a LiFi connection separate from the radio traffic around it."
+      },
+      {
+        "type": "h2",
+        "text": "Privacy"
+      },
+      {
+        "type": "p",
+        "text": "Because Wi-Fi passes through walls, your network can be reached from outside the room and sometimes outside your home. LiFi's signal stays where the light reaches. That physical containment is why LiFi is often described as private by design. It is still a network, so the usual good habits, such as strong passwords and up-to-date devices, apply to both."
+      },
+      {
+        "type": "h2",
+        "text": "Lighting conditions"
+      },
+      {
+        "type": "p",
+        "text": "A common worry is that LiFi needs a dark room or a very bright light. It needs neither. The data rides on fast changes in light intensity, so the room can be lit at a normal, comfortable level. Daylight is not a reason to rule it out either, because the receiver is designed to pick up the specific pattern from the LiFi light source rather than any light."
+      },
+      {
+        "type": "h2",
+        "text": "Device support"
+      },
+      {
+        "type": "p",
+        "text": "Almost every phone, laptop and tablet has Wi-Fi built in. LiFi needs a receiver on the device side, usually a dongle or desktop unit. That is another reason the two work well together: Wi-Fi connects everything, and LiFi adds a connection for the devices you use in one place."
+      },
+      {
+        "type": "h2",
+        "text": "So which is better?"
+      },
+      {
+        "type": "p",
+        "text": "Neither replaces the other. Think of it as LiFi and Wi-Fi rather than LiFi vs Wi-Fi:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Choose Wi-Fi for whole-home coverage, devices that move around and anything outside the room.",
+          "Add LiFi for the spot where you sit and work, game or stream, when you want a connection that stays in the room and does not share radio space."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "That is the idea behind putting both in one fixture. The [LiFi Lamp](/lifi-lamp) is an indoor décor lamp with LiFi built in and a Wi-Fi 7 signal for the rest of the room, so one piece covers both jobs. You can read how that works in [Wi-Fi 7 and LiFi in one lamp](/blogs/wifi-7-and-lifi-in-one-lamp-how-it-works), and see setups for gaming and streaming in [LiFi use cases](/blogs/lifi-use-cases-gaming-streaming-controlled-connectivity)."
+      },
+      {
+        "type": "h2",
+        "text": "Common questions"
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "q": "Is LiFi just Wi-Fi with a new name?",
+            "a": "No. Wi-Fi uses radio waves and LiFi uses light. They work differently, have different strengths and are designed to complement each other."
+          },
+          {
+            "q": "Can LiFi replace my Wi-Fi?",
+            "a": "Not on its own. LiFi covers the room the light fills, while Wi-Fi reaches every room and the devices you carry around. Most homes are best served by using both."
+          },
+          {
+            "q": "Does LiFi work through walls like Wi-Fi?",
+            "a": "No. Light does not pass through walls, so LiFi stays in the room. That is part of what makes it private, and it is why Wi-Fi still handles whole-home coverage."
+          },
+          {
+            "q": "What happens if something blocks the light?",
+            "a": "A solid object directly between the light and the receiver can interrupt the LiFi connection. Placing the receiver where the light reaches it, such as on your desk, keeps the path clear, and your device can stay on Wi-Fi as a backup."
+          },
+          {
+            "q": "Do I need to rewire my home for LiFi?",
+            "a": "No. A LiFi fixture such as the LiFi Lamp plugs in like a lamp. You add a receiver to your device, and your existing internet connection and Wi-Fi keep working as before."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting started"
+      },
+      {
+        "type": "p",
+        "text": "LiFi and Wi-Fi each do something the other cannot. Wi-Fi covers the home, and LiFi gives you a light-based connection that stays in the room where you use it. If you want both in one piece, the [LiFi Lamp](/lifi-lamp) is available for preorder now in four finishes. For a deeper look at LiFi in the home, read [LiFi at home](/blogs/what-is-lifi)."
+      },
+      {
+        "type": "p",
+        "text": "Have a question about LiFi for your space? [Contact us](/contact)."
+      }
+    ]
+  },
+  {
+    "slug": "internet-through-light-at-home",
+    "category": "Product Guide",
+    "date": "Dec 24, 2026",
+    "dateIso": "2026-12-24",
+    "title": "Internet Through Light at Home: What a LiFi Setup Needs",
+    "metaTitle": "Internet Through Light at Home: What You Need | Lumen LiFi",
+    "metaDescription": "Can you get Wi-Fi through light? What a home LiFi setup actually needs: a LiFi light source, a receiver and a clear path for the light, plus where it fits alongside Wi-Fi.",
+    "metaKeywords": "wifi through light, internet through light, lifi at home, lifi setup, how to get lifi at home, lifi receiver",
+    "focusKeyword": "wifi through light",
+    "excerpt": "\"Wi-Fi through light\" is a common way to describe LiFi, and it is a fair starting point. LiFi sends your internet connection through ordinary-looking light instead of radio waves, so a lamp can light the room and carry data at the same time.",
+    "readTime": "6 min read",
+    "image": "/images/blog/internet-through-light-at-home.webp",
+    "imageAlt": "Internet Through Light at Home: What a LiFi Setup Needs",
+    "sections": [
+      {
+        "type": "p",
+        "text": "\"Wi-Fi through light\" is a common way to describe LiFi, and it is a fair starting point. LiFi sends your internet connection through ordinary-looking light instead of radio waves, so a lamp can light the room and carry data at the same time. If you are wondering what it would take to use it at home, the list is shorter than you might expect."
+      },
+      {
+        "type": "p",
+        "text": "This guide covers what a home LiFi setup needs, where it works well, and how it fits alongside the Wi-Fi you already have. If you want the science first, start with [how a light bulb sends internet data](/blogs/how-does-a-light-bulb-send-internet-data)."
+      },
+      {
+        "type": "h2",
+        "text": "Is LiFi the same as Wi-Fi through light?"
+      },
+      {
+        "type": "p",
+        "text": "Not quite. Wi-Fi uses radio waves. LiFi uses light: an LED switches on and off far too fast for your eyes to notice, and that rapid pattern carries data. A small receiver picks up the light and turns it back into a connection your device can use. You can read more in [What is LiFi?](/what-is-lifi)."
+      },
+      {
+        "type": "p",
+        "text": "So \"Wi-Fi through light\" is a handy shorthand, but the two are different technologies. In a home they work well together, not as a swap."
+      },
+      {
+        "type": "h2",
+        "text": "What a home LiFi setup needs"
+      },
+      {
+        "type": "h3",
+        "text": "1. A LiFi-enabled light source"
+      },
+      {
+        "type": "p",
+        "text": "A standard bulb cannot send data. You need a light fixture built to modulate its LED output, meaning it can switch its light in the precise patterns that carry information. The [LiFi Lamp](/lifi-lamp) is one example: an indoor décor lamp with LiFi built in, which also includes a Wi-Fi 7 signal for the rest of the room. It is available for preorder in four finishes."
+      },
+      {
+        "type": "h3",
+        "text": "2. A receiver for your device"
+      },
+      {
+        "type": "p",
+        "text": "On the other end, your laptop, phone or other equipment needs a way to \"catch\" the light. That is the job of a small receiver with a light sensor called a photodiode, usually in a dongle or desktop unit connected to your device. The receiver turns changes in light back into data, and your device reads it just as it would read data arriving over Wi-Fi or a cable."
+      },
+      {
+        "type": "h3",
+        "text": "3. A mostly clear path for the light"
+      },
+      {
+        "type": "p",
+        "text": "Because LiFi uses light, the receiver needs a reasonably clear view of the light source. A solid object directly in the way can interrupt the connection, the same way a closed door blocks a flashlight beam. In practice this means placing the receiver where the lamp's light reaches it, such as on your desk under or near the lamp."
+      },
+      {
+        "type": "h3",
+        "text": "4. Your existing internet connection"
+      },
+      {
+        "type": "p",
+        "text": "LiFi carries your connection across the room. It does not replace your internet service. You still need your existing broadband connection feeding the setup."
+      },
+      {
+        "type": "h3",
+        "text": "What you do not need"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "No rewiring. The chain is electricity, then modulated light, then a receiver, then data. Nothing in it requires running new cables through your walls.",
+          "No dark room. The data rides on fast changes in the light's intensity, so a LiFi light works at normal lighting levels."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Where LiFi works well at home"
+      },
+      {
+        "type": "p",
+        "text": "LiFi is an in-room connection, so it suits the places where you sit in one spot under a light:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A home office or desk corner, where the receiver can sit in the lamp's light. Our [corner workspace setup guide](/blogs/lifi-lamp-corner-workspace-setup) shows how to turn an unused corner into a desk with the lamp as both task light and connection.",
+          "A gaming or streaming spot, where you stay in one place and want a connection that does not share radio space with every other device in the house.",
+          "A bedroom or living space, where a décor lamp you would want anyway can also carry data."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why keep Wi-Fi as well"
+      },
+      {
+        "type": "p",
+        "text": "Wi-Fi does not need line of sight, so it follows you from room to room and reaches devices in pockets, bags and other rooms. LiFi stays in the room the light fills. Using both gives you flexibility: everyday Wi-Fi for moving around, and a light-based connection where you sit and work. That is the idea behind putting Wi-Fi 7 and LiFi in one lamp, explained in [Wi-Fi 7 and LiFi in one lamp](/blogs/wifi-7-and-lifi-in-one-lamp-how-it-works)."
+      },
+      {
+        "type": "h2",
+        "text": "A quick setup checklist"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Pick the room and the spot where you sit most, such as your desk.",
+          "Place the LiFi light source so its light falls on that spot.",
+          "Connect the receiver to your device and position it with a clear view of the light.",
+          "Keep Wi-Fi running for the rest of the home and for devices that move around.",
+          "If the connection drops, check whether something is blocking the light path."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Common questions"
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "q": "Can I get internet through any light bulb?",
+            "a": "No. A regular bulb only gives light. You need a light source designed for LiFi, which can switch its LED in data-carrying patterns, plus a receiver on your device."
+          },
+          {
+            "q": "Will I see the light flicker?",
+            "a": "No. The light switches far faster than the human eye can notice, so it looks like steady, ordinary light."
+          },
+          {
+            "q": "Does LiFi work through walls?",
+            "a": "No. Light does not pass through walls, so LiFi covers the room the light fills. That is why it pairs well with Wi-Fi, which does reach other rooms."
+          },
+          {
+            "q": "What happens if I walk between the lamp and the receiver?",
+            "a": "Blocking the light path can briefly interrupt the LiFi signal, similar to stepping in front of a flashlight. Placing the receiver where the light reaches it directly, such as on your desk, keeps the path clear. You can find more common questions answered in [LiFi myths debunked](/blogs/lifi-myths-debunked)."
+          },
+          {
+            "q": "Do I need to change my internet plan?",
+            "a": "No. LiFi carries your existing connection across the room. It works with the internet service you already have."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Getting started"
+      },
+      {
+        "type": "p",
+        "text": "A home LiFi setup comes down to three things: a LiFi light source, a receiver for your device, and a clear path for the light, with Wi-Fi still covering the rest of your home. The [LiFi Lamp](/lifi-lamp) brings the light source and Wi-Fi 7 together in one décor piece, available for preorder now."
+      },
+      {
+        "type": "p",
+        "text": "Have a question about setting up LiFi in your space? [Contact us](/contact)."
+      }
+    ]
+  },
 ];
 
 export function getPostBySlug(slug) {
