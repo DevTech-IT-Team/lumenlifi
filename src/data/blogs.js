@@ -1387,6 +1387,330 @@ export const BLOG_POSTS = [
       },
     ],
   },
+  {
+    "slug": "wifi-dead-zones",
+    "category": "Product Guide",
+    "date": "Dec 10, 2026",
+    "dateIso": "2026-12-10",
+    "title": "Wi-Fi Dead Zones at Home: Common Causes and Fixes",
+    "metaTitle": "Wi-Fi Dead Zones at Home: Causes and Fixes | Lumen LiFi",
+    "metaDescription": "Why does Wi-Fi drop in some rooms? Common causes of Wi-Fi dead zones at home, from router placement to walls and interference, and practical fixes to try first.",
+    "metaKeywords": "wifi dead zones, how to fix wifi dead zones, wifi not reaching some rooms, why is my wifi weak in one room, eliminate wifi dead spots",
+    "focusKeyword": "wifi dead zones",
+    "excerpt": "A Wi-Fi dead zone is a spot in your home where the signal is too weak to use, or drops out altogether. Most dead zones have a clear cause, and many can be fixed without buying anything.",
+    "readTime": "5 min read",
+    "image": "/images/blog/wifi-dead-zones.webp",
+    "imageAlt": "Wi-Fi Dead Zones at Home: Common Causes and Fixes",
+    "sections": [
+      {
+        "type": "p",
+        "text": "A Wi-Fi dead zone is a spot in your home where the signal is too weak to use, or drops out altogether. It might be the back bedroom, the garden office or the corner where you actually like to work. The good news is that most dead zones have a clear cause, and many can be fixed without buying anything."
+      },
+      {
+        "type": "h2",
+        "text": "How to find your dead zones"
+      },
+      {
+        "type": "p",
+        "text": "Before changing anything, map the problem:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Walk around with your phone and note where the Wi-Fi bars drop or pages slow down.",
+          "Run a quick speed test in each room at the same time of day, so the results are comparable.",
+          "Note which band your device is on, if your phone or laptop shows it. Weak spots often show up on 5 GHz or 6 GHz first."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A simple list of \"good\", \"patchy\" and \"no signal\" rooms is enough to guide the fixes below."
+      },
+      {
+        "type": "h2",
+        "text": "Common causes of Wi-Fi dead zones"
+      },
+      {
+        "type": "h3",
+        "text": "1. Router placement"
+      },
+      {
+        "type": "p",
+        "text": "The single most common cause. Routers tucked in a cupboard, behind the TV, on the floor or at one end of the house have to push the signal through more walls and furniture to reach the far rooms."
+      },
+      {
+        "type": "h3",
+        "text": "2. Walls, floors and building materials"
+      },
+      {
+        "type": "p",
+        "text": "Brick, concrete, stone, metal and even some types of insulated plasterboard weaken Wi-Fi. Floors between storeys do too. Higher bands such as 5 GHz and 6 GHz carry more data but lose strength through walls faster than 2.4 GHz."
+      },
+      {
+        "type": "h3",
+        "text": "3. Mirrors, metal and water"
+      },
+      {
+        "type": "p",
+        "text": "Large mirrors, metal cabinets, radiators, fridges and fish tanks absorb or reflect the signal. A router placed next to one of these can leave a shadow behind it."
+      },
+      {
+        "type": "h3",
+        "text": "4. Interference from neighbours and appliances"
+      },
+      {
+        "type": "p",
+        "text": "In flats and dense streets, many networks share the same channels. Some appliances, such as microwave ovens and older cordless phones, can also disrupt 2.4 GHz while they are running."
+      },
+      {
+        "type": "h3",
+        "text": "5. Distance and home layout"
+      },
+      {
+        "type": "p",
+        "text": "Long, narrow homes, L-shaped layouts, extensions and garden rooms are hard for a single router to cover evenly, whatever its generation."
+      },
+      {
+        "type": "h3",
+        "text": "6. Old equipment or settings"
+      },
+      {
+        "type": "p",
+        "text": "An older router, outdated firmware or a device that only supports an older Wi-Fi standard can all make weak spots worse."
+      },
+      {
+        "type": "h2",
+        "text": "Fixes to try first (free)"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Move the router. Place it as central and as high as you can, in the open, away from thick walls, metal and mirrors.",
+          "Reposition the antennas. If your router has external antennas, try one vertical and one horizontal.",
+          "Restart and update. Reboot the router and install any firmware updates from its settings page.",
+          "Let devices use the right band. 2.4 GHz reaches further; 5 GHz and 6 GHz are faster close to the router. Many routers can steer devices automatically when both bands share one network name.",
+          "Change the channel. If neighbours' networks are crowding yours, a less busy channel can help. Many routers can pick one automatically.",
+          "Cut background load. Large cloud backups or downloads on one device can make the network feel weak everywhere."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Fixes that may need new equipment"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mesh Wi-Fi: several units working as one network, spread through the home. Usually the cleanest fix for larger or multi-storey homes.",
+          "Wired access points: an extra access point connected by an Ethernet cable gives a strong signal where you need it.",
+          "Powerline adapters: carry the connection through your electrical wiring to another room, then provide Wi-Fi or a cable there. Results depend on your wiring.",
+          "Range extenders: simple to set up, but they repeat a signal that may already be weak, so place them halfway between the router and the dead zone, not inside it.",
+          "A newer router: helpful if yours is several generations old. A new standard alone will not push signal through thick walls, as we explain in [Wi-Fi 6 vs Wi-Fi 7](/blogs/wifi-6-vs-wifi-7).",
+          "A cable to the desk: for a desktop, TV or console that never moves, Ethernet is still the steadiest link."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Where LiFi fits"
+      },
+      {
+        "type": "p",
+        "text": "Some spots, such as a desk, a reading corner or a gaming setup, need a steady connection in one place more than coverage everywhere. [LiFi](/what-is-lifi) sends data using light instead of radio, so it does not compete with nearby Wi-Fi networks for channels, and the connection stays within the area the light covers."
+      },
+      {
+        "type": "p",
+        "text": "The [Lumen LiFi Lamp](/lifi-lamp) combines Wi-Fi 7 and LiFi in one piece of home décor, so you can add a light-based connection right where you sit alongside your home Wi-Fi. See how to set one up in our [corner workspace guide](/blogs/lifi-lamp-corner-workspace-setup), or [contact us](/contact) to ask whether it suits your room."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ"
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "q": "What causes Wi-Fi dead zones?",
+            "a": "Usually a mix of router placement, distance, walls and floors, reflective or metal objects, and interference from nearby networks or appliances."
+          },
+          {
+            "q": "How do I fix a Wi-Fi dead zone without buying anything?",
+            "a": "Move the router to a central, high, open spot, restart it and update its firmware, adjust the antennas, and try a less crowded channel. These steps fix many weak spots."
+          },
+          {
+            "q": "Do Wi-Fi extenders get rid of dead zones?",
+            "a": "They can help, but they repeat the signal they receive. Place an extender where the signal is still reasonable, roughly halfway between the router and the dead zone. Mesh systems or wired access points are often more reliable."
+          },
+          {
+            "q": "Will a new router fix dead zones?",
+            "a": "Sometimes, especially if your router is old. But a newer Wi-Fi standard does not make the signal pass through thick walls much better, so placement, mesh or extra access points often matter more."
+          },
+          {
+            "q": "Can LiFi help with weak Wi-Fi in one room?",
+            "a": "LiFi gives a light-based connection in the area the light covers, so it can add a steady link at a desk or seat. It works alongside Wi-Fi rather than replacing whole-home coverage."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "wifi-6-vs-wifi-7",
+    "category": "Product Guide",
+    "date": "Dec 3, 2026",
+    "dateIso": "2026-12-03",
+    "title": "Wi-Fi 6 vs Wi-Fi 7: What Actually Changes for a Home Network",
+    "metaTitle": "Wi-Fi 6 vs Wi-Fi 7: What Changes at Home | Lumen LiFi",
+    "metaDescription": "What is the difference between Wi-Fi 6 and Wi-Fi 7? A plain guide to channels, bands, Multi-Link Operation and which homes will notice the change, plus where LiFi fits.",
+    "metaKeywords": "difference between wifi 6 and 7, wifi 6 vs wifi 7, wifi 6e vs wifi 7, should i upgrade to wifi 7, wifi 7 for home",
+    "focusKeyword": "difference between wifi 6 and 7",
+    "excerpt": "Wi-Fi 6 is in most routers, phones and laptops sold in the last few years. Wi-Fi 7 is now arriving in new devices. If you are wondering what the difference really is, and whether you would notice it at home, this guide explains it in plain terms.",
+    "readTime": "6 min read",
+    "image": "/images/blog/wifi-6-vs-wifi-7.webp",
+    "imageAlt": "Wi-Fi 6 vs Wi-Fi 7: What Actually Changes for a Home Network",
+    "sections": [
+      {
+        "type": "p",
+        "text": "Wi-Fi 6 is in most routers, phones and laptops sold in the last few years. Wi-Fi 7 is now arriving in new devices. If you are wondering what the difference really is, and whether you would notice it at home, this guide explains it in plain terms. If you have already read the specs and just want a yes-or-no answer, see [Is Wi-Fi 7 worth the upgrade?](/blogs/is-wifi-7-worth-the-upgrade)"
+      },
+      {
+        "type": "h2",
+        "text": "The short version"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wi-Fi 6 (802.11ax) made busy networks more efficient. It is good at sharing the connection between many devices at once.",
+          "Wi-Fi 6E is Wi-Fi 6 with access to the 6 GHz band, which adds less crowded channels.",
+          "Wi-Fi 7 (802.11be) builds on both. It allows wider channels, can use more than one band at the same time, and packs data more densely when the signal is strong."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "In practice, Wi-Fi 7 helps most in homes with many demanding devices and a fast internet plan. It does less for a small flat with a modest plan and a few phones."
+      },
+      {
+        "type": "h2",
+        "text": "What changes, feature by feature"
+      },
+      {
+        "type": "h3",
+        "text": "Channel width: up to 160 MHz vs up to 320 MHz"
+      },
+      {
+        "type": "p",
+        "text": "Think of a channel as a road. Wi-Fi 6 allows channels up to 160 MHz wide. Wi-Fi 7 doubles the widest option to 320 MHz, but only in the 6 GHz band. A wider road can carry more traffic, as long as your devices support it and there is enough clean spectrum around you."
+      },
+      {
+        "type": "h3",
+        "text": "Bands: one at a time vs several at once"
+      },
+      {
+        "type": "p",
+        "text": "With Wi-Fi 6, a device connects on one band at a time, such as 2.4 GHz or 5 GHz. Wi-Fi 7 adds Multi-Link Operation (MLO), which lets a compatible device use more than one band together, or switch between them quickly. The aim is steadier connections and fewer hiccups when one band gets busy, which matters for video calls and online gaming."
+      },
+      {
+        "type": "h3",
+        "text": "Data density: 1024-QAM vs 4096-QAM"
+      },
+      {
+        "type": "p",
+        "text": "QAM is how much data is packed into each signal. Wi-Fi 6 uses up to 1024-QAM, and Wi-Fi 7 goes up to 4096-QAM. The gain is real but only shows up when a device is close to the router with a strong, clean signal. Across the house or through walls, the difference shrinks."
+      },
+      {
+        "type": "h3",
+        "text": "Handling interference: puncturing"
+      },
+      {
+        "type": "p",
+        "text": "Wi-Fi 7 can \"puncture\" a wide channel, skipping a small slice that is affected by interference instead of dropping to a narrower channel. That helps it keep wider channels usable in busy apartment buildings."
+      },
+      {
+        "type": "h3",
+        "text": "What stays the same"
+      },
+      {
+        "type": "p",
+        "text": "Both generations use the same core efficiency features that made Wi-Fi 6 a step up, such as sharing airtime between many devices and scheduling when devices wake to save battery. Wi-Fi 7 routers also work with older Wi-Fi devices, though those devices keep their own speeds and features."
+      },
+      {
+        "type": "h2",
+        "text": "What neither generation fixes"
+      },
+      {
+        "type": "p",
+        "text": "Some home internet problems have nothing to do with the Wi-Fi standard:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Your internet plan. Wi-Fi carries data between your devices and your router. It cannot make the connection from your provider faster.",
+          "Walls, floors and distance. Higher bands like 5 GHz and 6 GHz carry more data but do not travel as well through walls. Dead zones often need better router placement or more access points, not a new generation.",
+          "Older devices. A phone or laptop that only supports Wi-Fi 5 or Wi-Fi 6 will not gain Wi-Fi 7 features from a new router.",
+          "Crowded radio space. In dense buildings, many networks compete for the same air, whichever standard they use."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Which homes will notice the difference?"
+      },
+      {
+        "type": "p",
+        "text": "You are more likely to notice Wi-Fi 7 if:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "several people stream, game and video call at the same time;",
+          "you have a fast internet plan that your current Wi-Fi cannot keep up with;",
+          "you are buying new Wi-Fi 7 phones, laptops or consoles anyway;",
+          "you work from home and want steadier calls in the room nearest the router."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "You may not notice much if your plan is modest, most of your devices are a few years old, or your problems come from distance and walls rather than congestion."
+      },
+      {
+        "type": "h2",
+        "text": "Where LiFi fits alongside Wi-Fi"
+      },
+      {
+        "type": "p",
+        "text": "Both Wi-Fi 6 and Wi-Fi 7 share the same radio spectrum with every other network nearby. [LiFi](/what-is-lifi) takes a different approach: it sends data using light, so it does not compete for radio channels and stays within the room the light reaches. That makes it a useful companion to Wi-Fi in a desk, gaming corner or bedroom where you want a dedicated, low-interference link."
+      },
+      {
+        "type": "p",
+        "text": "The [Lumen LiFi Lamp](/lifi-lamp) combines Wi-Fi 7 and LiFi in one piece of home décor, so you get boosted Wi-Fi coverage plus a light-based connection where you sit. Read [how Wi-Fi 7 and LiFi work together in one lamp](/blogs/wifi-7-and-lifi-in-one-lamp-how-it-works), or [contact us](/contact) with questions about your home setup."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ"
+      },
+      {
+        "type": "faq",
+        "items": [
+          {
+            "q": "What is the main difference between Wi-Fi 6 and Wi-Fi 7?",
+            "a": "Wi-Fi 7 adds wider 320 MHz channels in the 6 GHz band, Multi-Link Operation that lets devices use more than one band at once, and denser 4096-QAM data encoding. Wi-Fi 6 focused on handling many devices efficiently, and Wi-Fi 7 keeps those features."
+          },
+          {
+            "q": "Is Wi-Fi 6E the same as Wi-Fi 7?",
+            "a": "No. Wi-Fi 6E is Wi-Fi 6 with access to the 6 GHz band. Wi-Fi 7 also uses 6 GHz but adds wider channels, Multi-Link Operation and other improvements."
+          },
+          {
+            "q": "Will Wi-Fi 7 make my internet faster?",
+            "a": "Only up to the speed of your internet plan. Wi-Fi 7 improves the link between your devices and your router, so it helps most when your plan is fast and your devices support Wi-Fi 7."
+          },
+          {
+            "q": "Do I need Wi-Fi 7 devices to benefit from a Wi-Fi 7 router?",
+            "a": "To use Wi-Fi 7 features, yes. Older devices still connect, but they keep the speeds and features of their own Wi-Fi generation."
+          },
+          {
+            "q": "Can LiFi replace Wi-Fi?",
+            "a": "LiFi works best alongside Wi-Fi. It gives a dedicated light-based link in the room where you use it, while Wi-Fi covers the rest of the home."
+          }
+        ]
+      }
+    ]
+  },
 ];
 
 export function getPostBySlug(slug) {
