@@ -14,7 +14,7 @@ const inter = { fontFamily: 'var(--font-inter, Inter), ui-sans-serif, system-ui,
 const inlineLinkClass =
   'italic !font-medium text-[var(--lumen-cyan)] underline decoration-[var(--lumen-cyan)]/40 underline-offset-[3px] transition-colors hover:text-[#0D2240]';
 
-function renderInline(text) {
+function renderLinks(text, keyPrefix) {
   if (!text || !text.includes('](')) return text;
 
   const nodes = [];
@@ -28,10 +28,11 @@ function renderInline(text) {
     const label = match[1];
     const href = match[2];
     const external = /^https?:\/\//.test(href);
+    const key = `${keyPrefix}-${href}-${index}`;
     nodes.push(
       external ? (
         <a
-          key={`${href}-${index}`}
+          key={key}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
@@ -40,7 +41,7 @@ function renderInline(text) {
           {label}
         </a>
       ) : (
-        <Link key={`${href}-${index}`} href={href} prefetch={false} className={inlineLinkClass}>
+        <Link key={key} href={href} prefetch={false} className={inlineLinkClass}>
           {label}
         </Link>
       )
@@ -50,6 +51,27 @@ function renderInline(text) {
   }
 
   if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+}
+
+function renderInline(text) {
+  if (!text || !text.includes('**')) return renderLinks(text, 'l');
+
+  const nodes = [];
+  text.split('**').forEach((part, index) => {
+    if (!part) return;
+    const content = renderLinks(part, `p${index}`);
+    if (index % 2 === 1) {
+      nodes.push(
+        <strong key={`b-${index}`} className="!font-semibold text-[#0D2240]">
+          {content}
+        </strong>
+      );
+      return;
+    }
+    if (Array.isArray(content)) nodes.push(...content);
+    else nodes.push(content);
+  });
   return nodes;
 }
 

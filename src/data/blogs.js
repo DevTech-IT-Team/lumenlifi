@@ -79,6 +79,27 @@ export const BLOG_POSTS = [
       },
       {
         "type": "h2",
+        "text": "Which devices benefit from WiFi 7?"
+      },
+      {
+        "type": "p",
+        "text": "WiFi 7 helps most when both ends of the connection support it. Check your devices before you upgrade:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "**Newer phones, tablets and laptops** that list WiFi 7 (802.11be) in their specs get the wider channels and Multi-Link Operation.",
+          "**Gaming consoles, PCs and streaming boxes** that support WiFi 7 benefit from steadier, lower-delay links, especially in busy homes.",
+          "**Older WiFi 6, 6E and WiFi 5 devices** still connect, because WiFi 7 is backward compatible, but they use their own standard and will not see the new features.",
+          "**Smart-home gadgets such as plugs, bulbs and sensors** usually need very little bandwidth and often use 2.4 GHz, so they gain little from WiFi 7 directly. They do benefit when heavier devices move off the crowded bands."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Quick check: look for \"WiFi 7\" or \"802.11be\" in the device's settings or spec sheet. If most of your devices are older, placement and a mesh setup may help more than a new router (see the table below). For one room that needs a steady lane, the [LiFi Lamp](/lifi-lamp) adds LiFi on top of WiFi 7."
+      },
+      {
+        "type": "h2",
         "text": "So, is WiFi 7 worth it?"
       },
       {
